@@ -1,5 +1,7 @@
 package com.ken42;
 
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Properties;
 
 import javax.activation.DataHandler;
@@ -16,13 +18,28 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
+import com.opencsv.CSVReader;
+import com.opencsv.exceptions.CsvValidationException;
 
 public class SendMail {
 
-    public static void sendEmail() {
+    public static void sendEmail() throws CsvValidationException, IOException {
+        String CSV_PATH = "C:\\Users\\Public\\Documents\\email.csv";
+        CSVReader csvReader;
+        String[] csvCell;
+        int count = 0;
+        String emailTo="";
+        csvReader = new CSVReader(new FileReader(CSV_PATH));
+        while ((csvCell = csvReader.readNext()) != null) {
 
-        // Recipient's email ID needs to be mentioned.
-        String to = "anand.rathi@ken42.com";
+            if (count == 0){
+                count = count + 1;
+                continue;
+            }
+            emailTo = csvCell[0];
+        }
+        System.out.println("EMail list is ***********"+emailTo);
+
 
         // Sender's email ID needs to be mentioned
         String from = "anandTest2002@gmail.com";
@@ -68,8 +85,16 @@ public class SendMail {
             message.setFrom(new InternetAddress(from));
    
             // Set To: header field of the header.
-            message.setRecipients(Message.RecipientType.TO,
-               InternetAddress.parse(to));
+            // message.setRecipients(Message.RecipientType.TO,
+            //    InternetAddress.parse(to));
+            String[] recipientList = emailTo.split(",");
+            InternetAddress[] recipientAddress = new InternetAddress[recipientList.length];
+            int counter = 0;
+            for (String recipient : recipientList) {
+                recipientAddress[counter] = new InternetAddress(recipient.trim());
+                counter++;
+            }
+            message.setRecipients(Message.RecipientType.TO, recipientAddress);
    
             // Set Subject: header field
             message.setSubject("Automation Execution logs");

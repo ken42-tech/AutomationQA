@@ -4,6 +4,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.*;
+import com.ken42.SendMail;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -27,7 +28,7 @@ import java.util.logging.*;
 
 public class Pfs_portal {
     private static WebDriver driver;
-	static int time = 4000;
+	static int time = 3000;
 	public static Logger log = Logger.getLogger("Pfs_portal");
     
     public static void main( String[] args ) throws Exception
@@ -35,9 +36,9 @@ public class Pfs_portal {
         FileHandler logFile = new FileHandler("C:\\Users\\Public\\Documents\\PFS_results.log");
 	    logFile.setFormatter(new SimpleFormatter());
 	    log.addHandler(logFile);
-        String CSV_PATH = "C:\\Users\\Public\\Documents\\pfs3.csv";
+        String CSV_PATH = "C:\\Users\\Public\\Documents\\pfs.csv";
         CSVReader csvReader;
-        int count =0;
+        int count = 0;
         csvReader = new CSVReader(new FileReader(CSV_PATH));
         log.info("=============Automation testing of PFS portal ============ \n\n");
 
@@ -94,8 +95,15 @@ public class Pfs_portal {
                 log.info("FACULTY PORTAL TEST CASES EXECUTION COMPLETED\n\n\n");
             }
             //After all test are over close the browser
+            testaddpdfresource();
             quitDriver(PFSurl);
+            
         }
+        SendMail.sendEmail();
+    }
+    
+    public static void testaddpdfresource() {
+        
     }
     @BeforeSuite
     public static void initDriver(String Browser, String url, String Role) throws Exception {
@@ -554,6 +562,7 @@ public class Pfs_portal {
         log.warning("Faculty TC-10: View Profile and Sign out Test Case FAILED \n");
         }
     }
+
     @AfterSuite
     public static void quitDriver(String Url) throws Exception {
         Thread.sleep(3000);
