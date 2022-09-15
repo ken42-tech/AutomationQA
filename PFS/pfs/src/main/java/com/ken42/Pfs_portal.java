@@ -19,7 +19,7 @@ import org.testng.annotations.Test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.edge.EdgeDriver;
-
+import org.apache.commons.math3.optim.univariate.BracketFinder;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.JavascriptExecutor;
 
@@ -52,19 +52,21 @@ public class Pfs_portal {
                 continue;
             }
             String PFSurl = csvCell[0];
-            String Email = csvCell[1];
-            String Role = csvCell[2];
-            String Browser = csvCell[3];
-            System.out.print(csvCell[1]);
+            String facultyEmail = csvCell[1];
+            String studentEmail = csvCell[2];
+            String Role = csvCell[3];
+            String Browser = csvCell[4];
             System.out.println(PFSurl);
-            System.out.println((Email));
+            System.out.println((facultyEmail));
+            System.out.println((studentEmail));
             System.out.println(Role);
             System.out.print(Browser);
+            //init driver to launch browser
             initDriver(Browser, PFSurl, Role);
-            login(Email);
             Thread.sleep(10000);
             //Below If will execute all Student related test cases
             if ("student".equals(Role)) {
+                login(studentEmail);
                 System.out.println("Executing Student portal");
                 testStudent(PFSurl);
 	            testStudentEnrollment(PFSurl);
@@ -82,6 +84,7 @@ public class Pfs_portal {
             //This block will execute all facutly related test cases
             else if ("faculty".equals(Role)){
                 System.out.println("Executing Faculty portal");
+                login(facultyEmail);
                 testFaculty(PFSurl);
                 testFacultyQuestionBank(PFSurl);
                 testFacultyCourseContent(PFSurl);
@@ -93,21 +96,32 @@ public class Pfs_portal {
                 testFacultyEvent(PFSurl);
                 testFacultyViewPr(PFSurl);
                 log.info("FACULTY PORTAL TEST CASES EXECUTION COMPLETED\n\n\n");
+            }else if ("both".equals(Role)){
+                testPdfAddResource(studentEmail, facultyEmail);
             }
             //After all test are over close the browser
-            testaddpdfresource();
+            // testaddpdfresource(Browser, PFSurl, Role);
             quitDriver(PFSurl);
             
         }
         SendMail.sendEmail();
     }
-    
-    public static void testaddpdfresource() {
+    public static void testPdfAddResource(String student, String faculty) throws Exception{
+        login(faculty);
+        // add pdf publish and signout
+        login(student);
+        //Verify PDF creation and logout
+        login(faculty);
+        //unpublish pdf and delete pdf
+
         
     }
+    
     @BeforeSuite
     public static void initDriver(String Browser, String url, String Role) throws Exception {
         if("chrome".equals(Browser)){
+            System.setProperty("webdriver.edge.driver",
+                "C:\\Users\\Public\\Documents\\chromedriver.exe");
             ChromeOptions op = new ChromeOptions();
             op.addArguments("--disable-notifications");
             WebDriverManager.chromedriver().setup();
@@ -146,26 +160,31 @@ public class Pfs_portal {
     }
     @Test
     public static void login(String Email) throws Exception {
-        int time=2000;
-        String regex="Null";
-        Automate.callSendkeys(driver, ActionXpath.email, Email,time);
-		Automate.CallXpath(driver, ActionXpath.SignIn, time, "Sign in");
-        Automate.CallXpath(driver, ActionXpath.mobile, time, "Enter mobile Number");
-        Automate.CallXpath(driver, ActionXpath.mobile2, time, "Click Mobile ");
-        Automate.CallXpath(driver, ActionXpath.SignIn, time, "Sign in for otp");
-        //Thread.sleep(time);
-        Alert alert = driver.switchTo().alert(); // switch to alert
-        String alertMessage= driver.switchTo().alert().getText(); // capture alert message
-        System.out.println(alertMessage); // Print Alert Message
-        Pattern pt = Pattern.compile("-?\\d+");
-        Matcher m = pt.matcher(alertMessage);
-        while (m.find()) {
-            regex = m.group();
+        try {
+            int time=2000;
+            String regex="Null";
+            Automate.callSendkeys(driver, ActionXpath.email, Email,time);
+            Automate.CallXpath(driver, ActionXpath.SignIn, time, "Sign in");
+            Automate.CallXpath(driver, ActionXpath.mobile, time, "Enter mobile Number");
+            Automate.CallXpath(driver, ActionXpath.mobile2, time, "Click Mobile ");
+            Automate.CallXpath(driver, ActionXpath.SignIn, time, "Sign in for otp");
+            //Thread.sleep(time);
+            Alert alert = driver.switchTo().alert(); // switch to alert
+            String alertMessage= driver.switchTo().alert().getText(); // capture alert message
+            System.out.println(alertMessage); // Print Alert Message
+            Pattern pt = Pattern.compile("-?\\d+");
+            Matcher m = pt.matcher(alertMessage);
+            while (m.find()) {
+                regex = m.group();
+            }
+            Thread.sleep(2000);
+            alert.accept();
+            Automate.callSendkeys(driver, ActionXpath.OtpInput, regex, time);
+            Automate.CallXpath(driver, ActionXpath.submit, time, "Submit");
+        } catch (Exception e){
+            log.warning("Login to portal failed \n");
         }
-        Thread.sleep(2000);
-        alert.accept();
-        Automate.callSendkeys(driver, ActionXpath.OtpInput, regex, time);
-        Automate.CallXpath(driver, ActionXpath.submit, time, "Submit");
+        
     }
     @Test(priority = 1)
 	public static void testStudent(String url) throws Exception {
