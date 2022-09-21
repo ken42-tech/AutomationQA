@@ -197,7 +197,7 @@ public class Pfs_portal {
 
 	@Test
 	public static void logout(String url) throws Exception {
-		log.info("Logout function has been called since current test cases threw and exception \n\n")
+		log.info("Logout function has been called since current test cases threw and exception \n\n");
 		try {
 			driver.navigate().to(url);
 			Thread.sleep(5000);
@@ -1255,9 +1255,9 @@ public class Pfs_portal {
 	@Test(priority = 41)
 	public static void testPPTCreateViewDelete(String student, String faculty, String url) throws Exception {
 		try {
-			log.info("TC-41: Starting create PPT publish view delete test case execution");
+			log.info("TC-41:  Faculty Service Test case Started");
 			login(faculty);
-			Thread.sleep(10000);
+			Thread.sleep(15000);
 			Automate.CallXpath(driver, ActionXpath.facClickacademics, time, "facClickacademics");
 			Automate.CallXpath(driver, ActionXpath.faccc, time, "faccc");
 			Thread.sleep(15000);
@@ -1270,7 +1270,7 @@ public class Pfs_portal {
 			Automate.CallXpath(driver, ActionXpath.facccressubmitform, time, "facccressubmitform");
 			Automate.callSendkeys(driver, ActionXpath.facpptname, "Sample PPT", time);
 			driver.findElement(By.xpath("//input[@accept='.ppt,.pptx']"))
-					.sendKeys("C:\\Users\\Public\\Documents\\samplepptx.pptx");
+					.sendKeys("C:\\Users\\USER\\eclipse-workspace\\admin_portal\\pdf\\demo.pptx");
 			Thread.sleep(25000);
 			Automate.CallXpath(driver, ActionXpath.facccressubmit, time, "facccressubmit");
 			Thread.sleep(8000);
@@ -1297,7 +1297,7 @@ public class Pfs_portal {
 			Automate.CallXpath(driver, ActionXpath.viewpdf2, time, "viewpdf2");
 			Thread.sleep(6000);
 			Automate.CallXpath(driver, ActionXpath.learn, time, "learn");
-			Automate.CallXpath(driver, ActionXpath.profile, time, "profile");
+			Automate.CallXpath(driver, ActionXpath.SelectPrtoSignout, time, "SelectPrtoSignout");
 			Automate.CallXpath(driver, ActionXpath.logout, time, "logout");
 
 			login(faculty);
@@ -1312,13 +1312,15 @@ public class Pfs_portal {
 			Automate.CallXpath(driver, ActionXpath.facpdfdelete, time, "facpdfdelete");
 			Thread.sleep(6000);
 			Automate.CallXpath(driver, ActionXpath.facpdfdelete2, time, "facpdfdelete2");
+			Thread.sleep(10000);
 			Automate.CallXpath(driver, ActionXpath.facSelectPrtoSignout, time, "facSelectPrtoSignout");
 			Automate.CallXpath(driver, ActionXpath.facsignOut, time, "facsignOut");
-			log.info("TC-41: PPT create, publish, view, Delete Test Case PASSED \n\n");
+			log.info("TC-41: View Profile and Sign out Test Case PASSED \n");
+
 		} catch (Exception e) {
+			driver.get(url);
 			Thread.sleep(time);
-			logout(url);
-			log.warning("TC-41: PPT create, publish, view, Delete Test Case FAILED \n\n");
+			log.warning("TC-41: View Profile and Sign out Test Case FAILED \n");
 
 		}
 
@@ -1327,7 +1329,7 @@ public class Pfs_portal {
 	@Test(priority = 42)
 	public static void testPDFCreateViewDelete(String student, String faculty, String url) throws Exception {
 		try {
-			log.info("TC-42:  Starting PDF Create, View, Delete execution ");
+			log.info("TC-42:  Create PDF resource publish and delete PDF");
 
 			login(faculty);
 			// add pdf
@@ -1342,7 +1344,8 @@ public class Pfs_portal {
 			Automate.callSendkeys(driver, ActionXpath.facccresurl, "Hello", time);
 			Automate.CallXpath(driver, ActionXpath.facccressubmitform, time, "facccressubmitform");
 			Automate.callSendkeys(driver, ActionXpath.facpptname, "Sample PDF", time);
-			driver.findElement(By.xpath("//input[@accept='.pdf']")).sendKeys("C:\\Users\\Public\\Documents\\ken42.pdf");
+			driver.findElement(By.xpath("//input[@accept='.pdf']"))
+					.sendKeys("C:\\Users\\USER\\eclipse-workspace\\admin_portal\\pdf\\demo.pdf");
 			Thread.sleep(15000);
 			Automate.CallXpath(driver, ActionXpath.facccressubmit, time, "facccressubmit");
 			Thread.sleep(8000);
@@ -1369,27 +1372,27 @@ public class Pfs_portal {
 			Thread.sleep(6000);
 			Automate.CallXpath(driver, ActionXpath.learn, time, "learn");
 			// signout
-			Automate.CallXpath(driver, ActionXpath.profile, time, "profile");
+			Automate.CallXpath(driver, ActionXpath.SelectPrtoSignout, time, "SelectPrtoSignout");
 			Automate.CallXpath(driver, ActionXpath.logout, time, "logout");
 
 			login(faculty);
 			// unpublish pdf and delete pdf
 			Automate.CallXpath(driver, ActionXpath.facClickacademics, time, "facClickacademics");
 			Automate.CallXpath(driver, ActionXpath.faccc, time, "faccc");
-			Automate.CallXpath(driver, ActionXpath.facccres, time, "facccres");
 			Automate.CallXpath(driver, ActionXpath.facpdfopen, time, "facpdfopen");
 			Automate.CallXpath(driver, ActionXpath.fac3dot, time, "fac3dot");
 			Automate.CallXpath(driver, ActionXpath.facpdfdelete, time, "facpdfdelete");
 			Thread.sleep(6000);
 			Automate.CallXpath(driver, ActionXpath.facpdfdelete2, time, "facpdfdelete2");
+			Thread.sleep(10000);
 			Automate.CallXpath(driver, ActionXpath.facSelectPrtoSignout, time, "facSelectPrtoSignout");
 			Automate.CallXpath(driver, ActionXpath.facsignOut, time, "facsignOut");
-			log.info("TC-42: PDF create, view, delete test cases PASSED \n\n");
+			log.info("TC-42: Create PDF resource publish and delete PDF PASSED \n");
 
 		} catch (Exception e) {
+			driver.get(url);
 			Thread.sleep(time);
-			logout(url);
-			log.warning("TC-42: PDF create, view, delete test cases FAILED \n");
+			log.warning("TC-42: Create PDF resource publish and delete PDF FAILED \n");
 
 		}
 	}
@@ -1397,7 +1400,7 @@ public class Pfs_portal {
 	@Test(priority = 43)
 	public static void testVideoCreateViewDelete(String student, String faculty, String url) throws Exception {
 		try {
-			log.info("TC-43:  Starting Video create, view, Delete test case execution");
+			log.info("TC-43:  Create Video respuce publish and delete");
 			login(faculty);
 			Automate.CallXpath(driver, ActionXpath.facClickacademics, time, "facClickacademics");
 			Automate.CallXpath(driver, ActionXpath.faccc, time, "faccc");
@@ -1410,7 +1413,8 @@ public class Pfs_portal {
 			Automate.callSendkeys(driver, ActionXpath.facccresurl, "Hello", time);
 			Automate.CallXpath(driver, ActionXpath.facccressubmitform, time, "facccressubmitform");
 			Automate.callSendkeys(driver, ActionXpath.facpptname, "Sample Video", time);
-			driver.findElement(By.xpath("//input[@accept='.mp4']")).sendKeys("C:\\Users\\Public\\Documents\\test.mp4");
+			driver.findElement(By.xpath("//input[@accept='.mp4']"))
+					.sendKeys("C:\\Users\\USER\\eclipse-workspace\\admin_portal\\pdf\\demo.mp4");
 			Thread.sleep(15000);
 			Automate.CallXpath(driver, ActionXpath.facccressubmit, time, "facccressubmit");
 			Thread.sleep(8000);
@@ -1435,34 +1439,36 @@ public class Pfs_portal {
 			Automate.CallXpath(driver, ActionXpath.viewpdf2, time, "viewpdf2");
 			Thread.sleep(6000);
 			Automate.CallXpath(driver, ActionXpath.learn, time, "learn");
-			Automate.CallXpath(driver, ActionXpath.profile, time, "profile");
+			Automate.CallXpath(driver, ActionXpath.SelectPrtoSignout, time, "SelectPrtoSignout");
 			Automate.CallXpath(driver, ActionXpath.logout, time, "logout");
 
 			login(faculty);
 			Automate.CallXpath(driver, ActionXpath.facClickacademics, time, "facClickacademics");
 			Automate.CallXpath(driver, ActionXpath.faccc, time, "faccc");
 			// unpublish video and delete video
-			Automate.CallXpath(driver, ActionXpath.facccres, time, "facccres");
+			
 			Automate.CallXpath(driver, ActionXpath.facvideoopen, time, "facvideoopen");
 			Automate.CallXpath(driver, ActionXpath.facvideo3dot, time, "facvideo3dot");
 			Automate.CallXpath(driver, ActionXpath.facpdfdelete, time, "facvideodelete");
 			Thread.sleep(6000);
 			Automate.CallXpath(driver, ActionXpath.facpdfdelete2, time, "facvideodelete2");
+			Thread.sleep(10000);
 			Automate.CallXpath(driver, ActionXpath.facSelectPrtoSignout, time, "facSelectPrtoSignout");
 			Automate.CallXpath(driver, ActionXpath.facsignOut, time, "facsignOut");
-			log.warning("TC-43: Video create, view, Delete test case PASSED \n\n");
+			log.warning("TC-43: Create Video respuce publish and delete PASSED \n");
 		} catch (Exception e) {
+			driver.get(url);
 			Thread.sleep(time);
-			logout(url);
-			log.warning("TC-43: Video create, view, Delete test case FAILED \n\n");
+			log.warning("TC-43: Create Video respuce publish and delete FAILED \n");
 
 		}
 	}
 
+		
 	@Test(priority = 44)
 	public static void testLinkCreateViewDelete(String student, String faculty, String url) throws Exception {
 		try {
-			log.info("TC-44:  Starting Link resource Create, View, Delete test case execution");
+			log.info("TC-44:  Faculty Service Test case Started");
 			login(faculty);
 			Automate.CallXpath(driver, ActionXpath.facClickacademics, time, "facClickacademics");
 			Automate.CallXpath(driver, ActionXpath.faccc, time, "faccc");
@@ -1473,9 +1479,9 @@ public class Pfs_portal {
 
 			Automate.CallXpath(driver, ActionXpath.facccresdescclick, time, "facccresdescclick");
 			Automate.callSendkeys(driver, ActionXpath.facccresurl, "Hello", time);
-			Automate.callSendkeys(driver, ActionXpath.facpptname, "Sample Link", time);
+		
 			Automate.CallXpath(driver, ActionXpath.facccressubmitform, time, "facccressubmitform");
-
+			Automate.callSendkeys(driver, ActionXpath.facpptname, "Sample Link", time);
 			Automate.callSendkeys(driver, ActionXpath.faclinkexternal, url, time);
 			Thread.sleep(15000);
 			Automate.CallXpath(driver, ActionXpath.facccressubmit, time, "facccressubmit");
@@ -1502,30 +1508,31 @@ public class Pfs_portal {
 			Automate.CallXpath(driver, ActionXpath.viewpdf2, time, "viewlink2");
 			Thread.sleep(6000);
 			Automate.CallXpath(driver, ActionXpath.learn, time, "learn");
-			Automate.CallXpath(driver, ActionXpath.profile, time, "profile");
+			Automate.CallXpath(driver, ActionXpath.SelectPrtoSignout, time, "SelectPrtoSignout");
 			Automate.CallXpath(driver, ActionXpath.logout, time, "logout");
 
 			login(faculty);
 			Automate.CallXpath(driver, ActionXpath.facClickacademics, time, "facClickacademics");
 			Automate.CallXpath(driver, ActionXpath.faccc, time, "faccc");
 			// delete link
-			Automate.CallXpath(driver, ActionXpath.facccres, time, "facccres");
+			
 			Automate.CallXpath(driver, ActionXpath.faclinkopen, time, "faclinkopen");
 			Automate.CallXpath(driver, ActionXpath.faclink3dot, time, "faclink3dot");
 			Automate.CallXpath(driver, ActionXpath.facpdfdelete, time, "faclinkdelete");
 			Thread.sleep(6000);
 			Automate.CallXpath(driver, ActionXpath.facpdfdelete2, time, "facvideodelete2");
-			Thread.sleep(6000);
+			Thread.sleep(10000);
 			Automate.CallXpath(driver, ActionXpath.facSelectPrtoSignout, time, "facSelectPrtoSignout");
 			Automate.CallXpath(driver, ActionXpath.facsignOut, time, "facsignOut");
-			log.info("TC-44:  Link resource Create, View, Delete test case PASSED \n\n");
+			log.info("TC-44 View Profile and Sign out Test Case PASSED....\n");
 		} catch (Exception e) {
+			driver.get(url);
 			Thread.sleep(time);
-			logout(url);
-			log.warning("TC-35: Link resource Create, View, Delete test case FAILED \n\n");
+			log.warning("TC-44: View Profile and Sign out Test Case FAILED \n");
 
 		}
 	}
+	
 
 	@Test(priority = 45)
 	public static void testAssessmentCreatePublishViewDelete(String student, String faculty, String url) throws Exception {
