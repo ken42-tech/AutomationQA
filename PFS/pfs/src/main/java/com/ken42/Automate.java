@@ -1,7 +1,5 @@
 package com.ken42;
-import java.io.IOException;
 import java.util.logging.*;
-import java.util.logging.SimpleFormatter;
 
 // import org.apache.logging.log4j.LogManager;
 // import org.apache.logging.log4j.Logger;
@@ -43,5 +41,7 @@ public static void callSendkeys(WebDriver driver,String Xpath, String Value, int
 		}
 	}
 	
+}
+public static void cleartext(WebDriver driver, String faccmarks) {
 }
 }
