@@ -73,7 +73,7 @@ public class SendMail {
         });
 
         // Used to debug SMTP issues
-        session.setDebug(true);
+        // session.setDebug(true);
 
         
 
@@ -113,7 +113,8 @@ public class SendMail {
    
             // Part two is attachment
             messageBodyPart = new MimeBodyPart();
-            String filename = "C:\\Users\\Public\\Documents\\PFS_results.log";
+            // String filename = "C:\\Users\\Public\\Documents\\pfs_results.log";
+            String filename = "C:\\Users\\Public\\Documents\\Testresult.HTML";
             DataSource source = new FileDataSource(filename);
             messageBodyPart.setDataHandler(new DataHandler(source));
             messageBodyPart.setFileName(filename);
