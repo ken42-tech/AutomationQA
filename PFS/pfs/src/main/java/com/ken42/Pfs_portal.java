@@ -85,7 +85,7 @@ public class Pfs_portal {
 				testStudentEditProfile(PFSurl);
 				testStudentEditEducationDetails( PFSurl);
 				testStudentEditAddress(PFSurl);
-				testStudentSignout(PFSurl);
+				// testStudentSignout(PFSurl);
 				log.info("STUDENT PORTAL TEST CASES EXECUTION COMPLETED\n\n\n");
 			}
 			// This block will execute all facutly related test cases
@@ -241,6 +241,16 @@ public class Pfs_portal {
 	@Test
 	public static Boolean checkLtsta(String url){
 		String urlToMatch = "ltsta";
+		Pattern pt = Pattern.compile(urlToMatch);
+        Matcher m = pt.matcher(url);
+        while (m.find()) {
+            return true;
+        }
+        return false;
+	}
+	@Test
+	public static Boolean checkLtstaltpct(String url){
+		String urlToMatch = "ltsta|ltpct";
 		Pattern pt = Pattern.compile(urlToMatch);
         Matcher m = pt.matcher(url);
         while (m.find()) {
@@ -635,7 +645,7 @@ public class Pfs_portal {
 			Automate.CallXpath(driver, ActionXpath.Stu_prName, time, "profile");
 			Automate.CallXpath(driver, ActionXpath.stuprofile, time, "stuprofile");
 			Automate.CallXpath(driver, ActionXpath.stuadddrop, time, "stuadddrop");
-			Thread.sleep(6000);
+			Thread.sleep(5000);
 
 			Automate.CallXpath(driver, ActionXpath.stuedit, time, "stuedit");
 			// Automate.CallXpath(driver, ActionXpath.StudBEdit, time, "Edit address");

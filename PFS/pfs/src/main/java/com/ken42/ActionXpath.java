@@ -120,13 +120,13 @@ static String back="//span[text()='Back']";
    
 ///Student Test case 13 edit Profile Xpath
 //// static String Stu_prName = "(//span[@class='MuiIconButton-label'])[3]";
-static String stuprofile="//*[@id='menu-appbar']/div[3]/ul/li[1]";
+static String stuprofile="//a[. and text()='Profile']";
 static String stubasicedit="(//*[name()='svg'and@height='23'])[1]";
 static String Stubasicgender="//*[@id=\"mui-component-select-Gender\"]";
 static String stubasicgenderselect="//li[@data-value='Male']";
 static String stubasicdob="//*[@name='BirthDate']";
 static String stubasicnation="//*[@name='CountryOfResidence']";
-static String stubasicsave="(//*[.='Save'])[2]";
+static String stubasicsave="//*[@id=\"app\"]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div/div/div[1]/div/div[2]/div/div[3]/div/div[9]/div[1]/button";
 //Student test case 13 edit Profile Xpath ends here
    
 
@@ -146,22 +146,25 @@ static String stuedpgclg="(//*[@name='hed__Educational_Institution_Name__c'])[3]
 static String stuedpgcountry="(//*[@name='Country__c'])[3]";
 static String stuedpgyear="(//*[@name='Year_of_Passing__c'])[3]";
 //save
-static String stuedsave="(//*[.='Save' and @class='MuiButton-label'])[2]";
+static String stuedsave="(//*[@id=\"panel1a-content\"]/div/div/div[2]/button/span[1])[1]";
 static String stueddropup="//*[@id=\"panel1a-header\"]/div[2]";
 //Student Test case 14 ends here
    
 
 //Student Test case 15 Student edit address 
-static String stuadddrop="(//*[@id=\"panel1a-header\"]/div[2])[2]";
-   static String stuedit="(//*[name()='svg'and@height='23'])[2]";
-   static String stuaddadd="//*[@id=\"panel1a-content\"]/div/div/div[4]/button";
+static String stuadddrop="//p[. and text()='ADDRESS DETAILS']";
+// static String stuadddrop="//*[@id=\"panel1a-header\"]/div[2]/span[1]/svg/path";
+   // static String stuedit="(//*[name()='svg'and@height='23'])[2]";
+   static String stuedit="(//p[. and text()='ADDRESS DETAILS']/../../..//*[local-name()='svg'])[2]";
+   // static String stuaddadd="//*[@id=\"panel1a-content\"]/div/div/div[4]/button";
+   static String stuaddadd="//span[. and text()='Add Address']/..";
    static String stuhouse="//*[@name='House_Flat_No__c']";
    static String sturoad="//*[@name='hed__MailingStreet__c']";
    static String stusuburb="//*[@name='hed__MailingCity__c']";
    static String stucountry="//*[@name='hed__MailingCountry__c']";
    static String stupincode="//*[@name='hed__MailingPostalCode__c']";
-   static String stusave="(//*[.='Save' and @class='MuiButton-label'])[3]";
-   static String StudBEdit="(//*[@fill='currentColor'])[8]";
+   static String stusave="//p[. and text()='ADDRESS DETAILS']/../../..//span[. and text()='Save']";
+   static String StudBEdit="(//p[. and text()='Home'])[1]";
 //Student Test case 15 Student edit address ends here
 
 //Student Test case 16 Signout
