@@ -244,17 +244,20 @@ static String faceexamtime = "//*[@id=\"simple-tabpanel-0\"]/div/p/div/div/div/d
 static String faccMyStudent = "(//span[text()='My Students'])[2]";
 static String facstudrop = "//*[@id=\"app\"]/div/div/div/main/div[2]/div[2]/div[2]/div/div/div[1]/div[2]/div/div[2]/div";
 static String facstudropselect = "//*[@id=\"menu-\"]/div[3]/ul/li";
+static String faccMyStudentltsta="//span[text()='My Students']";
 // TC:22 faculty Attendance
 static String facatt = "(//span[text()='Attendance'])[2]";
 static String faccAttendahis = "//span[text()='Attendance History']";
 static String faccView = "(//span[text()='View'])[2]";
 static String faccEdit = "(//span[text()='Edit'])[2]";
 static String faccBack = "//span[text()='BACK']";
+static String facattltsta="//span[text()='Attendance']";
 // TC:23 Faculty Timetable
 static String facClickTimetable = "(//span[text()='Timetable'])[2]";
 static String facttmonth = "//button[text()='month']";
 static String facttweek = "//button[text()='week']";
 static String facttday = "//button[text()='day']";
+static String facClickTimetableltsta="//span[text()='Timetable']";
 
 // TC-24:New change faculty portal Services
 static String facServicespfsbmtnsom = "(//span[text()='Faculty Services' or text()='Support Services'])[2]";
@@ -267,6 +270,7 @@ static String FaccraiseNSOM = "//button[@label='Raise Case']";
 // TC:25:faculty Raise request
 static String inputSub = "//input[@name='Subject']";
 static String SubmitRaise = "//button[@label='Submit']";
+static String facRaiseCaseleftNavbar ="(//span[. and text()='Raise a Case'])";
 //Tc:26 faculty make request
 static String makeSubjectIn = "//input[@name='Subject']";
 static String MakeBtn = "//button[@label='Submit']";
@@ -275,6 +279,7 @@ static String faccEvent = "(//span[text()='Events'])[2]";
 static String faceventlocation = "//div[@aria-labelledby='Location']";
 static String faceventlocationselect = "//li[@data-value='All' or text()='All']";
 static String FaccSearch = "//input[@placeholder='Search…']";
+static String faccEventltsta="//span[text()='Events']";
 //TC:28faculty profile faculty
 static String facSeleectpic = "(//span[@class='MuiIconButton-label'])[3]";
 static String faccProfile = "//a[text()='Profile']";
@@ -314,40 +319,40 @@ static String facdpadsave = "//h6[text()='ACADEMIC DETAILS (highest qualificatio
 ///TC:31 faculty Reserch supervision edit
 static String facclickonT = "(//span[@class='MuiIconButton-label' or text()='P' or text()='T'])[3]";
 static String facclickonprofile = "//a[.='Profile']";
-static String facclickonRESEARCHSUPERVISION = "(//h6[. and text()='RESEARCH SUPERVISION']/../../..//*[local-name()='svg'])[1]";
+static String facclickonRESEARCHSUPERVISION = "//h6[text()='RESEARCH SUPERVISION']";
 //static String facclickonedit = "(//*[name()='svg'and@fill='currentColor'])[9]";
-static String facdpreedit = "//*[name()='svg'and@height='23']";
-static String facdpreadd = "(//span[.='Add Row'])[4]";
-static String facdprename = "//*[@name='name']";
-static String facdprelink = "//*[@name='linkURL']";
-static String facdpredesc = "//*[@name='description']";
-static String faccSaveexp = "(//span[.='Save'])[4]";
+static String facdpreedit = "(//h6[. and text()='RESEARCH SUPERVISION']/../../..//*[local-name()='svg'])[1]";
+static String facdpreadd = "//h6[text()='RESEARCH SUPERVISION']/../../..//span[. and text()='Add Row']";
+static String facdprename = "//h6[text()='RESEARCH SUPERVISION']/../../../..//*//input[@name='name']";
+static String facdprelink = "//h6[text()='RESEARCH SUPERVISION']/../../../..//*//input[@name='linkURL']";
+static String facdpredesc = "//h6[text()='RESEARCH SUPERVISION']/../../../..//*//input[@name='description']";
+static String faccSaveexp = "//h6[text()='RESEARCH SUPERVISION']/../../..//span[. and text()='Save']";
 
 static String faccdeleteexp = "//span[.='Delete']";
 
 //TC:32 testfacultyRESEARCHPUBLICATION
 
 static String facclickonRESEARCHSUPERVISIONpublish = "(//h6[. and text()='RESEARCH & PUBLICATIONS']/../../..//*[local-name()='svg'])[1]";
-static String facdpreeditpublish = "//*[name()='svg'and@height='23']";
-static String facdpreaddpublish = "(//span[.='Add Row'])[5]";
+static String facdpreeditpublish = "(//h6[. and text()='RESEARCH & PUBLICATIONS']/../../..//*[local-name()='svg'])[1]";
+static String facdpreaddpublish = "//h6[text()='RESEARCH & PUBLICATIONS']/../../..//span[. and text()='Add Row']";
 
-static String facdppubname = "(//input[@name='name'])[2]";
-static String facdppublink = "(//input[@name='linkURL'])[2]";
-static String facdppubdesc = "(//input[@name='description'])[2]";
-static String faccSaveRes = "(//span[.='Save'])[5]";
+static String facdppubname = "//h6[text()='RESEARCH & PUBLICATIONS']/../../../..//*//input[@name='name']";
+static String facdppublink = "//h6[text()='RESEARCH & PUBLICATIONS']/../../../..//*//input[@name='linkURL']";
+static String facdppubdesc = "//h6[text()='RESEARCH & PUBLICATIONS']/../../../..//*//input[@name='description']";
+static String faccSaveRes = "//h6[text()='RESEARCH & PUBLICATIONS']/../../..//span[. and text()='Save']";
 
 static String faccdeletepublish = "(//span[.='Delete'])[2]";
 
 //TC:33 faculty confernece
 
 static String facclickonRESEARCHSUPERVISIONconfernece = "(//h6[. and text()='CONFERENCES']/../../..//*[local-name()='svg'])[1]";
-static String facdpreeditconfernece = "//*[name()='svg'and@height='23']";
-static String facdpreaddconfernece = "(//span[.='Add Row'])[6]";
+static String facdpreeditconfernece = "(//h6[. and text()='CONFERENCES']/../../..//*[local-name()='svg'])[1]";
+static String facdpreaddconfernece = "//h6[text()='CONFERENCES']/../../..//span[. and text()='Add Row']";
 
-static String facdpconnameconfernece = "(//input[@name='name'])[3]";
-static String facdpconlinkconfernece = "(//input[@name='linkURL'])[3]";
-static String facdpcondescconfernece = "(//input[@name='description'])[3]";
-static String facdpconsaveconfernece = "(//span[.='Save'])[6]";
+static String facdpconnameconfernece = "//h6[text()='CONFERENCES']/../../../..//*//input[@name='name']";
+static String facdpconlinkconfernece = "//h6[text()='CONFERENCES']/../../../..//*//input[@name='linkURL']";
+static String facdpcondescconfernece = "//h6[text()='CONFERENCES']/../../../..//*//input[@name='description']";
+static String facdpconsaveconfernece = "//h6[text()='CONFERENCES']/../../..//span[. and text()='Save']";
 
 static String faccdeleteconference = "(//span[.='Delete'])[3]";
 
@@ -355,18 +360,18 @@ static String faccdeleteconference = "(//span[.='Delete'])[3]";
 static String facdpbook = "//h6[text()='BOOK']";
 static String facdpbookedit = "(//h6[. and text()='BOOK']/../../..//*[local-name()='svg'])[1]";
 static String facdpbookadd = "//h6[text()='BOOK']/../../..//span[. and text()='Add Row']";
-static String facdpbookname = "(//input[@name='name'])[4]";
-static String facdpbooklink = "(//input[@name='linkURL'])[4]";
-static String facdpbookdesc = "(//input[@name='description'])[4]";
+static String facdpbookname = "//h6[text()='BOOK']/../../../..//*//input[@name='name']";
+static String facdpbooklink = "//h6[text()='BOOK']/../../../..//*//input[@name='linkURL']";
+static String facdpbookdesc = "//h6[text()='BOOK']/../../../..//*//input[@name='description']";
 static String faccSaveNsombm = "//h6[text()='BOOK']/../../..//span[. and text()='Save']";
 
 // TC:35 faculty professionl association
 static String facdpprof = "//h6[text()='PROFESSIONAL ASSOCIATION']";
 static String facdpprofedit = "(//h6[text()='PROFESSIONAL ASSOCIATION']/../../..//*[local-name()='svg'])[1]";
 static String facdpprofadd = "//h6[text()='PROFESSIONAL ASSOCIATION']/../../..//span[. and text()='Add Row']";
-static String facdpprofname = "(//input[@name='name'])[5]";
-static String facdpproflink = "(//input[@name='linkURL'])[5]";
-static String facdpprofdesc = "(//input[@name='linkURL'])[5]";
+static String facdpprofname = "//h6[text()='PROFESSIONAL ASSOCIATION']/../../../..//*//input[@name='name']";
+static String facdpproflink = "//h6[text()='PROFESSIONAL ASSOCIATION']/../../../..//*//input[@name='linkURL']";
+static String facdpprofdesc = "//h6[text()='PROFESSIONAL ASSOCIATION']/../../../..//*//input[@name='description']";
 static String facdpprofsave = "//h6[text()='PROFESSIONAL ASSOCIATION']/../../..//span[. and text()='Save']";
 
 
@@ -374,9 +379,9 @@ static String facdpprofsave = "//h6[text()='PROFESSIONAL ASSOCIATION']/../../../
 static String facdpother = "//h6[text()='OTHERS']/..";
 static String facdpotheredit = "(//h6[text()='OTHERS']/../../..//*[local-name()='svg'])[1]";
 static String facdpotheradd = "//h6[text()='OTHERS']/../../..//span[. and text()='Add Row']";
-static String facdpothername = "(//input[@name='name'])[6]";
-static String facdpotherlink = "(//input[@name='linkURL'])[6]";
-static String facdpotherdesc = "(//input[@name='linkURL'])[6]";
+static String facdpothername = "//h6[text()='OTHERS']/../../../..//*//input[@name='name']";
+static String facdpotherlink = "//h6[text()='OTHERS']/../../../..//*//input[@name='linkURL']";
+static String facdpotherdesc = "//h6[text()='OTHERS']/../../../..//*//input[@name='description']";
 static String facdpothersave = "//h6[text()='OTHERS']/../../..//span[. and text()='Save']";
 
 //TC:37 Fcaulty Dashboard
@@ -413,6 +418,8 @@ static String facselectpro = "//*[@id=\"app\"]/div/div/div/main/div[2]/div[2]/he
 static String facprofile = "//*[@id=\"menu-appbar\"]/div[3]/ul/li[1]";
 static String FacDesc = "//textarea[@placeholder='Type your description here...']";
 static String makedesc = "//textarea[@placeholder='Type your description here...']";
+
+
 
 //******************************************************************************************** */
 //******************************************************************************************** */

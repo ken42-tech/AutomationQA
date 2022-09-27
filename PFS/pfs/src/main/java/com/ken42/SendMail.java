@@ -57,7 +57,7 @@ public class SendMail {
         properties.put("mail.smtp.auth", "true");
         properties.put("mail.smtp.starttls.enable", "true");
         properties.put("mail.smtp.user", "anandTest2002@gmail.com");
-        properties.put("mail.smtp.password", "ccsegdbmljmqpfzg");
+        properties.put("mail.smtp.password", "ydqctevuvkrmmslu");
 
 
 
@@ -66,7 +66,8 @@ public class SendMail {
 
             protected PasswordAuthentication getPasswordAuthentication() {
 
-                return new PasswordAuthentication("anandTest2002@gmail.com", "ccsegdbmljmqpfzg");
+                // return new PasswordAuthentication("anandTest2002@gmail.com", "ccsegdbmljmqpfzg");
+                return new PasswordAuthentication("ken42_automate@ken42.com", "ydqctevuvkrmmslu");
 
             }
 
