@@ -62,14 +62,14 @@ static String TimeTableDay="(//button[text()='day'])[1]";
 
 
 //Student test case 7 Fees
-static String ExpandFees="(//span[text()=' Fees'])[2]";
+static String ExpandFees="(//span[text()='Fees'])[2]";
 static String ltstaFees="(//span[text()=' Fees'])[1]";
 static String clickMyCart="//span[. and text()='My Cart']";
 static String clickFeeSchedule="//span[. and text()='Fee Schedule']";
 static String clickFeePayment="//span[. and text()='Fee Payment']";
 static String clickManualpayment="//span[. and text()='Manual Payment']";
 static String ClickMyTranscetion="//span[. and text()='My Transactions']";
-static String closeExpandFees="(//span[text()=' Fees'])[2]";
+static String closeExpandFees="(//span[text()='Fees'])[2]";
 //Student Test case 7 Portal Fees Xpath ends here
 
 
@@ -123,7 +123,8 @@ static String back="//span[text()='Back']";
 static String stuprofile="//a[. and text()='Profile']/..";
 static String stubasicedit="(//*[name()='svg'and@height='23'])[1]";
 static String Stubasicgender="//*[@id=\"mui-component-select-Gender\"]";
-static String stubasicgenderselect="//li[@data-value='Male']";
+static String Gender="Female";
+static String stubasicgenderselect="//li[@data-value='Female']";
 static String stubasicdob="//*[@name='BirthDate']";
 static String stubasicnation="//*[@name='CountryOfResidence']";
 static String stubasicsave="//*[@id=\"app\"]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div/div/div[1]/div/div[2]/div/div[3]/div/div[9]/div[1]/button";
@@ -201,18 +202,21 @@ static String Drawer ="/html/body/div[1]/div/div/div/main/div[2]/div[1]/div[2]/d
 //************************************************************************************* */
 
 
+//All Student test cases Xpath should be before this line
+//**************************************************************************************************** */
+//************************************************************************************* */
+
+
 //Faculty Role Xpaths begin here*********************************************************
 // TC:17 faculty academics
 static String openFacdevnosbm = "(//span[text()='Academics'])[2]";
-static String facClickacademicsltsta = "//span[text()='Academics']";
-
+static String facClickacademicsltsta = "(//span[text()='Academics'])[1]";
 static String openFacltsta = "(//span[text()='Academics'])[2]";
 static String clickFacDashdevnosbm = "//span[text()='Dashboard']";
 static String facdbfilterselect = "//*[@id=\"menu-\"]/div[3]/ul/li[4]";
 static String facFilter = "//div[@class='MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiInputBase-input MuiInput-input MuiInputBase-inputMarginDense MuiInput-inputMarginDense']";
 static String facdbresfilter = "(//*[@xmlns='http://www.w3.org/2000/svg'])[2]";
 static String facdbrestypes = "//*[@id=\"alert-dialog-description\"]/div/div[2]/div[1]/div[2]";
-static String facdbrestypesselect = "//input[@name='ppt' and @type='checkbox']";
 static String facdbresapply = "//span[text()='Apply Filter']";
 
 // TC:18 faculty Question
@@ -247,11 +251,11 @@ static String facstudropselect = "//*[@id=\"menu-\"]/div[3]/ul/li";
 static String faccMyStudentltsta="//span[text()='My Students']";
 // TC:22 faculty Attendance
 static String facatt = "(//span[text()='Attendance'])[2]";
+static String facattendanceforltsta="(//span[text()='Attendance'])[1]";
 static String faccAttendahis = "//span[text()='Attendance History']";
 static String faccView = "(//span[text()='View'])[2]";
 static String faccEdit = "(//span[text()='Edit'])[2]";
 static String faccBack = "//span[text()='BACK']";
-static String facattltsta="//span[text()='Attendance']";
 // TC:23 Faculty Timetable
 static String facClickTimetable = "(//span[text()='Timetable'])[2]";
 static String facttmonth = "//button[text()='month']";
@@ -481,7 +485,7 @@ static String facccressubmityes="//span[text()='OK']";
 //// static String facClickacademicsltsta="//span[text()='Academics']";
 //ppt publish
 static String facpptfopen="(//div[@id='panel1a-header'])[4]";
-static String facppt3dot="(//div[@class='MuiCardContent-root'])[8]";
+static String facppt3dot="(//b[.='Sample PPT']/ancestor::div[@class='MuiGrid-root']/descendant::h5/../../..//*[local-name()='svg'])[1]";
 static String facpptpublish="//span[text()='Publish']";
 static String facpptpublishyes="//span[text()='Publish']";
 ////static String facSelectPrtoSignout="/html/body/div[1]/div/div/div/main/div[2]/div[2]/header/div/header/div[1]/div[2]/div/div";
@@ -498,6 +502,8 @@ static String viewpdf2="//span[text()='View']";
 static String facpdfdelete="//span[text()='Delete']";
 static String facpdfdelete2="//span[text()='Delete']";
 static String logout="//*[@id=\"menu-appbar\"]/div[3]/ul/li[2]";
+////////////
+static String FCCportal="(//span[@class='MuiIconButton-label' or text()='P' or text()='T'])[3]";
 //TC-41 PPT Xpath Completed
    	
    	
@@ -518,7 +524,8 @@ static String facccresadd="//span[text()='Add Resource']";
 ////static String facClickacademicsltsta="//span[text()='Academics']";
 //pdf publish
 static String facpdfopen="(//div[@id='panel1a-header'])[6]";
-static String fac3dot="(//div[@class='MuiCardContent-root'])[16]";
+//static String fac3dot="(//div[@class='MuiCardContent-root'])[16]";
+static String fac3dot="(//p[.='Sample PDF']/ancestor::div[@class='MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1 MuiGrid-item MuiGrid-grid-xs-12']/descendant::h5/../../..//*[local-name()='svg'])[1]";
 static String facpublishpdf="//span[text()='Publish']";
 static String facpublishpdf2="//span[text()='Publish']";
 ////static String facSelectPrtoSignout="/html/body/div[1]/div/div/div/main/div[2]/div[2]/header/div/header/div[1]/div[2]/div/div";
@@ -554,7 +561,7 @@ static String facvideoadd="//span[text()='Add Resource']";
 ////static String facClickacademicsltsta="//span[text()='Academics']";
 //video publish
 static String facvideoopen="(//div[@id='panel1a-header'])[7]";
-static String facvideo3dot="(//div[@class='MuiCardContent-root'])[20]";
+static String facvideo3dot="(//p[.='Sample Video']/ancestor::div[@class='MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1 MuiGrid-item MuiGrid-grid-xs-12']/descendant::h5/../../..//*[local-name()='svg'])[1]";
 static String facvideopublish="//span[text()='Publish']";
 static String facvideopublishyes="//span[text()='Publish']";
 ////static String facSelectPrtoSignout="/html/body/div[1]/div/div/div/main/div[2]/div[2]/header/div/header/div[1]/div[2]/div/div";
@@ -602,7 +609,7 @@ static String viewlink="(//div[@id='panel1a-header'])[8]";
 //Link delete
 ////static String facpdfdelete="//span[text()='Delete']";
 ////static String facpdfdelete2="//span[text()='Delete']";  
-static String faclink3dot="(//div[@class='MuiCardContent-root'])[24]";
+static String faclink3dot="(//p[.='Sample Link']/ancestor::div[@class='MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1 MuiGrid-item MuiGrid-grid-xs-12']/descendant::h5/../../..//*[local-name()='svg'])[1]";
 static String faclinkopen="(//div[@id='panel1a-header'])[8]";
 //TC-44 Link Xpath Completed
    
