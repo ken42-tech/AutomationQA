@@ -18,7 +18,8 @@ static String Home = "(//span[. and text()='Home'])[2]/..";
 // static String Home = "(//span[@class='MuiTypography-root jss62 MuiTypography-body1 MuiTypography-displayBlock' //*text()='Home'])[2]";
 // static String Home = "//*[@id=\"app\"]/div/div/div/main/div[2]/div[1]/div/div[1]/div/div[2]/div/div[1]/a/div/div[2]/span | (//span[. and text()='Home'])[2]/..";
 // static String Home = "(//span[@class='MuiTypography-root jss124 MuiTypography-body1 MuiTypography-displayBlock' and text()='Home'])[1]/..";
-static String Stu_prName = "(//span[@class='MuiIconButton-label'])[3]";
+// static String Stu_prName = "(//span[@class='MuiIconButton-label'])[3]";
+static String Stu_prName = "//*[. and text()='T']/..";
 //Student test case 1 ends here
 
 
@@ -265,6 +266,7 @@ static String facClickTimetableltsta="//span[text()='Timetable']";
 
 // TC-24:New change faculty portal Services
 static String facServicespfsbmtnsom = "(//span[text()='Faculty Services' or text()='Support Services'])[2]";
+static String facServicesltsta = "(//span[. and text()='Master Trainer Services'])[1]";
 static String FacRaisecasedevbmtech = "//span[text()='Raise a Case']";
 static String FacRaisebutton = "//button[@label='Raise Case' or text()='Raise Case'] ";
 static String facCancelSer = "//span[text()='Cancel']";
@@ -429,43 +431,45 @@ static String makedesc = "//textarea[@placeholder='Type your description here...
 //******************************************************************************************** */
 //Both role test cases begin here
 
-//Test case no 40 testFacultyStudentFOURM Relative Xpath..............////////
-////.............. faculty forum add activity RelativeXpath xpath...................////
-static String relativefacforumClickacademics1 = "//span[.='Academics']";
-static String relativefacforumclickcouse1 = "//span[.='Course Content']";
-static String relativefacforumactivity1 = "//span[.='Activity']";
-static String relativefacforum1 = "(//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2'])[3]";
-static String relativefacfforumaddactivity1 = "//span[.='Add Activity']";
-static String relativefacforumname1 = "//input[@name='forumName']";
-// static String facforummore = "//button[@title='More...']";
-static String relativefacforumclink1 = "//button[@title='Insert/edit link']";
-static String relativefacforumurl1 = "//input[@type='url']";
-static String relativefacforumsavlin1 = "//button[@title='Save']";
-static String relativefacforumsave1 = "//span[.='Save and Proceed to Forum Settings']";
-static String relativefaforumsave1 = "//span[.='Save and Proceed']";
-static String relativefaforumok1 = "//span[.='OK']";
-static String relativeformexpand1 = "(//div[@id='panel1a-header'])[3]";
-static String relativefaccformedot1 = "//p[.='spruthirajautomation']/ancestor::div[@class='MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-justify-content-xs-space-around']/descendant::h5";
-static String relativefacformepublish11 = "//span[.='Publish']";
-static String relativefacformepublish12 = "//span[.='Publish']";
-static String relativefacformeclickonp1 = "(//div[.='T'])[2]";
-static String relativefacformesignout1 = "(//li[@role='menuitem'])[2]";
-////............................ student forum login and view relative xpath.................////
-static String relativestudentacadamicsltsta1 = "//span[.='Academics']";
-static String relativeforumlearnltsta1 = "//span[.='Learn']";
-static String relativeforumaexpandltsta1 = "(//div[@id='panel1a-header'])[3]";
-static String relativeforumsubltstasign1 = "(//span[@class='MuiIconButton-label'])[3]";
-static String relativeforumsubltstasignout1 = "(//li[@role='menuitem'])[2]";
-////................................... faculty delete forum Relative xpath..................////
-static String relativeforumdaccltsta12 = "//span[.='Academics']";
-static String relativeforumdacclickcouse12 = "//span[.='Course Content']";
-static String relativeforumdfexpandltsta12 = "(//div[@id='panel1a-header'])[3]";
-static String relativeforumfclickondotltsta12 = "//p[.='spruthirajautomation']/ancestor::div[@class='MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-justify-content-xs-space-around']/descendant::h5";
-static String relativedfacdelete12 = "(//div[@role='button'])[22]";
-static String relativedfacdele12 = "//span[.='Delete']";
-static String relativedfacclickonp12 = "(//div[.='T'])[2]";
-static String relativedfacconsignout12 = "(//li[@role='menuitem'])[2]";
-//Test case 40 Xpaths ends here
+
+//TC-40 Spreadsheet Xpath Started
+////static String facClickacademics="(//span[text()='Academics'])[2]";
+////static String faccc="//span[text()='Course Content']";
+////static String facccres="//span[text()='Resource']"; 
+//spreadsheet upload
+static String facssclick="//figcaption[text()='Spreadsheet']/..";
+static String facssadd="//span[text()='Add Resource']";
+////static String facccresdescclick="//button[@title='Insert/edit link']";
+////static String facccresurl="//input[@type='url']";
+////static String facccressubmitform="//*[.='Save']";
+////static String facpptname="//input[@placeholder='Enter name']";
+////static String facccressubmit="//span[text()='Save Resource(s)']";
+////static String facccressubmityes="//span[text()='OK']";
+//ltsta xpath
+////static String facClickacademicsltsta="//span[text()='Academics']";
+//spreadsheet publish
+static String facssopen="(//div[@id='panel1a-header'])[5]";
+// static String facss3dot="(//div[@class='MuiCardContent-root'])[12]";
+static String facss3dot="(//p[.='Sample Excel']/ancestor::div[@class='MuiPaper-root MuiCard-root jss152 MuiPaper-outlined MuiPaper-rounded']/descendant::h5/../../..//*[local-name()='svg'])";
+static String facsspublish="//span[text()='Publish']";
+static String facsspublishyes="//span[text()='Publish']";
+////static String facSelectPrtoSignout="/html/body/div[1]/div/div/div/main/div[2]/div[2]/header/div/header/div[1]/div[2]/div/div";
+////static String facsignOut="//*[.='Sign Out']"; 
+//student portal start
+////static String ltstaaccademics="//span[text()='Academics']";
+////static String accademics="(//span[text()='Academics'])[2]";
+////static String learn="//span[text()='Learn']";
+static String viewss="(//div[@id='panel1a-header'])[5]";
+////static String viewpdf2="//span[text()='View']";
+////static String SelectPrtoSignout="/html/body/div[1]/div/div/div/main/div[2]/div[2]/header/div/header/div[1]/div[2]/div/div";
+////static String signOut="//*[.='Sign Out']";
+//Spreadsheet delete
+////static String facpdfdelete="//span[text()='Delete']";
+////static String facpdfdelete2="//span[text()='Delete']";   	
+//TC-40 Spreadsheet Xpath Completed
+
+
+
 
 
 //TC-41 PPT Xpath Started
@@ -702,42 +706,45 @@ static String assignfacclickonprelative = "(//div[.='T'])[2]";
 static String assignfacconsignoutrelative = "(//li[@role='menuitem'])[2]";
 //// TC-46 ends here.......................end of Assignment Realtive......................./////
 
-
+//Test case no 47 testFacultyStudentFOURM Relative Xpath..............////////
+////.............. faculty forum add activity RelativeXpath xpath...................////
+static String relativefacforumClickacademics1 = "//span[.='Academics']";
+static String relativefacforumclickcouse1 = "//span[.='Course Content']";
+static String relativefacforumactivity1 = "//span[.='Activity']";
+static String relativefacforum1 = "(//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2'])[3]";
+static String relativefacfforumaddactivity1 = "//span[.='Add Activity']";
+static String relativefacforumname1 = "//input[@name='forumName']";
+// static String facforummore = "//button[@title='More...']";
+static String relativefacforumclink1 = "//button[@title='Insert/edit link']";
+static String relativefacforumurl1 = "//input[@type='url']";
+static String relativefacforumsavlin1 = "//button[@title='Save']";
+static String relativefacforumsave1 = "//span[.='Save and Proceed to Forum Settings']";
+static String relativefaforumsave1 = "//span[.='Save and Proceed']";
+static String relativefaforumok1 = "//span[.='OK']";
+static String relativeformexpand1 = "(//div[@id='panel1a-header'])[3]";
+static String relativefaccformedot1 = "//p[.='spruthirajautomation']/ancestor::div[@class='MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-justify-content-xs-space-around']/descendant::h5";
+static String relativefacformepublish11 = "//span[.='Publish']";
+static String relativefacformepublish12 = "//span[.='Publish']";
+static String relativefacformeclickonp1 = "(//div[.='T'])[2]";
+static String relativefacformesignout1 = "(//li[@role='menuitem'])[2]";
+////............................ student forum login and view relative xpath.................////
+static String relativestudentacadamicsltsta1 = "//span[.='Academics']";
+static String relativeforumlearnltsta1 = "//span[.='Learn']";
+static String relativeforumaexpandltsta1 = "(//div[@id='panel1a-header'])[3]";
+static String relativeforumsubltstasign1 = "(//span[@class='MuiIconButton-label'])[3]";
+static String relativeforumsubltstasignout1 = "(//li[@role='menuitem'])[2]";
+////................................... faculty delete forum Relative xpath..................////
+static String relativeforumdaccltsta12 = "//span[.='Academics']";
+static String relativeforumdacclickcouse12 = "//span[.='Course Content']";
+static String relativeforumdfexpandltsta12 = "(//div[@id='panel1a-header'])[3]";
+static String relativeforumfclickondotltsta12 = "//p[.='spruthirajautomation']/ancestor::div[@class='MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-justify-content-xs-space-around']/descendant::h5";
+static String relativedfacdelete12 = "(//div[@role='button'])[22]";
+static String relativedfacdele12 = "(//span[.='Delete'][1]";
+static String relativedfacclickonp12 = "(//div[.='T'])[2]";
+static String relativedfacconsignout12 = "(//li[@role='menuitem'])[2]";
+//Test case 47 Xpaths ends here
    
    	
-//TC-47 Spreadsheet Xpath Started
-////static String facClickacademics="(//span[text()='Academics'])[2]";
-////static String faccc="//span[text()='Course Content']";
-////static String facccres="//span[text()='Resource']"; 
-//spreadsheet upload
-static String facssclick="//figcaption[text()='Spreadsheet']/..";
-static String facssadd="//span[text()='Add Resource']";
-////static String facccresdescclick="//button[@title='Insert/edit link']";
-////static String facccresurl="//input[@type='url']";
-////static String facccressubmitform="//*[.='Save']";
-////static String facpptname="//input[@placeholder='Enter name']";
-////static String facccressubmit="//span[text()='Save Resource(s)']";
-////static String facccressubmityes="//span[text()='OK']";
-//ltsta xpath
-////static String facClickacademicsltsta="//span[text()='Academics']";
-//spreadsheet publish
-static String facssopen="(//div[@id='panel1a-header'])[5]";
-static String facss3dot="(//div[@class='MuiCardContent-root'])[12]";
-static String facsspublish="//span[text()='Publish']";
-static String facsspublishyes="//span[text()='Publish']";
-////static String facSelectPrtoSignout="/html/body/div[1]/div/div/div/main/div[2]/div[2]/header/div/header/div[1]/div[2]/div/div";
-////static String facsignOut="//*[.='Sign Out']"; 
-//student portal start
-////static String ltstaaccademics="//span[text()='Academics']";
-////static String accademics="(//span[text()='Academics'])[2]";
-////static String learn="//span[text()='Learn']";
-static String viewss="(//div[@id='panel1a-header'])[5]";
-////static String viewpdf2="//span[text()='View']";
-////static String SelectPrtoSignout="/html/body/div[1]/div/div/div/main/div[2]/div[2]/header/div/header/div[1]/div[2]/div/div";
-////static String signOut="//*[.='Sign Out']";
-//Spreadsheet delete
-////static String facpdfdelete="//span[text()='Delete']";
-////static String facpdfdelete2="//span[text()='Delete']";   	
-//TC-47 Spreadsheet Xpath Completed
+
 
 }

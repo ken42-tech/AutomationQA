@@ -13,6 +13,7 @@ import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
@@ -71,62 +72,63 @@ public class Pfs_portal {
 			// Below If will execute all Student related test cases
 			if ("student".equals(Role)) {
 				login(studentEmail);
-				System.out.println("Executing Student portal");
-				testStudent(PFSurl);
-				testStudentEnrollment(PFSurl);			
-				testStudentAcademic(PFSurl);
-				testStudentExamination(PFSurl);
-				testStudentAttendance(PFSurl);
-				testStudentTimeTable(PFSurl);
-				testStudentFees(PFSurl);
-				testStudentFeedback(PFSurl);
-				testStudentStudentStatus(PFSurl);
-				testStudentRaiseCase(studentEmail, facultyEmail, PFSurl);
-				testStudentMakeRequest(studentEmail, facultyEmail, PFSurl);
-				testStudentEvent(studentEmail, facultyEmail, PFSurl);
+				// System.out.println("Executing Student portal");
+				// testStudent(PFSurl);
+				// testStudentEnrollment(PFSurl);			
+				// testStudentAcademic(PFSurl);
+				// testStudentExamination(PFSurl);
+				// testStudentAttendance(PFSurl);
+				// testStudentTimeTable(PFSurl);
+				// testStudentFees(PFSurl);
+				// testStudentFeedback(PFSurl);
+				// testStudentStudentStatus(PFSurl);
+				// testStudentRaiseCase(studentEmail, facultyEmail, PFSurl);
+				// testStudentMakeRequest(studentEmail, facultyEmail, PFSurl);
+				// testStudentEvent(studentEmail, facultyEmail, PFSurl);
 				testStudentEditProfile(PFSurl);
-				testStudentEditEducationDetails( PFSurl);
-				testStudentEditAddress(PFSurl);
-				testStudentSignout(PFSurl);
+				// testStudentEditEducationDetails( PFSurl);
+				// testStudentEditAddress(PFSurl);
+				// testStudentSignout(PFSurl);
 				log.info("STUDENT PORTAL TEST CASES EXECUTION COMPLETED\n\n\n");
 			}
 			// This block will execute all facutly related test cases
 			else if ("faculty".equals(Role)) {
 				System.out.println("Executing Faculty portal");
 				login(facultyEmail);
-				testFaculty(PFSurl);
-				testFacultyQuestionBank(PFSurl);
-				testFacultyCourseContent(PFSurl);
-				testFacultyExamination(PFSurl);
-				testFacultyMYStudent(PFSurl);
-				testFacultyAttendance(PFSurl);
-				testFaculityTimetable(PFSurl);
+				// testFaculty(PFSurl);
+				// testFacultyQuestionBank(PFSurl);
+				// testFacultyCourseContent(PFSurl);
+				// testFacultyExamination(PFSurl);
+				// testFacultyMYStudent(PFSurl);
+				// testFacultyAttendance(PFSurl);
+				// testFaculityTimetable(PFSurl);
 				testFacultyService(PFSurl);
 				testFacultyRaiseCase(studentEmail, facultyEmail, PFSurl);
 				testFacultyMakeRequest(studentEmail, facultyEmail, PFSurl);
-				testFacultyEvent(PFSurl);
-				testfacultyEditProfile(studentEmail, facultyEmail, PFSurl);
-				testfacultyEditAddress(studentEmail, facultyEmail, PFSurl);
-				testfacultyEditAcademicDetails(studentEmail, facultyEmail, PFSurl);
-				testfacultyEditReaserchSupervision(studentEmail, facultyEmail, PFSurl);
-				testfacultyEditResearchPublication(studentEmail, facultyEmail, PFSurl);
-				testfacultyEditConference(studentEmail, facultyEmail, PFSurl);
-				testfacultyEditBook(studentEmail, facultyEmail, PFSurl);
-				testfacultyEditProfessionalAssociation(studentEmail, facultyEmail, PFSurl);
-				testfacultyOthers(studentEmail, facultyEmail, PFSurl);
+				// testFacultyEvent(PFSurl);
+				// testfacultyEditProfile(studentEmail, facultyEmail, PFSurl);
+				// testfacultyEditAddress(studentEmail, facultyEmail, PFSurl);
+				// testfacultyEditAcademicDetails(studentEmail, facultyEmail, PFSurl);
+				// testfacultyEditReaserchSupervision(studentEmail, facultyEmail, PFSurl);
+				// testfacultyEditResearchPublication(studentEmail, facultyEmail, PFSurl);
+				// testfacultyEditConference(studentEmail, facultyEmail, PFSurl);
+				// testfacultyEditBook(studentEmail, facultyEmail, PFSurl);
+				// testfacultyEditProfessionalAssociation(studentEmail, facultyEmail, PFSurl);
+				// testfacultyOthers(studentEmail, facultyEmail, PFSurl);
 				testFacultyDashboard(studentEmail, facultyEmail, PFSurl);
 				testFacultyQuestionPaper(studentEmail, facultyEmail, PFSurl);
 				testFacultySignout(PFSurl);
 				log.info("FACULTY PORTAL TEST CASES EXECUTION COMPLETED\n\n\n");
 			} else if ("both".equals(Role)) {
-				// testForumCreatePublishViewDelete(studentEmail, facultyEmail, PFSurl);
-				testPPTCreateViewDelete(studentEmail, facultyEmail, PFSurl);
-				testPDFCreateViewDelete(studentEmail, facultyEmail, PFSurl);
-				testVideoCreateViewDelete(studentEmail, facultyEmail, PFSurl);
-				testLinkCreateViewDelete(studentEmail, facultyEmail, PFSurl);
+				// testSpreadsheetCreateViewDelete(studentEmail, facultyEmail, PFSurl);
+				// testPPTCreateViewDelete(studentEmail, facultyEmail, PFSurl);
+				// testPDFCreateViewDelete(studentEmail, facultyEmail, PFSurl);
+				// testVideoCreateViewDelete(studentEmail, facultyEmail, PFSurl);
+				// testLinkCreateViewDelete(studentEmail, facultyEmail, PFSurl);
 				// testAssessmentCreatePublishViewDelete(studentEmail, facultyEmail, PFSurl);
 				// testFAssignmentCreatePublishViewDelete(studentEmail, facultyEmail, PFSurl);
-				testSpreadsheetCreateViewDelete(studentEmail, facultyEmail, PFSurl);
+				// testForumCreatePublishViewDelete(studentEmail, facultyEmail, PFSurl);
+
 			}
 			// After all test are over close the browser
 			quitDriver(PFSurl);
@@ -247,6 +249,18 @@ public class Pfs_portal {
 	}
 
 	@Test
+	public static Boolean checkServiceTab(String url){
+		String urlToMatch = "bimtech|jdinstitutedelhi";
+		Pattern pt = Pattern.compile(urlToMatch);
+        Matcher m = pt.matcher(url);
+        while (m.find()) {
+            // regex = m.group();
+            return true;
+        }
+        return false;
+	}
+
+	@Test
 	public static Boolean checkLtsta(String url){
 		String urlToMatch = "ltsta";
 		Pattern pt = Pattern.compile(urlToMatch);
@@ -288,7 +302,12 @@ public class Pfs_portal {
         return false;
 	}
 
-	
+	@Test
+	public static void goBackToHome(String url) throws InterruptedException{
+		Thread.sleep(7000);
+		driver.navigate().to(url);
+		Thread.sleep(5000);
+	}
 
 	@Test(priority = 1)
 	public static void testStudent(String url) throws Exception {
@@ -323,8 +342,7 @@ public class Pfs_portal {
 				log.info("Skipping this test as this is not applicable for this portal\n\n");
 				return;
 			}
-			driver.navigate().to(url);
-			Thread.sleep(7000);
+			goBackToHome(url); 
 			Automate.CallXpath(driver, ActionXpath.ClickEnroll, time, "Expand Enrollment");
 			Thread.sleep(3000);
 			Automate.CallXpath(driver, ActionXpath.clickCompletedEnroll, time, "select the Completes Enrollment");
@@ -347,7 +365,7 @@ public class Pfs_portal {
 	public static void testStudentAcademic(String url) throws Exception {
 		try {
 			System.out.println("TC-3: Starting Student Academic  test case execution");
-			driver.navigate().to(url);
+			goBackToHome(url); 
 			Thread.sleep(5000);
 			if (checkLtsta(url)){
 				Automate.CallXpath(driver, ActionXpath.ltstaAcademic, time, "Exapand Academic ");
@@ -380,6 +398,7 @@ public class Pfs_portal {
 	public static void testStudentExamination(String url) throws Exception {
 		try {
 			System.out.println("TC-4:   Starting Student Examination test case execution");
+			goBackToHome(url);
 			if (checkUrlToSkipTest(url)){
 				log.info("TC-4: Exam tab Skipping as this is not applicable for this portal\n\n");
 				return;
@@ -390,7 +409,7 @@ public class Pfs_portal {
 				Thread.sleep(5000);
 				Automate.CallXpath(driver, ActionXpath.ClickExam, time, "Click Exams");
 			}
-			Automate.CallXpath(driver, ActionXpath.examAnnouncements, time, "Announcement");
+			Automate.CallXpath(driver, ActionXpath.examAnnouncements, time, "Click on Announcement");
 			Thread.sleep(2000);
 			log.info("Student TC-4: Student Examination Test Case PASSED \n\n");
 		} catch (Exception e) {
@@ -404,6 +423,7 @@ public class Pfs_portal {
 	public static void testStudentAttendance(String url) throws Exception {
 		try {
 			System.out.println("TC-5: Starting Student Attendance test case execution");
+			goBackToHome(url);
 			if (checkLtsta(url)){
 				Automate.CallXpath(driver, ActionXpath.ltstaAttendance, time, "Select the Attendance");
 			}else {
@@ -424,6 +444,7 @@ public class Pfs_portal {
 	public static void testStudentTimeTable(String url) throws Exception {
 		try {
 			System.out.println("TC-6: Starting Student Timetable test case execution ");
+			goBackToHome(url);
 			if (checkLtsta(url)){
 				Automate.CallXpath(driver, ActionXpath.ltstaTimetable, time, "Select time table");
 			}else {
@@ -446,6 +467,7 @@ public class Pfs_portal {
 	public static void testStudentFees(String url) throws Exception {
 		try {
 			System.out.println("TC-7:  Starting Student FEES test case execution");
+			goBackToHome(url);
 			if (checkUrlToSkipTest(url)){
 				log.info("TC-7: Skipping this test as this is not applicable for this portal\n\n");
 				return;
@@ -478,7 +500,7 @@ public class Pfs_portal {
 	public static void testStudentFeedback(String url) throws Exception {
 		try {
 			System.out.println("TC-8:   Starting Student FEEDBACK test case execution");
-			// driver.navigate().to(url);
+			goBackToHome(url);
 			if (checkLtsta(url)){
 				Automate.CallXpath(driver, ActionXpath.ltstafeedBack, time, "FeedBack");
 			}else {
@@ -500,7 +522,7 @@ public class Pfs_portal {
 	public static void testStudentStudentStatus(String url) throws Exception {
 		try {
 			System.out.println("TC-9:  Starting  Student Services check cancel button test case execution ");
-			// driver.navigate().to(url);
+			goBackToHome(url);
 			Thread.sleep(3000);
 			if (checkLtsta(url)){
 				Automate.CallXpath(driver, ActionXpath.ltstaService, time, "Student Status");
@@ -526,9 +548,8 @@ public class Pfs_portal {
 	@Test(priority = 10)
 	public static void testStudentRaiseCase(String student, String faculty, String url) throws InterruptedException {
 		try {
-
-			Thread.sleep(5000);
 			System.out.println("TC-10: Starting Student Services Raise test case execution ");
+			goBackToHome(url);
 			Thread.sleep(3000);
 			if (checkLtsta(url)){
 				Automate.CallXpath(driver, ActionXpath.ltstaService, time, "Student Status");
@@ -558,9 +579,8 @@ public class Pfs_portal {
 	@Test(priority = 11)
 	public static void testStudentMakeRequest(String student, String faculty, String url) throws InterruptedException {
 		try {
-			Thread.sleep(5000);
 			System.out.println("TC-11 Starting Student Services make request test case execution ");
-			Thread.sleep(2500);
+			goBackToHome(url);
 			if (checkLtsta(url)){
 				Automate.CallXpath(driver, ActionXpath.ltstaService, time, "Student Status");
 			}else {
@@ -589,8 +609,7 @@ public class Pfs_portal {
 	public static void testStudentEvent(String student, String faculty, String url) throws Exception {
 		try {
 			System.out.println("TC-12:  Starting Student Event case Execution ");
-			driver.navigate().to(url);
-			Thread.sleep(5000);
+			goBackToHome(url);
 			if (checkLtsta(url)){
 				Automate.CallXpath(driver, ActionXpath.ltstaEvent, time, "Event");
 			}else {
@@ -609,10 +628,10 @@ public class Pfs_portal {
 	@Test(priority = 13)
 	public static void testStudentEditProfile(String url) throws Exception{
 		try {
-			driver.navigate().to(url);
-			Thread.sleep(9000);
-			Automate.CallXpath(driver, ActionXpath.Stu_prName, time, "profile");
-			Automate.CallXpath(driver, ActionXpath.stuprofile, time, "stuprofile");
+			System.out.println("TC-13: Starting execution of edit basic details of student profile");
+			goBackToHome(url);
+			Automate.CallXpath(driver, ActionXpath.Stu_prName, time, "Click on Initial icon");
+			Automate.CallXpath(driver, ActionXpath.stuprofile, time, "Click on profile button");
 			if(checkDevBimtech(url)){
 				//There is no edit button here so do nothing
 				System.out.println("In Dev/Bimtech no need for tab button");
@@ -620,9 +639,11 @@ public class Pfs_portal {
 				driver.findElement(By.xpath(ActionXpath.stuprofile)).sendKeys(Keys.TAB);
 			}
 			Thread.sleep(2000);
-			Automate.CallXpath(driver, ActionXpath.stubasicedit, time, "stubasicedit");
+			Automate.CallXpath(driver, ActionXpath.stubasicedit, time, "Click on edit SVG");
 			Automate.CallXpath(driver, ActionXpath.Stubasicgender, time, "Stubasicgender");
-			Automate.CallXpath(driver, ActionXpath.stubasicgenderselect, time, "stubasicgenderselect");
+			// Automate.CallXpath(driver, ActionXpath.stubasicgenderselect, time, "stubasicgenderselect");
+			String gender = "Female";
+			driver.findElement(By.xpath("//li[@data-value='" + gender + "']")).click();
 			Automate.callSendkeys(driver, ActionXpath.stubasicdob, "02-02-2022", time);
 			Automate.callSendkeys(driver, ActionXpath.stubasicnation, "India", time);
 			Automate.CallXpath(driver, ActionXpath.stubasicsave, time, "stubasicsave");
@@ -630,17 +651,16 @@ public class Pfs_portal {
 			log.info("  TC-13: Student edit profile test case PASSED \n\n");
 		} catch (Exception e) {
 			driver.navigate().to(url);
-			Thread.sleep(5000);
 			log.warning("TC-13: Student edit profile test case FAILED \n\n");
+			Thread.sleep(5000);
 		}
 	}
 
 	@Test(priority = 14)
 	public static void testStudentEditEducationDetails(String url) {
 		try {
-			// driver.navigate().to(url);
-			Thread.sleep(5000);
 			System.out.println(" TC-14 :   Starting student edit profile education Details case execution");
+			goBackToHome(url);
 			Automate.CallXpath(driver, ActionXpath.Stu_prName, time, "profile");
 			Automate.CallXpath(driver, ActionXpath.stuprofile, time, "stuprofile");
 			Thread.sleep(3000);
@@ -682,8 +702,8 @@ public class Pfs_portal {
 	@Test(priority = 15)
 	public static void testStudentEditAddress(String url) throws Exception {
 		try {
-			Thread.sleep(5000);
 			System.out.println(" TC-15:   Starting student prfofile edit Address test case execution");
+			goBackToHome(url);
 			Automate.CallXpath(driver, ActionXpath.Stu_prName, time, "profile");
 			Automate.CallXpath(driver, ActionXpath.stuprofile, time, "stuprofile");
 			Thread.sleep(3000);
@@ -721,6 +741,7 @@ public class Pfs_portal {
 	public static void testStudentSignout(String url) throws Exception {
 		try {
 			System.out.println("TC-16 :     Starting Student SIGNOUT  case execution ");
+			goBackToHome(url);
 			Automate.CallXpath(driver, ActionXpath.SelectPrtoSignout, time, " on the Profile on the student portal");
 			Automate.CallXpath(driver, ActionXpath.signOut, time, "Signout the student portal");
 			log.info(" TC-16 : Student SIGNOUT Test Case PASSED \n\n\n");
@@ -738,7 +759,7 @@ public class Pfs_portal {
 	public static void testFaculty(String url) throws Exception {
 		try {
 			System.out.println("TC-17 :     Starting FACULTY PORTAL Academic tab test case executation");
-			Thread.sleep(4000);
+			goBackToHome(url);
 			if(checkLtsta(url))
             {
 				Thread.sleep(2000);
@@ -770,15 +791,15 @@ public class Pfs_portal {
 	public static void testFacultyQuestionBank(String url) throws Exception {
 		try {
 			System.out.println(" TC-18 :    Faculty Starting QuestionBank Tab test case Executation");
-			Thread.sleep(2000);
+			goBackToHome(url);
 			if(checkLtsta(url))
-            {
-      Automate.CallXpath(driver, ActionXpath.facClickacademicsltsta, time, "open the span on Academics");
+           	{
+				Thread.sleep(2000);
+				Automate.CallXpath(driver, ActionXpath.facClickacademicsltsta, time, "open the span on Academics");
 				 }
-            else {
-            Automate.CallXpath(driver, ActionXpath.openFacdevnosbm, time, "open the acadmics for nsom & bmtech");    
-            }
-			Thread.sleep(3000);
+           	else {
+           		Automate.CallXpath(driver, ActionXpath.openFacdevnosbm, time, "open the acadmics for nsom & bmtech");    
+           	}
 			Automate.CallXpath(driver, ActionXpath.facqb, time, "click  the Question bank");
 			Automate.CallXpath(driver, ActionXpath.facaddque, time, "clcik on the add Question manualy");
 			
@@ -786,31 +807,30 @@ public class Pfs_portal {
 			Automate.CallXpath(driver, ActionXpath.facquesubselect, time, "slect the subject list ");
 			Automate.CallXpath(driver, ActionXpath.facquesNEXT, time, "click on the next ");
 			Automate.CallXpath(driver, ActionXpath.facqueback, time, "go back");
-			log.info("TC-18 : Faculty QuestionBank Test Case PASSED \n ");
+			log.info("TC-18 : Faculty QuestionBank click back button Test Case PASSED \n ");
 		} catch (Exception e) {
 			driver.get(url);
 			Thread.sleep(time);
-			log.warning("TC-18: Faculty QuestionBank Test Case FAILED \n");
+			log.warning("TC-18: Faculty QuestionBank click back button Test Case FAILED \n");
 		}
 	}
+
 
 	@Test(priority = 19)
 	public static void testFacultyCourseContent(String url) throws Exception {
 		try {
-
+			goBackToHome(url);
 			System.out.println("TC-19: Faculty Course Content Test Execution  Started ");
-			// Automate.CallXpath(driver, ActionXpath.facClickacademics,
-			// time,"facClickacademics");
 			Thread.sleep(2000);
 			if(checkLtsta(url))
             {
                 Automate.CallXpath(driver, ActionXpath.facClickacademicsltsta, time, "open academics sapn on the ltsta");    
             }
             else {
-            Automate.CallXpath(driver, ActionXpath.openFacltsta, time, "open span on acadmics on the ltsta");    
+            	Automate.CallXpath(driver, ActionXpath.openFacltsta, time, "open span on acadmics on the ltsta");    
             }
 			Thread.sleep(2000);
-			Automate.CallXpath(driver, ActionXpath.faccc, time, "click on the Course content span");
+			Automate.CallXpath(driver, ActionXpath.faccc, time, "click on the Course content");
 			Automate.CallXpath(driver, ActionXpath.facccactivity, time, "clck on activity button ");
 			Thread.sleep(3000);
 			Automate.CallXpath(driver, ActionXpath.facassessmentrelative, time, "select the activity option named was fourm");
@@ -839,8 +859,9 @@ public class Pfs_portal {
 	public static void testFacultyExamination(String url) throws Exception {
 		try {
 			System.out.println("TC-20:     Faculty Examination Test Executation Statred");
+			goBackToHome(url);
 			if (checkUrlToSkipTest(url)){
-				log.info("Skipping this test as this is not applicable for this portal\n\n");
+				log.info("TC_20 Faculty Examination Skipping this test as this is not applicable for this portal\n\n");
 				return;
 			}
 			Automate.CallXpath(driver, ActionXpath.facexam, time, "Click on the Examination span");
@@ -861,6 +882,7 @@ public class Pfs_portal {
 	public static void testFacultyMYStudent(String url) throws Exception {
 		try {
 			System.out.println("TC-21:   Faculty My Students Test Executation Started");
+			goBackToHome(url);
 			if(checkLtsta(url))
             {
 				Automate.CallXpath(driver, ActionXpath.faccMyStudentltsta, time, "open the my student on ltsta");
@@ -883,15 +905,15 @@ public class Pfs_portal {
 	public static void testFacultyAttendance(String url) throws Exception {
 		try {
 			System.out.println("TC-22 :    Faculty Attendance Test Executation Startred ");
+			goBackToHome(url);
 			if(checkLtsta(url))
             {
-				Automate.CallXpath(driver, ActionXpath.facattendanceforltsta, time, "facatt");
+				Automate.CallXpath(driver, ActionXpath.facattendanceforltsta, time, "click Attendance tab");
 				  }
             else {
-            Automate.CallXpath(driver, ActionXpath.facatt, time, "facatt");    
+            	Automate.CallXpath(driver, ActionXpath.facatt, time, "click Attendance tab");    
             }
-			Automate.CallXpath(driver, ActionXpath.facatt, time, "facatt");
-			Automate.CallXpath(driver, ActionXpath.faccAttendahis, time, "facattsub");
+			Automate.CallXpath(driver, ActionXpath.faccAttendahis, time, "Click attendance history");
 			
 			log.info("TC-22 : Faculty Attendance Test Executation PASSED \n ");
 		} catch (Exception e) {
@@ -905,6 +927,7 @@ public class Pfs_portal {
 	public static void testFaculityTimetable(String url) throws Exception {
 		try {
 			System.out.println("TC-23 :    Faculty Timetable Test Executation Started ");
+			goBackToHome(url);
 			if(checkLtsta(url))
             {
 				Automate.CallXpath(driver, ActionXpath.facClickTimetableltsta, time, "facClickTimetable");
@@ -930,12 +953,18 @@ public class Pfs_portal {
 	public static void testFacultyService(String url) throws Exception {
 		try {
 			System.out.println("TC-24:  Faculty Service Test case Started");
-			if (checkUrlToSkipTest(url)) {
-				Automate.CallXpath(driver, ActionXpath.facServicespfsbmtnsom, time, "click on faculty services");
-			} else {
-                Automate.CallXpath(driver, ActionXpath.facServicespfsbmtnsom, time, "click on faculty services");
-				Automate.CallXpath(driver, ActionXpath.facRaiseCaseleftNavbar, time, "Left nav bar FacRaisebutton");
+			goBackToHome(url);
+			if(checkLtsta(url)){
+				Automate.CallXpath(driver, ActionXpath.facServicesltsta, time, "click on faculty services");
+			}else {
+				if (checkServiceTab(url)) {
+					Automate.CallXpath(driver, ActionXpath.facServicespfsbmtnsom, time, "click on faculty services");
+					Automate.CallXpath(driver, ActionXpath.facRaiseCaseleftNavbar, time, "Left nav bar FacRaisebutton");
+				} else {
+					Automate.CallXpath(driver, ActionXpath.facServicespfsbmtnsom, time, "click on faculty services");
+				}
 			}
+			
 			Automate.CallXpath(driver, ActionXpath.FacRaisebutton, time, "FacRaisebutton");
 
 			Automate.CallXpath(driver, ActionXpath.facCancelSer, time, "cancel");
@@ -955,17 +984,20 @@ public class Pfs_portal {
 	@Test(priority = 25)
 	public static void testFacultyRaiseCase(String student, String faculty, String url) {
 		try {
-
-		
 			System.out.println("TC-25 Faculty Service Raise Case ");
-			if (checkUrlToSkipTest(url)) {
-				Automate.CallXpath(driver, ActionXpath.facServicespfsbmtnsom, time, "click on faculty services");
-			} else {
-				Automate.CallXpath(driver, ActionXpath.facServicespfsbmtnsom, time, "click on faculty services");
-				Automate.CallXpath(driver, ActionXpath.facRaiseCaseleftNavbar, time, "Left nav bar FacRaisebutton");
+			goBackToHome(url);
+			if(checkLtsta(url)){
+				Automate.CallXpath(driver, ActionXpath.facServicesltsta, time, "click on faculty services");
+			}else {
+				if (checkServiceTab(url)) {
+					Automate.CallXpath(driver, ActionXpath.facServicespfsbmtnsom, time, "click on faculty services");
+					Automate.CallXpath(driver, ActionXpath.facRaiseCaseleftNavbar, time, "Left nav bar FacRaisebutton");
+				} else {
+					Automate.CallXpath(driver, ActionXpath.facServicespfsbmtnsom, time, "click on faculty services");
+				}
 			}
+			Thread.sleep(3000);
 			Automate.CallXpath(driver, ActionXpath.FacRaisebutton, time, "FacRaisebutton");
-
 			Thread.sleep(2000);
 			Automate.callSendkeys(driver, ActionXpath.inputSub, "Regd Error on Inviligation Secation", time);
 			Automate.callSendkeys(driver, ActionXpath.FacDesc,
@@ -973,9 +1005,7 @@ public class Pfs_portal {
 					time);
 			Thread.sleep(2000);
 			Automate.CallXpath(driver, ActionXpath.SubmitRaise, time, "Submit the case");
-
 			log.info("TC 25: Faculty service Status  Raise Case PASSED \n");
-
 		} catch (Exception e) {
 //			driver.get(url);
 			log.warning("TC 25: Faculty service Status  Raise Case FAILED \n");
@@ -985,16 +1015,19 @@ public class Pfs_portal {
 	@Test(priority = 26)
 	public static void testFacultyMakeRequest(String student, String faculty, String url) throws Exception {
 		try {
-
-			Thread.sleep(10000);
-			System.out.println("TC-26:  Faculty Service Make Raise Request ");
-			  if(checkUrlToSkipTest(url)){
-	                Automate.CallXpath(driver, ActionXpath.facServicespfsbmtnsom, time, "click on faculty services");
-	            } else {
-	            Automate.CallXpath(driver, ActionXpath.facServicespfsbmtnsom, time, "click on faculty services");
-			Automate.CallXpath(driver, ActionXpath.facMakedevNsom, time, "click on make request bar");
-	            }
-			  Thread.sleep(3000);
+			System.out.println("TC-26: Starting Faculty make a request test case");
+			goBackToHome(url);
+			if(checkLtsta(url)){
+				Automate.CallXpath(driver, ActionXpath.facServicesltsta, time, "click on faculty services");
+			}else {
+				if (checkServiceTab(url)) {
+					Automate.CallXpath(driver, ActionXpath.facServicespfsbmtnsom, time, "click on faculty services");
+					Automate.CallXpath(driver, ActionXpath.facRaiseCaseleftNavbar, time, "Left nav bar FacRaisebutton");
+				} else {
+					Automate.CallXpath(driver, ActionXpath.facServicespfsbmtnsom, time, "click on faculty services");
+				}
+			}
+			Thread.sleep(3000);
 			Automate.CallXpath(driver, ActionXpath.facMakeRButtondevNsome, time, "make rq button");
 			Thread.sleep(2000);
 			Automate.callSendkeys(driver, ActionXpath.makeSubjectIn, "5 days Leave Request ", time);
@@ -1016,6 +1049,7 @@ public class Pfs_portal {
 	public static void testFacultyEvent(String url) throws Exception {
 		try {
 			System.out.println("TC-27 :  Faculty Portal Event Tab Test case Started");
+			goBackToHome(url);
 			if(checkLtsta(url))
             {
 				Automate.CallXpath(driver, ActionXpath.faccEventltsta, time, "facEvent");
@@ -1037,9 +1071,7 @@ public class Pfs_portal {
 	@Test(priority = 28)
 	public static void testfacultyEditProfile(String student, String faculty, String url) throws Exception {
 		try {
-
-			Thread.sleep(20000);
-		System.out.println(" TC-28 :   Faculty Starting PersonalDetails Started  case executation");
+			System.out.println(" TC-28 :   Faculty Starting PersonalDetails Started  case executation");
 			Automate.CallXpath(driver, ActionXpath.facSeleectpic, time, "facSelectPrtoSignout");
 			Automate.CallXpath(driver, ActionXpath.faccProfile, time, "facprofile");
 			Automate.CallXpath(driver, ActionXpath.facpersonal, time, "facpersonal");
@@ -1310,7 +1342,12 @@ public class Pfs_portal {
 		try {
 
 			System.out.println("TC-37 Faculty DASHBOARD test executation \n");
-			Automate.CallXpath(driver, ActionXpath.openFacdevnosbm, time, "Click Academics");
+			goBackToHome(url);
+			if(checkLtstaltpct(url)){
+				Automate.CallXpath(driver, ActionXpath.openFacltsta, time, "Click Academics");
+			}else {
+				Automate.CallXpath(driver, ActionXpath.openFacdevnosbm, time, "Click Academics");
+			}
 			Thread.sleep(3000);
 			Automate.CallXpath(driver, ActionXpath.clickFacDashdevnosbm, time, "Dashboard");
 			Thread.sleep(5000);
@@ -1332,9 +1369,9 @@ public class Pfs_portal {
 	public static void testFacultyQuestionPaper(String student, String faculty, String url) throws Exception {
 		try {
 
-		System.out.println("TC-38 Faculty QUESTION PAPER test executation \n");
-			Thread.sleep(10000);
-			if(checkAcad(url))
+			System.out.println("TC-38 Faculty QUESTION PAPER test executation \n");
+			goBackToHome(url);
+			if(checkLtsta(url))
 			{
 				Automate.CallXpath(driver, ActionXpath.ltstaaccademics, time, "facClickacademics");	
 			}
@@ -1395,7 +1432,7 @@ public class Pfs_portal {
 			Automate.CallXpath(driver, ActionXpath.facselectpro, time, "facselectpro");
 			Automate.CallXpath(driver, ActionXpath.facprofile, time, "facprofile");
 
-			Automate.CallXpath(driver, ActionXpath.facSeleectpic, time, "facSelectPrtoSignout");
+			Automate.CallXpath(driver, ActionXpath.facSeleectpic, time, "Click of faculty pic");
 			Automate.CallXpath(driver, ActionXpath.facsignOut, time, "facsignOut");
 			log.info(" TC-39: Faculty View Profile and Sign out Test Case PASSED \n ");
 		} catch (Exception e) {
@@ -1410,121 +1447,53 @@ public class Pfs_portal {
 	///////////////////////// STARTED TEST CASE FOR BOTH PORTAL
 	///////////////////////// ///////////////////////
 
+
 	@Test(priority = 40)
-	public static void testForumCreatePublishViewDelete(String student, String faculty, String url) throws Exception {
+	public static void testSpreadsheetCreateViewDelete(String student, String faculty, String url) throws Exception {
 		try {
+			System.out.println("TC-40:  SpreadSheet resource Create View delete Test case Started");
 			login(faculty);
 			Thread.sleep(10000);
-			System.out.println("TC-40 Faculty Fourm create,publish Delete test case Staerted...\n");
-			Thread.sleep(3000);
 			if(checkAcad(url))
 			{
-				Automate.CallXpath(driver, ActionXpath.ltstaaccademics, time, "facClickacademics");	
+				Automate.CallXpath(driver, ActionXpath.facClickacademicsltsta, time, "facClickacademics");	
 			}
 			else {
-			Automate.CallXpath(driver, ActionXpath.accademics, time, "accademics");	
+				Automate.CallXpath(driver, ActionXpath.facClickacademics, time, "facClickacademics");	
 			}
-			Automate.CallXpath(driver, ActionXpath.relativefacforumclickcouse1, time, "facforumclickcouse");
+			Automate.CallXpath(driver, ActionXpath.faccc, time, "faccc");
+			// add link publish and signout
+			Automate.CallXpath(driver, ActionXpath.facccres, time, "facccres");
+			Thread.sleep(6000);
+			Automate.CallXpath(driver, ActionXpath.facssclick, time, "facssclick");
+			Automate.CallXpath(driver, ActionXpath.facssadd, time, "facssadd");
 
-			Thread.sleep(10000);
-			Automate.CallXpath(driver, ActionXpath.relativefacforumactivity1, time, "facforumactivity");
-
-			Thread.sleep(3000);
-			Automate.CallXpath(driver, ActionXpath.relativefacforum1, time, "facforum");
-
-			Thread.sleep(2000);
-			Automate.CallXpath(driver, ActionXpath.relativefacfforumaddactivity1, time, "facfforumaddactivity");
-
-			Thread.sleep(2000);
-
-			Automate.callSendkeys(driver, ActionXpath.relativefacforumname1, "spruthirajautomation", time);
-			//new
-			Automate.CallXpath(driver, ActionXpath.facinstruction3dot, time, "facinstruction3dot");
-			Thread.sleep(2000);
-			//new over
-			Thread.sleep(2000);
-			Automate.CallXpath(driver, ActionXpath.relativefacforumclink1, time, "facforumclink");
-
-			Thread.sleep(2000);
-			Automate.callSendkeys(driver, ActionXpath.relativefacforumurl1, "suri", time);
-
-			Thread.sleep(2000);
-			Automate.CallXpath(driver, ActionXpath.relativefacforumsavlin1, time, "facforumsavlin");
-
-			Thread.sleep(4000);
-			Automate.CallXpath(driver, ActionXpath.relativefacforumsave1, time, " facforumsave");
-
-			Thread.sleep(5000);
-			Automate.CallXpath(driver, ActionXpath.relativefaforumsave1, time, "faforumsave");
-
+			Automate.CallXpath(driver, ActionXpath.facccresdescclick, time, "facccresdescclick");
+			Automate.callSendkeys(driver, ActionXpath.facccresurl, "Hello", time);
+		
+			Automate.CallXpath(driver, ActionXpath.facccressubmitform, time, "facccressubmitform");
+			Automate.callSendkeys(driver, ActionXpath.facpptname, "Sample Link", time);
+			 driver.findElement(By.xpath("//input[@accept='.xlsx,.xls']")).sendKeys("C:\\Users\\USER\\Public Document\\demo.xlsx");
+		      Thread.sleep(15000);	
+			Automate.CallXpath(driver, ActionXpath.facccressubmit, time, "facccressubmit");
 			Thread.sleep(8000);
-			Automate.CallXpath(driver, ActionXpath.relativefaforumok1, time, "faforumok");
-
+			Automate.CallXpath(driver, ActionXpath.facccressubmityes, time, "facccressubmityes");
 			Thread.sleep(8000);
-			Automate.CallXpath(driver, ActionXpath.relativeformexpand1, time, "formexpand");
-
+			// publishlink
+			Automate.CallXpath(driver, ActionXpath.facssopen, time, "faclinkopen");
+			Automate.CallXpath(driver, ActionXpath.facss3dot, time, "faclink3dot");
 			Thread.sleep(5000);
-			JavascriptExecutor js2 = (JavascriptExecutor) driver;
-			js2.executeScript("window.scrollBy(0,3000)");
+			Automate.CallXpath(driver, ActionXpath.facsspublish, time, "faclinkpublish");
+			Automate.CallXpath(driver, ActionXpath.facsspublishyes, time, "faclinkpublishyes");
+			Thread.sleep(25000);
+			Thread.sleep(6000);
+			Automate.CallXpath(driver, ActionXpath.FCCportal, time, "facSelectPrtoSignout");
+			Automate.CallXpath(driver, ActionXpath.facsignOut, time, "facsignOut");
 
-			Thread.sleep(5000);
-			JavascriptExecutor js3 = (JavascriptExecutor) driver;
-			WebElement el = driver.findElement(By.xpath("//p[.='spruthirajautomation']"));
-			js3.executeScript("arguments[0].scrollIntoView(true);", el);
-			Thread.sleep(10000);
-			Automate.CallXpath(driver, ActionXpath.relativefaccformedot1, time, "faccformedot");
-
-			Thread.sleep(10000);
-
-			WebDriverWait wait5 = new WebDriverWait(driver, 20);
-			WebElement element15 = wait5
-					.until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[.='Publish'])[1]")));
-			((JavascriptExecutor) driver).executeScript("arguments[0].click();", element15);
-
-			Thread.sleep(10000);
-
-			WebDriverWait waitei = new WebDriverWait(driver, 20);
-			WebElement element29 = waitei
-					.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[.='Publish']")));
-			((JavascriptExecutor) driver).executeScript("arguments[0].click();", element29);
-
-			Thread.sleep(8000);
-			Thread.sleep(5000);
-
-			Automate.CallXpath(driver, ActionXpath.relativefacformeclickonp1, time, "clickonT");
-			Thread.sleep(5000);
-			Automate.CallXpath(driver, ActionXpath.relativefacformesignout1, time, "Signout");
-
-			Thread.sleep(5000);
-
-			// ..............Student Login forum.......................//
 			login(student);
-			Thread.sleep(20000);
-			if(checkAcad(url))
-			{
-				Automate.CallXpath(driver, ActionXpath.Studentassessmenstrelativeacademic, time, "facClickacademics");	
-			}
-			else {
-			Automate.CallXpath(driver, ActionXpath.accademics, time, "accademics");	
-			}Thread.sleep(10000);
-			Automate.CallXpath(driver, ActionXpath.relativeforumlearnltsta1, time, "Select learn");
+			// Verify link creation and logout
 			Thread.sleep(10000);
-			Automate.CallXpath(driver, ActionXpath.relativeforumaexpandltsta1, time, "expand forum");
-			Thread.sleep(2000);
-			JavascriptExecutor js34 = (JavascriptExecutor) driver;
-			js34.executeScript("window.scrollBy(0,2000)");
-			Thread.sleep(2000);
-			JavascriptExecutor js26 = (JavascriptExecutor) driver;
-			WebElement element36 = driver.findElement(By.xpath("//p[.='spruthirajautomation']"));
-
-			js26.executeScript("arguments[0].scrollIntoView(true);", element36);
-			Thread.sleep(5000);
-			Automate.CallXpath(driver, ActionXpath.relativeforumsubltstasign1, time, "click profile");
-			Automate.CallXpath(driver, ActionXpath.relativeforumsubltstasignout1, time, "Signout");
-			Thread.sleep(5000);
-			//// ..................... Delete fourm.................../////
-			login(faculty);
-			Thread.sleep(4000);
+			Thread.sleep(15000);
 			if(checkAcad(url))
 			{
 				Automate.CallXpath(driver, ActionXpath.ltstaaccademics, time, "facClickacademics");	
@@ -1532,56 +1501,54 @@ public class Pfs_portal {
 			else {
 			Automate.CallXpath(driver, ActionXpath.accademics, time, "accademics");	
 			}
-			Automate.CallXpath(driver, ActionXpath.relativeforumdacclickcouse12, time, "facclickcouse");
+			Automate.CallXpath(driver, ActionXpath.learn, time, "learn");
+
+			Automate.CallXpath(driver, ActionXpath.viewss, time, "viewss");
+			Automate.CallXpath(driver, ActionXpath.facss3dot, time, "faclink3dot");
 			Thread.sleep(5000);
+			Automate.CallXpath(driver, ActionXpath.viewpdf2, time, "viewlink2");
+			Thread.sleep(6000);
+			Automate.CallXpath(driver, ActionXpath.learn, time, "learn");
+			Thread.sleep(6000);
+			Automate.CallXpath(driver, ActionXpath.SelectPrtoSignout, time, "SelectPrtoSignout");
+			Automate.CallXpath(driver, ActionXpath.logout, time, "logout");
 
-			Automate.CallXpath(driver, ActionXpath.relativeforumdfexpandltsta12, time, "Exapand");
-
-			Thread.sleep(3000);
-			JavascriptExecutor js269 = (JavascriptExecutor) driver;
-			js269.executeScript("window.scrollBy(0,3000)");
-
-			Thread.sleep(2000);
-			JavascriptExecutor js21 = (JavascriptExecutor) driver;
-			WebElement element = driver.findElement(By.xpath("//p[.='spruthirajautomation']"));
-			// xpath("//[@id='u"+s+"']"));
-
-			js21.executeScript("arguments[0].scrollIntoView(true);", element);
-
-			Thread.sleep(2000);
-
-			Automate.CallXpath(driver, ActionXpath.relativeforumfclickondotltsta12, time, "facdot");
-
-			Thread.sleep(2000);
-
-			Automate.CallXpath(driver, ActionXpath.relativedfacdelete12, time, "facdelete");
-
-			Thread.sleep(2000);
-
-			Automate.CallXpath(driver, ActionXpath.relativedfacdele12, time, "facdele");
-
-			// Thread.sleep(8000);
-
-			Thread.sleep(15000);
-
+			login(faculty);
+			Thread.sleep(10000);
+			if(checkAcad(url))
+			{
+				Automate.CallXpath(driver, ActionXpath.facClickacademicsltsta, time, "facClickacademics");	
+			}
+			else {
+			Automate.CallXpath(driver, ActionXpath.facClickacademics, time, "facClickacademics");	
+			}
+			Automate.CallXpath(driver, ActionXpath.faccc, time, "faccc");
+			// delete link
+			Thread.sleep(6000);
+			Automate.CallXpath(driver, ActionXpath.facssopen, time, "facspreadsheetopen");
+			Automate.CallXpath(driver, ActionXpath.facss3dot, time, "facspreadsheet3dot");
 			Thread.sleep(5000);
-
-			Automate.CallXpath(driver, ActionXpath.relativedfacclickonp12, time, "clickonT");
-			Thread.sleep(5000);
-			Automate.CallXpath(driver, ActionXpath.relativedfacconsignout12, time, "Signout");
-
-			log.info("TC-40 Faculty Fourm create,publish Delete test case PASSED...");
-
+			Automate.CallXpath(driver, ActionXpath.facpdfdelete, time, "facspreadsheetdelete");
+			Thread.sleep(6000);
+			Automate.CallXpath(driver, ActionXpath.facpdfdelete2, time, "facspreadsheetdelete2");
+			Thread.sleep(10000);
+			Automate.CallXpath(driver, ActionXpath.FCCportal, time, "facSelectPrtoSignout");
+			Automate.CallXpath(driver, ActionXpath.facsignOut, time, "facsignOut");
+			log.info("TC-40: SpreadSheet resource Create View delete Test Case PASSED....\n");
 		} catch (Exception e) {
-			log.warning("TC-40 Faculty Fourm create,publish Delete test case FAILED... \n");
-			logout(url);
+			driver.get(url);
+			Thread.sleep(time);
+			log.warning("TC-40: SpreadSheet resource Create View delete Test Case FAILED \n");
+
 		}
 	}
+
+	
 
 	@Test(priority = 41)
 	public static void testPPTCreateViewDelete(String student, String faculty, String url) throws Exception {
 		try {
-			System.out.println("TC-41:  Faculty Service Test case Started");
+			System.out.println("TC-41:  PPT resource Create View delete Test case Started");
 			login(faculty);
 			Thread.sleep(15000);
 			if(checkAcad(url))
@@ -1601,7 +1568,7 @@ public class Pfs_portal {
 			Thread.sleep(5000);
 			Automate.callSendkeys(driver, ActionXpath.facccresurl, "Hello", time);
 			Automate.CallXpath(driver, ActionXpath.facccressubmitform, time, "facccressubmitform");
-			Automate.callSendkeys(driver, ActionXpath.facpptname, "Demo PPT", time);
+			Automate.callSendkeys(driver, ActionXpath.facpptname, "Sample PPT", time);
 			driver.findElement(By.xpath("//input[@accept='.ppt,.pptx']"))
 					.sendKeys("C:\\Users\\Public\\Documents\\demo.pptx");
 			Thread.sleep(25000);
@@ -1664,12 +1631,12 @@ public class Pfs_portal {
 			Thread.sleep(10000);
 			Automate.CallXpath(driver, ActionXpath.FCCportal, time, "facSelectPrtoSignout");
 			Automate.CallXpath(driver, ActionXpath.facsignOut, time, "facsignOut");
-			log.info("TC-41: View Profile and Sign out Test Case PASSED \n");
+			log.info("TC-41: PPT resource Create View delete Test Case PASSED \n");
 
 		} catch (Exception e) {
 			driver.get(url);
 			Thread.sleep(time);
-			log.warning("TC-41: View Profile and Sign out Test Case FAILED \n");
+			log.warning("TC-41: PPT resource Create View delete Test Case FAILED \n");
 
 		}
 
@@ -2244,97 +2211,174 @@ public class Pfs_portal {
 	}
 
 	@Test(priority = 47)
-	public static void testSpreadsheetCreateViewDelete(String student, String faculty, String url) throws Exception {
+	public static void testForumCreatePublishViewDelete(String student, String faculty, String url) throws Exception {
 		try {
-			System.out.println("TC-47:  SpreadSheet resource Create View delete Test case Started");
 			login(faculty);
-			Thread.sleep(10000);
+			Thread.sleep(5000);
+			System.out.println("TC-47 Faculty Fourm create,publish Delete test case Staerted...\n");
+			
 			if(checkAcad(url))
 			{
-				Automate.CallXpath(driver, ActionXpath.facClickacademicsltsta, time, "facClickacademics");	
+				Automate.CallXpath(driver, ActionXpath.ltstaaccademics, time, "Click on academics tab");	
 			}
 			else {
-				Automate.CallXpath(driver, ActionXpath.facClickacademics, time, "facClickacademics");	
+			Automate.CallXpath(driver, ActionXpath.accademics, time, "Click on academics tab");	
 			}
-			Automate.CallXpath(driver, ActionXpath.faccc, time, "faccc");
-			// add link publish and signout
-			Automate.CallXpath(driver, ActionXpath.facccres, time, "facccres");
-			Thread.sleep(6000);
-			Automate.CallXpath(driver, ActionXpath.facssclick, time, "facssclick");
-			Automate.CallXpath(driver, ActionXpath.facssadd, time, "facssadd");
+			Thread.sleep(3000);
+			Automate.CallXpath(driver, ActionXpath.relativefacforumclickcouse1, time, "CLick on course content");
 
-			Automate.CallXpath(driver, ActionXpath.facccresdescclick, time, "facccresdescclick");
-			Automate.callSendkeys(driver, ActionXpath.facccresurl, "Hello", time);
-		
-			Automate.CallXpath(driver, ActionXpath.facccressubmitform, time, "facccressubmitform");
-			Automate.callSendkeys(driver, ActionXpath.facpptname, "Sample Link", time);
-			 driver.findElement(By.xpath("//input[@accept='.xlsx,.xls']")).sendKeys("C:\\Users\\USER\\Public Document\\demo.xlsx");
-		      Thread.sleep(15000);	
-			Automate.CallXpath(driver, ActionXpath.facccressubmit, time, "facccressubmit");
+			Thread.sleep(10000);
+			Automate.CallXpath(driver, ActionXpath.relativefacforumactivity1, time, "Click on activity");
+
+			Thread.sleep(3000);
+			Automate.CallXpath(driver, ActionXpath.relativefacforum1, time, "Click on Forum");
+
+			Thread.sleep(2000);
+			Automate.CallXpath(driver, ActionXpath.relativefacfforumaddactivity1, time, "Click on Forum Add activity");
+
+			Thread.sleep(2000);
+
+			Automate.callSendkeys(driver, ActionXpath.relativefacforumname1, "spruthirajautomation", time);
+			//new
+			Automate.CallXpath(driver, ActionXpath.facinstruction3dot, time, "facinstruction3dot");
+			Thread.sleep(2000);
+			//new over
+			Thread.sleep(2000);
+			Automate.CallXpath(driver, ActionXpath.relativefacforumclink1, time, "facforumclink");
+
+			Thread.sleep(2000);
+			Automate.callSendkeys(driver, ActionXpath.relativefacforumurl1, "suri", time);
+
+			Thread.sleep(2000);
+			Automate.CallXpath(driver, ActionXpath.relativefacforumsavlin1, time, "CLick on Save link");
+
+			Thread.sleep(4000);
+			Automate.CallXpath(driver, ActionXpath.relativefacforumsave1, time, " CLick on Save button1");
+
+			Thread.sleep(5000);
+			Automate.CallXpath(driver, ActionXpath.relativefaforumsave1, time, "CLick on Save button2");
+
 			Thread.sleep(8000);
-			Automate.CallXpath(driver, ActionXpath.facccressubmityes, time, "facccressubmityes");
+			Automate.CallXpath(driver, ActionXpath.relativefaforumok1, time, "Click on OK button");
+
 			Thread.sleep(8000);
-			// publishlink
-			Automate.CallXpath(driver, ActionXpath.facssopen, time, "faclinkopen");
-			Automate.CallXpath(driver, ActionXpath.facss3dot, time, "faclink3dot");
-			Thread.sleep(5000);
-			Automate.CallXpath(driver, ActionXpath.facsspublish, time, "faclinkpublish");
-			Automate.CallXpath(driver, ActionXpath.facsspublishyes, time, "faclinkpublishyes");
-			Thread.sleep(25000);
-			Thread.sleep(6000);
-			Automate.CallXpath(driver, ActionXpath.facselectpro, time, "facSelectPrtoSignout");
-			Automate.CallXpath(driver, ActionXpath.facsignOut, time, "facsignOut");
+			Automate.CallXpath(driver, ActionXpath.relativeformexpand1, time, "Click on Forum open");
 
-			login(student);
-			// Verify link creation and logout
-			Thread.sleep(10000);
-			Thread.sleep(15000);
-			if(checkAcad(url))
-			{
-				Automate.CallXpath(driver, ActionXpath.ltstaaccademics, time, "facClickacademics");	
-			}
-			else {
-			Automate.CallXpath(driver, ActionXpath.accademics, time, "accademics");	
-			}
-			Automate.CallXpath(driver, ActionXpath.learn, time, "learn");
-
-			Automate.CallXpath(driver, ActionXpath.viewss, time, "viewss");
-			Automate.CallXpath(driver, ActionXpath.facss3dot, time, "faclink3dot");
 			Thread.sleep(5000);
-			Automate.CallXpath(driver, ActionXpath.viewpdf2, time, "viewlink2");
-			Thread.sleep(6000);
-			Automate.CallXpath(driver, ActionXpath.learn, time, "learn");
-			Thread.sleep(6000);
-			Automate.CallXpath(driver, ActionXpath.SelectPrtoSignout, time, "SelectPrtoSignout");
-			Automate.CallXpath(driver, ActionXpath.logout, time, "logout");
+			JavascriptExecutor js2 = (JavascriptExecutor) driver;
+			js2.executeScript("window.scrollBy(0,500)");
 
-			login(faculty);
-			Thread.sleep(10000);
-			if(checkAcad(url))
-			{
-				Automate.CallXpath(driver, ActionXpath.facClickacademicsltsta, time, "facClickacademics");	
-			}
-			else {
-			Automate.CallXpath(driver, ActionXpath.facClickacademics, time, "facClickacademics");	
-			}
-			Automate.CallXpath(driver, ActionXpath.faccc, time, "faccc");
-			// delete link
-			Thread.sleep(6000);
-			Automate.CallXpath(driver, ActionXpath.facssopen, time, "facspreadsheetopen");
-			Automate.CallXpath(driver, ActionXpath.facss3dot, time, "facspreadsheet3dot");
 			Thread.sleep(5000);
-			Automate.CallXpath(driver, ActionXpath.facpdfdelete, time, "facspreadsheetdelete");
-			Thread.sleep(6000);
-			Automate.CallXpath(driver, ActionXpath.facpdfdelete2, time, "facspreadsheetdelete2");
+			JavascriptExecutor js3 = (JavascriptExecutor) driver;
+			WebElement el = driver.findElement(By.xpath("//p[.='spruthirajautomation']"));
+			js3.executeScript("arguments[0].scrollIntoView(true);", el);
 			Thread.sleep(10000);
-			Automate.CallXpath(driver, ActionXpath.facselectpro, time, "facSelectPrtoSignout");
-			Automate.CallXpath(driver, ActionXpath.facsignOut, time, "facsignOut");
-			log.info("TC-47 SpreadSheet resource Create View delete Test Case PASSED....\n");
+			Automate.CallXpath(driver, ActionXpath.relativefaccformedot1, time, "CLick on 3 dots");
+			// Automate.CallXpath(driver, ActionXpath.relativefacformepublish11, time, "Publish on 3 dots");
+			// Automate.CallXpath(driver, ActionXpath.relativefacformepublish12, time, "Final Publish button");
+
+			Thread.sleep(10000);
+
+
+			WebDriverWait wait5 = new WebDriverWait(driver, 20);
+			WebElement element15 = wait5
+					.until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[.='Publish'])[1]")));
+			((JavascriptExecutor) driver).executeScript("arguments[0].click();", element15);
+
+			Thread.sleep(10000);
+
+			WebDriverWait waitei = new WebDriverWait(driver, 20);
+			WebElement element29 = waitei
+					.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[.='Publish']")));
+			((JavascriptExecutor) driver).executeScript("arguments[0].click();", element29);
+
+			Thread.sleep(8000);
+			Thread.sleep(5000);
+
+			Automate.CallXpath(driver, ActionXpath.relativefacformeclickonp1, time, "clickonT");
+			Thread.sleep(5000);
+			Automate.CallXpath(driver, ActionXpath.relativefacformesignout1, time, "Signout");
+
+			// Thread.sleep(5000);
+
+			// // ..............Student Login forum.......................//
+			// login(student);
+			// Thread.sleep(20000);
+			// if(checkAcad(url))
+			// {
+			// 	Automate.CallXpath(driver, ActionXpath.Studentassessmenstrelativeacademic, time, "facClickacademics");	
+			// }
+			// else {
+			// Automate.CallXpath(driver, ActionXpath.accademics, time, "accademics");	
+			// }Thread.sleep(10000);
+			// Automate.CallXpath(driver, ActionXpath.relativeforumlearnltsta1, time, "Select learn");
+			// Thread.sleep(10000);
+			// Automate.CallXpath(driver, ActionXpath.relativeforumaexpandltsta1, time, "expand forum");
+			// Thread.sleep(2000);
+			// JavascriptExecutor js34 = (JavascriptExecutor) driver;
+			// js34.executeScript("window.scrollBy(0,2000)");
+			// Thread.sleep(2000);
+			// JavascriptExecutor js26 = (JavascriptExecutor) driver;
+			// WebElement element36 = driver.findElement(By.xpath("//p[.='spruthirajautomation']"));
+
+			// js26.executeScript("arguments[0].scrollIntoView(true);", element36);
+			// Thread.sleep(5000);
+			// Automate.CallXpath(driver, ActionXpath.relativeforumsubltstasign1, time, "click profile");
+			// Automate.CallXpath(driver, ActionXpath.relativeforumsubltstasignout1, time, "Signout");
+			// Thread.sleep(5000);
+			// //// ..................... Delete fourm.................../////
+			// login(faculty);
+			// Thread.sleep(4000);
+			// if(checkAcad(url))
+			// {
+			// 	Automate.CallXpath(driver, ActionXpath.ltstaaccademics, time, "facClickacademics");	
+			// }
+			// else {
+			// Automate.CallXpath(driver, ActionXpath.accademics, time, "accademics");	
+			// }
+			// Automate.CallXpath(driver, ActionXpath.relativeforumdacclickcouse12, time, "facclickcouse");
+			// Thread.sleep(5000);
+
+			// Automate.CallXpath(driver, ActionXpath.relativeforumdfexpandltsta12, time, "Exapand");
+
+			// Thread.sleep(3000);
+			// JavascriptExecutor js269 = (JavascriptExecutor) driver;
+			// js269.executeScript("window.scrollBy(0,3000)");
+
+			// Thread.sleep(2000);
+			// JavascriptExecutor js21 = (JavascriptExecutor) driver;
+			// WebElement element = driver.findElement(By.xpath("//p[.='spruthirajautomation']"));
+			// // xpath("//[@id='u"+s+"']"));
+
+			// js21.executeScript("arguments[0].scrollIntoView(true);", element);
+
+			// Thread.sleep(2000);
+
+			// Automate.CallXpath(driver, ActionXpath.relativeforumfclickondotltsta12, time, "facdot");
+
+			// Thread.sleep(2000);
+
+			// Automate.CallXpath(driver, ActionXpath.relativedfacdelete12, time, "facdelete");
+
+			// Thread.sleep(2000);
+
+			// Automate.CallXpath(driver, ActionXpath.relativedfacdele12, time, "facdele");
+
+			// // Thread.sleep(8000);
+
+			// Thread.sleep(15000);
+
+			// Thread.sleep(5000);
+
+			// Automate.CallXpath(driver, ActionXpath.relativedfacclickonp12, time, "clickonT");
+			// Thread.sleep(5000);
+			// Automate.CallXpath(driver, ActionXpath.relativedfacconsignout12, time, "Signout");
+
+			log.info("TC-47: Faculty Fourm create,publish Delete test case PASSED...");
+
 		} catch (Exception e) {
-			driver.get(url);
-			Thread.sleep(time);
-			log.warning("TC-47: SpreadSheet resource Create View delete Test Case FAILED \n");
-
+			log.warning("TC-47: Faculty Fourm create,publish Delete test case FAILED... \n");
+			logout(url);
 		}
 	}
 	
