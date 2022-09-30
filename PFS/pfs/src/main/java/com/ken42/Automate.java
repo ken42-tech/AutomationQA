@@ -12,7 +12,7 @@ public class Automate {
     public static void CallXpath(WebDriver driver,String xpath, int time,String msg) throws Exception {
         
         int count = 0;
-		int maxTries = 2;
+		int maxTries = 3;
 		while (true){
 			try {
 				Thread.sleep(3000);

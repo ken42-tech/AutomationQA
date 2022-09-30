@@ -271,7 +271,8 @@ static String FacRaisecasedevbmtech = "//span[text()='Raise a Case']";
 static String FacRaisebutton = "//button[@label='Raise Case' or text()='Raise Case'] ";
 static String facCancelSer = "//span[text()='Cancel']";
 static String facMakedevNsom = "//p[text()='Make A Request']";
-static String facMakeRButtondevNsome = "//span[text()=' Make a Request']";
+static String facMakeRButtondevNsome = "//p[text()='Make A Request']";
+static String facMakeReqButtonSecond = "//span[text()=' Make a Request']";
 static String FaccraiseNSOM = "//button[@label='Raise Case']";
 // TC:25:faculty Raise request
 static String inputSub = "//input[@name='Subject']";
