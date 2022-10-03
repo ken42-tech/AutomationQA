@@ -5,6 +5,8 @@ import java.util.logging.*;
 // import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 
 public class Automate {
@@ -12,15 +14,15 @@ public class Automate {
     public static void CallXpath(WebDriver driver,String xpath, int time,String msg) throws Exception {
         
         int count = 0;
-		int maxTries = 3;
+		int maxTries = 2;
 		while (true){
 			try {
-				Thread.sleep(3000);
+				Thread.sleep(1000);
 				log.info("Click on the:"+msg);
-				driver.findElement(By.xpath(xpath)).click();
+				new WebDriverWait(driver, 25).until(ExpectedConditions.elementToBeClickable(By.xpath(xpath))).click();
 				break;
 			} catch (Exception e) {
-				Thread.sleep(3000);
+				Thread.sleep(1000);
 				log.warning("Failed to Click on the :"+msg);
 				if (++count == maxTries) throw e;
 			}
@@ -33,10 +35,13 @@ public static void callSendkeys(WebDriver driver,String Xpath, String Value, int
 	while (true){
 		try {
 			log.info("Entering value"+Value);
-			driver.findElement(By.xpath(Xpath)).sendKeys(Value);
+			// driver.findElement(By.xpath(Xpath)).sendKeys(Value);
+			new WebDriverWait(driver, 25).until(ExpectedConditions.elementToBeClickable(By.xpath(Xpath))).sendKeys(Value);
 			Thread.sleep(time1);
 			break;
 		} catch (Exception e) {
+			Thread.sleep(1000);
+			log.warning("Failed to send value  "+Value);
 			if (++count == maxTries) throw e;
 		}
 	}

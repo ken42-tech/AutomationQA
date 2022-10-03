@@ -449,9 +449,10 @@ static String facssadd="//span[text()='Add Resource']";
 //ltsta xpath
 ////static String facClickacademicsltsta="//span[text()='Academics']";
 //spreadsheet publish
-static String facssopen="(//div[@id='panel1a-header'])[5]";
+static String facssopen="//span[. and contains(text(), 'Spreadsheet')]/../../../..//*[local-name()='svg']";
 // static String facss3dot="(//div[@class='MuiCardContent-root'])[12]";
-static String facss3dot="(//p[.='Sample Excel']/ancestor::div[@class='MuiPaper-root MuiCard-root jss152 MuiPaper-outlined MuiPaper-rounded']/descendant::h5/../../..//*[local-name()='svg'])";
+// static String facss3dot="(//p[.='Sample Excel']/ancestor::div[@class='MuiPaper-root MuiCard-root jss152 MuiPaper-outlined MuiPaper-rounded']/descendant::h5/../../..//*[local-name()='svg'])";
+static String facss3dot="//p[.='Sample Excel']/../../.././..//*[local-name()='svg']";
 static String facsspublish="//span[text()='Publish']";
 static String facsspublishyes="//span[text()='Publish']";
 ////static String facSelectPrtoSignout="/html/body/div[1]/div/div/div/main/div[2]/div[2]/header/div/header/div[1]/div[2]/div/div";
@@ -460,7 +461,7 @@ static String facsspublishyes="//span[text()='Publish']";
 ////static String ltstaaccademics="//span[text()='Academics']";
 ////static String accademics="(//span[text()='Academics'])[2]";
 ////static String learn="//span[text()='Learn']";
-static String viewss="(//div[@id='panel1a-header'])[5]";
+static String viewss="//span[. and contains(text(), 'Spreadsheet')]/../../../..//*[local-name()='svg']";
 ////static String viewpdf2="//span[text()='View']";
 ////static String SelectPrtoSignout="/html/body/div[1]/div/div/div/main/div[2]/div[2]/header/div/header/div[1]/div[2]/div/div";
 ////static String signOut="//*[.='Sign Out']";
@@ -478,18 +479,21 @@ static String viewss="(//div[@id='panel1a-header'])[5]";
 static String facClickacademics="(//span[text()='Academics'])[2]";
 //// static String faccc="//span[text()='Course Content']";
 static String facccres="//span[text()='Resource']";
-static String facpptclick="//figcaption[text()='Presentation']/..";
+static String facpptclick="//figcaption[text()='Presentation']/.. | /html/body/div[4]/div[3]/div/div[2]/div/div[1]/div[1]/div/img";
 static String facpptadd="//span[text()='Add Resource']";
-static String facccresdescclick="//button[@title='Insert/edit link']";
+// static String facccresdescclick="//button[@title='Insert/edit link']";
+static String facccresdescclick="//button[@title='Insert/edit link']//*[local-name()='svg']";
+// static String facccresurl="//input[@type='url']";
 static String facccresurl="//input[@type='url']";
 static String facccressubmitform="//*[.='Save']";
 static String facpptname="//input[@placeholder='Enter name']";
-static String facccressubmit="//span[text()='Save Resource(s)']";
+static String facccressubmit="//span[text()='Save Resource(s)'] | //span[text()='Save Resource']";
 static String facccressubmityes="//span[text()='OK']";
-//ltsta xpath
+//ltsta xpath  
 //// static String facClickacademicsltsta="//span[text()='Academics']";
 //ppt publish
-static String facpptfopen="(//div[@id='panel1a-header'])[4]";
+// static String facpptfopen="(//div[@id='panel1a-header'])[4]";
+static String facpptfopen="//span[. and contains(text(), 'Presentation')]/../../../..//*[local-name()='svg']";
 static String facppt3dot="(//b[.='Sample PPT']/ancestor::div[@class='MuiGrid-root']/descendant::h5/../../..//*[local-name()='svg'])[1]";
 static String facpptpublish="//span[text()='Publish']";
 static String facpptpublishyes="//span[text()='Publish']";
@@ -499,7 +503,7 @@ static String facsignOut="//*[.='Sign Out']";
 static String ltstaaccademics="//span[text()='Academics']";
 static String accademics="(//span[text()='Academics'])[2]";
 static String learn="//span[text()='Learn']";
-static String viewppt="(//div[@id='panel1a-header'])[4]";
+static String viewppt="//span[. and contains(text(), 'Presentation')]/../../../..//*[local-name()='svg']";
 static String viewpdf2="//span[text()='View']";
 ////static String SelectPrtoSignout="/html/body/div[1]/div/div/div/main/div[2]/div[2]/header/div/header/div[1]/div[2]/div/div";
 // static String signOut="//*[.='Sign Out']";
@@ -508,7 +512,7 @@ static String facpdfdelete="//span[text()='Delete']";
 static String facpdfdelete2="//span[text()='Delete']";
 static String logout="//*[@id=\"menu-appbar\"]/div[3]/ul/li[2]";
 ////////////
-static String FCCportal="(//span[@class='MuiIconButton-label' or text()='P' or text()='T'])[3]";
+static String FCCportal="//*[text()='T']";
 //TC-41 PPT Xpath Completed
    	
    	
@@ -517,7 +521,7 @@ static String FCCportal="(//span[@class='MuiIconButton-label' or text()='P' or t
 ////static String faccc="//span[text()='Course Content']";
 ////static String facccres="//span[text()='Resource']"; 
 //pdf upload
-static String facccrespdf="//figcaption[text()='PDF']/..";
+static String facccrespdf="//figcaption[text()='PDF']/..|/html/body/div[4]/div[3]/div/div[2]/div/div[1]/div[3]/div/img";
 static String facccresadd="//span[text()='Add Resource']";
 ////static String facccresdescclick="//button[@title='Insert/edit link']";
 ////static String facccresurl="//input[@type='url']";
@@ -528,7 +532,8 @@ static String facccresadd="//span[text()='Add Resource']";
 //ltsta xpath
 ////static String facClickacademicsltsta="//span[text()='Academics']";
 //pdf publish
-static String facpdfopen="(//div[@id='panel1a-header'])[6]";
+// static String facpdfopen="(//div[@id='panel1a-header'])[6]";
+static String facpdfopen="//span[. and contains(text(), 'Pdf')]/../../../..//*[local-name()='svg']";
 //static String fac3dot="(//div[@class='MuiCardContent-root'])[16]";
 static String fac3dot="(//p[.='Sample PDF']/ancestor::div[@class='MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1 MuiGrid-item MuiGrid-grid-xs-12']/descendant::h5/../../..//*[local-name()='svg'])[1]";
 static String facpublishpdf="//span[text()='Publish']";
@@ -539,7 +544,7 @@ static String facpublishpdf2="//span[text()='Publish']";
 ////static String ltstaaccademics="//span[text()='Academics']";
 ////static String accademics="(//span[text()='Academics'])[2]";
 ////static String learn="//span[text()='Learn']";
-static String viewpdf="(//div[@id='panel1a-header'])[6]";
+static String viewpdf="//span[. and contains(text(), 'Pdf')]/../../../..//*[local-name()='svg']";
 ////static String viewpdf2="//span[text()='View']";
 ////static String SelectPrtoSignout="/html/body/div[1]/div/div/div/main/div[2]/div[2]/header/div/header/div[1]/div[2]/div/div";
 ////static String signOut="//*[.='Sign Out']";
@@ -554,7 +559,7 @@ static String viewpdf="(//div[@id='panel1a-header'])[6]";
 ////static String faccc="//span[text()='Course Content']";
 ////static String facccres="//span[text()='Resource']"; 
 //video upload
-static String facvideoclick="//figcaption[text()='Video']/..";
+static String facvideoclick="//figcaption[text()='Video']/..|/html/body/div[4]/div[3]/div/div[2]/div/div[1]/div[2]/div/img";
 static String facvideoadd="//span[text()='Add Resource']";
 ////static String facccresdescclick="//button[@title='Insert/edit link']";
 ////static String facccresurl="//input[@type='url']";
@@ -565,7 +570,7 @@ static String facvideoadd="//span[text()='Add Resource']";
 //ltsta xpath
 ////static String facClickacademicsltsta="//span[text()='Academics']";
 //video publish
-static String facvideoopen="(//div[@id='panel1a-header'])[7]";
+static String facvideoopen="//span[. and contains(text(), 'Video')]/../../../..//*[local-name()='svg']";
 static String facvideo3dot="(//p[.='Sample Video']/ancestor::div[@class='MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1 MuiGrid-item MuiGrid-grid-xs-12']/descendant::h5/../../..//*[local-name()='svg'])[1]";
 static String facvideopublish="//span[text()='Publish']";
 static String facvideopublishyes="//span[text()='Publish']";
@@ -575,7 +580,7 @@ static String facvideopublishyes="//span[text()='Publish']";
 ////static String ltstaaccademics="//span[text()='Academics']";
 ////static String accademics="(//span[text()='Academics'])[2]";
 ////static String learn="//span[text()='Learn']";
-static String viewvideo="(//div[@id='panel1a-header'])[7]";
+static String viewvideo="//span[. and contains(text(), 'Video')]/../../../..//*[local-name()='svg']";
 ////static String viewpdf2="//span[text()='View']";
 ////static String SelectPrtoSignout="/html/body/div[1]/div/div/div/main/div[2]/div[2]/header/div/header/div[1]/div[2]/div/div";
 ////static String signOut="//*[.='Sign Out']";   
@@ -590,7 +595,7 @@ static String viewvideo="(//div[@id='panel1a-header'])[7]";
 ////static String faccc="//span[text()='Course Content']";
 ////static String facccres="//span[text()='Resource']";
 //link upload no publish for link
-static String faclinkclick="//figcaption[text()='Links']/..";
+static String faclinkclick="//figcaption[text()='Links']/..|/html/body/div[4]/div[3]/div/div[2]/div/div[2]/div/div/img";
 static String faclinkadd="//span[text()='Add Resource']";
 static String faclinkexternal="//input[@name='externalUrl']";
 ////static String facccresdescclick="//button[@title='Insert/edit link']";
@@ -607,7 +612,7 @@ static String faclinkexternal="//input[@name='externalUrl']";
 ////static String ltstaaccademics="//span[text()='Academics']";
 ////static String accademics="(//span[text()='Academics'])[2]";
 ////static String learn="//span[text()='Learn']";
-static String viewlink="(//div[@id='panel1a-header'])[8]";  
+static String viewlink="//span[. and contains(text(), 'Link')]/../../../..//*[local-name()='svg']";  
 ////static String viewpdf2="//span[text()='View']";
 ////static String SelectPrtoSignout="/html/body/div[1]/div/div/div/main/div[2]/div[2]/header/div/header/div[1]/div[2]/div/div";
 ////static String signOut="//*[.='Sign Out']";
@@ -615,7 +620,7 @@ static String viewlink="(//div[@id='panel1a-header'])[8]";
 ////static String facpdfdelete="//span[text()='Delete']";
 ////static String facpdfdelete2="//span[text()='Delete']";  
 static String faclink3dot="(//p[.='Sample Link']/ancestor::div[@class='MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1 MuiGrid-item MuiGrid-grid-xs-12']/descendant::h5/../../..//*[local-name()='svg'])[1]";
-static String faclinkopen="(//div[@id='panel1a-header'])[8]";
+static String faclinkopen="//span[. and contains(text(), 'Link')]/../../../..//*[local-name()='svg']";
 //TC-44 Link Xpath Completed
    
 
