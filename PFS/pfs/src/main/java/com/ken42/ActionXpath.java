@@ -265,7 +265,9 @@ static String facttday = "//button[text()='day']";
 static String facClickTimetableltsta="//span[text()='Timetable']";
 
 // TC-24:New change faculty portal Services
-static String facServicespfsbmtnsom = "(//span[text()='Faculty Services' or text()='Support Services'])[2]";
+// static String facServicespfsbmtnsom = "(//span[text()='Faculty Services' or text()='Support Services'])[2]";
+// static String facServicespfsbmtnsom = "((//span[text()='Faculty Services' or text()='Support Services'])[2]/../..//*[local-name()='svg'])[2] |(//span[. and text()='Master Trainer Services'])[1]";
+static String facServicespfsbmtnsom = "(//span[. and text()='Master Trainer Services' or text()='Support Services' or text()='Faculty Services'])[2]/../../..//*[local-name()='svg']";
 static String facServicesltsta = "(//span[. and text()='Master Trainer Services'])[1]";
 static String FacRaisecasedevbmtech = "//span[text()='Raise a Case']";
 static String FacRaisebutton = "//button[@label='Raise Case' or text()='Raise Case'] ";
@@ -413,7 +415,7 @@ static String faccoption2 = "(//input[@placeholder='Enter option'])[2]";
 static String feedback2 = "(//input[@placeholder='Type your feedback here'])[2]";
 static String faccoption3 = "(//input[@placeholder='Enter option'])[3]";
 static String feedback3 = "(//input[@placeholder='Type your feedback here'])[3]";
-static String numberofchoice = "//input[@value='ABCD']";
+static String numberofchoice = "//input[@value='ABCD']/..";
 
 static String feedbackofcrtans = "//input[@name='correctAnswerFeedback']";
 
@@ -498,7 +500,7 @@ static String facppt3dot="(//b[.='Sample PPT']/ancestor::div[@class='MuiGrid-roo
 static String facpptpublish="//span[text()='Publish']";
 static String facpptpublishyes="//span[text()='Publish']";
 ////static String facSelectPrtoSignout="/html/body/div[1]/div/div/div/main/div[2]/div[2]/header/div/header/div[1]/div[2]/div/div";
-static String facsignOut="//*[.='Sign Out']"; 
+static String facsignOut="//div[.='Sign Out']/.."; 
 //student portal start
 static String ltstaaccademics="//span[text()='Academics']";
 static String accademics="(//span[text()='Academics'])[2]";
@@ -642,30 +644,34 @@ static String fachourrelative = "//input[@name='timeLimitHours']";
 static String fasaverelative = "//span[.='Save and Proceed']";
 static String fasokrelative = "//span[.='OK']";
 static String fasquestionrelative = "//p[.='From question bank']";
-static String facselectrelative = "(//input[@type='checkbox'])[7]";
+static String facselectrelative = "(//input[@type='checkbox'])[7]/..";
 static String facaddselectrelative = "//span[.='Add Selected']";
 static String facprevirelative = "//p[.='Preview']";
+static String facAssPublish = "//span[.='Publish Assessment']/..";
+static String facAreYouSurePublish = "//span[.='Publish']/..";
+static String facGoToDashboard = "(//span[. and contains(text(), 'Go ')])[2]";
 //	static String facSelectPrtoSignoutrealtive = "(//div[.='S'])[2]";
 //	static String facsignOutrealtive = "(//li[@role='menuitem'])[2]";
 ////..........................Student login Assessment view relative xpath........................../////
 // static String facforummore = "//button[@title='More...']";
 static String Studentassessmenstrelativeacademic = "//span[.='Academics']";
 static String Studentassessmenstrelativelearn = "//span[.='Learn']";
-static String Studentassessmenstrelativelexpand = "(//span[@class='MuiIconButton-label'])[5]";
+// static String Studentassessmenstrelativelexpand = "(//span[@class='MuiIconButton-label'])[5]";
+static String Studentassessmenstrelativelexpand = "//span[. and contains(text(), 'Assessments')]/../../../..//*[local-name()='svg']";
 static String StudentassessmenstrelativeclickonA = "(//span[@class='MuiIconButton-label'])[3]";
 static String Studentassessmenstrelativesignout = "(//li[@role='menuitem'])[2]";
 ////.......................Faculty delete Assessment relative xpath................................//			
 static String facClickacademicsrelativedelete = "//span[.='Academics']";
 static String facclickcouserelativedelete = "//span[.='Course Content']";
-static String facultyassessmenstrelativelexpandtodelete = "(//span[@class='MuiIconButton-label'])[5]";
+static String facultyassessmenstrelativelexpandtodelete = "//span[. and contains(text(), 'Assessments')]/../../../..//*[local-name()='svg']";
 static String fclickondotltstarelativedelete = "//p[.='sachinautoengineer']/ancestor::div[@class='MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-justify-content-xs-space-around']/descendant::h5";
-static String fsubltstadeleterelativedelete = "(//div[@role='button'])[23]";
+static String fsubltstadeleterelativedelete = "(//span[.='Delete'])[1]";
 static String fsubltstadelete1relativedelete2 = "//span[.='Delete']";
 static String facSelectPrtoSignoutrealtivedelete = "(//div[.='S'])[2]";
 static String facsignOutrealtivedelete = "(//li[@role='menuitem'])[2]";
 ////................................end of assessment xpath.....................................//////			
 static String facinstruction3dot="//*[@class='tox-tbtn' and @title='More...']";
-static String facSelectPrtoSignoutrealtive="/html/body/div[1]/div/div/div/main/div[2]/div[2]/header/div/header/div[1]/div[2]/div/div";
+static String facSelectPrtoSignoutrealtive="(//div[.='T'])[2]";
 static String facsignOutrealtive="//*[.='Sign Out']"; 
 //TC-45 Xpaths ends here
 
@@ -690,7 +696,7 @@ static String assignfacselectattemtrelative = "//li[.='2 Attempts']";
 static String assignfacsaveandproceedrelative = "//span[.='Save and Proceed']";
 static String assignfacokrelative = "//span[.='OK']";
 static String assignexapnd1relative = "(//div[@id='panel1a-header'])[1]";
-static String assignfacdot1relative = "//p[.='varunautomation']/ancestor::div[@class='MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-justify-content-xs-space-around']/descendant::h5";
+static String assignfacdot1relative = "//span[. and contains(text(), 'Assignments')]/../../../..//*[local-name()='svg']";
 static String assignfacpublishrelative = "//span[.='Publish']";
 static String assignfacpublish1relative = "//span[.='Publish']";
 static String assignfacclickonp1relative = "(//div[.='T'])[2]";
@@ -712,7 +718,10 @@ static String assignfacclickonprelative = "(//div[.='T'])[2]";
 static String assignfacconsignoutrelative = "(//li[@role='menuitem'])[2]";
 //// TC-46 ends here.......................end of Assignment Realtive......................./////
 
-//Test case no 47 testFacultyStudentFOURM Relative Xpath..............////////
+
+   
+   	
+//TC-47 FOrum Xpath Started
 ////.............. faculty forum add activity RelativeXpath xpath...................////
 static String relativefacforumClickacademics1 = "//span[.='Academics']";
 static String relativefacforumclickcouse1 = "//span[.='Course Content']";
@@ -736,7 +745,7 @@ static String relativefacformesignout1 = "(//li[@role='menuitem'])[2]";
 ////............................ student forum login and view relative xpath.................////
 static String relativestudentacadamicsltsta1 = "//span[.='Academics']";
 static String relativeforumlearnltsta1 = "//span[.='Learn']";
-static String relativeforumaexpandltsta1 = "(//div[@id='panel1a-header'])[3]";
+static String relativeforumaexpandltsta1 = "//span[. and contains(text(), 'Forum')]/../../../..//*[local-name()='svg']";
 static String relativeforumsubltstasign1 = "(//span[@class='MuiIconButton-label'])[3]";
 static String relativeforumsubltstasignout1 = "(//li[@role='menuitem'])[2]";
 ////................................... faculty delete forum Relative xpath..................////
@@ -744,13 +753,21 @@ static String relativeforumdaccltsta12 = "//span[.='Academics']";
 static String relativeforumdacclickcouse12 = "//span[.='Course Content']";
 static String relativeforumdfexpandltsta12 = "(//div[@id='panel1a-header'])[3]";
 static String relativeforumfclickondotltsta12 = "//p[.='spruthirajautomation']/ancestor::div[@class='MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-justify-content-xs-space-around']/descendant::h5";
-static String relativedfacdelete12 = "(//div[@role='button'])[22]";
-static String relativedfacdele12 = "(//span[.='Delete'][1]";
+static String relativedfacdelete12 = "(//span[.='Delete'])[1]";
+static String relativedfacdele12 = "//span[.='Delete']";
 static String relativedfacclickonp12 = "(//div[.='T'])[2]";
 static String relativedfacconsignout12 = "(//li[@role='menuitem'])[2]";
-//Test case 47 Xpaths ends here
-   
-   	
 
 
+static String program="(//*[. and @aria-haspopup='listbox'])[1]";
+static String programselect="(//li[@data-value])[1]";
+static String course="(//*[. and @aria-haspopup='listbox'])[2]";
+static String courseselect="(//li[@data-value])[1]";
+
+static String subject="(//*[. and @aria-haspopup='listbox'])[2]";
+static String section="(//*[. and @aria-haspopup='listbox'])[3]";
+
+static String subjectclick="//*[@class='MuiTab-wrapper']";
+
+static String subjectselect="//*[@data-value='Sales & Distribution Management-20-22-Retail Management']";
 }
