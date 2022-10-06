@@ -117,14 +117,14 @@ public class Pfs_portal {
 				testFacultySignout(PFSurl);
 				log.info("FACULTY PORTAL TEST CASES EXECUTION COMPLETED\n\n\n");
 			} else if ("both".equals(Role)) {
-				testSpreadsheetCreateViewDelete(studentEmail, facultyEmail, PFSurl, Browser, Role);
-				testPPTCreateViewDelete(studentEmail, facultyEmail, PFSurl, Browser, Role);
-				testPDFCreateViewDelete(studentEmail, facultyEmail, PFSurl, Browser, Role);
-				testVideoCreateViewDelete(studentEmail, facultyEmail, PFSurl, Browser, Role);
-				testLinkCreateViewDelete(studentEmail, facultyEmail, PFSurl, Browser, Role);
+				// testSpreadsheetCreateViewDelete(studentEmail, facultyEmail, PFSurl, Browser, Role);
+				// testPPTCreateViewDelete(studentEmail, facultyEmail, PFSurl, Browser, Role);
+				// testPDFCreateViewDelete(studentEmail, facultyEmail, PFSurl, Browser, Role);
+				// testVideoCreateViewDelete(studentEmail, facultyEmail, PFSurl, Browser, Role);
+				// testLinkCreateViewDelete(studentEmail, facultyEmail, PFSurl, Browser, Role);
 				testAssessmentCreatePublishViewDelete(studentEmail, facultyEmail, PFSurl, Browser, Role);
-				testFAssignmentCreatePublishViewDelete(studentEmail, facultyEmail, PFSurl, Browser, Role);
-				testForumCreatePublishViewDelete(studentEmail, facultyEmail, PFSurl, Browser, Role);
+				// testFAssignmentCreatePublishViewDelete(studentEmail, facultyEmail, PFSurl, Browser, Role);
+				// testForumCreatePublishViewDelete(studentEmail, facultyEmail, PFSurl, Browser, Role);
 
 			}
 			// After all test are over close the browser
@@ -375,7 +375,7 @@ public class Pfs_portal {
 	}
 
 	public static void executeLongWait(String url) throws InterruptedException{
-		String urlToMatch = "ltsta|jdinstitutedelhi";
+		String urlToMatch = "ltpct|nsom";
 		Pattern pt = Pattern.compile(urlToMatch);
         Matcher m = pt.matcher(url);
         while (m.find()) {
@@ -758,7 +758,7 @@ public class Pfs_portal {
 			Automate.callSendkeys(driver, ActionXpath.stubasicdob, "02-02-2022", time);
 			Automate.callSendkeys(driver, ActionXpath.stubasicnation, "India", time);
 			Automate.CallXpath(driver, ActionXpath.stubasicsave, time, "Click on Save");
-			//smallSleepBetweenClicks();
+			smallSleepBetweenClicks();
 			log.info("  TC-13: Student edit profile test case PASSED \n");
 		} catch (Exception e) {
 			printException(e);
@@ -796,7 +796,7 @@ public class Pfs_portal {
 			Automate.callSendkeys(driver, ActionXpath.stuedpgyear, "2022", time);
 			smallSleepBetweenClicks();
 			Automate.CallXpath(driver, ActionXpath.stuedsave, time, "Click on save");
-			////bigSleepBetweenClicks();
+			smallSleepBetweenClicks();
 			log.info("  TC-14: Student profile edit Education Details test case PASSED \n");
 		} catch (Exception e) {
 			printException(e);
@@ -1050,15 +1050,13 @@ public class Pfs_portal {
 		}
 	}
 
-
-
-@Test(priority = 24)
+	@Test(priority = 24)
 	public static void testFacultyService(String url) throws Exception {
 		try {
 			System.out.println("TC-24:  Faculty Service Test case Started");
 			goBackToHome(url);
-			clickOnFacultyService(url);
 
+			clickOnFacultyService(url);
 			Automate.CallXpath(driver, ActionXpath.FacRaisebutton, time, "Click on Raise case button");
 			smallSleepBetweenClicks();
 			JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -1185,21 +1183,13 @@ public class Pfs_portal {
 			Automate.CallXpath(driver, ActionXpath.FCCportal, time, "facSelectPrtoSignout");
 			Automate.CallXpath(driver, ActionXpath.faccProfile, time, "facprofile");
 			Automate.CallXpath(driver, ActionXpath.address, time, "addressdetais");
-			//smallSleepBetweenClicks();
 			Automate.CallXpath(driver, ActionXpath.facdpaddedit, time, "facdpaddedit");
-			//smallSleepBetweenClicks();
 			Automate.CallXpath(driver, ActionXpath.facdptype, time, "facdptype");
-			//smallSleepBetweenClicks();
 			Automate.CallXpath(driver, ActionXpath.FaccfaccTypeSelect, time, "facdptypeselect");
-			//smallSleepBetweenClicks();
 			Automate.callSendkeys(driver, ActionXpath.faccAddress, "Coimbatore", time);
-			//smallSleepBetweenClicks();
 			Automate.callSendkeys(driver, ActionXpath.faccPincode, "600001", time);
-			//smallSleepBetweenClicks();
 			Automate.CallXpath(driver, ActionXpath.facccountry, time, "facdpcountry");
-			//smallSleepBetweenClicks();
 			Automate.CallXpath(driver, ActionXpath.faccSelectCountry, time, "facdpcountrysselect");
-			//smallSleepBetweenClicks();
 			//Automate.CallXpath(driver, ActionXpath.faccState, time, "facdpstate");
 			//smallSleepBetweenClicks();
 			//Automate.CallXpath(driver, ActionXpath.faccSelectState, time, "facdpstateselect");
@@ -1227,17 +1217,14 @@ public class Pfs_portal {
 			Automate.CallXpath(driver, ActionXpath.FCCportal, time, "facSelectPrtoSignout");
 			Automate.CallXpath(driver, ActionXpath.faccProfile, time, "facprofile");
 			Automate.CallXpath(driver, ActionXpath.facdpacdeails, time, "facdpacdeails");
-			//smallSleepBetweenClicks();
 			Automate.CallXpath(driver, ActionXpath.facdpacadd, time, "facdpacadd");
-			//smallSleepBetweenClicks();
 			Automate.CallXpath(driver, ActionXpath.facdplevel, time, "facdplevel");
-			//smallSleepBetweenClicks();
 			Automate.CallXpath(driver, ActionXpath.facdplevelselect, time, "facdplevelselect");
 			Automate.CallXpath(driver, ActionXpath.facdpadcountry, time, "facdpadcountry");
 			Automate.CallXpath(driver, ActionXpath.facdpadcountryselect, time, "facdpadcountryselect");
 			Automate.callSendkeys(driver, ActionXpath.facdpaduniversity, "ANNA", time);
 			Automate.callSendkeys(driver, ActionXpath.facdpadyear, "2020", time);
-			////bigSleepBetweenClicks();
+			smallSleepBetweenClicks();
 			log.info(" TC-30 : Academic Details Completed test case PASSED  \n");
 		} catch (Exception e) {
 			printException(e);
@@ -1255,21 +1242,16 @@ public class Pfs_portal {
 			Automate.CallXpath(driver, ActionXpath.FCCportal, time, "facclickonT");
 			////bigSleepBetweenClicks();
 			Automate.CallXpath(driver, ActionXpath.facclickonprofile, time, "facclickonprofile");
-			////bigSleepBetweenClicks();
-			////bigSleepBetweenClicks();
+			smallSleepBetweenClicks();
 			Automate.CallXpath(driver, ActionXpath.facclickonRESEARCHSUPERVISION, time,
 					" facclickonRESEARCHSUPERVISION");
 			Automate.CallXpath(driver, ActionXpath.facdpreedit, time, "facdpreedit");
 			Automate.CallXpath(driver, ActionXpath.facdpreadd, time, "facdpreadd");
-			//smallSleepBetweenClicks();
 			Automate.callSendkeys(driver, ActionXpath.facdprename, "Sample", time);
-			//smallSleepBetweenClicks();
 			Automate.callSendkeys(driver, ActionXpath.facdprelink, "https://portal-dev.ken42.com", time);
-			//smallSleepBetweenClicks();
 			Automate.callSendkeys(driver, ActionXpath.facdpredesc, "Sample Desc", time);
-			//smallSleepBetweenClicks();
 			Automate.CallXpath(driver, ActionXpath.faccSaveexp, time, "facdpresave");
-			////bigSleepBetweenClicks();
+			smallSleepBetweenClicks();
 			log.info(" TC-31:  Faculty edit profile RESEARCH SUPERVISION  test case PASSED  \n");
 		} catch (Exception e) {
 			printException(e);
@@ -1288,17 +1270,12 @@ public class Pfs_portal {
 			Automate.CallXpath(driver, ActionXpath.faccProfile, time, "facprofile");
 			Automate.CallXpath(driver, ActionXpath.facclickonRESEARCHSUPERVISIONpublish, time,
 					"facclickonRESEARCHSUPERVISIONpublish");
-			////bigSleepBetweenClicks();
 			Automate.CallXpath(driver, ActionXpath.facdpreeditpublish, time, "facdpreeditpublish");
-			////bigSleepBetweenClicks();
 			Automate.CallXpath(driver, ActionXpath.facdpreaddpublish, time, "facdpreaddpublish");
-			//smallSleepBetweenClicks();
 			Automate.callSendkeys(driver, ActionXpath.facdppubname, "Surya", time);
-			//smallSleepBetweenClicks();
 			Automate.callSendkeys(driver, ActionXpath.facdppublink, "https://portal-dev.ken42.com", time);
-			//smallSleepBetweenClicks();
 			Automate.callSendkeys(driver, ActionXpath.facdppubdesc, "Sample Desc", time);
-			//smallSleepBetweenClicks();
+			smallSleepBetweenClicks();
 			log.info("  TC-32: Faculty edit RESEARCH PUBLICATION  test case PASSED  \n");
 		} catch (Exception e) {
 			printException(e);
@@ -1318,24 +1295,13 @@ public class Pfs_portal {
 			
 			Automate.CallXpath(driver, ActionXpath.facclickonRESEARCHSUPERVISIONconfernece, time,
 					"facclickonRESEARCHSUPERVISIONconfernece");
-
-			////bigSleepBetweenClicks();
-
 			Automate.CallXpath(driver, ActionXpath.facdpreeditconfernece, time, "facdpreeditconfernece");
-
-			////bigSleepBetweenClicks();
-
 			Automate.CallXpath(driver, ActionXpath.facdpreaddconfernece, time, "facdpreaddconfernece");
-
-			//smallSleepBetweenClicks();
 			Automate.callSendkeys(driver, ActionXpath.facdpconnameconfernece, "Sample", time);
-			//smallSleepBetweenClicks();
 			Automate.callSendkeys(driver, ActionXpath.facdpconlinkconfernece, "https://portal-dev.ken42.com", time);
-			//smallSleepBetweenClicks();
 			Automate.callSendkeys(driver, ActionXpath.facdpcondescconfernece, "Sample Desc", time);
-			//smallSleepBetweenClicks();
 			Automate.CallXpath(driver, ActionXpath.facdpconsaveconfernece, time, "facdpconsave");
-			////bigSleepBetweenClicks();
+			smallSleepBetweenClicks();
 			log.info(" TC-33 : Faculty edit Conference Completed test case PASSED \n\n");
 		} catch (Exception e) {
 			printException(e);
@@ -1379,19 +1345,14 @@ public class Pfs_portal {
 			System.out.println(" TC-35 :   Professional Association Started  case executation");
 			Automate.CallXpath(driver, ActionXpath.FCCportal, time, "facSelectPrtoSignout");
 			Automate.CallXpath(driver, ActionXpath.faccProfile, time, "facprofile");
-			//smallSleepBetweenClicks();
 			Automate.CallXpath(driver, ActionXpath.facdpprof, time, "facdpprof");
-			//smallSleepBetweenClicks();
 			Automate.CallXpath(driver, ActionXpath.facdpprofedit, time, "facdpprofedit");
-			//smallSleepBetweenClicks();
 			Automate.CallXpath(driver, ActionXpath.facdpprofadd, time, "facdpprofadd");
-			//smallSleepBetweenClicks();
 			Automate.callSendkeys(driver, ActionXpath.facdpprofname, "Sample", time);
-			//smallSleepBetweenClicks();
 			Automate.callSendkeys(driver, ActionXpath.facdpproflink, "https://portal-dev.ken42.com", time);
 			Automate.callSendkeys(driver, ActionXpath.facdpprofdesc, "Sample Desc", time);
 			Automate.CallXpath(driver, ActionXpath.facdpprofsave, time, "facdpprofsave");
-			////bigSleepBetweenClicks();
+			smallSleepBetweenClicks();
 			log.info("  TC-35 : Faculty profile edit Professional Association Completed test case PASSED..  \n");
 		} catch (Exception e) {
 			printException(e);
@@ -1407,16 +1368,14 @@ public class Pfs_portal {
 			goBackToHome(url);
 			Automate.CallXpath(driver, ActionXpath.FCCportal, time, "facSelectPrtoSignout");
 			Automate.CallXpath(driver, ActionXpath.faccProfile, time, "facprofile");
-			//smallSleepBetweenClicks();
 			Automate.CallXpath(driver, ActionXpath.facdpother, time, "facdpother");
 			Automate.CallXpath(driver, ActionXpath.facdpotheredit, time, "facdpotheredit");
 			Automate.CallXpath(driver, ActionXpath.facdpotheradd, time, "facdpotheradd");
-			//smallSleepBetweenClicks();
 			Automate.callSendkeys(driver, ActionXpath.facdpothername, "Sample", time);
 			Automate.callSendkeys(driver, ActionXpath.facdpotherlink, "https://portal-dev.ken42.com", time);
 			Automate.callSendkeys(driver, ActionXpath.facdpotherdesc, "Sample Desc", time);
 			Automate.CallXpath(driver, ActionXpath.facdpothersave, time, "facdpothersave");
-			////bigSleepBetweenClicks();
+			smallSleepBetweenClicks();
       		log.info(" TC-36: Faculty edit Others Completed test case PASSED \n\n");
 		} catch (Exception e) {
 			printException(e);
@@ -1439,21 +1398,15 @@ public class Pfs_portal {
             }
 			//smallSleepBetweenClicks();
 			Automate.CallXpath(driver, ActionXpath.clickFacDashdevnosbm, time, "Dashboard");
-			////bigSleepBetweenClicks();
-			// String text = driver.findElement(By.xpath(
-			// 		"/html/body/div[1]/div/div/div/main/div[2]/div[2]/div[2]/div/div[1]/div[4]/div/div/div[1]/div[1]"))
-			// 		.getText();
-			// System.out.println(text);
-			// String count = text.substring(11, text.length() - 1);
-			// System.out.println(count);
+			
 			WebElement l= driver.findElement(By.tagName("body"));
         	String p = l.getText();
-			if (p.contains("Overview") && p.contains("Activities")){
-				log.info(" TC-21: Faculty My Student  tab test case PASSED \n\n");
-			}else {
-				log.warning(" TC-21: Faculty My Student  tab test case FAILED it does not contain all the tabs\n\n");
-			}
-			log.info("TC-37:  Faculty Dashboard test case PASSED \n\n");
+			// if (p.contains("Overview") && p.contains("Activities")){
+			// 	log.info(" TC-37: Faculty My Student  tab test case PASSED \n\n");
+			// }else {
+			// 	log.warning(" TC-37: Faculty My Student  tab test case FAILED it does not contain all the tabs\n\n");
+			// }
+			// log.info("TC-37:  Faculty Dashboard test case PASSED \n\n");
 
 		} catch (Exception e) {
 			printException(e);
@@ -1476,42 +1429,34 @@ public class Pfs_portal {
             else {
             	Automate.CallXpath(driver, ActionXpath.openFacltsta, time, "open span on acadmics on the ltsta");    
             }
-			//smallSleepBetweenClicks();
 			Automate.CallXpath(driver, ActionXpath.facqb, time, "Question ");
-			//smallSleepBetweenClicks();
 			Automate.CallXpath(driver, ActionXpath.facaddmanual, time, "Add anual");
-			//smallSleepBetweenClicks();
 			Automate.CallXpath(driver, ActionXpath.facquesub, time, "facqueclassselect");
-			//smallSleepBetweenClicks();
 			Automate.CallXpath(driver, ActionXpath.facquesubselect, time, "facquesub");
-			//smallSleepBetweenClicks();
 			Automate.CallXpath(driver, ActionXpath.faccnext, time, "Next");
-			//smallSleepBetweenClicks();
 			Automate.callSendkeys(driver, ActionXpath.faccquestion,"Question", time);
-			//smallSleepBetweenClicks();
 			Automate.callSendkeys(driver, ActionXpath.faccquestionname,"Question time", time);
-			//smallSleepBetweenClicks();
 			Automate.cleartext(driver, ActionXpath.faccmarks);
-			//smallSleepBetweenClicks();
+			smallSleepBetweenClicks();
 			Automate.callSendkeys(driver, ActionXpath.faccmarks, "1", time);
-
+			smallSleepBetweenClicks();
 			Automate.callSendkeys(driver, ActionXpath.faccoption1, "modi", time);
-			//smallSleepBetweenClicks();
+			smallSleepBetweenClicks();
 			Automate.callSendkeys(driver, ActionXpath.feedback1, "Super", time);
-			//smallSleepBetweenClicks();
+			smallSleepBetweenClicks();
 			Automate.callSendkeys(driver, ActionXpath.faccoption2, "sachin", time);
 			Automate.callSendkeys(driver, ActionXpath.feedback2, "vg", time);
 			Automate.callSendkeys(driver, ActionXpath.faccoption3, "anand", time);
 			Automate.callSendkeys(driver, ActionXpath.feedback3, "good", time);
 			Automate.CallXpath(driver, ActionXpath.numberofchoice, time, "No of chocice");
 			Automate.callSendkeys(driver, ActionXpath.feedbackofcrtans, "super", time);
-			//smallSleepBetweenClicks();
+			smallSleepBetweenClicks();
 			Automate.callSendkeys(driver, ActionXpath.feefbacofincorrect, "improve", time);
-			//smallSleepBetweenClicks();
+			smallSleepBetweenClicks();
 			Automate.callSendkeys(driver, ActionXpath.generalfeedback, "gain know", time);
-			//smallSleepBetweenClicks();
+			smallSleepBetweenClicks();
 			Automate.CallXpath(driver, ActionXpath.facsaveandfinish, time, "Finished");
-			//smallSleepBetweenClicks();
+			smallSleepBetweenClicks();
 			Automate.CallXpath(driver, ActionXpath.facqueback, time, "BAck");
 			log.info("TC-38: Faculty QUESTION PAPER TEST CASE PASSED \n");
 
@@ -1556,13 +1501,7 @@ public class Pfs_portal {
 			}
 			login(faculty);
 			bigSleepBetweenClicks();
-			if(checkAcad(url))
-			{
-				Automate.CallXpath(driver, ActionXpath.facClickacademicsltsta, time, "facClickacademics");	
-			}
-			else {
-				Automate.CallXpath(driver, ActionXpath.facClickacademics, time, "facClickacademics");	
-			}
+			checkAcadAndClick(url);
 			Automate.CallXpath(driver, ActionXpath.faccc, time, "faccc");
 			Automate.CallXpath(driver, ActionXpath.facccres, time, "facccres");
 			Automate.CallXpath(driver, ActionXpath.facssclick, time, "facssclick");
@@ -1590,15 +1529,11 @@ public class Pfs_portal {
 			bigSleepBetweenClicks();
 			executeLongWait(url);
 			logout(url, "faculty");
+			bigSleepBetweenClicks();
+			smallSleepBetweenClicks();
 
 			login(student);
-			if(checkAcad(url))
-			{
-				Automate.CallXpath(driver, ActionXpath.ltstaaccademics, time, "Student click facClickacademics");	
-			}
-			else {
-			Automate.CallXpath(driver, ActionXpath.accademics, time, "Student click accademics");	
-			}
+			checkAcadAndClick(url);
 			Automate.CallXpath(driver, ActionXpath.learn, time, "learn");
 
 			log.info("Before viewing Spreadsheet");
@@ -1609,16 +1544,11 @@ public class Pfs_portal {
 			Automate.CallXpath(driver, ActionXpath.learn, time, "learn");
 			smallSleepBetweenClicks();
 			logout(url, "student");
+			bigSleepBetweenClicks();
 			//
 			login(faculty);
 			////bigSleepBetweenClicks();
-			if(checkAcad(url))
-			{
-				Automate.CallXpath(driver, ActionXpath.facClickacademicsltsta, time, "facClickacademics");	
-			}
-			else {
-			Automate.CallXpath(driver, ActionXpath.facClickacademics, time, "facClickacademics");	
-			}
+			checkAcadAndClick(url);
 			Automate.CallXpath(driver, ActionXpath.faccc, time, "faccc");
 			// delete link
 			////bigSleepBetweenClicks();
@@ -1648,13 +1578,7 @@ public class Pfs_portal {
 			System.out.println("TC-41:  PPT resource Create View delete Test case Started");
 			login(faculty);
 			bigSleepBetweenClicks();
-			if(checkAcad(url))
-			{
-				Automate.CallXpath(driver, ActionXpath.facClickacademicsltsta, time, "facClickacademics");	
-			}
-			else {
-			Automate.CallXpath(driver, ActionXpath.facClickacademics, time, "facClickacademics");	
-			}
+			checkAcadAndClick(url);
 			Automate.CallXpath(driver, ActionXpath.faccc, time, "faccc");
 			////bigSleepBetweenClicks();
 			// add ppt publish and signout
@@ -1663,7 +1587,8 @@ public class Pfs_portal {
 			smallSleepBetweenClicks();
 			Automate.CallXpath(driver, ActionXpath.facpptadd, time, "facpptadd");
 			Automate.CallXpath(driver, ActionXpath.facccresdescclick, time, "facccresdescclick");
-			smallSleepBetweenClicks();
+			bigSleepBetweenClicks();
+			bigSleepBetweenClicks();
 			Automate.callSendkeys(driver, ActionXpath.facccresurl, "Hello", time);
 			smallSleepBetweenClicks();
 			Automate.CallXpath(driver, ActionXpath.facccressubmitform, time, "facccressubmitform");
@@ -1686,18 +1611,11 @@ public class Pfs_portal {
 			bigSleepBetweenClicks();
 			executeLongWait(url);
 			logout(url, "faculty");
-			smallSleepBetweenClicks();
+			bigSleepBetweenClicks();
 			
 
 			login(student);
-			////bigSleepBetweenClicks();
-			if(checkAcad(url))
-			{
-				Automate.CallXpath(driver, ActionXpath.ltstaaccademics, time, "facClickacademics");	
-			}
-			else {
-			Automate.CallXpath(driver, ActionXpath.accademics, time, "accademics");	
-			}
+			checkAcadAndClick(url);
 			Automate.CallXpath(driver, ActionXpath.learn, time, "learn");
 			Automate.CallXpathWithScroll(driver, ActionXpath.viewppt, time, "viewppt");
 			smallSleepBetweenClicks();
@@ -1707,21 +1625,13 @@ public class Pfs_portal {
 			////bigSleepBetweenClicks();
 			Automate.CallXpath(driver, ActionXpath.learn, time, "learn");
 			logout(url, "student");
-			smallSleepBetweenClicks();
+			bigSleepBetweenClicks();
 			
 			login(faculty);
 			// unpublish ppt and delete ppt
 			////bigSleepBetweenClicks();
-			if(checkAcad(url))
-			{
-				Automate.CallXpath(driver, ActionXpath.facClickacademicsltsta, time, "facClickacademics");	
-			}
-			else {
-			Automate.CallXpath(driver, ActionXpath.facClickacademics, time, "facClickacademics");	
-			}
+			checkAcadAndClick(url);
 			Automate.CallXpath(driver, ActionXpath.faccc, time, "faccc");
-			////bigSleepBetweenClicks();
-//     Automate.CallXpath(driver, ActionXpath.facccres, time,"facccres");
 			Automate.CallXpath(driver, ActionXpath.facpptfopen, time, "facpptfopen");
 			smallSleepBetweenClicks();
 			new WebDriverWait(driver, 25).until(ExpectedConditions.elementToBeClickable(By.xpath("//p[.='"+fileName+"']/../../.././..//*[local-name()='svg']"))).click();
@@ -1753,13 +1663,7 @@ public class Pfs_portal {
 			login(faculty);
 			bigSleepBetweenClicks();
 			// add pdf
-			if(checkAcad(url))
-			{
-				Automate.CallXpath(driver, ActionXpath.facClickacademicsltsta, time, "facClickacademics");	
-			}
-			else {
-				Automate.CallXpath(driver, ActionXpath.facClickacademics, time, "facClickacademics");	
-			}
+			checkAcadAndClick(url);
 			Automate.CallXpath(driver, ActionXpath.faccc, time, "faccc");
 
 			Automate.CallXpath(driver, ActionXpath.facccres, time, "facccres");
@@ -1797,13 +1701,7 @@ public class Pfs_portal {
 			//Now verify in student
 			login(student);
 			////bigSleepBetweenClicks();
-			if(checkAcad(url))
-			{
-				Automate.CallXpath(driver, ActionXpath.ltstaaccademics, time, "facClickacademics");	
-			}
-			else {
-				Automate.CallXpath(driver, ActionXpath.accademics, time, "accademics");	
-			}
+			checkAcadAndClick(url);
 			Automate.CallXpath(driver, ActionXpath.learn, time, "learn");
 			// Verify PDF creation and logout
 			Automate.CallXpathWithScroll(driver, ActionXpath.viewpdf, time, "viewpdf");
@@ -1817,13 +1715,7 @@ public class Pfs_portal {
 
 			login(faculty);
 			// unpublish pdf and delete pdf
-			if(checkAcad(url))
-			{
-				Automate.CallXpath(driver, ActionXpath.facClickacademicsltsta, time, "facClickacademics");	
-			}
-			else {
-				Automate.CallXpath(driver, ActionXpath.facClickacademics, time, "facClickacademics");	
-			}
+			checkAcadAndClick(url);
 			Automate.CallXpath(driver, ActionXpath.faccc, time, "faccc");
 			Automate.CallXpathWithScroll(driver, ActionXpath.facpdfopen, time, "facpdfopen");
 			smallSleepBetweenClicks();
@@ -1853,13 +1745,7 @@ public class Pfs_portal {
 			System.out.println("TC-43:  Create Video resource create view  and delete");
 			login(faculty);
 			bigSleepBetweenClicks();
-			if(checkAcad(url))
-			{
-				Automate.CallXpath(driver, ActionXpath.facClickacademicsltsta, time, "facClickacademics");	
-			}
-			else {
-			Automate.CallXpath(driver, ActionXpath.facClickacademics, time, "facClickacademics");	
-			}
+			checkAcadAndClick(url);
 			Automate.CallXpath(driver, ActionXpath.faccc, time, "faccc");
 			// add video publish and signout
 			Automate.CallXpath(driver, ActionXpath.facccres, time, "facccres");
@@ -1892,13 +1778,7 @@ public class Pfs_portal {
 
 			//Student to verify
 			login(student);
-			if(checkAcad(url))
-			{
-				Automate.CallXpath(driver, ActionXpath.ltstaaccademics, time, "facClickacademics");	
-			}
-			else {
-			Automate.CallXpath(driver, ActionXpath.accademics, time, "accademics");	
-			}
+			checkAcadAndClick(url);
 			Automate.CallXpath(driver, ActionXpath.learn, time, "learn");
 			// Verify video creation and logout
 			Automate.CallXpathWithScroll(driver, ActionXpath.viewvideo, time, "viewvideo");
@@ -1911,13 +1791,7 @@ public class Pfs_portal {
 
 			//Faculty to delete
 			login(faculty);
-			if(checkAcad(url))
-			{
-				Automate.CallXpath(driver, ActionXpath.facClickacademicsltsta, time, "facClickacademics");	
-			}
-			else {
-			Automate.CallXpath(driver, ActionXpath.facClickacademics, time, "facClickacademics");	
-			}
+			checkAcadAndClick(url);
 			Automate.CallXpath(driver, ActionXpath.faccc, time, "faccc");
 			// unpublish video and delete video
 			
@@ -1949,13 +1823,7 @@ public class Pfs_portal {
 			System.out.println("TC-44:  Link resource Create View delete Test case Started");
 			login(faculty);
 			bigSleepBetweenClicks();
-			if(checkAcad(url))
-			{
-				Automate.CallXpath(driver, ActionXpath.facClickacademicsltsta, time, "facClickacademics");	
-			}
-			else {
-			Automate.CallXpath(driver, ActionXpath.facClickacademics, time, "facClickacademics");	
-			}
+			checkAcadAndClick(url);
 			Automate.CallXpath(driver, ActionXpath.faccc, time, "faccc");
 			// add link publish and signout
 			Automate.CallXpath(driver, ActionXpath.facccres, time, "facccres");
@@ -1982,18 +1850,12 @@ public class Pfs_portal {
 			// ////bigSleepBetweenClicks();
 			// Automate.CallXpath(driver, ActionXpath.faclinkpublish, time, "faclinkpublish");
 			// Automate.CallXpath(driver, ActionXpath.faclinkpublishyes, time, "faclinkpublishyes");
-			logout(url, "faculty");
+			logout(url, Role);
 
 			login(student);
 			// Verify link creation and logout
 			////bigSleepBetweenClicks();
-			if(checkAcad(url))
-			{
-				Automate.CallXpath(driver, ActionXpath.ltstaaccademics, time, "facClickacademics");	
-			}
-			else {
-			Automate.CallXpath(driver, ActionXpath.accademics, time, "accademics");	
-			}
+			checkAcadAndClick(url);
 			Automate.CallXpath(driver, ActionXpath.learn, time, "learn");
 
 			Automate.CallXpathWithScroll(driver, ActionXpath.viewlink, time, "viewlink");
@@ -2004,17 +1866,12 @@ public class Pfs_portal {
 			Automate.CallXpath(driver, ActionXpath.viewpdf2, time, "viewlink2");
 			////bigSleepBetweenClicks();
 			Automate.CallXpath(driver, ActionXpath.learn, time, "learn");
-			logout(url, "student");
+			logout(url, Role);
+			bigSleepBetweenClicks();
 
 			login(faculty);
-			////bigSleepBetweenClicks();
-			if(checkAcad(url))
-			{
-				Automate.CallXpath(driver, ActionXpath.facClickacademicsltsta, time, "facClickacademics");	
-			}
-			else {
-			Automate.CallXpath(driver, ActionXpath.facClickacademics, time, "facClickacademics");	
-			}
+			smallSleepBetweenClicks();
+			checkAcadAndClick(url);
 			Automate.CallXpath(driver, ActionXpath.faccc, time, "faccc");
 			// delete link
 			
@@ -2100,8 +1957,10 @@ public class Pfs_portal {
 
 			bigSleepBetweenClicks();
 			logout(url, Role);
+			bigSleepBetweenClicks();
 			
 			// .....................................student
+			smallSleepBetweenClicks();
 			login(student);
 			smallSleepBetweenClicks();
 			checkAcadAndClick(url);
@@ -2113,11 +1972,11 @@ public class Pfs_portal {
 			// driver.findElement(By.xpath(ActionXpath.Studentassessmenstrelativelexpand)).sendKeys(Keys.ESCAPE);
 			smallSleepBetweenClicks();
 			logout(url, Role);
+			bigSleepBetweenClicks();
 
 
 			//// .........................Faculty delete assessment
 			login(faculty);
-			System.out.println("**************");
 			checkAcadAndClick(url);
 			Automate.CallXpath(driver, ActionXpath.facclickcouserelativedelete, time, "Click on course content");
 			smallSleepBetweenClicks();
@@ -2140,7 +1999,6 @@ public class Pfs_portal {
 			logout(url, Role);
 			log.info("TC-45 Assement create, publish & delete test Executation Was PASSED....\n");
 		}
-
 		catch (Exception e) {
 			log.warning("TC-45 Assement create,publish & delete test executation was FAILED...");
 			quitDriver(url);
@@ -2273,7 +2131,6 @@ public class Pfs_portal {
 			Thread.sleep(2000);
 			quitDriver(url);
 			initDriver(Browser, url, Role);
-
 		}
 	}
 
@@ -2287,6 +2144,7 @@ public class Pfs_portal {
 			checkAcadAndClick(url);
 			Automate.CallXpath(driver, ActionXpath.relativefacforumclickcouse1, time, "facforumclickcouse");
 			Thread.sleep(8000);
+
 			returnArray = getClassSubjectAndSection();
 			String program = returnArray[0];
 			String converted = returnArray[1];
