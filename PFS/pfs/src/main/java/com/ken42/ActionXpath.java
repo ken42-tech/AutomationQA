@@ -209,6 +209,7 @@ static String facqueclasselect = "//li[@data-value='39' or text()='2022-BBA-core
 static String faccc = "//span[text()='Course Content']";
 static String facccactivity = "//span[text()='Activity']";
 static String facassessmentrelative = "(//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2'])[1]";
+static String facassessmentrelativeltsta = "/html/body/div[4]/div[3]/div/div[2]/div/div/div[1]/div/img";
 static String facaddactivityrelative = "//span[.='Add Activity']";
 static String facccAsscancel = "//span[text()='Cancel']";
 static String faccAssYes = "//span[text()='Yes']";
@@ -677,7 +678,7 @@ static String assignfacattementsrelative = "//div[@aria-labelledby='mui-componen
 static String assignfacselectattemtrelative = "//li[.='2 Attempts']";
 static String assignfacsaveandproceedrelative = "//span[.='Save and Proceed']";
 static String assignfacokrelative = "//span[.='OK']";
-static String assignexapnd1relative = "//span[. and contains(text(), 'Assignments')]/../../../..//*[local-name()='svg']";
+static String assignexapnd1relative = "//*[. and contains(text(), 'Assignments')]/../../../..//*[local-name()='svg']";
 static String assignfacdot1relative = "";
 static String assignfacpublishrelative = "//span[.='Publish']";
 static String assignfacpublish1relative = "//span[.='Publish']";
@@ -686,7 +687,7 @@ static String assignfacconsignout1relative = "(//li[@role='menuitem'])[2]";
 //// ................. ..student assignment view relative xpath................................////
 static String assignacadmicsltstastudentrelative = "//span[.='Academics']";
 static String assignlearnltstastudentrelative = "//span[.='Learn']";
-static String assignexpandltstastudentrelative = "(//div[@id='panel1a-header'])[1]";
+static String assignexpandltstastudentrelative = "//*[. and contains(text(), 'Assignments')]/../../../..//*[local-name()='svg']";
 static String assignltstasignstudentrelative = "(//span[@class='MuiIconButton-label'])[3]";
 static String assignltstasignoutstudentrelative = "(//li[@role='menuitem'])[2]";
 //// ........... assignment delete faculty Relative xpath..............................////
@@ -709,6 +710,7 @@ static String relativefacforumClickacademics1 = "//span[.='Academics']";
 static String relativefacforumclickcouse1 = "//span[.='Course Content']";
 static String relativefacforumactivity1 = "//span[.='Activity']";
 static String relativefacforum1 = "(//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2'])[3]";
+static String relativefacforum1ltsta = "/html/body/div[4]/div[3]/div/div[2]/div/div/div[3]/div/img";
 static String relativefacfforumaddactivity1 = "//span[.='Add Activity']";
 static String relativefacforumname1 = "//input[@name='forumName']";
 // static String facforummore = "//button[@title='More...']";
@@ -718,7 +720,7 @@ static String relativefacforumsavlin1 = "//button[@title='Save']";
 static String relativefacforumsave1 = "//span[.='Save and Proceed to Forum Settings']";
 static String relativefaforumsave1 = "//span[.='Save and Proceed']";
 static String relativefaforumok1 = "//span[.='OK']";
-static String relativeformexpand1 = "//span[. and contains(text(), 'Forum')]/../../../..//*[local-name()='svg']";
+static String relativeformexpand1 = "(//*[. and contains(text(), 'Forum')]/../../../..//*[local-name()='svg'])[1]";
 static String relativefaccformedot1 = "//p[.='spruthirajautomation']/ancestor::div[@class='MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-justify-content-xs-space-around']/descendant::h5";
 static String relativefacformepublish11 = "//span[.='Publish']";
 static String relativefacformepublish12 = "//span[.='Publish']";
