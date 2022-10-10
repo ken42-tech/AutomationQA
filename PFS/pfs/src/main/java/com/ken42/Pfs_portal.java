@@ -1611,8 +1611,10 @@ public class Pfs_portal {
 			Utils.clickXpath(driver, ActionXpath.facactivityrelative, time, "facactivity");
 			if (Utils.checkLtsta(url)){
 				Utils.clickXpath(driver, ActionXpath.facassessmentrelativeltsta, time, "Click on assessment image");
+			} else {
+				Utils.clickXpath(driver, ActionXpath.facassessmentrelative, time, "Click omn Assesment");
 			}
-			Utils.clickXpath(driver, ActionXpath.facassessmentrelative, time, "facassessment");
+			
 			Utils.clickXpath(driver, ActionXpath.facaddactivityrelative, time, "facaddactivity");
 			Utils.smallSleepBetweenClicks(1);
 
@@ -1724,7 +1726,7 @@ public class Pfs_portal {
 			String converted = returnArray[1];
 
 			Utils.clickXpath(driver, ActionXpath.facactivityrelative, time, "facactivity");
-			Utils.clickXpath(driver, ActionXpath.assignfacassignmentrelative, time, "Click on assessment");
+			Utils.clickXpath(driver, ActionXpath.assignfacassignmentrelative, time, "Click on Assignment");
 			Utils.clickXpath(driver, ActionXpath.facaddactivityrelative, time, "facaddactivity");
 			Utils.smallSleepBetweenClicks(1);
 
