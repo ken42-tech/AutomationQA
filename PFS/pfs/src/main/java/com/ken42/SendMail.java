@@ -23,7 +23,7 @@ import com.opencsv.exceptions.CsvValidationException;
 
 public class SendMail {
 
-    public static void sendEmail() throws CsvValidationException, IOException {
+    public static void sendEmail(String fileName) throws CsvValidationException, IOException {
         String CSV_PATH = "C:\\Users\\Public\\Documents\\email.csv";
         CSVReader csvReader;
         String[] csvCell;

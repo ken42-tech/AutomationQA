@@ -7,7 +7,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.interactions.Actions;
@@ -23,13 +22,11 @@ import org.openqa.selenium.Keys;
 import com.opencsv.CSVReader;
 import java.util.logging.*;
 import java.util.logging.FileHandler;
-import org.openqa.selenium.support.ui.Select;
 import java.text.SimpleDateFormat;
-
-import javax.rmi.CORBA.Util;
 
 
 public class Pfs_portal {
+	private static final Exception Exception = null;
 	private static WebDriver driver;
 	static int time = 1000;
 	public static Logger log = Logger.getLogger("Pfs_portal");
@@ -41,10 +38,7 @@ public class Pfs_portal {
 		FileHandler logFile = new FileHandler(logFileName, append);
         logFile.setFormatter(new MyHtmlFormatter());
         log.addHandler(logFile);
-		// FileHandler logFile = new FileHandler("C:\\Users\\Public\\Documents\\pfs_results.log", append);
-		// logFile.setFormatter(new SimpleFormatter());
-		// log.addHandler(logFile);
-		String CSV_PATH = "C:\\Users\\Public\\Documents\\pfs.csv";
+		String CSV_PATH = "C:\\Users\\Public\\Documents\\test.csv";
 		CSVReader csvReader;
 		int count = 0;
 		csvReader = new CSVReader(new FileReader(CSV_PATH));
@@ -61,6 +55,30 @@ public class Pfs_portal {
 			String studentEmail = csvCell[2];
 			String Role = csvCell[3];
 			String Browser = csvCell[4];
+			String From = csvCell[5];
+            String To = csvCell[6];
+			int from = Integer.parseInt(From);
+			int to = Integer.parseInt(To);
+			if (from < 1 || from > 47 || to < 1 || to > 47){
+				log.warning("The range specificed is incorrect it has to be between 1 and 47");
+				log.warning("Please correct the From and To Columns in CSV file and run again");
+				System.exit(1);
+			}
+			if ("student".equals(Role) && to > 16){
+				log.warning("The range specificed for Student profile has to be b/w 1 and 16");
+				log.warning("Please correct the From and To Columns in CSV file and run again");
+				System.exit(1);
+			}
+			if ("faculty".equals(Role) && (to < 17 || to > 39)){
+				log.warning("The range specificed for Faculty  profile has to be b/w 17 and 39");
+				log.warning("Please correct the From and To Columns in CSV file and run again");
+				System.exit(1);
+			}
+			if ("both".equals(Role) && (to < 40 || to > 47)){
+				log.warning("The range specificed for Faculty  profile has to be b/w 17 and 39");
+				log.warning("Please correct the From and To Columns in CSV file and run again");
+				System.exit(1);
+			}
 			initDriver(Browser, PFSurl, Role);
 			////Utils.bigSleepBetweenClicks(1);
 			log.info("**********************Testing for  Portal  "+PFSurl);
@@ -68,67 +86,187 @@ public class Pfs_portal {
 			if ("student".equals(Role)) {
 				Utils.login(driver, studentEmail);
 				System.out.println("Executing Student portal");
-				testStudent(PFSurl); //TC-1
-				testStudentEnrollment(PFSurl);	 //TC-2		
-				testStudentAcademic(PFSurl);  //TC-3
-				testStudentExamination(PFSurl);  //TC-4
-				testStudentAttendance(PFSurl);  //TC-5
-				testStudentTimeTable(PFSurl);  //TC-6
-				testStudentFees(PFSurl);  //TC-7
-				testStudentFeedback(PFSurl);  //TC-8
-				testStudentStudentStatus(PFSurl);  //TC-9
-				testStudentRaiseCase(studentEmail, facultyEmail, PFSurl);  //TC-10
-				testStudentMakeRequest(studentEmail, facultyEmail, PFSurl); //TC-11
-				testStudentEvent(studentEmail, facultyEmail, PFSurl);  //TC-12
-				testStudentEditProfile(PFSurl);  //TC-13
-				testStudentEditEducationDetails( PFSurl);  //TC-14
-				testStudentEditAddress(PFSurl);  //TC-15
-				testStudentSignout(PFSurl);  //TC-16
+				for(int i=from;i<=to;i++){  
+					switch (i){
+						case 1: 
+							testStudent(PFSurl); //TC-1
+							break;
+						case 2: 
+							testStudentEnrollment(PFSurl);	 //TC-2	
+							break;
+						case 3:
+							testStudentAcademic(PFSurl);  //TC-3
+							break;
+						case 4:
+							testStudentExamination(PFSurl);  //TC-4
+							break;
+						case 5:
+							testStudentAttendance(PFSurl);  //TC-5
+							break;
+						case 6:
+							testStudentTimeTable(PFSurl);  //TC-6
+							break;
+						case 7:
+							testStudentFees(PFSurl);  //TC-7
+							break;
+						case 8:
+							testStudentFeedback(PFSurl);  //TC-8
+							break;
+						case 9:
+							testStudentStudentStatus(PFSurl);  //TC-9
+							break;
+						case 10:
+							testStudentRaiseCase(studentEmail, facultyEmail, PFSurl);  //TC-10
+							break;
+						case 11:
+							testStudentMakeRequest(studentEmail, facultyEmail, PFSurl); //TC-11
+							break;
+						case 12:
+							testStudentEvent(studentEmail, facultyEmail, PFSurl);  //TC-12
+							break;
+						case 13:
+							testStudentEditProfile(PFSurl);  //TC-13
+							break;
+						case 14:
+							testStudentEditEducationDetails( PFSurl);  //TC-14
+							break;
+						case 15:
+							testStudentEditAddress(PFSurl);  //TC-15
+							break;
+						case 16:
+							testStudentSignout(PFSurl);  //TC-16
+							break;
+						default:
+							throw Exception;
+					}
+				}
 				log.info("STUDENT PORTAL TEST CASES EXECUTION COMPLETED\n\n\n");
 			}
 			// This block will execute all facutly related test cases
 			else if ("faculty".equals(Role)) {
 				System.out.println("Executing Faculty portal");
 				Utils.login(driver, facultyEmail);
-				testFaculty(PFSurl); //TC-17
-				testFacultyQuestionBank(PFSurl); //TC-18
-				testFacultyCourseContent(PFSurl); //TC-19
-				testFacultyExamination(PFSurl); //TC-20
-				testFacultyMYStudent(PFSurl); //TC-21
-				testFacultyAttendance(PFSurl); //TC-22
-				testFaculityTimetable(PFSurl); //TC-23
-				testFacultyService(PFSurl); //TC-24
-				testFacultyRaiseCase(studentEmail, facultyEmail, PFSurl); //TC-25
-				testFacultyMakeRequest(studentEmail, facultyEmail, PFSurl); //TC-26
-				testFacultyEvent(PFSurl); //TC-27
-				testfacultyEditProfile(studentEmail, facultyEmail, PFSurl); //TC-28
-				testfacultyEditAddress(studentEmail, facultyEmail, PFSurl); //TC-29
-				testfacultyEditAcademicDetails(studentEmail, facultyEmail, PFSurl); //TC-30
-				testfacultyEditReaserchSupervision(studentEmail, facultyEmail, PFSurl); //TC-31
-				testfacultyEditResearchPublication(studentEmail, facultyEmail, PFSurl); //TC-32
-				testfacultyEditConference(studentEmail, facultyEmail, PFSurl); //TC-33
-				testfacultyEditBook(studentEmail, facultyEmail, PFSurl); //TC-34
-				testfacultyEditProfessionalAssociation(studentEmail, facultyEmail, PFSurl); //TC-35
-				testfacultyOthers(studentEmail, facultyEmail, PFSurl); //TC-36
-				testFacultyDashboard(studentEmail, facultyEmail, PFSurl); //TC-37
-				testFacultyQuestionPaper(studentEmail, facultyEmail, PFSurl); //TC-38
-				testFacultySignout(PFSurl); //TC-39
+				for(int i=from;i<=to;i++){
+					switch (i){
+						case 17: 
+							testFaculty(PFSurl); //TC-17
+							break;
+						case 18:
+							testFacultyQuestionBank(PFSurl); //TC-18
+							break;
+						case 19:
+							testFacultyCourseContent(PFSurl); //TC-19
+							break;
+						case 20:
+							testFacultyExamination(PFSurl); //TC-20
+							break;
+						case 21:
+							testFacultyMYStudent(PFSurl); //TC-21
+							break;
+						case 22:
+							testFacultyAttendance(PFSurl); //TC-22
+							break;
+						case 23:
+							testFaculityTimetable(PFSurl); //TC-23
+							break;
+						case 24:
+							testFacultyService(PFSurl); //TC-24
+							break;
+						case 25:
+							testFacultyRaiseCase(studentEmail, facultyEmail, PFSurl); //TC-25
+							break;
+						case 26:
+							testFacultyMakeRequest(studentEmail, facultyEmail, PFSurl); //TC-26
+							break;
+						case 27:
+							testFacultyEvent(PFSurl); //TC-27
+							break;
+						case 28:
+							testfacultyEditProfile(studentEmail, facultyEmail, PFSurl); //TC-28
+							break;
+						case 29:
+							testfacultyEditAddress(studentEmail, facultyEmail, PFSurl); //TC-29
+							break;
+						case 30:
+							testfacultyEditAcademicDetails(studentEmail, facultyEmail, PFSurl); //TC-30
+							break;
+						case 31:
+							testfacultyEditReaserchSupervision(studentEmail, facultyEmail, PFSurl); //TC-31
+							break;
+						case 32:
+							testfacultyEditResearchPublication(studentEmail, facultyEmail, PFSurl); //TC-32
+							break;
+						case 33:
+							testfacultyEditConference(studentEmail, facultyEmail, PFSurl); //TC-33
+							break;
+						case 34:
+							testfacultyEditBook(studentEmail, facultyEmail, PFSurl); //TC-34
+							break;
+						case 35:
+							testfacultyEditProfessionalAssociation(studentEmail, facultyEmail, PFSurl); //TC-35
+							break;
+						case 36:
+							testfacultyOthers(studentEmail, facultyEmail, PFSurl); //TC-36
+							break;
+						case 37:
+							testFacultyDashboard(studentEmail, facultyEmail, PFSurl); //TC-37
+							break;
+						case 38:
+							testFacultyQuestionPaper(studentEmail, facultyEmail, PFSurl); //TC-38
+							break;
+						case 39:
+							testFacultySignout(PFSurl); //TC-39
+							break;
+						default:
+							throw Exception;
+					}
+				}
 				log.info("FACULTY PORTAL TEST CASES EXECUTION COMPLETED\n\n\n");
 			} else if ("both".equals(Role)) {
-				testSpreadsheetCreateViewDelete(studentEmail, facultyEmail, PFSurl, Browser, Role); //TC-40
-				testPPTCreateViewDelete(studentEmail, facultyEmail, PFSurl, Browser, Role); //TC-41
-				testPDFCreateViewDelete(studentEmail, facultyEmail, PFSurl, Browser, Role); //TC-42
-				testVideoCreateViewDelete(studentEmail, facultyEmail, PFSurl, Browser, Role); //TC-43
-				testLinkCreateViewDelete(studentEmail, facultyEmail, PFSurl, Browser, Role); //TC-44
-				testAssessmentCreatePublishViewDelete(studentEmail, facultyEmail, PFSurl, Browser, Role); //TC-45
-				testFAssignmentCreatePublishViewDelete(studentEmail, facultyEmail, PFSurl, Browser, Role); //TC-46
-				testForumCreatePublishViewDelete(studentEmail, facultyEmail, PFSurl, Browser, Role); //TC-47
+				for(int i=from;i<=to;i++){
+					switch (i){
+						case 40:
+
+					}
+				}
+				for(int i=from;i<=to;i++){
+					switch (i){
+						case 40:
+							testSpreadsheetCreateViewDelete(studentEmail, facultyEmail, PFSurl, Browser, Role); //TC-40
+							break;
+						case 41:
+							testPPTCreateViewDelete(studentEmail, facultyEmail, PFSurl, Browser, Role); //TC-41
+							break;
+						case 42:
+							testPDFCreateViewDelete(studentEmail, facultyEmail, PFSurl, Browser, Role); //TC-42
+							break;
+						case 43:
+							testVideoCreateViewDelete(studentEmail, facultyEmail, PFSurl, Browser, Role); //TC-43
+							break;
+						case 44:
+							testLinkCreateViewDelete(studentEmail, facultyEmail, PFSurl, Browser, Role); //TC-44
+							break;
+						case 45:
+							testAssessmentCreatePublishViewDelete(studentEmail, facultyEmail, PFSurl, Browser, Role); //TC-45
+							break;
+						case 46:
+							testFAssignmentCreatePublishViewDelete(studentEmail, facultyEmail, PFSurl, Browser, Role); //TC-46
+							break;
+						case 47:
+							testForumCreatePublishViewDelete(studentEmail, facultyEmail, PFSurl, Browser, Role); //TC-47
+							break;
+						default:
+							throw Exception;
+					}
+				}
+				
+			}else if ("pfs_func".equals(Role)) {
 			}
 			// After all test are over close the browser
 			quitDriver(PFSurl);
 			log.info("*****************Completed testing of portal" + PFSurl);
 		}
-		SendMail.sendEmail();
+		SendMail.sendEmail(logFileName);
 	}
 
 	@BeforeSuite
@@ -164,7 +302,7 @@ public class Pfs_portal {
 			driver.manage().window().maximize();
 		} catch (Exception e) {
 			log.warning("UNABLE TO LAUNCH BROWSER \n\n\n");
-			SendMail.sendEmail();
+			// SendMail.sendEmail(logFileName);
 			System.exit(01);
 
 		}
@@ -1122,7 +1260,6 @@ public class Pfs_portal {
 	@Test(priority = 38)
 	public static void testFacultyQuestionPaper(String student, String faculty, String url) throws Exception {
 		try {
-			String[] returnArray = new String[2];
 			System.out.println("TC-38 Faculty QUESTION PAPER test executation \n");
 			Utils.goBackToHome(driver, url);
 

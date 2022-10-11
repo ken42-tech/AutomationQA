@@ -119,7 +119,7 @@ public class Utils {
 			log.warning("Login to portal failed \n\n\n");
 			printException(e);
 			driver.quit();
-			SendMail.sendEmail();
+			// SendMail.sendEmail();
 			// System.exit(01);
 		}
 	}
