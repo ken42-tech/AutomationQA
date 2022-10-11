@@ -97,9 +97,10 @@ public class Utils {
 			String regex = "Null";
 			Utils.callSendkeys(driver, ActionXpath.email, Email, time);
 			Utils.clickXpath(driver, ActionXpath.SignIn, time, "Sign in");
-			Utils.clickXpath(driver, ActionXpath.mobile, time, "Enter mobile Number");
-			Utils.clickXpath(driver, ActionXpath.mobile2, time, "Click Mobile ");
-			Utils.clickXpath(driver, ActionXpath.SignIn, time, "Sign in for otp");
+			Utils.smallSleepBetweenClicks(1);
+			// Utils.clickXpath(driver, ActionXpath.mobile, time, "Enter mobile Number");
+			// Utils.clickXpath(driver, ActionXpath.mobile2, time, "Click Mobile ");
+			// Utils.clickXpath(driver, ActionXpath.SignIn, time, "Sign in for otp");
 			// Thread.sleep(time);
 			Alert alert = driver.switchTo().alert(); // switch to alert
 			String alertMessage = driver.switchTo().alert().getText(); // capture alert message

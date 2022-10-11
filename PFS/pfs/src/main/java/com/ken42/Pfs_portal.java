@@ -226,12 +226,6 @@ public class Pfs_portal {
 				for(int i=from;i<=to;i++){
 					switch (i){
 						case 40:
-
-					}
-				}
-				for(int i=from;i<=to;i++){
-					switch (i){
-						case 40:
 							testSpreadsheetCreateViewDelete(studentEmail, facultyEmail, PFSurl, Browser, Role); //TC-40
 							break;
 						case 41:

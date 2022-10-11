@@ -3,8 +3,9 @@ package com.ken42;
 public class ActionXpath {
 //Login related Xpaths
 public static final String OTP = null;
-static String email = "//input[@placeholder='Email Address']";
-static String SignIn = "//span[. and text()='SIGN IN']";
+static String email = "//input[@placeholder='Please enter your Email Id']";
+// static String SignIn = "//span[. and text()='SIGN IN']";
+static String SignIn = "(//*[.='Request OTP'])[2]";
 static String mobile = "/html/body/div/div/div/div/main/div[2]/div[2]/div/div[2]/div[2]/div/div[1]/div[2]/div/div[2]/div | //*[@id=\"app\"]/div/div/div/main/div[2]/div[2]/div[3]/div[2]/div[2]/div/div[2]/div[2]/div/div[2]/div";
 static String mobile2= "/html/body/div[2]/div[3]/ul/li";
 static String SignIn2 = "//span[. and text()='SIGN IN']";
