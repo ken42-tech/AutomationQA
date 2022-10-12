@@ -24,7 +24,7 @@ public class Utils {
 		int maxTries = 4;
 		while (true){
 			try {
-				Thread.sleep(1500);
+				Thread.sleep(1000);
 				log.info("Click on the:"+msg);
 				new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(By.xpath(xpath))).click();
 				break;
@@ -37,8 +37,8 @@ public class Utils {
 				}
 			}
 		}
-		
 	}
+
 	public static void callSendkeys(WebDriver driver,String Xpath, String Value, int time1) throws Exception {
 		int count = 0;
 		int maxTries = 4;
@@ -85,7 +85,6 @@ public class Utils {
 					throw e;
 				}
 			}
-
 		}
 	}
 
@@ -97,7 +96,7 @@ public class Utils {
 			String regex = "Null";
 			Utils.callSendkeys(driver, ActionXpath.email, Email, time);
 			Utils.clickXpath(driver, ActionXpath.requestotp, time, "Request OTP");
-			Utils.smallSleepBetweenClicks(2);
+			Utils.smallSleepBetweenClicks(3);
 			Alert alert = driver.switchTo().alert(); // switch to alert
 			String alertMessage = driver.switchTo().alert().getText(); // capture alert message
 			System.out.println(alertMessage); // Print Alert Message
@@ -108,8 +107,6 @@ public class Utils {
 			}
 			//smallSleepBetweenClicks();
 			alert.accept();
-			// Utils.callSendkeys(driver, ActionXpath.OtpInput, regex, time);
-			// Utils.clickXpath(driver, ActionXpath.submit, time, "Submit");
 			Utils.callSendkeys(driver, ActionXpath.otprequest2, regex, time);
 			Utils.clickXpath(driver, ActionXpath.verifyotp, time, "Verify otp");
 			System.out.println("Sleeping after login for 7 seconds so that goBacktoHome function does not automatically logout user");
@@ -119,8 +116,6 @@ public class Utils {
 			printException(e);
 			driver.quit();
 			throw(e);
-			// SendMail.sendEmail();
-			// System.exit(01);
 		}
 	}
 
@@ -140,7 +135,6 @@ public class Utils {
 			log.info("Failure in Logout function");
 			throw(e);
 		}
-
 	}
 
 	public static void checkAcadAndClick(WebDriver driver, String url) throws Exception{
@@ -156,7 +150,6 @@ public class Utils {
 			log.info("Failure in Logout function");
 			throw(e);
 		}
-		
 	}
 
 	public static void clickOnFacultyService(WebDriver driver,String url) throws Exception{
@@ -177,7 +170,6 @@ public class Utils {
 			log.info("Failure in Logout function");
 			throw(e);
 		}
-		
 	}
 
 	@Test
@@ -310,7 +302,6 @@ public class Utils {
         Matcher m = pt.matcher(url);
         while (m.find()) {
 			bigSleepBetweenClicks(2);
-			
         }
 	}
 	
@@ -325,7 +316,9 @@ public class Utils {
 		if ("SALES & DISTRIBUTION MANAGEMENT-20-22-RETAIL MANAGEMENT".equals(subject)){
 			return ("Sales & Distribution Management-20-22-Retail Management");
 		}
-		
+		if ("BCA-OBJECT ORIENTED PROGRAMMING".equals(subject)){
+			return ("BCA-Object Oriented Programming");
+		}
 		StringBuffer sb = new StringBuffer(subject);
 		// sb.deleteCharAt(sb.length() - 1);
 
@@ -375,8 +368,6 @@ public class Utils {
 			System.out.println("Failure in getClassSubjectAndSection function");
 			log.info("Failure in Logout function");
 			return null;
-			
 		}
 	}
-
 }
