@@ -96,12 +96,8 @@ public class Utils {
 			smallSleepBetweenClicks(1);
 			String regex = "Null";
 			Utils.callSendkeys(driver, ActionXpath.email, Email, time);
-			Utils.clickXpath(driver, ActionXpath.SignIn, time, "Sign in");
-			Utils.smallSleepBetweenClicks(1);
-			// Utils.clickXpath(driver, ActionXpath.mobile, time, "Enter mobile Number");
-			// Utils.clickXpath(driver, ActionXpath.mobile2, time, "Click Mobile ");
-			// Utils.clickXpath(driver, ActionXpath.SignIn, time, "Sign in for otp");
-			// Thread.sleep(time);
+			Utils.clickXpath(driver, ActionXpath.requestotp, time, "Request OTP");
+			Utils.smallSleepBetweenClicks(2);
 			Alert alert = driver.switchTo().alert(); // switch to alert
 			String alertMessage = driver.switchTo().alert().getText(); // capture alert message
 			System.out.println(alertMessage); // Print Alert Message
@@ -112,14 +108,17 @@ public class Utils {
 			}
 			//smallSleepBetweenClicks();
 			alert.accept();
-			Utils.callSendkeys(driver, ActionXpath.OtpInput, regex, time);
-			Utils.clickXpath(driver, ActionXpath.submit, time, "Submit");
+			// Utils.callSendkeys(driver, ActionXpath.OtpInput, regex, time);
+			// Utils.clickXpath(driver, ActionXpath.submit, time, "Submit");
+			Utils.callSendkeys(driver, ActionXpath.otprequest2, regex, time);
+			Utils.clickXpath(driver, ActionXpath.verifyotp, time, "Verify otp");
 			System.out.println("Sleeping after login for 7 seconds so that goBacktoHome function does not automatically logout user");
 			bigSleepBetweenClicks(1);
 		} catch (Exception e) {
 			log.warning("Login to portal failed \n\n\n");
 			printException(e);
 			driver.quit();
+			throw(e);
 			// SendMail.sendEmail();
 			// System.exit(01);
 		}
@@ -139,6 +138,7 @@ public class Utils {
 			Utils.printException(e);
 			System.out.println("Failure in logout function");
 			log.info("Failure in Logout function");
+			throw(e);
 		}
 
 	}
@@ -154,6 +154,7 @@ public class Utils {
 			Utils.printException(e);
 			System.out.println("Failure in checkAcadAndClick function");
 			log.info("Failure in Logout function");
+			throw(e);
 		}
 		
 	}
@@ -174,6 +175,7 @@ public class Utils {
 			Utils.printException(e);
 			System.out.println("Failure in clickOnFacultyService function");
 			log.info("Failure in Logout function");
+			throw(e);
 		}
 		
 	}
@@ -194,6 +196,17 @@ public class Utils {
             return true;
         }
         return false;
+	}
+
+	@Test
+	public static Boolean checknewlogin(String url){
+		String urlToMatch = "dev|jdinstitutedelhi|nsom|bimtech";
+		Pattern pt = Pattern.compile(urlToMatch);
+		Matcher m = pt.matcher(url);
+		while (m.find()) {
+			return true;
+		}
+		return false;
 	}
 
 	@Test
@@ -361,8 +374,9 @@ public class Utils {
 			Utils.printException(e);
 			System.out.println("Failure in getClassSubjectAndSection function");
 			log.info("Failure in Logout function");
+			return null;
+			
 		}
-		return null;
 	}
 
 }

@@ -64,18 +64,16 @@ public class Pfs_portal {
 				log.warning("Please correct the From and To Columns in CSV file and run again");
 				System.exit(1);
 			}
-			if ("student".equals(Role) && to > 16){
+			if ("student".equals(Role) && (from < 1 || to > 16)){
 				log.warning("The range specificed for Student profile has to be b/w 1 and 16");
 				log.warning("Please correct the From and To Columns in CSV file and run again");
 				System.exit(1);
-			}
-			if ("faculty".equals(Role) && (to < 17 || to > 39)){
+			} else if ("faculty".equals(Role) && (to < 17 || to > 39)){
 				log.warning("The range specificed for Faculty  profile has to be b/w 17 and 39");
 				log.warning("Please correct the From and To Columns in CSV file and run again");
 				System.exit(1);
-			}
-			if ("both".equals(Role) && (to < 40 || to > 47)){
-				log.warning("The range specificed for Faculty  profile has to be b/w 17 and 39");
+			}else if ("both".equals(Role) && (to < 40 || to > 47)){
+				log.warning("The range specificed for Both  profile has to be b/w 40 and 47");
 				log.warning("Please correct the From and To Columns in CSV file and run again");
 				System.exit(1);
 			}

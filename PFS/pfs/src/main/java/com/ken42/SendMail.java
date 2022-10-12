@@ -23,7 +23,7 @@ import com.opencsv.exceptions.CsvValidationException;
 
 public class SendMail {
 
-    public static void sendEmail(String fileName) throws CsvValidationException, IOException {
+    public static void sendEmail(String logFileName) throws CsvValidationException, IOException {
         String CSV_PATH = "C:\\Users\\Public\\Documents\\email.csv";
         CSVReader csvReader;
         String[] csvCell;
@@ -31,7 +31,6 @@ public class SendMail {
         String emailTo="";
         csvReader = new CSVReader(new FileReader(CSV_PATH));
         while ((csvCell = csvReader.readNext()) != null) {
-
             if (count == 0){
                 count = count + 1;
                 continue;
@@ -39,17 +38,12 @@ public class SendMail {
             emailTo = csvCell[0];
         }
         System.out.println("EMail list is ***********"+emailTo);
-
-
         // Sender's email ID needs to be mentioned
         String from = "anandTest2002@gmail.com";
-
         // Assuming you are sending email from through gmails smtp
         String host = "smtp.gmail.com";
-
         // Get system properties
         Properties properties = System.getProperties();
-
         // Setup mail server
         properties.put("mail.smtp.host", "smtp.gmail.com");
         properties.put("mail.smtp.port", "465");
@@ -60,31 +54,20 @@ public class SendMail {
         properties.put("mail.smtp.password", "ydqctevuvkrmmslu");
 
 
-
         // Get the Session object.// and pass username and password
         Session session = Session.getInstance(properties, new javax.mail.Authenticator() {
-
             protected PasswordAuthentication getPasswordAuthentication() {
-
-                // return new PasswordAuthentication("anandTest2002@gmail.com", "ccsegdbmljmqpfzg");
                 return new PasswordAuthentication("anandTest2002@gmail.com", "ydqctevuvkrmmslu");
-
             }
-
         });
-
         // Used to debug SMTP issues
         // session.setDebug(true);
-
-        
-
         try {
             // Create a default MimeMessage object.
             Message message = new MimeMessage(session);
    
             // Set From: header field of the header.
             message.setFrom(new InternetAddress(from));
-   
             // Set To: header field of the header.
             // message.setRecipients(Message.RecipientType.TO,
             //    InternetAddress.parse(to));
@@ -96,39 +79,25 @@ public class SendMail {
                 counter++;
             }
             message.setRecipients(Message.RecipientType.TO, recipientAddress);
-   
-            // Set Subject: header field
             message.setSubject("Automation Execution logs");
-   
             // Create the message part
             BodyPart messageBodyPart = new MimeBodyPart();
-   
             // Now set the actual message
             messageBodyPart.setText("Attached is the results file");
-   
             // Create a multipar message
             Multipart multipart = new MimeMultipart();
-   
             // Set text message part
             multipart.addBodyPart(messageBodyPart);
-   
             // Part two is attachment
             messageBodyPart = new MimeBodyPart();
-            // String filename = "C:\\Users\\Public\\Documents\\pfs_results.log";
-            String filename = "C:\\Users\\Public\\Documents\\Testresult.HTML";
-            DataSource source = new FileDataSource(filename);
+            DataSource source = new FileDataSource(logFileName);
             messageBodyPart.setDataHandler(new DataHandler(source));
-            messageBodyPart.setFileName(filename);
+            messageBodyPart.setFileName(logFileName);
             multipart.addBodyPart(messageBodyPart);
-   
             // Send the complete message parts
             message.setContent(multipart);
-   
-            // Send message
             Transport.send(message);
-   
             System.out.println("Sent message successfully....");
-     
          } catch (MessagingException e) {
             throw new RuntimeException(e);
          }

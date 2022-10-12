@@ -11,6 +11,11 @@ static String mobile2= "/html/body/div[2]/div[3]/ul/li";
 static String SignIn2 = "//span[. and text()='SIGN IN']";
 static String OtpInput ="//input[@placeholder='Enter Otp']";
 static String submit ="//span[text()='Submit']";  
+
+static String email2="//input[@placeholder='Please enter your Email Id']";
+static String requestotp="//span[. ='Request OTP']";
+static String otprequest2="//input[@placeholder='Please enter the OTP sent to your registered Email ID.']";
+static String verifyotp="//span[. and text()='Verify & Sign in']";
 //Login Xpaths ends here
    
 
