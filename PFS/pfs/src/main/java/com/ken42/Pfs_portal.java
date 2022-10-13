@@ -75,7 +75,6 @@ public class Pfs_portal {
 				Role = "faculty";
 				faculty_login_set = true;
 			} else if ((from >=1 && to <=47) && (to >=1 && to <=47)){
-				// Utils.login(driver, studentEmail);
 				faculty_login_set = false;
 			}
 			
