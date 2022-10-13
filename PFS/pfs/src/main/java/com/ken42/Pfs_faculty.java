@@ -209,7 +209,7 @@ public class Pfs_faculty {
 		try {
 			System.out.println("TC-24:  Faculty Service Test case Started");
 			Utils.goBackToHome(driver, url);
-			Utils.bigSleepBetweenClicks(1);
+			// Utils.bigSleepBetweenClicks(1);
 			Utils.clickOnFacultyService(driver, url);
 			Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.FacRaisebutton, time, "Click on Raise case button");

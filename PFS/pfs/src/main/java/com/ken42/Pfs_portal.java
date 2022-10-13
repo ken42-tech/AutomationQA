@@ -50,6 +50,7 @@ public class Pfs_portal {
 		String[] csvCell;
 		while ((csvCell = csvReader.readNext()) != null) {
 			boolean faculty_login_set = false;
+			boolean student_login_set = false;
 			if (count == 0) {
 				count = count + 1;
 				continue;
@@ -60,21 +61,23 @@ public class Pfs_portal {
             String To = csvCell[3];
 			int from = Integer.parseInt(From);
 			int to = Integer.parseInt(To);
-			if (from < 1 || from > 47 || to < 1 || to > 47){
+			if ((from < 1 || from > 47 || to < 1 || to > 47) || (to < from)){
 				log.warning("The range specificed is incorrect it has to be between 1 and 47");
 				log.warning("Please correct the From and To Columns in CSV file and run again");
 				System.exit(1);
 			}
 
 			initDriver(Browser, PFSurl);
-			if ((from >=1 && to <=16) && (to >=1 && to <=16)){
+			if ((from >=1 && to <=16)){
 				Utils.login(driver, studentEmail);
 				Role = "student";
-			} else if ((from >=17 && to <=39) && (to >=17 && to <=39)){
+				faculty_login_set = true;
+			} else if ((from >=17 && to <=39)){
 				Utils.login(driver, facultyEmail);
 				Role = "faculty";
 				faculty_login_set = true;
 			} else if ((from >=1 && to <=47) && (to >=1 && to <=47)){
+				student_login_set = false;
 				faculty_login_set = false;
 			}
 			
@@ -84,6 +87,11 @@ public class Pfs_portal {
 			for(int i=from;i<=to;i++){  
 				switch (i){
 					case 1: 
+						if (!student_login_set){
+							// Utils.logout(driver, PFSurl, Role);
+							Utils.smallSleepBetweenClicks(i);
+							Utils.login(driver, studentEmail);
+						}
 						Pfs_student.testStudent(PFSurl, driver); //TC-1
 						break;
 					case 2: 
@@ -261,12 +269,12 @@ public class Pfs_portal {
 				op.addArguments("--disable-notifications");
 				WebDriverManager.chromedriver().setup();
 				driver = new ChromeDriver(op);
-				driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+				driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
 			} else if ("edge".equals(Browser)) {
 				System.setProperty("webdriver.edge.driver",
 						"C:\\Users\\Public\\Documents\\edgedriver_win64\\msedgedriver.exe");
 				driver = new EdgeDriver();
-				driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+				driver.manage().timeouts().implicitlyWait(45, TimeUnit.SECONDS);
 			} else if ("firefox".equals(Browser)) {
 				System.setProperty("webdriver.edge.driver",
 						"C:\\Users\\Public\\Documents\\geckodriver-v0.31.0-win64\\geckodriver.exe");
@@ -274,7 +282,7 @@ public class Pfs_portal {
 				fx.addArguments("--disable-notifications");
 				WebDriverManager.firefoxdriver().setup();
 				driver = new FirefoxDriver(fx);
-				driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+				driver.manage().timeouts().implicitlyWait(45, TimeUnit.SECONDS);
 			}
 			driver.get(url);
 			driver.manage().window().maximize();

@@ -38,8 +38,6 @@ public class Pfs_activity {
 			Utils.clickXpath(driver, ActionXpath.facaddactivityrelative, time, "facaddactivity");
 			Utils.smallSleepBetweenClicks(1);
 
-			
-
 			String fileName = "Assessment_" + Utils.generateRandom();
 			Utils.callSendkeys(driver, ActionXpath.facassesmentrelative, fileName, time);
 			Utils.smallSleepBetweenClicks(1);
@@ -47,67 +45,46 @@ public class Pfs_activity {
 			driver.findElement(By.xpath("//li[@data-value='" + program + "']")).click();
 			Utils.clickXpath(driver, ActionXpath.subject, time, "click on subject");
 			driver.findElement(By.xpath("//li[@data-value='" + converted + "']")).click();
-			Thread.sleep(2000);
 			//driver.findElement(By.xpath("//li[@data-value='" + section + "']")).click();
-
-
 			// Create and save assessment
 			Utils.clickXpath(driver, ActionXpath.facinstruction3dot, time, "facinstruction3dot");
-			Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.facclinkrelative, time, "facclink");
-			Utils.smallSleepBetweenClicks(1);
 			Utils.callSendkeys(driver, ActionXpath.facurlrelative, fileName, time);
-			Thread.sleep(2000);
 			Utils.clickXpath(driver, ActionXpath.facsavlinrelative, time, "facsavlin");
-			Thread.sleep(2000);
 			Utils.clickXpath(driver, ActionXpath.facsaverelative, time, "Save and proceed 1");
-			Utils.smallSleepBetweenClicks(1);
 			Utils.callSendkeys(driver, ActionXpath.fachourrelative, "1", time);
 			Utils.clickXpath(driver, ActionXpath.fasaverelative, time, "Save and proceed 2");
-			Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.fasokrelative, time, "fasok");
 
 			//Add question and publish
 			Utils.clickXpath(driver, ActionXpath.fasquestionrelative, time, "Click on question bank ");
-			Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.facselectrelative, time, "Select first question");
 			Utils.clickXpath(driver, ActionXpath.facaddselectrelative, time, "Click Add Select");
-			Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.preview, time, "Click on preview");
-			Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.facAssPublish, time, "Publish Assessment");
 
-			Utils.bigSleepBetweenClicks(2);
 			Utils.logout(driver, url, Role);
-			Utils.smallSleepBetweenClicks(1);
 			
 			// .....................................student
 			Utils.login(driver, student);
-			Utils.smallSleepBetweenClicks(1);
 			Utils.checkAcadAndClick(driver, url);
-			Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.Studentassessmenstrelativelearn, time, "flearnltsta");
 			Utils.clickXpath(driver, ActionXpath.Studentassessmenstrelativelexpand, time, "Click on Assesment SVG");
-			Utils.smallSleepBetweenClicks(1);
-			new WebDriverWait(driver, 25).until(ExpectedConditions.elementToBeClickable(By.xpath("//p[.='"+fileName+"']/../../.././..//*[local-name()='svg']"))).click();
+			Utils.clickXpath(driver, "//p[.='"+fileName+"']/../../.././..//*[local-name()='svg']", time, "Click on fileName");
+			// new WebDriverWait(driver, 25).until(ExpectedConditions.elementToBeClickable(By.xpath("//p[.='"+fileName+"']/../../.././..//*[local-name()='svg']"))).click();
 			Actions qq=new Actions(driver);
             qq.moveByOffset(40, 40).click().perform();
-			Utils.smallSleepBetweenClicks(1);
 			Utils.logout(driver, url, Role);
-			Utils.smallSleepBetweenClicks(1);
 
 
 			//// .........................Faculty delete assessment
 			Utils.login(driver, faculty);
-			Utils.bigSleepBetweenClicks(1);
 			Utils.checkAcadAndClick(driver, url);
 			Utils.clickXpath(driver, ActionXpath.facclickcouserelativedelete, time, "Click on course content");
-			Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpathWithScroll(driver, ActionXpath.facultyassessmenstrelativelexpandtodelete, time,
 					"Click on Assessment SVG");
-			Utils.smallSleepBetweenClicks(1);
-			new WebDriverWait(driver, 25).until(ExpectedConditions.elementToBeClickable(By.xpath("//p[.='"+fileName+"']/../../.././..//*[local-name()='svg']"))).click();
-
+			Utils.clickXpath(driver, "//p[.='"+fileName+"']/../../.././..//*[local-name()='svg']", time, "Click on fileName");
+			// new WebDriverWait(driver, 25).until(ExpectedConditions.elementToBeClickable(By.xpath("//p[.='"+fileName+"']/../../.././..//*[local-name()='svg']"))).click();
 			Utils.smallSleepBetweenClicks(1);
 
 			// Automate.clickXpath(driver, ActionXpath. fsubltstadeleterelativedelete, time, "Delete button 1");
@@ -117,7 +94,6 @@ public class Pfs_activity {
 			((JavascriptExecutor) driver).executeScript("arguments[0].click();", el);
 			Thread.sleep(10000);
 			Utils.clickXpath(driver, ActionXpath.fsubltstadelete1relativedelete2, time, " Delete Assessment 2");
-			Utils.bigSleepBetweenClicks(2);
 			Utils.logout(driver, url, Role);
 			log.info("TC-45 Assement create, publish & delete test Executation Was PASSED....\n");
 		}
@@ -186,7 +162,8 @@ public class Pfs_activity {
 			Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.assignexapnd1relative, time, "Exapand Assigment");
 			Utils.smallSleepBetweenClicks(1);
-			new WebDriverWait(driver, 25).until(ExpectedConditions.elementToBeClickable(By.xpath("//p[.='"+fileName+"']/../../..//*[local-name()='svg']"))).click();
+			Utils.clickXpath(driver, "//p[.='"+fileName+"']/../../..//*[local-name()='svg']", time, "Click on Assignment name");
+			// new WebDriverWait(driver, 25).until(ExpectedConditions.elementToBeClickable(By.xpath("//p[.='"+fileName+"']/../../..//*[local-name()='svg']"))).click();
 			Utils.smallSleepBetweenClicks(1);
 			WebDriverWait wait = new WebDriverWait(driver, 20);
 			WebElement element2 = wait
@@ -209,7 +186,8 @@ public class Pfs_activity {
 			Utils.clickXpath(driver, ActionXpath.assignexpandltstastudentrelative, time, "expand Assignement");
 			Utils.smallSleepBetweenClicks(1);
 			// Utils.scrollUpOrDown(driver, 500);
-			new WebDriverWait(driver, 25).until(ExpectedConditions.elementToBeClickable(By.xpath("//p[.='"+fileName+"']/../../.././..//*[local-name()='svg']"))).click();
+			Utils.clickXpath(driver, "//p[.='"+fileName+"']/../../.././..//*[local-name()='svg']", time, "Click on Assignment name");
+			// new WebDriverWait(driver, 25).until(ExpectedConditions.elementToBeClickable(By.xpath("//p[.='"+fileName+"']/../../.././..//*[local-name()='svg']"))).click();
 			Utils.smallSleepBetweenClicks(1);
 			Actions qq=new Actions(driver);
             qq.moveByOffset(40, 40).click().perform();
@@ -223,7 +201,8 @@ public class Pfs_activity {
 			Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.assignfacclickcouserelative, time, "facclickcouse");
 			Utils.clickXpath(driver, ActionXpath.assignexapndrelative, time, "Exapand");
-			new WebDriverWait(driver, 25).until(ExpectedConditions.elementToBeClickable(By.xpath("//p[.='"+fileName+"']/../../.././..//*[local-name()='svg']"))).click();
+			Utils.clickXpath(driver, "//p[.='"+fileName+"']/../../.././..//*[local-name()='svg']", time, "Click on Assignment name");
+			// new WebDriverWait(driver, 25).until(ExpectedConditions.elementToBeClickable(By.xpath("//p[.='"+fileName+"']/../../.././..//*[local-name()='svg']"))).click();
 			Utils.smallSleepBetweenClicks(1);
 			Utils.smallSleepBetweenClicks(1);
 
@@ -235,10 +214,10 @@ public class Pfs_activity {
 			Utils.bigSleepBetweenClicks(2);
 			Utils.logout(driver, url, Role);
 			Utils.smallSleepBetweenClicks(1);
-			log.info("TC-46 Assignment create,publish & delete Was PASSED....\n");
+			log.info("TC-46 Assignment create,publish & delete  PASSED\n");
 		} catch (Exception e) {
 			Utils.printException(e);
-			log.warning("TC-46 Assignment create,publish & delte was FAILED....\n");
+			log.warning("TC-46 Assignment create,publish & delte  FAILED....\n");
 			Pfs_portal.quitDriver(url);
 			Pfs_portal.initDriver(Browser, url);
 		}
@@ -296,7 +275,8 @@ public class Pfs_activity {
 
 			// new WebDriverWait(driver, 25).until(ExpectedConditions.elementToBeClickable(By.xpath("//p[.='"+fileName+"']/../../.././..//*[local-name()='svg']"))).click();
 			Utils.smallSleepBetweenClicks(1);
-			new WebDriverWait(driver, 25).until(ExpectedConditions.elementToBeClickable(By.xpath("//p[.='"+fileName+"']/../../..//*[local-name()='svg']"))).click();
+			Utils.clickXpath(driver, "//p[.='"+fileName+"']/../../..//*[local-name()='svg']", time, "Click on Assignment name");
+			// new WebDriverWait(driver, 25).until(ExpectedConditions.elementToBeClickable(By.xpath("//p[.='"+fileName+"']/../../..//*[local-name()='svg']"))).click();
 			// Utils.clickXpath(driver, ActionXpath.relativefaccformedot1, time, "faccformedot");
 			Utils.smallSleepBetweenClicks(1);
 
@@ -323,7 +303,8 @@ public class Pfs_activity {
 			Utils.clickXpath(driver, ActionXpath.relativeforumlearnltsta1, time, "Select learn");
 			Utils.clickXpath(driver, ActionXpath.relativeforumaexpandltsta1, time, "expand forum");
 			Thread.sleep(2000);
-			new WebDriverWait(driver, 25).until(ExpectedConditions.elementToBeClickable(By.xpath("//p[.='"+fileName+"']/../../.././..//*[local-name()='svg']"))).click();
+			Utils.clickXpath(driver, "//p[.='"+fileName+"']/../../.././..//*[local-name()='svg']", time, "Click on Assignment name");
+			// new WebDriverWait(driver, 25).until(ExpectedConditions.elementToBeClickable(By.xpath("//p[.='"+fileName+"']/../../.././..//*[local-name()='svg']"))).click();
 			Thread.sleep(2000);
 			Actions qq=new Actions(driver);
             qq.moveByOffset(40, 40).click().perform();
@@ -341,7 +322,8 @@ public class Pfs_activity {
 
 			// Utils.clickXpath(driver, ActionXpath.relativeforumfclickondotltsta12, time, "facdot");
 			//Below line to click on 3 dots
-			new WebDriverWait(driver, 25).until(ExpectedConditions.elementToBeClickable(By.xpath("//p[.='"+fileName+"']/../../..//*[local-name()='svg']"))).click();
+			Utils.clickXpath(driver, "//p[.='"+fileName+"']/../../..//*[local-name()='svg']", time, "Click on Assignment name");
+			// new WebDriverWait(driver, 25).until(ExpectedConditions.elementToBeClickable(By.xpath("//p[.='"+fileName+"']/../../..//*[local-name()='svg']"))).click();
 
 
 			Thread.sleep(2000);

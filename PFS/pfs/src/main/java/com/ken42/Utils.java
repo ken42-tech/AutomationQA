@@ -1,4 +1,6 @@
 package com.ken42;
+import java.time.Duration;
+import java.util.NoSuchElementException;
 import java.util.logging.*;
 import java.util.regex.*;
 import org.openqa.selenium.By;
@@ -8,7 +10,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openxmlformats.schemas.drawingml.x2006.main.ThemeDocument;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
 import org.testng.annotations.Test;
+
+import com.google.common.base.Function;
+
 import org.openqa.selenium.Alert;
 
 
@@ -21,15 +28,26 @@ public class Utils {
     public static void clickXpath(WebDriver driver,String xpath, int time,String msg) throws Exception {
 		JavascriptExecutor js3 = (JavascriptExecutor) driver; 
         int count = 0;
-		int maxTries = 4;
+		int maxTries = 5;
+		final String XPATH = xpath;
 		while (true){
 			try {
 				Thread.sleep(1000);
 				log.info("Click on the:"+msg);
-				new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(By.xpath(xpath))).click();
+				Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
+				.withTimeout(Duration.ofSeconds(20))
+				.pollingEvery(Duration.ofSeconds(5))
+				.ignoring(NoSuchElementException.class);
+				WebElement WE = wait.until(new Function<WebDriver, WebElement>() {
+					public WebElement apply(WebDriver driver) {
+					  return driver.findElement(By.xpath(XPATH));
+					}
+				  });
+				WE.click();
+				// new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(By.xpath(xpath))).click();
 				break;
 			} catch (Exception e) {
-				Thread.sleep(500);
+				Thread.sleep(3000);
 				log.warning("Failed to Click on the :"+msg);
 				if (++count == maxTries) {
 					Utils.printException(e);
@@ -42,12 +60,21 @@ public class Utils {
 	public static void callSendkeys(WebDriver driver,String Xpath, String Value, int time1) throws Exception {
 		int count = 0;
 		int maxTries = 4;
+		final String XPATH = Xpath;
 		while (true){
 			try {
-				log.info("Entering value"+Value);
+				log.info("Entering value   "+Value);
+				Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
+				.withTimeout(Duration.ofSeconds(20))
+				.pollingEvery(Duration.ofSeconds(4))
+				.ignoring(NoSuchElementException.class);
+				WebElement WE = wait.until(new Function<WebDriver, WebElement>() {
+					public WebElement apply(WebDriver driver) {
+					  return driver.findElement(By.xpath(XPATH));
+					}
+				  });
+				WE.sendKeys(Value);
 				Thread.sleep(1000);
-				new WebDriverWait(driver, 15).until(ExpectedConditions.elementToBeClickable(By.xpath(Xpath))).sendKeys(Value);
-				Thread.sleep(500);
 				break;
 			} catch (Exception e) {
 				Thread.sleep(250);
@@ -299,7 +326,7 @@ public class Utils {
 	}
 
 	public static void executeLongWait(String url) throws InterruptedException{
-		String urlToMatch = "ltpct|nsom";
+		String urlToMatch = "ltpct";
 		Pattern pt = Pattern.compile(urlToMatch);
         Matcher m = pt.matcher(url);
         while (m.find()) {
@@ -320,6 +347,9 @@ public class Utils {
 		}
 		if ("BCA-OBJECT ORIENTED PROGRAMMING".equals(subject)){
 			return ("BCA-Object Oriented Programming");
+		}
+		if ("ENGLISH - CLASS 8".equals(subject)){
+			return ("English - Class 8");
 		}
 		StringBuffer sb = new StringBuffer(subject);
 		// sb.deleteCharAt(sb.length() - 1);
@@ -351,13 +381,14 @@ public class Utils {
 			String[]  ProgSubj = new String [2];
 			// Utils.clickXpath(driver, ActionXpath.program, time, "click on program");
 			// Utils.clickXpath(driver, ActionXpath.programselect, time, "click on program select");
+			Utils.smallSleepBetweenClicks(6);
 			WebElement p = driver.findElement(By.xpath("(//*[. and @aria-haspopup='listbox'])[1]"));
 			String program = p.getText();
 			ProgSubj[0] = program;
 			System.out.println("Text program is : " + program);
 
 			Utils.clickXpath(driver, ActionXpath.subjectclick, time, "click on subject");
-			WebElement p2 = driver.findElement(By.xpath("//*[@class='MuiTab-wrapper']//p"));
+			WebElement p2 = driver.findElement(By.xpath("(//*[@class='MuiTab-wrapper']//p)[1]"));
 			String subject = p2.getText();
 			System.out.println("Subject is  " +subject);
 			String converted = convertContent(subject);
