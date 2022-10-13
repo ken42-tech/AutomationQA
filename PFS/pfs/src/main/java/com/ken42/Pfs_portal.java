@@ -33,6 +33,7 @@ public class Pfs_portal {
 
 	public static void main(String[] args) throws Exception {
 		boolean append = false;
+		
 		String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new java.util.Date());
 		String logFileName = String.format("C:\\Users\\Public\\Documents\\Testresult_%s.HTML", timeStamp);
 		FileHandler logFile = new FileHandler(logFileName, append);
@@ -48,7 +49,7 @@ public class Pfs_portal {
 
 		String[] csvCell;
 		while ((csvCell = csvReader.readNext()) != null) {
-
+			boolean faculty_login_set = false;
 			if (count == 0) {
 				count = count + 1;
 				continue;
@@ -72,6 +73,10 @@ public class Pfs_portal {
 			} else if ((from >=17 && to <=39) && (to >=17 && to <=39)){
 				Utils.login(driver, facultyEmail);
 				Role = "faculty";
+				faculty_login_set = true;
+			} else if ((from >=1 && to <=47) && (to >=1 && to <=47)){
+				// Utils.login(driver, studentEmail);
+				faculty_login_set = false;
 			}
 			
 			
@@ -128,6 +133,11 @@ public class Pfs_portal {
 						Pfs_student.testStudentSignout(PFSurl, driver);  //TC-16
 						break;
 					case 17: 
+						if (!faculty_login_set){
+							// Utils.logout(driver, PFSurl, Role);
+							Utils.smallSleepBetweenClicks(i);
+							Utils.login(driver, facultyEmail);
+						}
 						Pfs_faculty.testFaculty(PFSurl, driver); //TC-17
 						break;
 					case 18:

@@ -14,9 +14,9 @@ import org.openqa.selenium.Alert;
 
 
 public class Utils {
-	static Logger log = Logger.getLogger(Utils.class.getName());
+	// static Logger log = Logger.getLogger(Utils.class.getName());
 	static int time = 1000;
-	// public static Logger log = Logger.getLogger("Pfs_portal");
+	public static Logger log = Logger.getLogger("Pfs_portal");
 
     public static void clickXpath(WebDriver driver,String xpath, int time,String msg) throws Exception {
 		JavascriptExecutor js3 = (JavascriptExecutor) driver; 
@@ -203,7 +203,7 @@ public class Utils {
 
 	@Test
 	public static Boolean checkServiceTab(String url){
-		String urlToMatch = "bimtech|jdinstitutedelhi|nsom";
+		String urlToMatch = "bimtech|jdinstitutedelhi|nsom|portal-dev";
 		Pattern pt = Pattern.compile(urlToMatch);
         Matcher m = pt.matcher(url);
         while (m.find()) {
@@ -276,12 +276,14 @@ public class Utils {
 
 	@Test
 	public static void smallSleepBetweenClicks(int loop) throws InterruptedException{
-		System.out.println("Sleeping for 2 seconds");
+		int total_time = 2000 * loop;
+		System.out.println("Sleeping for "+total_time);
 		Thread.sleep(2000 * loop);
 	}
 	@Test
 	public static void bigSleepBetweenClicks(int loop) throws InterruptedException{
-		System.out.println("Sleeping for 7 seconds");
+		int total_time = 7000 * loop;
+		System.out.println("Sleeping for "+total_time);
 		Thread.sleep(7000 * loop);
 	}
 	@Test

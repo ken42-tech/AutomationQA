@@ -46,9 +46,10 @@ public class Pfs_student {
 				return;
 			}
 			Utils.goBackToHome(driver, url); 
+			Utils.bigSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.ClickEnroll, time, "Expand Enrollment");
 			Utils.clickXpath(driver, ActionXpath.clickCompletedEnroll, time, "select the Completes Enrollment");
-			Utils.scrollUpOrDown(driver, 2000);
+			// Utils.scrollUpOrDown(driver, 2000);
 			Utils.clickXpath(driver, ActionXpath.ClickOpenEnroll, time, "Go to the open Enrollement");
 			Utils.clickXpath(driver, ActionXpath.ClickEnroll, time, "Expand Enrollment");
 			log.info("TC-2: Enrollment of the Student Test Case PASSED \n");
@@ -183,6 +184,7 @@ public class Pfs_student {
 			}else {
 				Utils.clickXpath(driver, ActionXpath.feedBack, time, "FeedBack");
 			}
+			Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.clickPrograme, time, "Programe Feedbcak");
 			log.info("TC-8: Student FEEDBACK tab Test Case PASSED \n");
 		} catch (Exception e) {

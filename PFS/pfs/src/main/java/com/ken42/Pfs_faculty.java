@@ -5,6 +5,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import java.util.logging.Logger;
+
+import javax.rmi.CORBA.Util;
+
 import org.testng.annotations.Test;
 public class Pfs_faculty {
     public static Logger log = Logger.getLogger("Pfs_portal");
@@ -23,10 +26,10 @@ public class Pfs_faculty {
             }
 			Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.clickFacDashdevnosbm, time, "click on the dashboard");
+			Utils.smallSleepBetweenClicks(6);
+			// Utils.clickXpath(driver, ActionXpath.facFilter, time, "click the dashboard activity filiter span bar");
 			//Utils.smallSleepBetweenClicks(1);
-			Utils.clickXpath(driver, ActionXpath.facFilter, time, "click the dashboard activity filiter span bar");
-			//Utils.smallSleepBetweenClicks(1);
-			Utils.clickXpath(driver, ActionXpath.facdbfilterselect, time, "select the factivity filter option");
+			// Utils.clickXpath(driver, ActionXpath.facdbfilterselect, time, "select the factivity filter option");
 			//Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.facdbresfilter, time, "click on the resources filter");
 			//Utils.smallSleepBetweenClicks(1);
@@ -360,6 +363,7 @@ public class Pfs_faculty {
 
 			System.out.println(" TC-30:   Academic Details Started  case executation");
 			Utils.goBackToHome(driver, url);
+			Utils.smallSleepBetweenClicks(2);
 			Utils.clickXpath(driver, ActionXpath.FCCportal, time, "facSelectPrtoSignout");
 			Utils.clickXpath(driver, ActionXpath.faccProfile, time, "facprofile");
 			Utils.clickXpath(driver, ActionXpath.facdpacdeails, time, "facdpacdeails");

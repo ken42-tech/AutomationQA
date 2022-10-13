@@ -111,7 +111,7 @@ public class Pfs_resource {
 			Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.facpptadd, time, "facpptadd");
 			Utils.clickXpath(driver, ActionXpath.facccresdescclick, time, "facccresdescclick");
-			Utils.bigSleepBetweenClicks(2);
+			Utils.smallSleepBetweenClicks(2);
 			Utils.callSendkeys(driver, ActionXpath.facccresurl, "Hello", time);
 			Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.facccressubmitform, time, "facccressubmitform");
