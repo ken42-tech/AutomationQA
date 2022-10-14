@@ -113,11 +113,8 @@ public class Pfs_activity {
 			String returnArray[] = new String[2];
 			System.out.println("TC-46 Assignment was Create ,publish & delete Test Excecuation Started...\n");
 			Utils.login(driver, faculty);
-			Utils.smallSleepBetweenClicks(1);
 			Utils.checkAcadAndClick(driver, url);
-			Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.assignfacclickcouse1relative, time, "Click on course content");
-
 			returnArray = Utils.getClassSubjectAndSection(driver);
 			String program = returnArray[0];
 			String converted = returnArray[1];
@@ -125,43 +122,30 @@ public class Pfs_activity {
 			Utils.clickXpath(driver, ActionXpath.facactivityrelative, time, "facactivity");
 			Utils.clickXpath(driver, ActionXpath.assignfacassignmentrelative, time, "Click on Assignment");
 			Utils.clickXpath(driver, ActionXpath.facaddactivityrelative, time, "facaddactivity");
-			Utils.smallSleepBetweenClicks(1);
 
 			String fileName = "Assignment_" + Utils.generateRandom();
-			Utils.smallSleepBetweenClicks(1);
 			Utils.callSendkeys(driver, ActionXpath.assignfacassignmentNamerelative, fileName, time);
-			Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.program, time, "click on program");
 			driver.findElement(By.xpath("//li[@data-value='" + program + "']")).click();
 			Utils.clickXpath(driver, ActionXpath.subject, time, "click on subject");
 			driver.findElement(By.xpath("//li[@data-value='" + converted + "']")).click();
-			Utils.smallSleepBetweenClicks(1);
 
 			Utils.clickXpath(driver, ActionXpath.facinstruction3dot, time, "facinstruction3dot");
 			Utils.clickXpath(driver, ActionXpath.assignfaclinkrelative, time, "faclink");
 			Utils.callSendkeys(driver, ActionXpath.assignfacurlrelative, "https://portal-dev.ken42.com/", time);
-			Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.assignfacsavlinrelative, time, "facsavlink");
-			Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.assignfacsaverelative, time, " facsave");
-			Utils.smallSleepBetweenClicks(1);
 			Utils.cleartext(driver, ActionXpath.assignfactotalmarksrelative);
 			Utils.callSendkeys(driver, ActionXpath.assignfactotalmarksrelative, "9", time);
 			WebElement el = driver.findElement(By.xpath("//input[@name='gradetopass']"));
 			el.clear();
 			el.sendKeys("9");
 
-			Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.assignfacattementsrelative, time, "facattements");
-			Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.assignfacselectattemtrelative, time, "facselectattemt");
-			Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.assignfacsaveandproceedrelative, time, "facsaveandproceed");
-			Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.assignfacokrelative, time, "facok");
-			Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.assignexapnd1relative, time, "Exapand Assigment");
-			Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpath(driver, "//p[.='"+fileName+"']/../../..//*[local-name()='svg']", time, "Click on Assignment name");
 			// new WebDriverWait(driver, 25).until(ExpectedConditions.elementToBeClickable(By.xpath("//p[.='"+fileName+"']/../../..//*[local-name()='svg']"))).click();
 			Utils.smallSleepBetweenClicks(1);
@@ -173,47 +157,33 @@ public class Pfs_activity {
 			WebDriverWait waite = new WebDriverWait(driver, 20);
 			WebElement element3 = waite.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[.='Publish']")));
 			((JavascriptExecutor) driver).executeScript("arguments[0].click();", element3);
-			Utils.bigSleepBetweenClicks(2);
 			Utils.logout(driver, url, Role);
 			Utils.smallSleepBetweenClicks(1);
 
 			//Verify as student
 			Utils.login(driver, student);
-			Utils.bigSleepBetweenClicks(1);
 			Utils.checkAcadAndClick(driver, url);
 			Utils.clickXpath(driver, ActionXpath.assignlearnltstastudentrelative, time, "Select learn");
-			Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.assignexpandltstastudentrelative, time, "expand Assignement");
-			Utils.smallSleepBetweenClicks(1);
-			// Utils.scrollUpOrDown(driver, 500);
 			Utils.clickXpath(driver, "//p[.='"+fileName+"']/../../.././..//*[local-name()='svg']", time, "Click on Assignment name");
 			// new WebDriverWait(driver, 25).until(ExpectedConditions.elementToBeClickable(By.xpath("//p[.='"+fileName+"']/../../.././..//*[local-name()='svg']"))).click();
-			Utils.smallSleepBetweenClicks(1);
 			Actions qq=new Actions(driver);
             qq.moveByOffset(40, 40).click().perform();
 			Utils.logout(driver, url, Role);
-			Utils.smallSleepBetweenClicks(1);
 
 			//Delete code
 			Utils.login(driver,faculty);
-			Utils.bigSleepBetweenClicks(1);
 			Utils.checkAcadAndClick(driver, url);
-			Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.assignfacclickcouserelative, time, "facclickcouse");
 			Utils.clickXpath(driver, ActionXpath.assignexapndrelative, time, "Exapand");
 			Utils.clickXpath(driver, "//p[.='"+fileName+"']/../../.././..//*[local-name()='svg']", time, "Click on Assignment name");
 			// new WebDriverWait(driver, 25).until(ExpectedConditions.elementToBeClickable(By.xpath("//p[.='"+fileName+"']/../../.././..//*[local-name()='svg']"))).click();
-			Utils.smallSleepBetweenClicks(1);
-			Utils.smallSleepBetweenClicks(1);
 
 			WebDriverWait ele = new WebDriverWait(driver, 20);
 			WebElement elem = ele.until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[.='Delete'])[1]")));
 			((JavascriptExecutor) driver).executeScript("arguments[0].click();", elem);
-			Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.assignfacdelerelative, time, "Delete button 2");
-			Utils.bigSleepBetweenClicks(2);
 			Utils.logout(driver, url, Role);
-			Utils.smallSleepBetweenClicks(1);
 			log.info("TC-46 Assignment create,publish & delete  PASSED\n");
 		} catch (Exception e) {
 			Utils.printException(e);

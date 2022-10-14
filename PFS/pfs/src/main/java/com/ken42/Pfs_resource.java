@@ -134,7 +134,6 @@ public class Pfs_resource {
 			Pfs_portal.initDriver(Browser, url);
 			log.warning("TC-41: PPT resource Create View delete Test Case FAILED \n");
 		}
-
 	}
 
 	@Test(priority = 42)
