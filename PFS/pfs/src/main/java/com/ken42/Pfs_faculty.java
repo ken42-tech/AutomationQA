@@ -548,15 +548,15 @@ public class Pfs_faculty {
             }
 			//Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.clickFacDashdevnosbm, time, "Dashboard");
-			
+			Utils.bigSleepBetweenClicks(1);
 			WebElement l= driver.findElement(By.tagName("body"));
         	String p = l.getText();
-			// if (p.contains("Overview") && p.contains("Activities")){
-			// 	log.info(" TC-37: Faculty My Student  tab test case PASSED \n\n");
-			// }else {
-			// 	log.warning(" TC-37: Faculty My Student  tab test case FAILED it does not contain all the tabs\n\n");
-			// }
-			// log.info("TC-37:  Faculty Dashboard test case PASSED \n\n");
+			if (p.contains("Overview") && p.contains("Activities")){
+				log.info(" TC-37: Faculty My Student  tab test case PASSED \n\n");
+			}else {
+				log.warning(" TC-37: Faculty My Student  tab test case FAILED it does not contain all the tabs\n\n");
+			}
+			log.info("TC-37:  Faculty Dashboard test case PASSED \n\n");
 
 		} catch (Exception e) {
 			Utils.printException(e);

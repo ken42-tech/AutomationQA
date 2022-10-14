@@ -28,15 +28,15 @@ public class Utils {
     public static void clickXpath(WebDriver driver,String xpath, int time,String msg) throws Exception {
 		JavascriptExecutor js3 = (JavascriptExecutor) driver; 
         int count = 0;
-		int maxTries = 5;
+		int maxTries = 7;
 		final String XPATH = xpath;
 		while (true){
 			try {
 				Thread.sleep(1000);
 				log.info("Click on the:"+msg);
 				Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
-				.withTimeout(Duration.ofSeconds(20))
-				.pollingEvery(Duration.ofSeconds(5))
+				.withTimeout(Duration.ofSeconds(30))
+				.pollingEvery(Duration.ofSeconds(6))
 				.ignoring(NoSuchElementException.class);
 				WebElement WE = wait.until(new Function<WebDriver, WebElement>() {
 					public WebElement apply(WebDriver driver) {
@@ -59,7 +59,7 @@ public class Utils {
 
 	public static void callSendkeys(WebDriver driver,String Xpath, String Value, int time1) throws Exception {
 		int count = 0;
-		int maxTries = 4;
+		int maxTries = 7;
 		final String XPATH = Xpath;
 		while (true){
 			try {
@@ -89,6 +89,18 @@ public class Utils {
 
 
 	public static void cleartext(WebDriver driver, String faccmarks) {
+	}
+
+	public static boolean checkWindowsOs() {
+		String OS = "";
+		OS = System.getProperty("os.name"); 
+		System.out.println(OS);
+
+		if (OS.contains("Windows")){
+			return true;
+		}
+		return false;
+
 	}
 
 	public static void clickXpathWithScroll(WebDriver driver,String xpath, int time,String msg) throws Exception {
@@ -121,11 +133,23 @@ public class Utils {
 			int time = 2000;
 			smallSleepBetweenClicks(1);
 			String regex = "Null";
+			String alertMessage = "";
 			Utils.callSendkeys(driver, ActionXpath.email, Email, time);
 			Utils.clickXpath(driver, ActionXpath.requestotp, time, "Request OTP");
-			Utils.smallSleepBetweenClicks(3);
-			Alert alert = driver.switchTo().alert(); // switch to alert
-			String alertMessage = driver.switchTo().alert().getText(); // capture alert message
+			// Utils.smallSleepBetweenClicks(5);
+			while (true) {
+				try {
+					Alert alert = driver.switchTo().alert(); // switch to alert
+					alertMessage = driver.switchTo().alert().getText(); // capture alert message
+					alert.accept();
+					break;
+				} catch (Exception e){
+					Utils.smallSleepBetweenClicks(1);
+					System.out.println("Waiting for OTP Alert message\n");
+				}
+			}
+			// Alert alert = driver.switchTo().alert(); // switch to alert
+			// String alertMessage = driver.switchTo().alert().getText(); // capture alert message
 			System.out.println(alertMessage); // Print Alert Message
 			Pattern pt = Pattern.compile("-?\\d+");
 			Matcher m = pt.matcher(alertMessage);
@@ -133,7 +157,7 @@ public class Utils {
 				regex = m.group();
 			}
 			//smallSleepBetweenClicks();
-			alert.accept();
+			
 			Utils.callSendkeys(driver, ActionXpath.otprequest2, regex, time);
 			Utils.clickXpath(driver, ActionXpath.verifyotp, time, "Verify otp");
 			System.out.println("Sleeping after login for 7 seconds so that goBacktoHome function does not automatically logout user");

@@ -124,7 +124,9 @@ public class Pfs_activity {
 			Utils.clickXpath(driver, ActionXpath.facaddactivityrelative, time, "facaddactivity");
 
 			String fileName = "Assignment_" + Utils.generateRandom();
+			Utils.smallSleepBetweenClicks(1);
 			Utils.callSendkeys(driver, ActionXpath.assignfacassignmentNamerelative, fileName, time);
+			Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.program, time, "click on program");
 			driver.findElement(By.xpath("//li[@data-value='" + program + "']")).click();
 			Utils.clickXpath(driver, ActionXpath.subject, time, "click on subject");
@@ -135,7 +137,8 @@ public class Pfs_activity {
 			Utils.callSendkeys(driver, ActionXpath.assignfacurlrelative, "https://portal-dev.ken42.com/", time);
 			Utils.clickXpath(driver, ActionXpath.assignfacsavlinrelative, time, "facsavlink");
 			Utils.clickXpath(driver, ActionXpath.assignfacsaverelative, time, " facsave");
-			Utils.cleartext(driver, ActionXpath.assignfactotalmarksrelative);
+			// Utils.smallSleepBetweenClicks(1);
+			// Utils.cleartext(driver, ActionXpath.assignfactotalmarksrelative);
 			Utils.callSendkeys(driver, ActionXpath.assignfactotalmarksrelative, "9", time);
 			WebElement el = driver.findElement(By.xpath("//input[@name='gradetopass']"));
 			el.clear();
