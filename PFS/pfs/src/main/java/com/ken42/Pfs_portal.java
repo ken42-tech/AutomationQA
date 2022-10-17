@@ -242,98 +242,99 @@ public class Pfs_portal {
 							Browser, Role, driver); //TC-44
 						break;
 					case 45:
+						Pfs_resource.testSpreadsheetFileType(studentEmail, facultyEmail, PFSurl, 
+								Browser, Role, driver); //TC-50
+						break;
+					case 46:
+						Pfs_resource.testPPTFileType(studentEmail, facultyEmail, PFSurl, 
+								Browser, Role, driver); //TC-51
+						break;
+					case 47:
+						Pfs_resource.testPDFFileType(studentEmail, facultyEmail, PFSurl, 
+								Browser, Role, driver); //TC-52
+						break;
+					case 48:
+						Pfs_resource.testVideoFileType(studentEmail, facultyEmail, PFSurl, 
+								Browser, Role, driver); //TC-53
+						break;
+					case 49:
+						Pfs_resource.testFacultyFilterResource(studentEmail, facultyEmail, PFSurl, 
+								Browser, Role, driver); //TC-56
+						break;
+					case 50:
+						Pfs_resource.testFacultyFilterPDFResource(studentEmail, facultyEmail, PFSurl, 
+								Browser, Role, driver); //TC-57
+						break;
+					case 51:
+						Pfs_resource.testFacultyFilterVideoResource(studentEmail, facultyEmail, PFSurl, 
+								Browser, Role, driver); //TC-58
+						break;
+					case 52:
+						Pfs_resource.testFacultyFilterLinksResource(studentEmail, facultyEmail, PFSurl, 
+								Browser, Role, driver); //TC-59
+						break;
+					
+					case 53:
 						Pfs_activity.testAssessmentCreatePublishViewDelete(studentEmail, facultyEmail, 
 							PFSurl, Browser, Role, driver); //TC-45
 						break;
-					case 46:
+					case 54:
 						Pfs_activity.testFAssignmentCreatePublishViewDelete(studentEmail, facultyEmail, 
 						PFSurl, Browser, Role, driver); //TC-46
 						break;
-					case 47:
+					case 55:
 						Pfs_activity.testForumCreatePublishViewDelete(studentEmail, facultyEmail, 
 							PFSurl, Browser, Role, driver); //TC-47
 						break;
-						case 48:
+					case 56:
 							Pfs_activity.testFAssignmentCreatePublishsubmissionfileuploadchecking(studentEmail, facultyEmail, 
 								PFSurl, Browser, Role, driver); //TC-48
 							break;
-						case 49:
+					case 57:
 							Pfs_activity.testFAssignmentCreatePublishsubmissiongradecheck(studentEmail, facultyEmail, 
 								PFSurl, Browser, Role, driver); //TC-49
 							break;
-						case 50:
-							Pfs_resource.testSpreadsheetFileType(studentEmail, facultyEmail, PFSurl, 
-									Browser, Role, driver); //TC-50
-							break;
-						case 51:
-							Pfs_resource.testPPTFileType(studentEmail, facultyEmail, PFSurl, 
-									Browser, Role, driver); //TC-51
-							break;
-						case 52:
-							Pfs_resource.testPDFFileType(studentEmail, facultyEmail, PFSurl, 
-									Browser, Role, driver); //TC-52
-							break;
-						case 53:
-							Pfs_resource.testVideoFileType(studentEmail, facultyEmail, PFSurl, 
-									Browser, Role, driver); //TC-53
-							break;
-						case 54:
+					case 58:
 							Pfs_activity.testassesmentAttemptview(studentEmail, facultyEmail, 
 									PFSurl, Browser, Role, driver);//TC-54
 							break;
-						case 55:
+					case 59:
 							Pfs_activity.testForumCreatePublishViewDeleteDecission(studentEmail, facultyEmail, 
 									PFSurl, Browser, Role, driver);//TC-55
 							break;
-						case 56:
-							Pfs_resource.testFacultyFilterResource(studentEmail, facultyEmail, PFSurl, 
-									Browser, Role, driver); //TC-56
-							break;
-						case 57:
-							Pfs_resource.testFacultyFilterPDFResource(studentEmail, facultyEmail, PFSurl, 
-									Browser, Role, driver); //TC-57
-							break;
-						case 58:
-							Pfs_resource.testFacultyFilterVideoResource(studentEmail, facultyEmail, PFSurl, 
-									Browser, Role, driver); //TC-58
-							break;
-						case 59:
-							Pfs_resource.testFacultyFilterLinksResource(studentEmail, facultyEmail, PFSurl, 
-									Browser, Role, driver); //TC-59
-							break;
-						case 60:
+					case 60:
 							Pfs_activity.testFilterActivityAssignment(studentEmail, facultyEmail, PFSurl, 
 									Browser, Role, driver); //TC-60
 							break;
-						case 61:
+					case 61:
 							Pfs_activity.testFilterActivityAssement(studentEmail, facultyEmail, PFSurl, 
 									Browser, Role, driver); //TC-61
 							break;
-						case 62:
+					case 62:
 							Pfs_activity.testFilterActivityForum(studentEmail, facultyEmail, PFSurl, 
 									Browser, Role, driver); //TC-62
 							break;
-						case 63:
+					case 63:
 							Pfs_activity.testForumCreatePublishEditDelete(studentEmail, facultyEmail, PFSurl, 
 									Browser, Role, driver); //TC-63
 							break;
-						case 64:
+					case 64:
 							Pfs_activity.testForumCreateunPublishEditDelete(studentEmail, facultyEmail, PFSurl, 
 									Browser, Role, driver); //TC-64
 							break;
-						case 65:
+					case 65:
 							Pfs_activity.testassesmenteditview(studentEmail, facultyEmail, PFSurl, 
 									Browser, Role, driver); //TC-65
 							break;
-						case 66:
+					case 66:
 							Pfs_activity.testassesmentpublisheditview(studentEmail, facultyEmail, PFSurl, 
 									Browser, Role, driver); //TC-66
 							break;
-						case 67:
+					case 67:
 							Pfs_activity.testFAssignmentCreateEditDelete(studentEmail, facultyEmail, PFSurl, 
 									Browser, Role, driver); //TC-67
 							break;
-						case 68:
+					case 68:
 							Pfs_activity.testFAssignmentCreatepublishEditDelete(studentEmail, facultyEmail, PFSurl, 
 									Browser, Role, driver); //TC-68
 							break;

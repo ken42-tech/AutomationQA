@@ -18,13 +18,13 @@ public class Pfs_activity {
     public static Logger log = Logger.getLogger("Pfs_portal");
     static int time = 2000;
 
-    @Test(priority = 45)
+    @Test(priority = 53)
 	public static void testAssessmentCreatePublishViewDelete(String student, String faculty, 
     String url, String Browser, String Role, WebDriver driver)
 			throws Exception {
 		try {
 			String returnArray[] = new String[2];
-			System.out.println("TC-45: Assement create ,pubish & delete Test excutaion was started...");
+			System.out.println("TC-53: Assement create ,pubish & delete Test excutaion was started...");
 			Utils.login(driver, faculty);
 			Utils.checkAcadAndClick(driver, url);
 			Utils.clickXpath(driver, ActionXpath.facclickcouserelative, time, "Click on course content");
@@ -92,12 +92,7 @@ public class Pfs_activity {
 			Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.Studentassessmenstrelativelearn, time, "flearnltsta");
 			Utils.clickXpath(driver, ActionXpath.Studentassessmenstrelativelexpand, time, "Click on Assesment SVG");
-<<<<<<< HEAD
-			Utils.smallSleepBetweenClicks(1);
-			new WebDriverWait(driver, 25).until(ExpectedConditions.elementToBeClickable(By.xpath("//p[.='"+fileName+"']/../../.././..//*[local-name()='svg']"))).click();
-=======
 			Utils.clickXpath(driver, "//p[.='"+fileName+"']/../../.././..//*[local-name()='svg']", time, "Click on fileName");
->>>>>>> a16f58ed1d154ac14d8ad12b29239199e9b63459
 			Actions qq=new Actions(driver);
             qq.moveByOffset(40, 40).click().perform();
 			Utils.smallSleepBetweenClicks(1);
@@ -109,18 +104,9 @@ public class Pfs_activity {
 			Utils.bigSleepBetweenClicks(1);
 			Utils.checkAcadAndClick(driver, url);
 			Utils.clickXpath(driver, ActionXpath.facclickcouserelativedelete, time, "Click on course content");
-<<<<<<< HEAD
-			Utils.smallSleepBetweenClicks(1);
-			Utils.clickXpathWithScroll(driver, ActionXpath.facultyassessmenstrelativelexpandtodelete, time,
-					"Click on Assessment SVG");
-			Utils.smallSleepBetweenClicks(1);
-			new WebDriverWait(driver, 25).until(ExpectedConditions.elementToBeClickable(By.xpath("//p[.='"+fileName+"']/../../.././..//*[local-name()='svg']"))).click();
-
-=======
 			Utils.clickXpath(driver, ActionXpath.facultyassessmenstrelativelexpandtodelete, time,
 					"Click on Assessment SVG");
 			Utils.clickXpath(driver, "//p[.='"+fileName+"']/../../.././..//*[local-name()='svg']", time, "Click on fileName");
->>>>>>> a16f58ed1d154ac14d8ad12b29239199e9b63459
 			Utils.smallSleepBetweenClicks(1);
 
 			// Automate.clickXpath(driver, ActionXpath. fsubltstadeleterelativedelete, time, "Delete button 1");
@@ -132,23 +118,23 @@ public class Pfs_activity {
 			Utils.clickXpath(driver, ActionXpath.fsubltstadelete1relativedelete2, time, " Delete Assessment 2");
 			Utils.bigSleepBetweenClicks(2);
 			Utils.logout(driver, url, Role);
-			log.info("TC-45 Assement create, publish & delete test Executation Was PASSED....\n");
+			log.info("TC-53 Assement create, publish & delete test Executation Was PASSED....\n");
 		}
 		catch (Exception e) {
 			Utils.printException(e);
-			log.warning("TC-45 Assement create,publish & delete test executation was FAILED...");
+			log.warning("TC-53 Assement create,publish & delete test executation was FAILED...");
 			Pfs_portal.quitDriver(url);
 			Pfs_portal.initDriver(Browser, url);
 		}
 	}
 
-	@Test(priority = 46)
+	@Test(priority = 54)
 	public static void testFAssignmentCreatePublishViewDelete(String student, 
         String faculty, String url, String Browser, String Role, WebDriver driver)
 			throws Exception {
 		try {
 			String returnArray[] = new String[2];
-			System.out.println("TC-46 Assignment was Create ,publish & delete Test Excecuation Started...\n");
+			System.out.println("TC-54 Assignment was Create ,publish & delete Test Excecuation Started...\n");
 			Utils.login(driver, faculty);
 			Utils.smallSleepBetweenClicks(1);
 			Utils.checkAcadAndClick(driver, url);
@@ -181,13 +167,8 @@ public class Pfs_activity {
 			Utils.clickXpath(driver, ActionXpath.assignfacsavlinrelative, time, "facsavlink");
 			Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.assignfacsaverelative, time, " facsave");
-<<<<<<< HEAD
-			Utils.smallSleepBetweenClicks(1);
-			Utils.cleartext(driver, ActionXpath.assignfactotalmarksrelative);
-=======
 			// Utils.smallSleepBetweenClicks(1);
 			// Utils.cleartext(driver, ActionXpath.assignfactotalmarksrelative);
->>>>>>> a16f58ed1d154ac14d8ad12b29239199e9b63459
 			Utils.callSendkeys(driver, ActionXpath.assignfactotalmarksrelative, "9", time);
 			WebElement el = driver.findElement(By.xpath("//input[@name='gradetopass']"));
 			el.clear();
@@ -253,20 +234,20 @@ public class Pfs_activity {
 			Utils.bigSleepBetweenClicks(2);
 			Utils.logout(driver, url, Role);
 			Utils.smallSleepBetweenClicks(1);
-			log.info("TC-46 Assignment create,publish & delete Was PASSED....\n");
+			log.info("TC-54 Assignment create,publish & delete Was PASSED....\n");
 		} catch (Exception e) {
 			Utils.printException(e);
-			log.warning("TC-46 Assignment create,publish & delte was FAILED....\n");
+			log.warning("TC-54 Assignment create,publish & delte was FAILED....\n");
 			Pfs_portal.quitDriver(url);
 			Pfs_portal.initDriver(Browser, url);
 		}
 	}
 
-	@Test(priority = 47)
+	@Test(priority = 55)
 	public static void testForumCreatePublishViewDelete(String student, String faculty, 
         String url, String Browser, String Role, WebDriver driver) throws Exception {
 		try { 
-			System.out.println("TC-47 Faculty Fourm create,publish Delete test case Staerted...\n");
+			System.out.println("TC-55 Faculty Fourm create,publish Delete test case Staerted...\n");
 			String returnArray[] = new String[2];
 			Utils.login(driver, faculty);
 			Utils.bigSleepBetweenClicks(1);
@@ -375,22 +356,22 @@ public class Pfs_activity {
 
 			Utils.logout(driver, url, Role);
 
-			log.info("TC-47 Faculty Fourm create,publish Delete test case PASSED...");
+			log.info("TC-55 Faculty Fourm create,publish Delete test case PASSED...");
 
 		} catch (Exception e) {
 			Utils.printException(e);
-			log.warning("TC-47 Faculty Fourm create,publish Delete test case FAILED... \n");
+			log.warning("TC-55 Faculty Fourm create,publish Delete test case FAILED... \n");
 			Pfs_portal.quitDriver(url);
             Pfs_portal.initDriver(Browser, url);
 		}
 	}
-	@Test(priority = 48)
+	@Test(priority = 56)
     public static void testFAssignmentCreatePublishsubmissionfileuploadchecking(String student, String faculty,
             String url, String Browser, String Role,WebDriver driver) throws Exception {
         try {
             String returnArray[] = new String[2];
             System.out.println(
-                    "TC-48 Assignment was Create ,publish,submission and fileuploadchecking  Test Excecuation Started...\n");
+                    "TC-56 Assignment was Create ,publish,submission and fileuploadchecking  Test Excecuation Started...\n");
             Utils.smallSleepBetweenClicks(1);
             Utils.login(driver, faculty);
            
@@ -534,23 +515,23 @@ public class Pfs_activity {
             Utils.smallSleepBetweenClicks(1);
 
             log.info(
-                    "TC-48 Assignment create,publish,submission and fileuploadchecking & submission    Was PASSED....\n");
+                    "TC-56 Assignment create,publish,submission and fileuploadchecking & submission    Was PASSED....\n");
         } catch (Exception e) {
             Utils.printException(e);
             log.warning(
-                    "TC-48 Assignment create,publish, review ,submission and fileuploadchecking & submission  was FAILED....\n");
+                    "TC-56 Assignment create,publish, review ,submission and fileuploadchecking & submission  was FAILED....\n");
             Pfs_portal.quitDriver(url);
             Pfs_portal.initDriver(Browser, url);
         }
     }
 
-    @Test(priority = 49)
+    @Test(priority = 57)
     public static void testFAssignmentCreatePublishsubmissiongradecheck(String student, String faculty, String url,
             String Browser, String Role,WebDriver driver) throws Exception {
         try {
             String returnArray[] = new String[2];
             System.out.println(
-                    "TC-49 Assignment was Create ,publish,gradecheck &submission Test Excecuation Started...\n");
+                    "TC-57 Assignment was Create ,publish,gradecheck &submission Test Excecuation Started...\n");
             Utils.smallSleepBetweenClicks(1);
             Utils.login(driver, faculty);
             Utils.bigSleepBetweenClicks(1);
@@ -735,21 +716,21 @@ public class Pfs_activity {
             Utils.logout(driver, url, Role);
             Utils.smallSleepBetweenClicks(1);
 
-            log.info("TC-49 Assignment create,publish,review submission  & grade check  Was PASSED....\n");
+            log.info("TC-57 Assignment create,publish,review submission  & grade check  Was PASSED....\n");
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("TC-49 Assignment create,publish, submission & grade check was FAILED....\n");
+            log.warning("TC-57 Assignment create,publish, submission & grade check was FAILED....\n");
             Pfs_portal.quitDriver(url);
             Pfs_portal.initDriver(Browser, url);
         }
     }
 
-    @Test(priority = 54)
+    @Test(priority = 58)
     public static void testassesmentAttemptview(String student, String faculty, String url,
             String Browser, String Role,WebDriver driver) throws Exception {
         try {
             String returnArray[] = new String[2];
-            System.out.println("TC-54: Assement create ,pubish & delete Test excutaion was started...");
+            System.out.println("TC-58: Assement create ,pubish & delete Test excutaion was started...");
             Utils.login(driver, faculty);
            
             Utils.checkAcadAndClick(driver, url);
@@ -958,22 +939,22 @@ public class Pfs_activity {
             Utils.clickXpath(driver, ActionXpath.fsubltstadelete1relativedelete2, time, " Delete Assessment 2");
             Utils.bigSleepBetweenClicks(2);
             Utils.logout(driver, url, faculty);
-            log.info("TC-54 Assement Attempt and view result test Executation Was PASSED....\n");
+            log.info("TC-58 Assement Attempt and view result test Executation Was PASSED....\n");
         }
         catch (Exception e) {
             Utils.printException(e);
-            log.warning("TC-54 Assement Attempt and view result test executation was FAILED...");
+            log.warning("TC-58 Assement Attempt and view result test executation was FAILED...");
             Pfs_portal.quitDriver(url);
             Pfs_portal.initDriver(Browser, url);
          
         }
     }
 
-    @Test(priority = 55)
+    @Test(priority = 59)
     public static void testForumCreatePublishViewDeleteDecission(String student, String faculty, String url,
             String Browser, String Role,WebDriver driver) throws Exception {
         try { 
-            System.out.println("TC-49 Faculty Fourm create,publish Delete,Decission test case Staerted...\n");
+            System.out.println("TC-59 Faculty Fourm create,publish Delete,Decission test case Staerted...\n");
             String returnArray[] = new String[2];
             Utils.login(driver, faculty);
             Utils.bigSleepBetweenClicks(1);
@@ -1104,11 +1085,11 @@ public class Pfs_activity {
             Thread.sleep(10000);
 
             Utils.logout(driver, url, Role);
-            log.info("TC-55 Faculty Fourm create,publish Delete,Decission test case PASSED...");
+            log.info("TC-59 Faculty Fourm create,publish Delete,Decission test case PASSED...");
 
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("TC-55 Faculty Fourm create,publish Delete,Decission test case FAILED... \n");
+            log.warning("TC-59 Faculty Fourm create,publish Delete,Decission test case FAILED... \n");
 //            Pfs_portal.quitDriver(url);
             Utils.logout(driver, url, Role);
         }
