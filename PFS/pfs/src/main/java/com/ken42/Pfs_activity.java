@@ -71,20 +71,17 @@ public class Pfs_activity {
 			Utils.clickXpath(driver, ActionXpath.Studentassessmenstrelativelearn, time, "flearnltsta");
 			Utils.clickXpath(driver, ActionXpath.Studentassessmenstrelativelexpand, time, "Click on Assesment SVG");
 			Utils.clickXpath(driver, "//p[.='"+fileName+"']/../../.././..//*[local-name()='svg']", time, "Click on fileName");
-			// new WebDriverWait(driver, 25).until(ExpectedConditions.elementToBeClickable(By.xpath("//p[.='"+fileName+"']/../../.././..//*[local-name()='svg']"))).click();
 			Actions qq=new Actions(driver);
             qq.moveByOffset(40, 40).click().perform();
 			Utils.logout(driver, url, Role);
-
 
 			//// .........................Faculty delete assessment
 			Utils.login(driver, faculty);
 			Utils.checkAcadAndClick(driver, url);
 			Utils.clickXpath(driver, ActionXpath.facclickcouserelativedelete, time, "Click on course content");
-			Utils.clickXpathWithScroll(driver, ActionXpath.facultyassessmenstrelativelexpandtodelete, time,
+			Utils.clickXpath(driver, ActionXpath.facultyassessmenstrelativelexpandtodelete, time,
 					"Click on Assessment SVG");
 			Utils.clickXpath(driver, "//p[.='"+fileName+"']/../../.././..//*[local-name()='svg']", time, "Click on fileName");
-			// new WebDriverWait(driver, 25).until(ExpectedConditions.elementToBeClickable(By.xpath("//p[.='"+fileName+"']/../../.././..//*[local-name()='svg']"))).click();
 			Utils.smallSleepBetweenClicks(1);
 
 			// Automate.clickXpath(driver, ActionXpath. fsubltstadeleterelativedelete, time, "Delete button 1");

@@ -28,11 +28,8 @@ public class Pfs_faculty {
 			Utils.clickXpath(driver, ActionXpath.clickFacDashdevnosbm, time, "click on the dashboard");
 			Utils.smallSleepBetweenClicks(6);
 			// Utils.clickXpath(driver, ActionXpath.facFilter, time, "click the dashboard activity filiter span bar");
-			//Utils.smallSleepBetweenClicks(1);
 			// Utils.clickXpath(driver, ActionXpath.facdbfilterselect, time, "select the factivity filter option");
-			//Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.facdbresfilter, time, "click on the resources filter");
-			//Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.facdbrestypes, time, "click Type to open span");
 			
 			log.info("TC-17: Faculty ACADEMIC Test case PASSED \n");
@@ -51,7 +48,6 @@ public class Pfs_faculty {
 			Utils.goBackToHome(driver, url);
 			if(Utils.checkLtsta(url))
            	{
-				//Utils.smallSleepBetweenClicks(1);
 				Utils.clickXpath(driver, ActionXpath.facClickacademicsltsta, time, "open the span on Academics");
 				 }
            	else {
@@ -81,23 +77,14 @@ public class Pfs_faculty {
             else {
             	Utils.clickXpath(driver, ActionXpath.openFacltsta, time, "open span on acadmics on the ltsta");    
             }
-			//Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.faccc, time, "click on the Course content");
-			//Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.facccactivity, time, "clck on activity button ");
-			//Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.facassessmentrelative, time, "select the activity option named was fourm");
-			//Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.facaddactivityrelative, time, "click to add fourm");
-			//Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.facccAsscancel, time, "cancel it ");
-			//Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.faccAssYes, time, "confirm to cancel");
-			//Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.faccc, time, "click on the course content");
-			//Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.FaccClickResource, time, "Click Resource");
-			//Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.facrescancel, time, "cancel the resources");
 			log.info("TC-19:  Faculty Course Content Test PASSED \n");
 		} catch (Exception e) {
@@ -142,16 +129,15 @@ public class Pfs_faculty {
             else {
             	Utils.clickXpath(driver, ActionXpath.faccMyStudent, time, "open the commom for all portal expect ltsta");    
             }
-			// WebElement l= driver.findElement(By.tagName("body"));
-        	// String p = l.getText();
-			// log.info(p);
-			// if (p.contains("My Students") && p.contains("Courses")){
-			// 	log.info(" TC-21: Faculty My Student  tab test case PASSED \n\n");
-			// }else {
-			// 	log.warning(" TC-21: Faculty My Student  tab test case FAILED it does not contain all the tabs\n\n");
-			// }
-			log.info(" TC-21: Faculty My Student  tab test case PASSED \n\n");
-		
+			Utils.bigSleepBetweenClicks(1);
+			WebElement l= driver.findElement(By.tagName("body"));
+        	String p = l.getText();
+			log.info(p);
+			if (p.contains("My Students") && p.contains("Courses")){
+				log.info(" TC-21: Faculty My Student  tab test case PASSED \n\n");
+			}else {
+				log.warning(" TC-21: Faculty My Student  tab test case FAILED it does not contain all the tabs\n\n");
+			}
 		} catch (Exception e) {
 			Utils.printException(e);
 			Utils.goBackToHome(driver, url);
@@ -546,7 +532,6 @@ public class Pfs_faculty {
             else {
             	Utils.clickXpath(driver, ActionXpath.openFacltsta, time, "open span on acadmics on the ltsta");    
             }
-			//Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.clickFacDashdevnosbm, time, "Dashboard");
 			Utils.bigSleepBetweenClicks(1);
 			WebElement l= driver.findElement(By.tagName("body"));
