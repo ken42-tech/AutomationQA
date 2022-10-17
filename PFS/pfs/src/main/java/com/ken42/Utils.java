@@ -14,7 +14,7 @@ import org.testng.annotations.Test;
 
 import com.google.common.base.Function;
 
-import org.apache.poi.ss.formula.functions.Log;
+
 import org.openqa.selenium.Alert;
 
 
