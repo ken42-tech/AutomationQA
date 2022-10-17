@@ -26,6 +26,7 @@ public class Pfs_resource {
 
 	public static void resourceSubmitForm( String faculty, String url, WebDriver driver) throws Exception{
 		Utils.clickXpath(driver, ActionXpath.facssadd, time, "facssadd");
+		Utils.smallSleepBetweenClicks(2);
 		Utils.clickXpath(driver, ActionXpath.facccresdescclick, time, "facccresdescclick");
 		Utils.callSendkeys(driver, ActionXpath.facccresurl, "Hello", time);
 		Utils.clickXpath(driver, ActionXpath.facccressubmitform, time, "facccressubmitform");

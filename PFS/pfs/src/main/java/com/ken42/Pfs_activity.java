@@ -1033,7 +1033,7 @@ public class Pfs_activity {
             Utils.clickXpath(driver, ActionXpath.faccDiscussionMessgae3dot, time, "click on 3 dot ");
             Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.relativefacforumclink1, time, "facforumclink");
-            Utils.callSendkeys(driver, ActionXpath.faccMessage,"https://unsplash.com/", time);
+            Utils.callSendkeys(driver, ActionXpath.relativefacforumurl1,"https://unsplash.com/", time);
             Thread.sleep(2000);
             Utils.clickXpath(driver, ActionXpath.relativefacforumsavlin1, time, "facforumsavlin");
             Utils.clickXpath(driver, ActionXpath.faccSavefinish, time, "Click on save & finished");
