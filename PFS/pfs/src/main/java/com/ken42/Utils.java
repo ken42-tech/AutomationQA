@@ -78,7 +78,7 @@ public class Utils {
 				Thread.sleep(1000);
 				break;
 			} catch (Exception e) {
-				Thread.sleep(250);
+				Thread.sleep(1000);
 				log.warning("Failed to send value  "+Value);
 				if (++count == maxTries) {
 					Utils.printException(e);

@@ -44,8 +44,8 @@ public class Pfs_portal {
 			CSV_PATH = "C:\\Users\\Public\\Documents\\pfs.csv";
 			logFileName = String.format("C:\\Users\\Public\\Documents\\Testresult_%s.HTML", timeStamp);
 		} else {
-			CSV_PATH = "/Users/shared/pfs.csv";
-			logFileName = String.format("/users/shared/Testresult_%s.HTML", timeStamp);
+			CSV_PATH = "/Users/Shared/pfs.csv";
+			logFileName = String.format("/users/Shared/Testresult_%s.HTML", timeStamp);
 		}
 		
 		
@@ -270,9 +270,19 @@ public class Pfs_portal {
 
 	@BeforeSuite
 	public static void initDriver(String Browser, String url) throws Exception {
-		String ChromeDriver = "C:\\Users\\Public\\Documents\\edgedriver_win64\\chromedriver.exe";
-		String EdgeDriver = "C:\\Users\\Public\\Documents\\edgedriver_win64\\msedgedriver.exe";
-		String FirefoxDriver = "C:\\Users\\Public\\Documents\\edgedriver_win64\\geckodriver.exe";
+		String ChromeDriver = "";
+		String EdgeDriver =  "";
+		String FirefoxDriver = "";
+		if(Utils.checkWindowsOs()){
+			ChromeDriver = "C:\\Users\\Public\\Documents\\chromedriver.exe";
+			EdgeDriver = "C:\\Users\\Public\\Documents\\msedgedriver.exe";
+			FirefoxDriver = "C:\\Users\\Public\\Documents\\geckodriver.exe";
+		} else {
+			ChromeDriver = "Users/shared/chromedriver.exe";
+			EdgeDriver = "Users/shared/msedgedriver.exe";
+			FirefoxDriver = "Users/shared/geckodriver.exe";
+		}
+		
 
 		System.out.println("Browser is "+Browser);
 			System.out.println("URL is "+url);

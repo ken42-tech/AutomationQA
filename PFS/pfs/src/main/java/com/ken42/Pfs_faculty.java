@@ -129,10 +129,11 @@ public class Pfs_faculty {
             else {
             	Utils.clickXpath(driver, ActionXpath.faccMyStudent, time, "open the commom for all portal expect ltsta");    
             }
-			Utils.bigSleepBetweenClicks(1);
+			Utils.bigSleepBetweenClicks(2);
 			WebElement l= driver.findElement(By.tagName("body"));
         	String p = l.getText();
-			log.info(p);
+			// log.info(p);
+			System.out.println(p);
 			if (p.contains("My Students") && p.contains("Courses")){
 				log.info(" TC-21: Faculty My Student  tab test case PASSED \n\n");
 			}else {
@@ -541,8 +542,6 @@ public class Pfs_faculty {
 			}else {
 				log.warning(" TC-37: Faculty My Student  tab test case FAILED it does not contain all the tabs\n\n");
 			}
-			log.info("TC-37:  Faculty Dashboard test case PASSED \n\n");
-
 		} catch (Exception e) {
 			Utils.printException(e);
 			Utils.goBackToHome(driver, url);
