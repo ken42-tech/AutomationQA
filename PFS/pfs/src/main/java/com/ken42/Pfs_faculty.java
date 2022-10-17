@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 
 import java.util.logging.Logger;
 
-import javax.rmi.CORBA.Util;
+
 
 import org.testng.annotations.Test;
 public class Pfs_faculty {

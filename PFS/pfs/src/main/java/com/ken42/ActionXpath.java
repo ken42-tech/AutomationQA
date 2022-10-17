@@ -3,19 +3,21 @@ package com.ken42;
 public class ActionXpath {
 //Login related Xpaths
 public static final String OTP = null;
-static String email = "//input[@placeholder='Please enter your Email Id']";
-// static String SignIn = "//span[. and text()='SIGN IN']";
-static String SignIn = "(//*[.='Request OTP'])[2]";
+static String email2 = "//input[@placeholder='Email Address']";
+static String SignIn = "//span[. and text()='SIGN IN']";
 static String mobile = "/html/body/div/div/div/div/main/div[2]/div[2]/div/div[2]/div[2]/div/div[1]/div[2]/div/div[2]/div | //*[@id=\"app\"]/div/div/div/main/div[2]/div[2]/div[3]/div[2]/div[2]/div/div[2]/div[2]/div/div[2]/div";
 static String mobile2= "/html/body/div[2]/div[3]/ul/li";
 static String SignIn2 = "//span[. and text()='SIGN IN']";
 static String OtpInput ="//input[@placeholder='Enter Otp']";
 static String submit ="//span[text()='Submit']";  
 
-static String email2="//input[@placeholder='Please enter your Email Id']";
+
+
+static String email="//input[@placeholder='Please enter your Email Id']";
 static String requestotp="//span[. ='Request OTP']";
 static String otprequest2="//input[@placeholder='Please enter the OTP sent to your registered Email ID.']";
 static String verifyotp="//span[. and text()='Verify & Sign in']";
+
 //Login Xpaths ends here
    
 
@@ -198,8 +200,7 @@ static String facClickacademicsltsta = "(//span[text()='Academics'])[1]";
 static String openFacltsta = "(//span[text()='Academics'])[2]";
 static String clickFacDashdevnosbm = "//span[text()='Dashboard']";
 static String facdbfilterselect = "//*[@id=\"menu-\"]/div[3]/ul/li[4]";
-// static String facFilter = "//div[@class='MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiInputBase-input MuiInput-input MuiInputBase-inputMarginDense MuiInput-inputMarginDense']";
-static String facFilter = "((//*[. and text()='Activities'])[2]/../..//*[local-name()='svg'])[2]";
+static String facFilter = "//div[@class='MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiInputBase-input MuiInput-input MuiInputBase-inputMarginDense MuiInput-inputMarginDense']";
 static String facdbresfilter = "(//*[@xmlns='http://www.w3.org/2000/svg'])[2]";
 static String facdbrestypes = "//*[@id=\"alert-dialog-description\"]/div/div[2]/div[1]/div[2]";
 static String facdbresapply = "//span[text()='Apply Filter']";
@@ -299,7 +300,7 @@ static String faccSelectState = "//li[@data-value='KA' and text()='Karnataka']";
 static String faccCity = "//div[@id='mui-component-select-distract']";
 static String faccSelectCity = "//li[@data-value='Bangalore Urban' and text()='Bangalore Urban']";
 static String faccSaveaddress = "//h6[. and text()='ADDRESS DETAILS']/../../..//span[. and text()='Save']";
-// TC:30 faculty Acadmic profile edit
+//TC:30 faculty Acadmic profile edit
 static String facdpacdeails = "//h6[text()='ACADEMIC DETAILS (highest qualification to be mentioned in the first row)']/..";
 static String facdpacadd = "//h6[text()='ACADEMIC DETAILS (highest qualification to be mentioned in the first row)']/../../..//span[. and text()='Add Row']";
 static String facdplevel = "//div[@id='mui-component-select-level']";
@@ -323,7 +324,6 @@ static String facdpredesc = "//h6[text()='RESEARCH SUPERVISION']/../../../..//*/
 static String faccSaveexp = "//h6[text()='RESEARCH SUPERVISION']/../../..//span[. and text()='Save']";
 
 static String faccdeleteexp = "//span[.='Delete']";
-
 //TC:32 testfacultyRESEARCHPUBLICATION
 
 static String facclickonRESEARCHSUPERVISIONpublish = "(//h6[. and text()='RESEARCH & PUBLICATIONS']/../../..//*[local-name()='svg'])[1]";
@@ -472,7 +472,6 @@ static String facccres="//span[text()='Resource']";
 static String facpptclick="//figcaption[text()='Presentation']/.. | /html/body/div[4]/div[3]/div/div[2]/div/div[1]/div[1]/div/img";
 static String facpptadd="//span[text()='Add Resource']";
 // static String facccresdescclick="//button[@title='Insert/edit link']";
-// static String facccresdescclick="//button[@title='Insert/edit link']//*[local-name()='svg']/..";
 static String facccresdescclick="//button[@title='Insert/edit link']//*[local-name()='svg']";
 // static String facccresurl="//input[@type='url']";
 static String facccresurl="//input[@type='url']";
@@ -634,10 +633,13 @@ static String fasaverelative = "//span[.='Save and Proceed']";
 static String fasokrelative = "//span[.='OK']";
 static String fasquestionrelative = "//p[.='From question bank']";
 static String facselectrelative = "(//input[@type='checkbox'])[7]/..";
+static String facselectrelative2 = "(//input[@type='checkbox'])[8]/..";
+
 static String facaddselectrelative = "//span[.='Add Selected']";
 static String facprevirelative = "//p[.='Preview']";
+static String assesmentedit="//p[.='Edit']";
 static String preview="//p[.='Preview']";
-static String facAssPublish = "//span[.='Publish Assessment']/..";
+static String facAssPublish="//span[.='Publish Assessment']/..";
 static String facAreYouSurePublish = "//span[.='Publish']/..";
 static String facGoToDashboard = "(//span[. and contains(text(), 'Go ')])[2]";
 //	static String facSelectPrtoSignoutrealtive = "(//div[.='S'])[2]";
@@ -648,6 +650,25 @@ static String Studentassessmenstrelativeacademic = "//span[.='Academics']";
 static String Studentassessmenstrelativelearn = "//span[.='Learn']";
 // static String Studentassessmenstrelativelexpand = "(//span[@class='MuiIconButton-label'])[5]";
 static String Studentassessmenstrelativelexpand = "//span[. and contains(text(), 'Assessments')]/../../../..//*[local-name()='svg']";
+static String assesmentattemptnow="(//span[.='Attempt Now'])[1]";
+
+static String assesmentinstruction="//*[@type='checkbox']/../../..";
+static String startassesment="//*[. and text()='Start Assessment'] | //*[. and text()='Continue Attempt']";
+static String attemptquestion="(//*[. and @type='radio'])[1]/../../..";
+static String clickquestiontype="//*[. and text()='Question Type']";
+static String selectmcq="(//*[. and text()='Multiple choice'])[2]";
+static String selectmcq1="(//*[. and text()='Multiple choice'])[3]";
+static String submitattempt="//*[. and text()='Submit Attempt']";
+static String submitagainattempt="//*[. and text()='Submit']";
+static String assesmentok="//*[. and text()='OK']";
+
+static String viewattempt="(//span[.='View Attempt'])[1]";
+static String getresult="//*[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-md-4']";
+static String reviewquiz="(//*[text()='Review Quiz'])[1]";
+static String searchname="//*[@placeholder='Search by Name & Status']";
+static String viewresultinfac="(//*[text()='Result'])[1]";
+
+
 static String StudentassessmenstrelativeclickonA = "(//span[@class='MuiIconButton-label'])[3]";
 static String Studentassessmenstrelativesignout = "(//li[@role='menuitem'])[2]";
 ////.......................Faculty delete Assessment relative xpath................................//			
@@ -762,4 +783,52 @@ static String section="(//*[. and @aria-haspopup='listbox'])[3]";
 static String subjectclick="//*[@class='MuiTab-wrapper']//p";
 
 static String subjectselect="//*[@data-value='Sales & Distribution Management-20-22-Retail Management']";
+
+//.....................................testcase no-48 xpath................................///
+
+static String clickonaddsubmission="//span[.='Add Submission']";
+static String clickonbrowser="//input[@type='file']";
+static String clickonsubmit="//span[.=' Submit']";
+static String clickongrade="(//p[text()='Test student']/../../../../..//*[span='Grade'])[1]|(//p[text()='Test Student']/../../../../..//*[span='Grade'])[1]";
+//static String clickongradedev="(//p[text()='Test student']/../../../../..//*[span='Grade'])[1]";
+static String clickongradeltpct="(//p[text()='Sanchith Student']/../../../../..//*[span='Grade'])[1]";
+static String clickondot="(//*[@class='tox-tbtn' and @title='More...'])[2]";
+
+//////////////////////////////....................testcase50......................./////////////
+static String clickongradething="//input[@name='marks']";
+
+//56
+static String relativefacFormeDiscussion="//span[.='Discussions']";
+static String relativeFacformeCreateNewDiscussion="//span[text()='Create New discussion']";
+static String faccDiscuionText="//input[@name='title']";
+static String faccDiscussionMessgae3dot="//*[@aria-label='More...' and @title='More...']";
+static String faccMessage="//iframe[@title='Rich Text Area']/..";
+static String faccSavefinish="//span[.='Save and Finish']";
+//55
+static String faccFilter ="(//span[text()='Filters'])[2]";
+static String faccFilterClear="//p[text()='Clear all']";
+static String faccPPTCheckBox="//input[@name='Presentation' and @type='checkbox']/..";
+static String faccPPTOPen="(//*[. and contains(text(), 'Resource Type')]/../../../..//*[local-name()='svg'])[1]";
+//ltsta xpath
+
+//57,58,59
+static String faccPDFCheckBox="//input[@name='Pdf' and @type='checkbox']/..";
+static String faccVideoCheckBox="//input[@name='Video' and @type='checkbox']/..";
+static String faccLinksCheckBox="//input[@name='Links' and @type='checkbox']/..";
+
+//60,61,62
+static String faccFilterassignment="(//span[text()='Filters'])[1]";
+static String faccFilterassignmnetClear="//p[text()='Clear all']";
+static String FaccFilterOpen="(//*[. and contains(text(), 'Activity Type')]/../../../..//*[local-name()='svg'])[1]";
+static String faccAssignmentCheckBox="//input[@name='Assignments' and @type='checkbox']/..";
+static String faccAssementCheckBox="//input[@name='Assessment' and @type='checkbox']/..";
+static String faccForumCheckBox="//input[@name='Forum' and @type='checkbox']/..";
+
+
+//63
+static String facfourmeditattachements="(//*[@role='button' and @aria-haspopup='listbox'])[2]";
+static String facfourmattachementset2="//*[text()='2' and @role='option' ]";
+
+//66
+static String assesmentdashboard="//*[text()=' to Dashboard']";
 }

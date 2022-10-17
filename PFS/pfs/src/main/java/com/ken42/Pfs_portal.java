@@ -3,7 +3,6 @@ package com.ken42;
 import java.io.FileReader;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -15,11 +14,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.Test;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
 import com.opencsv.CSVReader;
 import java.util.logging.*;
 import java.util.logging.FileHandler;
@@ -74,8 +69,8 @@ public class Pfs_portal {
             String To = csvCell[3];
 			int from = Integer.parseInt(From);
 			int to = Integer.parseInt(To);
-			if ((from < 1 || from > 47 || to < 1 || to > 47) || (to < from)){
-				log.warning("The range specificed is incorrect it has to be between 1 and 47");
+			if ((from < 1 || from > 68 || to < 1 || to > 68) || (to < from)){
+				log.warning("The range specificed is incorrect it has to be between 1 and 68");
 				log.warning("Please correct the From and To Columns in CSV file and run again");
 				System.exit(1);
 			}
@@ -89,7 +84,7 @@ public class Pfs_portal {
 				Utils.login(driver, facultyEmail);
 				Role = "faculty";
 				faculty_login_set = true;
-			} else if ((from >=1 && to <=47) && (to >=1 && to <=47)){
+			} else if ((from >=1 && to <=68) && (to >=1 && to <=68)){
 				student_login_set = false;
 				faculty_login_set = false;
 			}
@@ -247,17 +242,102 @@ public class Pfs_portal {
 							Browser, Role, driver); //TC-44
 						break;
 					case 45:
+						Pfs_resource.testSpreadsheetFileType(studentEmail, facultyEmail, PFSurl, 
+								Browser, Role, driver); //TC-50
+						break;
+					case 46:
+						Pfs_resource.testPPTFileType(studentEmail, facultyEmail, PFSurl, 
+								Browser, Role, driver); //TC-51
+						break;
+					case 47:
+						Pfs_resource.testPDFFileType(studentEmail, facultyEmail, PFSurl, 
+								Browser, Role, driver); //TC-52
+						break;
+					case 48:
+						Pfs_resource.testVideoFileType(studentEmail, facultyEmail, PFSurl, 
+								Browser, Role, driver); //TC-53
+						break;
+					case 49:
+						Pfs_resource.testFacultyFilterResource(studentEmail, facultyEmail, PFSurl, 
+								Browser, Role, driver); //TC-56
+						break;
+					case 50:
+						Pfs_resource.testFacultyFilterPDFResource(studentEmail, facultyEmail, PFSurl, 
+								Browser, Role, driver); //TC-57
+						break;
+					case 51:
+						Pfs_resource.testFacultyFilterVideoResource(studentEmail, facultyEmail, PFSurl, 
+								Browser, Role, driver); //TC-58
+						break;
+					case 52:
+						Pfs_resource.testFacultyFilterLinksResource(studentEmail, facultyEmail, PFSurl, 
+								Browser, Role, driver); //TC-59
+						break;
+					
+					case 53:
 						Pfs_activity.testAssessmentCreatePublishViewDelete(studentEmail, facultyEmail, 
 							PFSurl, Browser, Role, driver); //TC-45
 						break;
-					case 46:
+					case 54:
 						Pfs_activity.testFAssignmentCreatePublishViewDelete(studentEmail, facultyEmail, 
 						PFSurl, Browser, Role, driver); //TC-46
 						break;
-					case 47:
+					case 55:
 						Pfs_activity.testForumCreatePublishViewDelete(studentEmail, facultyEmail, 
 							PFSurl, Browser, Role, driver); //TC-47
 						break;
+					case 56:
+							Pfs_activity.testFAssignmentCreatePublishsubmissionfileuploadchecking(studentEmail, facultyEmail, 
+								PFSurl, Browser, Role, driver); //TC-48
+							break;
+					case 57:
+							Pfs_activity.testFAssignmentCreatePublishsubmissiongradecheck(studentEmail, facultyEmail, 
+								PFSurl, Browser, Role, driver); //TC-49
+							break;
+					case 58:
+							Pfs_activity.testassesmentAttemptview(studentEmail, facultyEmail, 
+									PFSurl, Browser, Role, driver);//TC-54
+							break;
+					case 59:
+							Pfs_activity.testForumCreatePublishViewDeleteDecission(studentEmail, facultyEmail, 
+									PFSurl, Browser, Role, driver);//TC-55
+							break;
+					case 60:
+							Pfs_activity.testFilterActivityAssignment(studentEmail, facultyEmail, PFSurl, 
+									Browser, Role, driver); //TC-60
+							break;
+					case 61:
+							Pfs_activity.testFilterActivityAssement(studentEmail, facultyEmail, PFSurl, 
+									Browser, Role, driver); //TC-61
+							break;
+					case 62:
+							Pfs_activity.testFilterActivityForum(studentEmail, facultyEmail, PFSurl, 
+									Browser, Role, driver); //TC-62
+							break;
+					case 63:
+							Pfs_activity.testForumCreatePublishEditDelete(studentEmail, facultyEmail, PFSurl, 
+									Browser, Role, driver); //TC-63
+							break;
+					case 64:
+							Pfs_activity.testForumCreateunPublishEditDelete(studentEmail, facultyEmail, PFSurl, 
+									Browser, Role, driver); //TC-64
+							break;
+					case 65:
+							Pfs_activity.testassesmenteditview(studentEmail, facultyEmail, PFSurl, 
+									Browser, Role, driver); //TC-65
+							break;
+					case 66:
+							Pfs_activity.testassesmentpublisheditview(studentEmail, facultyEmail, PFSurl, 
+									Browser, Role, driver); //TC-66
+							break;
+					case 67:
+							Pfs_activity.testFAssignmentCreateEditDelete(studentEmail, facultyEmail, PFSurl, 
+									Browser, Role, driver); //TC-67
+							break;
+					case 68:
+							Pfs_activity.testFAssignmentCreatepublishEditDelete(studentEmail, facultyEmail, PFSurl, 
+									Browser, Role, driver); //TC-68
+							break;
 					default:
 						throw Exception;
 				}
@@ -326,7 +406,3 @@ public class Pfs_portal {
 		driver.quit();
 	}
 }
-	
-
-	
-	

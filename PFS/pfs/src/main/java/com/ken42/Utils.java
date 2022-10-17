@@ -1,15 +1,13 @@
 package com.ken42;
 import java.time.Duration;
 import java.util.NoSuchElementException;
+import java.util.Random;
 import java.util.logging.*;
 import java.util.regex.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.openxmlformats.schemas.drawingml.x2006.main.ThemeDocument;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 import org.testng.annotations.Test;
@@ -190,7 +188,15 @@ public class Utils {
 			throw(e);
 		}
 	}
+	public int getDecimalRandomNumber() {
 
+        Random r = new Random();
+        int low = 50;
+        int high = 200;
+        int result = r.nextInt(high - low) + low;
+        System.out.println(result);
+        return result;
+    }
 
 	@Test
 	public static void logout(WebDriver driver, String url, String Role) throws Exception {
