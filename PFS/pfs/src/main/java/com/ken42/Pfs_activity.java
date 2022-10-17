@@ -92,26 +92,35 @@ public class Pfs_activity {
 			Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.Studentassessmenstrelativelearn, time, "flearnltsta");
 			Utils.clickXpath(driver, ActionXpath.Studentassessmenstrelativelexpand, time, "Click on Assesment SVG");
+<<<<<<< HEAD
 			Utils.smallSleepBetweenClicks(1);
 			new WebDriverWait(driver, 25).until(ExpectedConditions.elementToBeClickable(By.xpath("//p[.='"+fileName+"']/../../.././..//*[local-name()='svg']"))).click();
+=======
+			Utils.clickXpath(driver, "//p[.='"+fileName+"']/../../.././..//*[local-name()='svg']", time, "Click on fileName");
+>>>>>>> a16f58ed1d154ac14d8ad12b29239199e9b63459
 			Actions qq=new Actions(driver);
             qq.moveByOffset(40, 40).click().perform();
 			Utils.smallSleepBetweenClicks(1);
 			Utils.logout(driver, url, Role);
 			Utils.smallSleepBetweenClicks(1);
 
-
 			//// .........................Faculty delete assessment
 			Utils.login(driver, faculty);
 			Utils.bigSleepBetweenClicks(1);
 			Utils.checkAcadAndClick(driver, url);
 			Utils.clickXpath(driver, ActionXpath.facclickcouserelativedelete, time, "Click on course content");
+<<<<<<< HEAD
 			Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpathWithScroll(driver, ActionXpath.facultyassessmenstrelativelexpandtodelete, time,
 					"Click on Assessment SVG");
 			Utils.smallSleepBetweenClicks(1);
 			new WebDriverWait(driver, 25).until(ExpectedConditions.elementToBeClickable(By.xpath("//p[.='"+fileName+"']/../../.././..//*[local-name()='svg']"))).click();
 
+=======
+			Utils.clickXpath(driver, ActionXpath.facultyassessmenstrelativelexpandtodelete, time,
+					"Click on Assessment SVG");
+			Utils.clickXpath(driver, "//p[.='"+fileName+"']/../../.././..//*[local-name()='svg']", time, "Click on fileName");
+>>>>>>> a16f58ed1d154ac14d8ad12b29239199e9b63459
 			Utils.smallSleepBetweenClicks(1);
 
 			// Automate.clickXpath(driver, ActionXpath. fsubltstadeleterelativedelete, time, "Delete button 1");
@@ -172,8 +181,13 @@ public class Pfs_activity {
 			Utils.clickXpath(driver, ActionXpath.assignfacsavlinrelative, time, "facsavlink");
 			Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.assignfacsaverelative, time, " facsave");
+<<<<<<< HEAD
 			Utils.smallSleepBetweenClicks(1);
 			Utils.cleartext(driver, ActionXpath.assignfactotalmarksrelative);
+=======
+			// Utils.smallSleepBetweenClicks(1);
+			// Utils.cleartext(driver, ActionXpath.assignfactotalmarksrelative);
+>>>>>>> a16f58ed1d154ac14d8ad12b29239199e9b63459
 			Utils.callSendkeys(driver, ActionXpath.assignfactotalmarksrelative, "9", time);
 			WebElement el = driver.findElement(By.xpath("//input[@name='gradetopass']"));
 			el.clear();

@@ -8,6 +8,10 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.safari.SafariDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -22,16 +26,28 @@ public class Pfs_portal {
 	private static WebDriver driver;
 	static int time = 1000;
 	public static Logger log = Logger.getLogger("Pfs_portal");
+	
+	
 
 	public static void main(String[] args) throws Exception {
+		String CSV_PATH = "";
+		String logFileName = "";
 		boolean append = false;
-		
 		String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new java.util.Date());
-		String logFileName = String.format("C:\\Users\\Public\\Documents\\Testresult_%s.HTML", timeStamp);
+		
+		if (Utils.checkWindowsOs()){
+			CSV_PATH = "C:\\Users\\Public\\Documents\\pfs.csv";
+			logFileName = String.format("C:\\Users\\Public\\Documents\\Testresult_%s.HTML", timeStamp);
+		} else {
+			CSV_PATH = "/Users/shared/pfs.csv";
+			logFileName = String.format("/users/shared/Testresult_%s.HTML", timeStamp);
+		}
+		
+		
 		FileHandler logFile = new FileHandler(logFileName, append);
         logFile.setFormatter(new MyHtmlFormatter());
         log.addHandler(logFile);
-		String CSV_PATH = "C:\\Users\\Public\\Documents\\varun.csv";
+		
 		String facultyEmail = "test.faculty@ken42.com";
 		String studentEmail = "test.student@ken42.com";
 		String Role = "";
@@ -333,32 +349,36 @@ public class Pfs_portal {
 
 	@BeforeSuite
 	public static void initDriver(String Browser, String url) throws Exception {
+		String ChromeDriver = "C:\\Users\\Public\\Documents\\edgedriver_win64\\chromedriver.exe";
+		String EdgeDriver = "C:\\Users\\Public\\Documents\\edgedriver_win64\\msedgedriver.exe";
+		String FirefoxDriver = "C:\\Users\\Public\\Documents\\edgedriver_win64\\geckodriver.exe";
+
 		System.out.println("Browser is "+Browser);
 			System.out.println("URL is "+url);
 		try {
 			System.out.println("Browser is ****"+Browser);
 			System.out.println("URL is "+url);
 			if ("chrome".equals(Browser)) {
-				System.setProperty("webdriver.chrome.driver",
-						"C:\\Users\\Public\\Documents\\edgedriver_win64\\chromedriver.exe");
+				System.setProperty("webdriver.chrome.driver", ChromeDriver);
 				ChromeOptions op = new ChromeOptions();
 				op.addArguments("--disable-notifications");
 				WebDriverManager.chromedriver().setup();
 				driver = new ChromeDriver(op);
 				driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
 			} else if ("edge".equals(Browser)) {
-				System.setProperty("webdriver.edge.driver",
-						"C:\\Users\\Public\\Documents\\edgedriver_win64\\msedgedriver.exe");
+				System.setProperty("webdriver.edge.driver", EdgeDriver);
 				driver = new EdgeDriver();
-				driver.manage().timeouts().implicitlyWait(45, TimeUnit.SECONDS);
+				driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
 			} else if ("firefox".equals(Browser)) {
-				System.setProperty("webdriver.edge.driver",
-						"C:\\Users\\Public\\Documents\\geckodriver-v0.31.0-win64\\geckodriver.exe");
+				System.setProperty("webdriver.edge.driver", FirefoxDriver);
 				FirefoxOptions fx = new FirefoxOptions();
 				fx.addArguments("--disable-notifications");
 				WebDriverManager.firefoxdriver().setup();
 				driver = new FirefoxDriver(fx);
-				driver.manage().timeouts().implicitlyWait(45, TimeUnit.SECONDS);
+				driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+			} else if("safari".equals(Browser)){
+				driver = new SafariDriver();
+				driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
 			}
 			driver.get(url);
 			driver.manage().window().maximize();

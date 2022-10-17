@@ -14,6 +14,7 @@ import org.testng.annotations.Test;
 
 import com.google.common.base.Function;
 
+import org.apache.poi.ss.formula.functions.Log;
 import org.openqa.selenium.Alert;
 
 
@@ -26,15 +27,15 @@ public class Utils {
     public static void clickXpath(WebDriver driver,String xpath, int time,String msg) throws Exception {
 		JavascriptExecutor js3 = (JavascriptExecutor) driver; 
         int count = 0;
-		int maxTries = 5;
+		int maxTries = 7;
 		final String XPATH = xpath;
 		while (true){
 			try {
 				Thread.sleep(1000);
 				log.info("Click on the:"+msg);
 				Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
-				.withTimeout(Duration.ofSeconds(20))
-				.pollingEvery(Duration.ofSeconds(5))
+				.withTimeout(Duration.ofSeconds(30))
+				.pollingEvery(Duration.ofSeconds(6))
 				.ignoring(NoSuchElementException.class);
 				WebElement WE = wait.until(new Function<WebDriver, WebElement>() {
 					public WebElement apply(WebDriver driver) {
@@ -57,7 +58,7 @@ public class Utils {
 
 	public static void callSendkeys(WebDriver driver,String Xpath, String Value, int time1) throws Exception {
 		int count = 0;
-		int maxTries = 4;
+		int maxTries = 7;
 		final String XPATH = Xpath;
 		while (true){
 			try {
@@ -86,13 +87,42 @@ public class Utils {
 	}
 
 
-	public static void cleartext(WebDriver driver, String faccmarks) {
+	public static void cleartext(WebDriver driver, String Xpath) throws Exception {
+		int count = 0;
+		int maxTries = 7;
+		while (true){
+			try{
+				driver.findElement(By.xpath(Xpath)).clear();
+				Thread.sleep(0);
+				break;
+			}catch(Exception e){
+				Utils.smallSleepBetweenClicks(1);
+				log.warning("Failed to Clear the input text on the");
+				if(++count > maxTries){
+					log.info("Exception" +e);
+					throw (e);
+				}
+			}
+		}
+		
+	}
+
+	public static boolean checkWindowsOs() {
+		String OS = "";
+		OS = System.getProperty("os.name"); 
+		System.out.println(OS);
+
+		if (OS.contains("Windows")){
+			return true;
+		}
+		return false;
+
 	}
 
 	public static void clickXpathWithScroll(WebDriver driver,String xpath, int time,String msg) throws Exception {
 		JavascriptExecutor js = (JavascriptExecutor) driver; 
 		int count = 0;
-		int maxTries = 2;
+		int maxTries = 7;
 		while (true){
 			try {
 				Thread.sleep(1000);
@@ -102,7 +132,7 @@ public class Utils {
 				el.click();
 				break;
 			} catch (Exception e) {
-				Thread.sleep(1000);
+				Thread.sleep(3000);
 				Utils.printException(e);
 				log.warning("Failed to Click on the :"+msg);
 				if (++count == maxTries) {
@@ -117,13 +147,28 @@ public class Utils {
 	public static void login(WebDriver driver, String Email) throws Exception {
 		try {
 			int time = 2000;
+			int count = 0;
+			int maxTries = 7;
 			smallSleepBetweenClicks(1);
 			String regex = "Null";
+			String alertMessage = "";
 			Utils.callSendkeys(driver, ActionXpath.email, Email, time);
 			Utils.clickXpath(driver, ActionXpath.requestotp, time, "Request OTP");
-			Utils.smallSleepBetweenClicks(3);
-			Alert alert = driver.switchTo().alert(); // switch to alert
-			String alertMessage = driver.switchTo().alert().getText(); // capture alert message
+			while (true) {
+				try {
+					Alert alert = driver.switchTo().alert(); // switch to alert
+					alertMessage = driver.switchTo().alert().getText(); // capture alert message
+					alert.accept();
+					break;
+				} catch (Exception e){
+					Utils.smallSleepBetweenClicks(1);
+					System.out.println("Waiting for OTP Alert message\n");
+					if(++ count > maxTries){
+						log.warning("Login to portal failed \n ");
+						throw(e);
+					}
+				}
+			}
 			System.out.println(alertMessage); // Print Alert Message
 			Pattern pt = Pattern.compile("-?\\d+");
 			Matcher m = pt.matcher(alertMessage);
@@ -131,7 +176,7 @@ public class Utils {
 				regex = m.group();
 			}
 			//smallSleepBetweenClicks();
-			alert.accept();
+			
 			Utils.callSendkeys(driver, ActionXpath.otprequest2, regex, time);
 			Utils.clickXpath(driver, ActionXpath.verifyotp, time, "Verify otp");
 			System.out.println("Sleeping after login for 7 seconds so that goBacktoHome function does not automatically logout user");
@@ -382,23 +427,36 @@ public class Utils {
 	}
 
 	@Test
+	public static String  getTEXT(WebDriver driver, String xpath) throws Exception{
+		int count = 0;
+		int maxTries =7;
+		String HtmlText = "";
+		while (true){
+			try {
+				WebElement p = driver.findElement(By.xpath(xpath));
+				HtmlText = p.getText();
+				return HtmlText;
+			} catch (Exception e){
+				Utils.smallSleepBetweenClicks(1);
+				if(++count > maxTries){
+					throw (e);
+				}
+			}
+		}
+	}
+
+	@Test
 	public static String[]  getClassSubjectAndSection(WebDriver driver) throws Exception{
 		try {
 			String[]  ProgSubj = new String [2];
-			// Utils.clickXpath(driver, ActionXpath.program, time, "click on program");
-			// Utils.clickXpath(driver, ActionXpath.programselect, time, "click on program select");
-			Utils.smallSleepBetweenClicks(6);
-			WebElement p = driver.findElement(By.xpath("(//*[. and @aria-haspopup='listbox'])[1]"));
-			String program = p.getText();
-			ProgSubj[0] = program;
-			System.out.println("Text program is : " + program);
+			Utils.clickXpath(driver, ActionXpath.program, time, "click on program");
+			Utils.clickXpath(driver, ActionXpath.programselect, time, "click on program select");
+			ProgSubj[0] = Utils.getTEXT(driver,"(//*[. and @aria-haspopup='listbox'])[1]" );
+			System.out.println("Text program is : " + ProgSubj[0]);
 
 			Utils.clickXpath(driver, ActionXpath.subjectclick, time, "click on subject");
-			WebElement p2 = driver.findElement(By.xpath("(//*[@class='MuiTab-wrapper']//p)[1]"));
-			String subject = p2.getText();
-			System.out.println("Subject is  " +subject);
+			String subject = Utils.getTEXT(driver, "(//*[@class='MuiTab-wrapper']//p)[1]");
 			String converted = convertContent(subject);
-	
 			ProgSubj[1] = converted;
 			System.out.println("Conveted string is"+converted);
 			return (ProgSubj);
@@ -406,7 +464,7 @@ public class Utils {
 			Utils.printException(e);
 			System.out.println("Failure in getClassSubjectAndSection function");
 			log.info("Failure in Logout function");
-			return null;
+			throw (e);
 		}
 	}
 }
