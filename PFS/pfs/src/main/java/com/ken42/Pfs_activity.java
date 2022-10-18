@@ -110,12 +110,12 @@ public class Pfs_activity {
 			Utils.clickXpath(driver, "//p[.='"+fileName+"']/../../.././..//*[local-name()='svg']", time, "Click on fileName");
 			Utils.smallSleepBetweenClicks(1);
 
-			// Automate.clickXpath(driver, ActionXpath. fsubltstadeleterelativedelete, time, "Delete button 1");
-			WebDriverWait wait = new WebDriverWait(driver, 20);
-			WebElement el = wait
-					.until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[.='Delete'])[1]")));
-			((JavascriptExecutor) driver).executeScript("arguments[0].click();", el);
-			Thread.sleep(10000);
+			Utils.clickXpath(driver, ActionXpath. fsubltstadeleterelativedelete, time, "Delete button 1");
+			// WebDriverWait wait = new WebDriverWait(driver, 20);
+			// WebElement el = wait
+			// 		.until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[.='Delete'])[1]")));
+			// ((JavascriptExecutor) driver).executeScript("arguments[0].click();", el);
+			// Thread.sleep(10000);
 			Utils.clickXpath(driver, ActionXpath.fsubltstadelete1relativedelete2, time, " Delete Assessment 2");
 			Utils.bigSleepBetweenClicks(2);
 			Utils.logout(driver, url, Role);
@@ -176,10 +176,15 @@ public class Pfs_activity {
 			el.sendKeys("9");
 
 			Utils.smallSleepBetweenClicks(1);
+            if(Utils.checknsom(url)){
+                System.out.println("nsom not have the attempt");
+            }
+            else{
 			Utils.clickXpath(driver, ActionXpath.assignfacattementsrelative, time, "facattements");
 			Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.assignfacselectattemtrelative, time, "facselectattemt");
 			Utils.smallSleepBetweenClicks(1);
+            }
 			Utils.clickXpath(driver, ActionXpath.assignfacsaveandproceedrelative, time, "facsaveandproceed");
 			Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.assignfacokrelative, time, "facok");
@@ -188,14 +193,22 @@ public class Pfs_activity {
 			Utils.smallSleepBetweenClicks(1);
 			new WebDriverWait(driver, 25).until(ExpectedConditions.elementToBeClickable(By.xpath("//p[.='"+fileName+"']/../../..//*[local-name()='svg']"))).click();
 			Utils.smallSleepBetweenClicks(1);
-			WebDriverWait wait = new WebDriverWait(driver, 20);
-			WebElement element2 = wait
-					.until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[.='Publish'])[1]")));
-			((JavascriptExecutor) driver).executeScript("arguments[0].click();", element2);
+
+            Utils.clickXpathWithJavascript(driver, ActionXpath.assignfacpublish, time, "Publish assignment");
+			
+            
+
+			// WebDriverWait wait = new WebDriverWait(driver, 20);
+			// WebElement element2 = wait
+			// 		.until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[.='Publish'])[1]")));
+			// ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element2);
 			Thread.sleep(2000);
-			WebDriverWait waite = new WebDriverWait(driver, 20);
-			WebElement element3 = waite.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[.='Publish']")));
-			((JavascriptExecutor) driver).executeScript("arguments[0].click();", element3);
+           
+            Utils.clickXpathWithJavascript(driver, ActionXpath.assignfacpublishrelative, time, "Publish");
+			
+			// WebDriverWait waite = new WebDriverWait(driver, 20);
+			// WebElement element3 = waite.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[.='Publish']")));
+			// ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element3);
 			Utils.bigSleepBetweenClicks(2);
 			Utils.logout(driver, url, Role);
 			Utils.smallSleepBetweenClicks(1);
@@ -227,9 +240,11 @@ public class Pfs_activity {
 			Utils.smallSleepBetweenClicks(1);
 			Utils.smallSleepBetweenClicks(1);
 
-			WebDriverWait ele = new WebDriverWait(driver, 20);
-			WebElement elem = ele.until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[.='Delete'])[1]")));
-			((JavascriptExecutor) driver).executeScript("arguments[0].click();", elem);
+            Utils.clickXpathWithJavascript(driver, ActionXpath.assignfacdelerelative, time, "Delete");
+			
+			// WebDriverWait ele = new WebDriverWait(driver, 20);
+			// WebElement elem = ele.until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[.='Delete'])[1]")));
+			// ((JavascriptExecutor) driver).executeScript("arguments[0].click();", elem);
 			Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.assignfacdelerelative, time, "Delete button 2");
 			Utils.bigSleepBetweenClicks(2);
@@ -300,17 +315,19 @@ public class Pfs_activity {
 			// Utils.clickXpath(driver, ActionXpath.relativefaccformedot1, time, "faccformedot");
 			Utils.smallSleepBetweenClicks(1);
 
-			WebDriverWait wait5 = new WebDriverWait(driver, 20);
-			WebElement element15 = wait5
-					.until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[.='Publish'])[1]")));
-			((JavascriptExecutor) driver).executeScript("arguments[0].click();", element15);
+            Utils.clickXpathWithJavascript(driver, ActionXpath.assignfacpublish, time, "Publish");
+			// WebDriverWait wait5 = new WebDriverWait(driver, 20);
+			// WebElement element15 = wait5
+			// 		.until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[.='Publish'])[1]")));
+			// ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element15);
 			System.out.println("click on dot and  publish 1st forum");
 			Utils.smallSleepBetweenClicks(1);
 
-			WebDriverWait waitei = new WebDriverWait(driver, 20);
-			WebElement element29 = waitei
-					.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[.='Publish']")));
-			((JavascriptExecutor) driver).executeScript("arguments[0].click();", element29);
+            Utils.clickXpathWithJavascript(driver, ActionXpath.assignfacpublish, time, "Publish");
+			// WebDriverWait waitei = new WebDriverWait(driver, 20);
+			// WebElement element29 = waitei
+			// 		.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[.='Publish']")));
+			// ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element29);
 			System.out.println("click on dot and  publish 2nd forum");
 			Utils.bigSleepBetweenClicks(2);
 			Utils.logout(driver, url, Role);
@@ -345,10 +362,12 @@ public class Pfs_activity {
 
 
 			Thread.sleep(2000);
-			WebDriverWait waitei1 = new WebDriverWait(driver, 20);
-			WebElement element291 = waitei1
-					.until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[.='Delete'])[1]")));
-			((JavascriptExecutor) driver).executeScript("arguments[0].click();", element291);
+            Utils.clickXpathWithJavascript(driver, ActionXpath.assignfacdelerelative, time, "Delete");
+
+			// WebDriverWait waitei1 = new WebDriverWait(driver, 20);
+			// WebElement element291 = waitei1
+			// 		.until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[.='Delete'])[1]")));
+			// ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element291);
 			System.out.println("clickon 1st delete");
 			Thread.sleep(2000);
 			Utils.clickXpath(driver, ActionXpath.relativedfacdele12, time, "Click on Delete 2");
@@ -437,14 +456,18 @@ public class Pfs_activity {
                     .elementToBeClickable(By.xpath("//p[.='" + fileName + "']/../../..//*[local-name()='svg']")))
                     .click();
             Utils.smallSleepBetweenClicks(1);
-            WebDriverWait wait = new WebDriverWait(driver, 20);
-            WebElement element2 = wait
-                    .until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[.='Publish'])[1]")));
-            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element2);
+            Utils.clickXpathWithJavascript(driver, ActionXpath.assignfacpublish, time, "Publish");
+
+            // WebDriverWait wait = new WebDriverWait(driver, 20);
+            // WebElement element2 = wait
+            //         .until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[.='Publish'])[1]")));
+            // ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element2);
             Thread.sleep(2000);
-            WebDriverWait waite = new WebDriverWait(driver, 20);
-            WebElement element3 = waite.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[.='Publish']")));
-            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element3);
+           Utils.clickXpathWithJavascript(driver, ActionXpath.assignfacpublish, time, "Publish");
+        //    WebDriverWait waite = new WebDriverWait(driver, 20);
+            
+        //     WebElement element3 = waite.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[.='Publish']")));
+        //     ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element3);
             Utils.bigSleepBetweenClicks(2);
             Utils.logout(driver, url, Role);
             Utils.smallSleepBetweenClicks(1);
@@ -513,9 +536,11 @@ public class Pfs_activity {
             Utils.smallSleepBetweenClicks(1);
             Utils.smallSleepBetweenClicks(1);
 
-            WebDriverWait ele = new WebDriverWait(driver, 20);
-            WebElement elem = ele.until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[.='Delete'])[1]")));
-            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", elem);
+            Utils.clickXpathWithJavascript(driver, ActionXpath.assignfacdelerelative, time, "Delete");
+            // WebDriverWait ele = new WebDriverWait(driver, 20);
+           
+            // WebElement elem = ele.until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[.='Delete'])[1]")));
+            // ((JavascriptExecutor) driver).executeScript("arguments[0].click();", elem);
             Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.assignfacdelerelative, time, "Delete button 2");
             Utils.bigSleepBetweenClicks(2);
@@ -596,14 +621,18 @@ public class Pfs_activity {
                     .elementToBeClickable(By.xpath("//p[.='" + fileName + "']/../../..//*[local-name()='svg']")))
                     .click();
             Utils.smallSleepBetweenClicks(1);
-            WebDriverWait wait = new WebDriverWait(driver, 20);
-            WebElement element2 = wait
-                    .until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[.='Publish'])[1]")));
-            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element2);
+            Utils.clickXpathWithJavascript(driver, ActionXpath.assignfacpublish, time, "Publish");
+
+            // WebDriverWait wait = new WebDriverWait(driver, 20);
+            // WebElement element2 = wait
+            //         .until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[.='Publish'])[1]")));
+            // ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element2);
             Thread.sleep(2000);
-            WebDriverWait waite = new WebDriverWait(driver, 20);
-            WebElement element3 = waite.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[.='Publish']")));
-            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element3);
+            Utils.clickXpathWithJavascript(driver, ActionXpath.assignfacpublish, time, "Publish");
+
+            // WebDriverWait waite = new WebDriverWait(driver, 20);
+            // WebElement element3 = waite.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[.='Publish']")));
+            // ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element3);
             Utils.bigSleepBetweenClicks(2);
             Utils.logout(driver, url, Role);
             Utils.smallSleepBetweenClicks(1);
@@ -714,10 +743,11 @@ public class Pfs_activity {
                     .click();
             Utils.smallSleepBetweenClicks(1);
             Utils.smallSleepBetweenClicks(1);
+            Utils.clickXpathWithJavascript(driver, ActionXpath.assignfacdelerelative, time, "Delete");
 
-            WebDriverWait ele = new WebDriverWait(driver, 20);
-            WebElement elem = ele.until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[.='Delete'])[1]")));
-            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", elem);
+            // WebDriverWait ele = new WebDriverWait(driver, 20);
+            // WebElement elem = ele.until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[.='Delete'])[1]")));
+            // ((JavascriptExecutor) driver).executeScript("arguments[0].click();", elem);
             Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.assignfacdelerelative, time, "Delete button 2");
             Utils.bigSleepBetweenClicks(2);
@@ -937,12 +967,13 @@ public class Pfs_activity {
             
             
             
-            
+            Utils.clickXpathWithJavascript(driver, ActionXpath.assignfacdelerelative, time, "Delete");
+
             // Automate.clickXpath(driver, ActionXpath. fsubltstadeleterelativedelete, time, "Delete button 1");
-            WebDriverWait wait = new WebDriverWait(driver, 20);
-            WebElement el = wait
-                    .until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[.='Delete'])[1]")));
-            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", el);
+            // WebDriverWait wait = new WebDriverWait(driver, 20);
+            // WebElement el = wait
+            //         .until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[.='Delete'])[1]")));
+            // ((JavascriptExecutor) driver).executeScript("arguments[0].click();", el);
             Thread.sleep(10000);
             Utils.clickXpath(driver, ActionXpath.fsubltstadelete1relativedelete2, time, " Delete Assessment 2");
             Utils.bigSleepBetweenClicks(2);
@@ -1013,18 +1044,20 @@ public class Pfs_activity {
             new WebDriverWait(driver, 25).until(ExpectedConditions.elementToBeClickable(By.xpath("//p[.='"+fileName+"']/../../..//*[local-name()='svg']"))).click();
             // Utils.clickXpath(driver, ActionXpath.relativefaccformedot1, time, "faccformedot");
             Utils.smallSleepBetweenClicks(1);
+            Utils.clickXpathWithJavascript(driver, ActionXpath.assignfacpublish, time, "Publish");
 
-            WebDriverWait wait5 = new WebDriverWait(driver, 20);
-            WebElement element15 = wait5
-                    .until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[.='Publish'])[1]")));
-            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element15);
+            // WebDriverWait wait5 = new WebDriverWait(driver, 20);
+            // WebElement element15 = wait5
+            //         .until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[.='Publish'])[1]")));
+            // ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element15);
             System.out.println("click on dot and  publish 1st forum");
             Utils.smallSleepBetweenClicks(1);
+            Utils.clickXpathWithJavascript(driver, ActionXpath.assignfacpublish, time, "Publish");
 
-            WebDriverWait waitei = new WebDriverWait(driver, 20);
-            WebElement element29 = waitei
-                    .until(ExpectedConditions.elementToBeClickable(By.xpath("//span[.='Publish']")));
-            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element29);
+            // WebDriverWait waitei = new WebDriverWait(driver, 20);
+            // WebElement element29 = waitei
+            //         .until(ExpectedConditions.elementToBeClickable(By.xpath("//span[.='Publish']")));
+            // ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element29);
             System.out.println("click on dot and  publish 2nd forum");
             Utils.bigSleepBetweenClicks(2);
             //....Discussion....
@@ -1278,11 +1311,12 @@ public class Pfs_activity {
             new WebDriverWait(driver, 25).until(ExpectedConditions.elementToBeClickable(By.xpath("//p[.='"+fileName+"']/../../..//*[local-name()='svg']"))).click();
             // Utils.clickXpath(driver, ActionXpath.relativefaccformedot1, time, "faccformedot");
             Utils.smallSleepBetweenClicks(1);
+            Utils.clickXpathWithJavascript(driver, ActionXpath.assignfacpublish, time, "Publish");
 
-            WebDriverWait waitei = new WebDriverWait(driver, 20);
-            WebElement element29 = waitei
-                    .until(ExpectedConditions.elementToBeClickable(By.xpath("//span[.='Publish']")));
-            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element29);
+            // WebDriverWait waitei = new WebDriverWait(driver, 20);
+            // WebElement element29 = waitei
+            //         .until(ExpectedConditions.elementToBeClickable(By.xpath("//span[.='Publish']")));
+            // ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element29);
             
             Utils.clickXpathWithScroll(driver, ActionXpath.facsspublish, time, "faclinkpublish");
             
@@ -1333,10 +1367,12 @@ public class Pfs_activity {
 
 
             Thread.sleep(2000);
-            WebDriverWait waitei1 = new WebDriverWait(driver, 20);
-            WebElement element291 = waitei1
-                    .until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[.='Delete'])[1]")));
-            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element291);
+            Utils.clickXpathWithJavascript(driver, ActionXpath.assignfacdelerelative, time, "Delete");
+
+            // WebDriverWait waitei1 = new WebDriverWait(driver, 20);
+            // WebElement element291 = waitei1
+            //         .until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[.='Delete'])[1]")));
+            // ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element291);
             System.out.println("clickon 1st delete");
             Thread.sleep(2000);
             Utils.clickXpath(driver, ActionXpath.relativedfacdele12, time, "Click on Delete 2");
@@ -1461,12 +1497,13 @@ public class Pfs_activity {
             //Below line to click on 3 dots
             new WebDriverWait(driver, 25).until(ExpectedConditions.elementToBeClickable(By.xpath("//p[.='"+fileName+"']/../../..//*[local-name()='svg']"))).click();
 
+            Utils.clickXpathWithJavascript(driver, ActionXpath.assignfacdelerelative, time, "Delete");
 
             Thread.sleep(2000);
-            WebDriverWait waitei1 = new WebDriverWait(driver, 20);
-            WebElement element291 = waitei1
-                    .until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[.='Delete'])[1]")));
-            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element291);
+            // WebDriverWait waitei1 = new WebDriverWait(driver, 20);
+            // WebElement element291 = waitei1
+            //         .until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[.='Delete'])[1]")));
+            // ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element291);
             System.out.println("clickon 1st delete");
             Thread.sleep(2000);
             Utils.clickXpath(driver, ActionXpath.relativedfacdele12, time, "Click on Delete 2");
@@ -1591,12 +1628,13 @@ public class Pfs_activity {
             new WebDriverWait(driver, 25).until(ExpectedConditions.elementToBeClickable(By.xpath("//p[.='"+fileName+"']/../../.././..//*[local-name()='svg']"))).click();
             Utils.bigSleepBetweenClicks(2);
              
-            
+            Utils.clickXpathWithJavascript(driver, ActionXpath.assignfacdelerelative, time, "Delete");
+
             // Automate.clickXpath(driver, ActionXpath. fsubltstadeleterelativedelete, time, "Delete button 1");
             WebDriverWait wait = new WebDriverWait(driver, 20);
-            WebElement el = wait
-                    .until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[.='Delete'])[1]")));
-            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", el);
+            // WebElement el = wait
+            //         .until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[.='Delete'])[1]")));
+            // ((JavascriptExecutor) driver).executeScript("arguments[0].click();", el);
             Thread.sleep(10000);
             Utils.clickXpath(driver, ActionXpath.fsubltstadelete1relativedelete2, time, " Delete Assessment 2");
             Utils.bigSleepBetweenClicks(2);
@@ -1727,12 +1765,13 @@ public class Pfs_activity {
             new WebDriverWait(driver, 25).until(ExpectedConditions.elementToBeClickable(By.xpath("//p[.='"+fileName+"']/../../.././..//*[local-name()='svg']"))).click();
             Utils.bigSleepBetweenClicks(2);
              
-            
+            Utils.clickXpathWithJavascript(driver, ActionXpath.assignfacdelerelative, time, "Delete");
+
             // Automate.clickXpath(driver, ActionXpath. fsubltstadeleterelativedelete, time, "Delete button 1");
-            WebDriverWait wait = new WebDriverWait(driver, 20);
-            WebElement el = wait
-                    .until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[.='Delete'])[1]")));
-            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", el);
+            // WebDriverWait wait = new WebDriverWait(driver, 20);
+            // WebElement el = wait
+            //         .until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[.='Delete'])[1]")));
+            // ((JavascriptExecutor) driver).executeScript("arguments[0].click();", el);
             Thread.sleep(10000);
             Utils.clickXpath(driver, ActionXpath.fsubltstadelete1relativedelete2, time, " Delete Assessment 2");
             Utils.bigSleepBetweenClicks(2);
@@ -1857,10 +1896,11 @@ public class Pfs_activity {
                     .click();
 
             Utils.smallSleepBetweenClicks(1);
+            Utils.clickXpathWithJavascript(driver, ActionXpath.assignfacdelerelative, time, "Delete");
 
-            WebDriverWait ele = new WebDriverWait(driver, 20);
-            WebElement elem = ele.until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[.='Delete'])[1]")));
-            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", elem);
+            // WebDriverWait ele = new WebDriverWait(driver, 20);
+            // WebElement elem = ele.until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[.='Delete'])[1]")));
+            // ((JavascriptExecutor) driver).executeScript("arguments[0].click();", elem);
             Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.assignfacdelerelative, time, "Delete button 2");
             Utils.bigSleepBetweenClicks(2);
@@ -1940,15 +1980,19 @@ public class Pfs_activity {
             Utils.smallSleepBetweenClicks(1);
 
             Utils.smallSleepBetweenClicks(1);
-            WebDriverWait wait11 = new WebDriverWait(driver, 20);
-            WebElement element211 = wait11
-                    .until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[.='Publish'])[1]")));
-            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element211);
+            Utils.clickXpathWithJavascript(driver, ActionXpath.assignfacpublish, time, "Publish");
+
+            // WebDriverWait wait11 = new WebDriverWait(driver, 20);
+            // WebElement element211 = wait11
+            //         .until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[.='Publish'])[1]")));
+            // ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element211);
             Thread.sleep(2000);
-            WebDriverWait waite1 = new WebDriverWait(driver, 20);
-            WebElement element31 = waite1
-                    .until(ExpectedConditions.elementToBeClickable(By.xpath("//span[.='Publish']")));
-            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element31);
+            Utils.clickXpathWithJavascript(driver, ActionXpath.assignfacpublish, time, "Publish");
+
+            // WebDriverWait waite1 = new WebDriverWait(driver, 20);
+            // WebElement element31 = waite1
+            //         .until(ExpectedConditions.elementToBeClickable(By.xpath("//span[.='Publish']")));
+            // ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element31);
 
             Utils.smallSleepBetweenClicks(1);
             driver.findElement(By.xpath(
@@ -2009,10 +2053,11 @@ public class Pfs_activity {
                     .click();
 
             Utils.smallSleepBetweenClicks(1);
+            Utils.clickXpathWithJavascript(driver, ActionXpath.assignfacdelerelative, time, "Delete");
 
-            WebDriverWait ele = new WebDriverWait(driver, 20);
-            WebElement elem = ele.until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[.='Delete'])[1]")));
-            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", elem);
+            // WebDriverWait ele = new WebDriverWait(driver, 20);
+            // WebElement elem = ele.until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[.='Delete'])[1]")));
+            // ((JavascriptExecutor) driver).executeScript("arguments[0].click();", elem);
             Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.assignfacdelerelative, time, "Delete button 2");
             Utils.bigSleepBetweenClicks(2);

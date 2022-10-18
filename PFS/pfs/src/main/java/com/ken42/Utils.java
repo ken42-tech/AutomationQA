@@ -8,8 +8,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
 import com.google.common.base.Function;
@@ -86,7 +88,33 @@ public class Utils {
 		}
 	}
 
-
+	public static void clickXpathWithJavascript(WebDriver driver,String xpath, int time,String msg) throws Exception {
+		JavascriptExecutor js = (JavascriptExecutor) driver; 
+        int count = 0;
+		int maxTries = 7;
+		final String XPATH = xpath;
+		while (true){
+			try {
+				Thread.sleep(1000);
+				log.info("Click on the:"+msg);
+				WebDriverWait wait = new WebDriverWait(driver, 20);
+			WebElement el = wait
+					.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
+			((JavascriptExecutor) driver).executeScript("arguments[0].click();", el);
+		
+				el.click();
+				// new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(By.xpath(xpath))).click();
+				break;
+			} catch (Exception e) {
+				Thread.sleep(3000);
+				log.warning("Failed to Click on the :"+msg);
+				if (++count == maxTries) {
+					Utils.printException(e);
+					throw e;
+				}
+			}
+		}
+	}
 	public static void cleartext(WebDriver driver, String Xpath) throws Exception {
 		int count = 0;
 		int maxTries = 7;
@@ -277,6 +305,17 @@ public class Utils {
 		}
 		return false;
 	}
+	@Test
+	public static Boolean checknsom(String url) {
+		String urlToMatch = "nsom";
+		Pattern pt = Pattern.compile(urlToMatch);
+		Matcher m = pt.matcher(url);
+		while (m.find()) {
+			return true;
+		}
+		return false;
+	}
+	
 	@Test
 	public static void scrollUpOrDown(WebDriver driver, int pixel){
 		JavascriptExecutor js = (JavascriptExecutor) driver;

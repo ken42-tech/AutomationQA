@@ -709,6 +709,7 @@ static String assignfacsaveandproceedrelative = "//span[.='Save and Proceed']";
 static String assignfacokrelative = "//span[.='OK']";
 static String assignexapnd1relative = "//*[. and contains(text(), 'Assignments')]/../../../..//*[local-name()='svg']";
 static String assignfacdot1relative = "";
+static String assignfacpublish="(//span[.='Publish'])[1]";
 static String assignfacpublishrelative = "//span[.='Publish']";
 static String assignfacpublish1relative = "//span[.='Publish']";
 static String assignfacclickonp1relative = "(//div[.='T'])[2]";
@@ -725,7 +726,7 @@ static String assignfacclickcouserelative = "//span[.='Course Content']";
 static String assignexapndrelative = "(//div[@id='panel1a-header'])[1]";
 static String assignfacdotrelative = "//p[.='varunautomation']/ancestor::div[@class='MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-justify-content-xs-space-around']/descendant::h5";
 static String assignfacdeleterelative = "(//div[@role='button'])[23]";
-static String assignfacdelerelative = "//span[.='Delete']";
+static String assignfacdelerelative = "(//span[.='Delete'])[1]";
 static String assignfacclickonprelative = "(//div[.='T'])[2]";
 static String assignfacconsignoutrelative = "(//li[@role='menuitem'])[2]";
 //// TC-46 ends here.......................end of Assignment Realtive......................./////

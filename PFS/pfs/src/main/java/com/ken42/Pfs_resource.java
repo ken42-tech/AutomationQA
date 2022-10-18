@@ -468,10 +468,11 @@ public class Pfs_resource {
 				Utils.clickXpath(driver, ActionXpath.faccFilter, time, Role);
                 Utils.clickXpath(driver, ActionXpath.faccFilterClear, time, Role);
                 Utils.clickXpath(driver, ActionXpath.faccFilter, time, Role);
+				
                 Utils.clickXpath(driver, ActionXpath.faccPPTOPen, time, Role);
                 Utils.clickXpath(driver, ActionXpath.faccPDFCheckBox, time, Role);
                 Actions qwe = new Actions(driver);
-             qwe.moveByOffset(40, 40).click().perform();
+             	qwe.moveByOffset(40, 40).click().perform();
                 
                 WebElement facresult= driver.findElement(By.xpath("/html/body/div[1]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[3]/div/div/div/div[5]/div[1]/div/div/../../../.."));
                  String facgetresult= facresult.getText();
@@ -500,6 +501,7 @@ public class Pfs_resource {
             try {
                 System.out.println("TC-51:  Video resource Filter Option View Test case Started");
                 resourceFacultyInitialSteps(faculty, url, driver);
+				
 				Utils.clickXpath(driver, ActionXpath.faccFilter, time, Role);
                 Utils.clickXpath(driver, ActionXpath.faccFilterClear, time, Role);
                 Utils.clickXpath(driver, ActionXpath.faccFilter, time, Role);
@@ -508,13 +510,19 @@ public class Pfs_resource {
                 Actions qwe = new Actions(driver);
             	 qwe.moveByOffset(40, 40).click().perform();
                 
-                WebElement facresult= driver.findElement(By.xpath("/html/body/div[1]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[3]/div/div/div/div[5]/div[1]/div/div/../../../.."));
-                 String facgetresult= facresult.getText();
-                 System.out.println(facgetresult);
-                 WebElement getresult= driver.findElement(By.xpath("/html/body/div[1]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[3]/div/div/div/div[6]/div/div[1]/div[1]"));
-                 String result= getresult.getText();
-                 System.out.println(getresult);
-                 if(result.equals(result)) {
+				 String facgetresult = Utils.getTEXT(driver,"/html/body/div[1]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[3]/div/div/div/div[5]/div[1]/div/div/../../../.." );
+				 System.out.println(facgetresult);
+	 
+				 String getresult = Utils.getTEXT(driver,"/html/body/div[1]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[3]/div/div/div/div[6]/div/div[1]/div[1]");
+				 System.out.println(getresult);
+
+                // WebElement facresult= driver.findElement(By.xpath("/html/body/div[1]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[3]/div/div/div/div[5]/div[1]/div/div/../../../.."));
+                //  String facgetresult= facresult.getText();
+                //  System.out.println(facgetresult);
+                //  WebElement getresult= driver.findElement(By.xpath("/html/body/div[1]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[3]/div/div/div/div[6]/div/div[1]/div[1]"));
+                //  String result= getresult.getText();
+                //  System.out.println(getresult);
+                 if(getresult.equals(getresult)) {
                      System.out.println("Result is same");
                  }
                  else {
