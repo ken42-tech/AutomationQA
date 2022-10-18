@@ -104,11 +104,11 @@ public class Pfs_faculty {
 				return;
 			}
 				Utils.clickXpath(driver, ActionXpath.facexam, time, "Click on the Examination span");
-				Utils.clickXpath(driver, ActionXpath.facexamarrow, time, "facexamarrow");
-				Utils.clickXpath(driver, ActionXpath.facexamdropdown, time, "Examination naroow dropdown");
-				Utils.clickXpath(driver, ActionXpath.facexamexam, time, "facexamexam");
-				Utils.clickXpath(driver, ActionXpath.facexamdate, time, "facexamdate");
-				Utils.clickXpath(driver, ActionXpath.faceexamtime, time, "faceexamtime");
+				// Utils.clickXpath(driver, ActionXpath.facexamarrow, time, "facexamarrow");
+				// Utils.clickXpath(driver, ActionXpath.facexamdropdown, time, "Examination naroow dropdown");
+				// Utils.clickXpath(driver, ActionXpath.facexamexam, time, "facexamexam");
+				// Utils.clickXpath(driver, ActionXpath.facexamdate, time, "facexamdate");
+				// Utils.clickXpath(driver, ActionXpath.faceexamtime, time, "faceexamtime");
 				log.info("TC-20: Faculty Examanation test cases PASSED... \n ");
 			} catch (Exception e) {
 				Utils.printException(e);

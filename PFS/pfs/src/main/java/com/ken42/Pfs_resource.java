@@ -25,14 +25,12 @@ public class Pfs_resource {
 	}
 
 	public static void resourceSubmitForm( String faculty, String url, WebDriver driver) throws Exception{
-<<<<<<< HEAD
 		Utils.clickXpath(driver, ActionXpath.facssadd, time, "Click of add resource");
 		Utils.clickXpath(driver, ActionXpath.facccresdescclick, time, "Click on URL resource link");
-=======
-		Utils.clickXpath(driver, ActionXpath.facssadd, time, "facssadd");
-		Utils.smallSleepBetweenClicks(2);
+		// Utils.smallSleepBetweenClicks(1);
+		// Utils.clickXpath(driver, ActionXpath.facssadd, time, "facssadd");
+		Utils.smallSleepBetweenClicks(1);
 		Utils.clickXpath(driver, ActionXpath.facccresdescclick, time, "facccresdescclick");
->>>>>>> 1762b7ab9c9c0fdd4c9c074c19e5bc9b2458d9db
 		Utils.callSendkeys(driver, ActionXpath.facccresurl, "Hello", time);
 		// Utils.callSendkeys(driver, "//*[@id='tinymce']//p", "Testing", time);
 		Utils.clickXpath(driver, ActionXpath.facccressubmitform, time, "Save URL link button");
@@ -205,7 +203,7 @@ public class Pfs_resource {
 
 	@Test(priority = 43)
 	public static void testVideoCreateViewDelete(String student, String faculty, 
-        String url, String Browser, String Role, WebDriver driver) throws Exception {
+		String url, String Browser, String Role, WebDriver driver) throws Exception {
 		try {
 			String Video_file = "";
 			if (Utils.checkWindowsOs()){
