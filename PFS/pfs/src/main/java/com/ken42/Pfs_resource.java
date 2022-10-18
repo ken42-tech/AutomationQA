@@ -22,38 +22,42 @@ public class Pfs_resource {
 	public static void resourceFacultyInitialSteps(String faculty, String url, WebDriver driver) throws Exception{
 		Utils.login(driver, faculty,url);
 		Utils.checkAcadAndClick(driver, url);
-		Utils.clickXpath(driver, ActionXpath.faccc, time, "faccc");
+		Utils.clickXpath(driver, ActionXpath.faccc, time, "Click on course content");
 	}
 
 	public static void resourceSubmitForm( String faculty, String url, WebDriver driver) throws Exception{
-		Utils.clickXpath(driver, ActionXpath.facssadd, time, "facssadd");
-		Utils.smallSleepBetweenClicks(2);
+		Utils.clickXpath(driver, ActionXpath.facssadd, time, "Click of add resource");
+		Utils.clickXpath(driver, ActionXpath.facccresdescclick, time, "Click on URL resource link");
+		// Utils.smallSleepBetweenClicks(1);
+		// Utils.clickXpath(driver, ActionXpath.facssadd, time, "facssadd");
+		Utils.smallSleepBetweenClicks(1);
 		Utils.clickXpath(driver, ActionXpath.facccresdescclick, time, "facccresdescclick");
 		Utils.callSendkeys(driver, ActionXpath.facccresurl, "Hello", time);
-		Utils.clickXpath(driver, ActionXpath.facccressubmitform, time, "facccressubmitform");
+		// Utils.callSendkeys(driver, "//*[@id='tinymce']//p", "Testing", time);
+		Utils.clickXpath(driver, ActionXpath.facccressubmitform, time, "Save URL link button");
 	}
 
 	public static void resourcePublishAndLogout(String faculty, String url, 
 		WebDriver driver, String fileName, String Role) throws Exception{
 		Utils.clickXpath(driver, "//p[. ='"+fileName+"']/../../.././..//*[local-name()='svg']", time, "Select PPT file name");
-		Utils.clickXpath(driver, ActionXpath.facsspublish, time, "faclinkpublish");
-		Utils.clickXpath(driver, ActionXpath.facsspublishyes, time, "faclinkpublishyes");
+		Utils.clickXpath(driver, ActionXpath.facsspublish, time, "Click on publish button1");
+		Utils.clickXpath(driver, ActionXpath.facsspublishyes, time, "Click on publish button2");
 		Utils.logout(driver, url, Role);
 	}
 
 	public static void resourceStudentViewAndLogout(String faculty, String url, 
 		WebDriver driver, String fileName, String Role) throws Exception{
 		Utils.clickXpath(driver, "//p[.='"+fileName+"']/../../.././..//*[local-name()='svg']", time, "Select PPT file name");
-		Utils.clickXpath(driver, ActionXpath.viewpdf2, time, "View Spreadsheet");
-		Utils.clickXpath(driver, ActionXpath.learn, time, "learn");
+		Utils.clickXpath(driver, ActionXpath.viewpdf2, time, "Click on View Spreadsheet");
+		Utils.clickXpath(driver, ActionXpath.learn, time, "click learn");
 		Utils.logout(driver, url, Role);
 	}
 
 	public static void resourceDeleteAndLogout(String faculty, String url, 
 		WebDriver driver, String fileName, String Role) throws Exception{
 		Utils.clickXpath(driver, "//p[.='"+fileName+"']/../../.././..//*[local-name()='svg']", time, "Select PPT file name");
-		Utils.clickXpath(driver, ActionXpath.facpdfdelete, time, "facspreadsheetdelete");
-		Utils.clickXpath(driver, ActionXpath.facpdfdelete2, time, "facspreadsheetdelete2");
+		Utils.clickXpath(driver, ActionXpath.facpdfdelete, time, "Click on Delete button1");
+		Utils.clickXpath(driver, ActionXpath.facpdfdelete2, time, "Click on delete button2");
 		Utils.logout(driver, url, Role);
 	}
 
@@ -70,7 +74,7 @@ public class Pfs_resource {
 				SpreadSheetFile = "C:\\Users\\Public\\Documents\\demo.xlsx";
 			}
 			else {
-				SpreadSheetFile = "/Users/shared/demo.xlsx";
+				SpreadSheetFile = "/Users/Shared/demo.xlsx";
 			}
 			
 			System.out.println("TC-40:  SpreadSheet resource Create View delete Test case Started");
@@ -116,7 +120,7 @@ public class Pfs_resource {
 			if (Utils.checkWindowsOs()){
 				PPT_file = "C:\\Users\\Public\\Documents\\demo.pptx";
 			}else {
-				PPT_file = "/Users/shared/demo.pptx";
+				PPT_file = "/Users/Shared/demo.pptx";
 			}
 			
 			System.out.println("TC-41:  PPT resource Create View delete Test case Started");
@@ -161,7 +165,7 @@ public class Pfs_resource {
 			if(Utils.checkWindowsOs()){
 				PDF_file = "C:\\Users\\Public\\Documents\\demo.pdf";
 			}else {
-				PDF_file = "/Users/shared/demo.pdf";
+				PDF_file = "/Users/Shared/demo.pdf";
 			}
 			
 			System.out.println("TC-42:  Create PDF resource publish and delete PDF");
@@ -200,13 +204,13 @@ public class Pfs_resource {
 
 	@Test(priority = 43)
 	public static void testVideoCreateViewDelete(String student, String faculty, 
-        String url, String Browser, String Role, WebDriver driver) throws Exception {
+		String url, String Browser, String Role, WebDriver driver) throws Exception {
 		try {
 			String Video_file = "";
 			if (Utils.checkWindowsOs()){
 				Video_file = "C:\\Users\\Public\\Documents\\demo.mp4";
 			}else {
-				Video_file = "/users/shared/demo.mp4";
+				Video_file = "/Users/Shared/demo.mp4";
 			}
 			
 			System.out.println("TC-43:  Create Video resource create view  and delete");

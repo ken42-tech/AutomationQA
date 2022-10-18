@@ -225,7 +225,7 @@ static String faccAssopen = "(//span[@class='MuiIconButton-label'])[5]";
 static String FaccClickResource = "//span[text()='Resource']";
 static String facrescancel = "//span[text()='Cancel']";
 // TC:20 faculty Examination
-static String facexam = "//*[@id=\"app\"]/div/div/div/main/div[2]/div[1]/div[2]/div[1]/div/div[2]/div/div[3]/a/div";
+static String facexam = "(//span[.='Examinations'])[1]";
 static String facexamarrow = "//*[@id=\"panel1a-header\"]/div[2]";
 static String facexamdropdown = "//*[@id=\"simple-tabpanel-0\"]/div/p/div/div/div/div[1]/div/div/table/tbody/tr[1]/td[1]/button";
 static String facexamexam = "//*[@id=\"simple-tabpanel-0\"]/div/p/div/div/div/div[1]/div/div/table/thead/tr/th[1]";

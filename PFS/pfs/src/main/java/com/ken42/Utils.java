@@ -64,7 +64,7 @@ public class Utils {
 		final String XPATH = Xpath;
 		while (true){
 			try {
-				log.info("Entering value   "+Value);
+				log.info("***********************Entering value   "+Value);
 				Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
 				.withTimeout(Duration.ofSeconds(20))
 				.pollingEvery(Duration.ofSeconds(4))
@@ -78,7 +78,7 @@ public class Utils {
 				Thread.sleep(1000);
 				break;
 			} catch (Exception e) {
-				Thread.sleep(250);
+				Thread.sleep(1000);
 				log.warning("Failed to send value  "+Value);
 				if (++count == maxTries) {
 					Utils.printException(e);
@@ -468,6 +468,12 @@ public class Utils {
 		if ("ENGLISH - CLASS 8".equals(subject)){
 			return ("English - Class 8");
 		}
+		if ("MACHINE LEARNING CONCEPTS - AI".equals(subject)){
+			return ("Machine Learning Concepts - AI");
+		}
+		if ("ENGLISH-CLASS 6-ICSE".equals(subject)){
+			return ("English-Class 6-ICSE");
+		}
 		StringBuffer sb = new StringBuffer(subject);
 		// sb.deleteCharAt(sb.length() - 1);
 
@@ -517,7 +523,7 @@ public class Utils {
 			String[]  ProgSubj = new String [2];
 			Utils.clickXpath(driver, ActionXpath.program, time, "click on program");
 			Utils.clickXpath(driver, ActionXpath.programselect, time, "click on program select");
-			ProgSubj[0] = Utils.getTEXT(driver,"(//*[. and @aria-haspopup='listbox'])[1]" );
+			ProgSubj[0] = Utils.getTEXT(driver,"(//*[. and @aria-haspopup='listbox'])[1]");
 			System.out.println("Text program is : " + ProgSubj[0]);
 
 			Utils.clickXpath(driver, ActionXpath.subjectclick, time, "click on subject");
