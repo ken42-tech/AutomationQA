@@ -16,10 +16,11 @@ public class Pfs_resource {
 	// static String PPT_file = "C:\\Users\\Public\\Documents\\demo.pptx";
 	// static String Video_file = "C:\\Users\\Public\\Documents\\demo.mp4";
 	// static String PDF_file = "C:\\Users\\Public\\Documents\\demo.pdf";
+	private static String PFSurl;
 
 	@Test
 	public static void resourceFacultyInitialSteps(String faculty, String url, WebDriver driver) throws Exception{
-		Utils.login(driver, faculty);
+		Utils.login(driver, faculty,PFSurl);
 		Utils.checkAcadAndClick(driver, url);
 		Utils.clickXpath(driver, ActionXpath.faccc, time, "faccc");
 	}
@@ -88,7 +89,7 @@ public class Pfs_resource {
 			resourcePublishAndLogout(faculty, url, driver, fileName, Role);
 
 			//Student part starts
-			Utils.login(driver, student);
+			Utils.login(driver, student,PFSurl);
 			Utils.checkAcadAndClick(driver, url);
 			Utils.clickXpath(driver, ActionXpath.learn, time, "learn");
 			Utils.clickXpath(driver, ActionXpath.viewss, time, "viewss");
@@ -133,7 +134,7 @@ public class Pfs_resource {
 			resourcePublishAndLogout(faculty, url, driver, fileName, Role);
 			
 
-			Utils.login(driver, student);
+			Utils.login(driver, student,PFSurl);
 			Utils.checkAcadAndClick(driver, url);
 			Utils.clickXpath(driver, ActionXpath.learn, time, "learn");
 			Utils.clickXpath(driver, ActionXpath.viewppt, time, "viewppt");
@@ -179,7 +180,7 @@ public class Pfs_resource {
 			resourcePublishAndLogout(faculty, url, driver, fileName, Role);
 
 			//Now verify in student
-			Utils.login(driver, student);
+			Utils.login(driver, student,PFSurl);
 			Utils.checkAcadAndClick(driver, url);
 			Utils.clickXpath(driver, ActionXpath.learn, time, "learn");
 			Utils.clickXpath(driver, ActionXpath.viewpdf, time, "viewpdf");
@@ -223,7 +224,7 @@ public class Pfs_resource {
 			resourcePublishAndLogout(faculty, url, driver, fileName, Role);
 
 			//Student to verify
-			Utils.login(driver, student);
+			Utils.login(driver, student,PFSurl);
 			Utils.smallSleepBetweenClicks(1);
 			Utils.checkAcadAndClick(driver, url);
 			Utils.clickXpath(driver, ActionXpath.learn, time, "Click on learnlearn");
@@ -260,7 +261,7 @@ public class Pfs_resource {
 			Utils.clickXpath(driver, ActionXpath.facccressubmityes, time, "facccressubmityes");
 			Utils.logout(driver, url, Role);
 
-			Utils.login(driver, student);
+			Utils.login(driver, student,PFSurl);
 			Utils.checkAcadAndClick(driver, url);
 			Utils.clickXpath(driver, ActionXpath.learn, time, "learn");
 			Utils.clickXpath(driver, ActionXpath.viewlink, time, "viewlink");
