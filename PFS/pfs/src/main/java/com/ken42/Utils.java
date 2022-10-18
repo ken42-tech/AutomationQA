@@ -144,48 +144,66 @@ public class Utils {
 	}
 
 	@Test
-	public static void login(WebDriver driver, String Email) throws Exception {
+	public static void login(WebDriver driver, String Email, String url) throws Exception {
 		try {
+
+			if (checkoldlogin(url)) {
+				int time = 2000;
+				smallSleepBetweenClicks(1);
+				String regex = "Null";
+				Utils.callSendkeys(driver, ActionXpath.email2, Email, time);
+				Utils.clickXpath(driver, ActionXpath.SignIn, time, "Sign in");
+				Utils.clickXpath(driver, ActionXpath.mobile, time, "Enter mobile Number");
+				Utils.clickXpath(driver, ActionXpath.mobile2, time, "Click Mobile ");
+				Utils.clickXpath(driver, ActionXpath.SignIn, time, "Sign in for otp");
+				Thread.sleep(10000);
+				Alert alert = driver.switchTo().alert(); // switch to alert
+				String alertMessage = driver.switchTo().alert().getText(); // capture alert message
+				System.out.println(alertMessage); // Print Alert Message
+				Pattern pt = Pattern.compile("-?\\d+");
+				Matcher m = pt.matcher(alertMessage);
+				while (m.find()) {
+					regex = m.group();
+				}
+				// smallSleepBetweenClicks();
+				alert.accept();
+				Utils.callSendkeys(driver, ActionXpath.OtpInput, regex, time);
+				Utils.clickXpath(driver, ActionXpath.submit, time, "Submit");
+				System.out.println(
+						"Sleeping after login for 7 seconds so that goBacktoHome function does not automatically logout user");
+				bigSleepBetweenClicks(1);
+			} else {
 			int time = 2000;
-			int count = 0;
-			int maxTries = 7;
 			smallSleepBetweenClicks(1);
 			String regex = "Null";
-			String alertMessage = "";
+			Thread.sleep(6000);
 			Utils.callSendkeys(driver, ActionXpath.email, Email, time);
+			Thread.sleep(3000);
 			Utils.clickXpath(driver, ActionXpath.requestotp, time, "Request OTP");
-			while (true) {
-				try {
-					Alert alert = driver.switchTo().alert(); // switch to alert
-					alertMessage = driver.switchTo().alert().getText(); // capture alert message
-					alert.accept();
-					break;
-				} catch (Exception e){
-					Utils.smallSleepBetweenClicks(1);
-					System.out.println("Waiting for OTP Alert message\n");
-					if(++ count > maxTries){
-						log.warning("Login to portal failed \n ");
-						throw(e);
-					}
-				}
-			}
+			Thread.sleep(10000);
+			Alert alert = driver.switchTo().alert(); // switch to alert
+			String alertMessage = driver.switchTo().alert().getText(); // capture alert message
 			System.out.println(alertMessage); // Print Alert Message
 			Pattern pt = Pattern.compile("-?\\d+");
 			Matcher m = pt.matcher(alertMessage);
 			while (m.find()) {
 				regex = m.group();
 			}
-			//smallSleepBetweenClicks();
-			
+			// smallSleepBetweenClicks();
+			alert.accept();
+			Thread.sleep(5000);
 			Utils.callSendkeys(driver, ActionXpath.otprequest2, regex, time);
 			Utils.clickXpath(driver, ActionXpath.verifyotp, time, "Verify otp");
-			System.out.println("Sleeping after login for 7 seconds so that goBacktoHome function does not automatically logout user");
+			Thread.sleep(3000);
+			System.out.println(
+					"Sleeping after login for 7 seconds so that goBacktoHome function does not automatically logout user");
 			bigSleepBetweenClicks(1);
+			}
 		} catch (Exception e) {
 			log.warning("Login to portal failed \n\n\n");
 			printException(e);
 			driver.quit();
-			throw(e);
+			// System.exit(01);
 		}
 	}
 	public int getDecimalRandomNumber() {
@@ -249,7 +267,16 @@ public class Utils {
 			throw(e);
 		}
 	}
-
+	@Test
+	public static Boolean checkoldlogin(String url) {
+		String urlToMatch = "ltsta|ltpct";
+		Pattern pt = Pattern.compile(urlToMatch);
+		Matcher m = pt.matcher(url);
+		while (m.find()) {
+			return true;
+		}
+		return false;
+	}
 	@Test
 	public static void scrollUpOrDown(WebDriver driver, int pixel){
 		JavascriptExecutor js = (JavascriptExecutor) driver;

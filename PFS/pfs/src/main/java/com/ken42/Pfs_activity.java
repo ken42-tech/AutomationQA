@@ -15,6 +15,7 @@ import java.util.logging.Logger;
 import org.testng.annotations.Test;
 
 public class Pfs_activity {
+    private static final String PFSurl = null;
     public static Logger log = Logger.getLogger("Pfs_portal");
     static int time = 2000;
 
@@ -25,7 +26,7 @@ public class Pfs_activity {
 		try {
 			String returnArray[] = new String[2];
 			System.out.println("TC-53: Assement create ,pubish & delete Test excutaion was started...");
-			Utils.login(driver, faculty);
+			Utils.login(driver, faculty,url);
 			Utils.checkAcadAndClick(driver, url);
 			Utils.clickXpath(driver, ActionXpath.facclickcouserelative, time, "Click on course content");
 			returnArray = Utils.getClassSubjectAndSection(driver);
@@ -86,7 +87,7 @@ public class Pfs_activity {
 			Utils.smallSleepBetweenClicks(1);
 			
 			// .....................................student
-			Utils.login(driver, student);
+			Utils.login(driver, student,url);
 			Utils.smallSleepBetweenClicks(1);
 			Utils.checkAcadAndClick(driver, url);
 			Utils.smallSleepBetweenClicks(1);
@@ -100,7 +101,7 @@ public class Pfs_activity {
 			Utils.smallSleepBetweenClicks(1);
 
 			//// .........................Faculty delete assessment
-			Utils.login(driver, faculty);
+			Utils.login(driver, faculty,url);
 			Utils.bigSleepBetweenClicks(1);
 			Utils.checkAcadAndClick(driver, url);
 			Utils.clickXpath(driver, ActionXpath.facclickcouserelativedelete, time, "Click on course content");
@@ -135,7 +136,7 @@ public class Pfs_activity {
 		try {
 			String returnArray[] = new String[2];
 			System.out.println("TC-54 Assignment was Create ,publish & delete Test Excecuation Started...\n");
-			Utils.login(driver, faculty);
+			Utils.login(driver, faculty,url);
 			Utils.smallSleepBetweenClicks(1);
 			Utils.checkAcadAndClick(driver, url);
 			Utils.smallSleepBetweenClicks(1);
@@ -200,7 +201,7 @@ public class Pfs_activity {
 			Utils.smallSleepBetweenClicks(1);
 
 			//Verify as student
-			Utils.login(driver, student);
+			Utils.login(driver, student,url);
 			Utils.bigSleepBetweenClicks(1);
 			Utils.checkAcadAndClick(driver, url);
 			Utils.clickXpath(driver, ActionXpath.assignlearnltstastudentrelative, time, "Select learn");
@@ -216,7 +217,7 @@ public class Pfs_activity {
 			Utils.smallSleepBetweenClicks(1);
 
 			//Delete code
-			Utils.login(driver,faculty);
+			Utils.login(driver,faculty,url);
 			Utils.bigSleepBetweenClicks(1);
 			Utils.checkAcadAndClick(driver, url);
 			Utils.smallSleepBetweenClicks(1);
@@ -249,7 +250,7 @@ public class Pfs_activity {
 		try { 
 			System.out.println("TC-55 Faculty Fourm create,publish Delete test case Staerted...\n");
 			String returnArray[] = new String[2];
-			Utils.login(driver, faculty);
+			Utils.login(driver, faculty,url);
 			Utils.bigSleepBetweenClicks(1);
 			Utils.checkAcadAndClick(driver, url);
 			Utils.clickXpath(driver, ActionXpath.relativefacforumclickcouse1, time, "facforumclickcouse");
@@ -316,7 +317,7 @@ public class Pfs_activity {
 			Thread.sleep(5000);
 
 			// ..............Student Login forum.......................//
-			Utils.login(driver, student);
+			Utils.login(driver, student,url);
 			Thread.sleep(2000);
 			Utils.checkAcadAndClick(driver, url);
 			Utils.clickXpath(driver, ActionXpath.relativeforumlearnltsta1, time, "Select learn");
@@ -329,7 +330,7 @@ public class Pfs_activity {
 			Utils.logout(driver, url, Role);
 
 			//// ..................... Delete fourm.................../////
-			Utils.login(driver, faculty);
+			Utils.login(driver, faculty,url);
 			Thread.sleep(4000);
 			Utils.checkAcadAndClick(driver, url);
 			Utils.clickXpath(driver, ActionXpath.relativeforumdacclickcouse12, time, "facclickcouse");
@@ -369,11 +370,17 @@ public class Pfs_activity {
     public static void testFAssignmentCreatePublishsubmissionfileuploadchecking(String student, String faculty,
             String url, String Browser, String Role,WebDriver driver) throws Exception {
         try {
+            String PDF_file = "";
+			if (Utils.checkWindowsOs()){
+				PDF_file = "C:\\Users\\Public\\Documents\\demo.pdf";
+			}else {
+				PDF_file = "/Users/shared/demo.pdf";
+			}
             String returnArray[] = new String[2];
             System.out.println(
                     "TC-56 Assignment was Create ,publish,submission and fileuploadchecking  Test Excecuation Started...\n");
             Utils.smallSleepBetweenClicks(1);
-            Utils.login(driver, faculty);
+            Utils.login(driver, faculty,url);
            
             Utils.bigSleepBetweenClicks(1);
             Utils.checkAcadAndClick(driver, url);
@@ -443,7 +450,7 @@ public class Pfs_activity {
             Utils.smallSleepBetweenClicks(1);
 
             // Verify as student
-            Utils.login(driver, student);
+            Utils.login(driver, student,url);
             Utils.bigSleepBetweenClicks(1);
             Utils.checkAcadAndClick(driver, url);
             Utils.clickXpath(driver, ActionXpath.assignlearnltstastudentrelative, time, "Select learn");
@@ -470,9 +477,10 @@ public class Pfs_activity {
             // Utils.callSendkeys(driver,
             // ActionXpath.clickonbrowser,"C:\\\\Users\\\\Dell\\\\Desktop\\\\Holiday List
             // 2022.pdf", time);
-
-            driver.findElement(By.xpath("//input[@type='file']"))
-                    .sendKeys("C:\\\\Users\\\\USER\\\\Desktop\\\\pkpadmin,+1008-4741-1-CE (1).pdf");
+            driver.findElement(By.xpath("//input[@accept='.pdf']")).sendKeys(PDF_file);
+			
+            // driver.findElement(By.xpath("//input[@type='file']"))
+            //         .sendKeys("C:\\\\Users\\\\USER\\\\Desktop\\\\pkpadmin,+1008-4741-1-CE (1).pdf");
 
             Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.assignfaclinkrelative, time, "faclink");
@@ -493,7 +501,7 @@ public class Pfs_activity {
             Utils.smallSleepBetweenClicks(1);
 
             // Delete code
-            Utils.login(driver, faculty);
+            Utils.login(driver, faculty,url);
             Utils.bigSleepBetweenClicks(1);
             Utils.checkAcadAndClick(driver, url);
             Utils.smallSleepBetweenClicks(1);
@@ -533,7 +541,7 @@ public class Pfs_activity {
             System.out.println(
                     "TC-57 Assignment was Create ,publish,gradecheck &submission Test Excecuation Started...\n");
             Utils.smallSleepBetweenClicks(1);
-            Utils.login(driver, faculty);
+            Utils.login(driver, faculty,url);
             Utils.bigSleepBetweenClicks(1);
             Utils.checkAcadAndClick(driver, url);
             Utils.smallSleepBetweenClicks(1);
@@ -601,7 +609,7 @@ public class Pfs_activity {
             Utils.smallSleepBetweenClicks(1);
 
             // Verify as student
-            Utils.login(driver, student);
+            Utils.login(driver, student,url);
             
             Utils.bigSleepBetweenClicks(1);
             Utils.checkAcadAndClick(driver, url);
@@ -645,7 +653,7 @@ public class Pfs_activity {
             Utils.smallSleepBetweenClicks(1);
 
             // grade view code
-            Utils.login(driver, faculty);
+            Utils.login(driver, faculty,url);
             
             Utils.bigSleepBetweenClicks(1);
             Utils.checkAcadAndClick(driver, url);
@@ -731,7 +739,7 @@ public class Pfs_activity {
         try {
             String returnArray[] = new String[2];
             System.out.println("TC-58: Assement create ,pubish & delete Test excutaion was started...");
-            Utils.login(driver, faculty);
+            Utils.login(driver, faculty,url);
            
             Utils.checkAcadAndClick(driver, url);
             Utils.clickXpath(driver, ActionXpath.facclickcouserelative, time, "Click on course content");
@@ -797,7 +805,7 @@ public class Pfs_activity {
             Utils.smallSleepBetweenClicks(1);
             
             // .....................................student
-            Utils.login(driver, student);
+            Utils.login(driver, student,url);
             Utils.smallSleepBetweenClicks(1);
             Utils.checkAcadAndClick(driver, url);
             Utils.smallSleepBetweenClicks(1);
@@ -882,7 +890,7 @@ public class Pfs_activity {
 
 
             //// .........................Faculty delete assessment
-            Utils.login(driver, faculty);
+            Utils.login(driver, faculty,url);
            
             Utils.bigSleepBetweenClicks(1);
             Utils.checkAcadAndClick(driver, url);
@@ -956,7 +964,7 @@ public class Pfs_activity {
         try { 
             System.out.println("TC-59 Faculty Fourm create,publish Delete,Decission test case Staerted...\n");
             String returnArray[] = new String[2];
-            Utils.login(driver, faculty);
+            Utils.login(driver, faculty,url);
             Utils.bigSleepBetweenClicks(1);
             Utils.checkAcadAndClick(driver, url);
             Utils.clickXpath(driver, ActionXpath.relativefacforumclickcouse1, time, "facforumclickcouse");
@@ -1041,7 +1049,7 @@ public class Pfs_activity {
             Thread.sleep(5000);
 
             // ..............Student Login forum.......................//
-            Utils.login(driver, student);
+            Utils.login(driver, student,url);
             Thread.sleep(2000);
             Utils.checkAcadAndClick(driver, url);
             Utils.clickXpath(driver, ActionXpath.relativeforumlearnltsta1, time, "Select learn");
@@ -1059,7 +1067,7 @@ public class Pfs_activity {
             Utils.logout(driver, url, Role);
 
             //// ..................... Delete fourm.................../////
-            Utils.login(driver, faculty);
+            Utils.login(driver, faculty,url);
             Thread.sleep(4000);
             Utils.checkAcadAndClick(driver, url);
             Utils.clickXpath(driver, ActionXpath.relativeforumdacclickcouse12, time, "facclickcouse");
@@ -1099,7 +1107,7 @@ public class Pfs_activity {
     public static void testFilterActivityAssignment(String student, String faculty, String url, String Browser, String Role, WebDriver driver) throws Exception {
             try { 
                 System.out.println("TC-60: Assignment Filter Test excutaion was started...");
-                Utils.login(driver, faculty);
+                Utils.login(driver, faculty,url);
                 Utils.checkAcadAndClick(driver, url);
                 Utils.clickXpath(driver, ActionXpath.relativefacforumclickcouse1, time, "facforumclickcouse");
                 Thread.sleep(8000);
@@ -1139,7 +1147,7 @@ public class Pfs_activity {
     public static void testFilterActivityAssement(String student, String faculty, String url, String Browser, String Role, WebDriver driver) throws Exception {
             try { 
                 System.out.println("TC-61: Assement Filter Test excutaion was started...");
-                Utils.login(driver, faculty);
+                Utils.login(driver, faculty,url);
                 Utils.checkAcadAndClick(driver, url);
                 Utils.clickXpath(driver, ActionXpath.relativefacforumclickcouse1, time, "facforumclickcouse");
                 Thread.sleep(8000);
@@ -1179,7 +1187,7 @@ public class Pfs_activity {
     public static void testFilterActivityForum(String student, String faculty, String url, String Browser, String Role, WebDriver driver) throws Exception {
             try { 
                 System.out.println("TC-62: Forum Filter Test excutaion was started...");
-                Utils.login(driver, faculty);
+                Utils.login(driver, faculty,url);
                 Utils.checkAcadAndClick(driver, url);
                 Utils.clickXpath(driver, ActionXpath.relativefacforumclickcouse1, time, "facforumclickcouse");
                 Thread.sleep(8000);
@@ -1221,7 +1229,7 @@ public class Pfs_activity {
         try { 
             System.out.println("TC-63 Faculty Fourm create,publish Delete,Decission test case Staerted...\n");
             String returnArray[] = new String[2];
-            Utils.login(driver, faculty);
+            Utils.login(driver, faculty,url);
             Utils.bigSleepBetweenClicks(1);
             Utils.checkAcadAndClick(driver, url);
             Utils.clickXpath(driver, ActionXpath.relativefacforumclickcouse1, time, "facforumclickcouse");
@@ -1351,7 +1359,7 @@ public class Pfs_activity {
         try { 
             System.out.println("TC-64 Faculty Fourm create,publish Delete,Decission test case Staerted...\n");
             String returnArray[] = new String[2];
-            Utils.login(driver, faculty);
+            Utils.login(driver, faculty,url);
             Utils.bigSleepBetweenClicks(1);
             Utils.checkAcadAndClick(driver, url);
             Utils.clickXpath(driver, ActionXpath.relativefacforumclickcouse1, time, "facforumclickcouse");
@@ -1481,7 +1489,7 @@ public class Pfs_activity {
         try {
             String returnArray[] = new String[2];
             System.out.println("TC-65: Assement create ,pubish & delete Test excutaion was started...");
-            Utils.login(driver, faculty);
+            Utils.login(driver, faculty,url);
            
             Utils.checkAcadAndClick(driver, url);
             Utils.clickXpath(driver, ActionXpath.facclickcouserelative, time, "Click on course content");
@@ -1610,7 +1618,7 @@ public class Pfs_activity {
         try {
             String returnArray[] = new String[2];
             System.out.println("TC-66: Assement create ,pubish & delete Test excutaion was started...");
-            Utils.login(driver, faculty);
+            Utils.login(driver, faculty,url);
            
             Utils.checkAcadAndClick(driver, url);
             Utils.clickXpath(driver, ActionXpath.facclickcouserelative, time, "Click on course content");
@@ -1747,7 +1755,7 @@ public class Pfs_activity {
             String returnArray[] = new String[2];
             System.out.println("TC-67 Assignment was Create ,edit and delete Test Excecuation Started...\n");
             Utils.smallSleepBetweenClicks(1);
-            Utils.login(driver, faculty);
+            Utils.login(driver, faculty,url);
             Utils.bigSleepBetweenClicks(1);
             Utils.checkAcadAndClick(driver, url);
             Utils.smallSleepBetweenClicks(1);
@@ -1875,7 +1883,7 @@ public class Pfs_activity {
             String returnArray[] = new String[2];
             System.out.println("TC-68 Assignment was Create ,publish and delete Test Excecuation Started...\n");
             Utils.smallSleepBetweenClicks(1);
-            Utils.login(driver, faculty);
+            Utils.login(driver, faculty,url);
             Utils.bigSleepBetweenClicks(1);
             Utils.checkAcadAndClick(driver, url);
             Utils.smallSleepBetweenClicks(1);

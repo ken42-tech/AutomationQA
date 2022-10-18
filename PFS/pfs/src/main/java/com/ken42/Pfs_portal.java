@@ -76,11 +76,11 @@ public class Pfs_portal {
 
 			initDriver(Browser, PFSurl);
 			if ((from >=1 && to <=16)){
-				Utils.login(driver, studentEmail);
+				Utils.login(driver, studentEmail,PFSurl);
 				Role = "student";
 				faculty_login_set = true;
 			} else if ((from >=17 && to <=39)){
-				Utils.login(driver, facultyEmail);
+				Utils.login(driver, facultyEmail,PFSurl);
 				Role = "faculty";
 				faculty_login_set = true;
 			} else if ((from >=1 && to <=68) && (to >=1 && to <=68)){
@@ -97,7 +97,7 @@ public class Pfs_portal {
 						if (!student_login_set){
 							// Utils.logout(driver, PFSurl, Role);
 							Utils.smallSleepBetweenClicks(i);
-							Utils.login(driver, studentEmail);
+							Utils.login(driver, studentEmail,PFSurl);
 						}
 						Pfs_student.testStudent(PFSurl, driver); //TC-1
 						break;
@@ -150,7 +150,7 @@ public class Pfs_portal {
 						if (!faculty_login_set){
 							// Utils.logout(driver, PFSurl, Role);
 							Utils.smallSleepBetweenClicks(i);
-							Utils.login(driver, facultyEmail);
+							Utils.login(driver, facultyEmail,PFSurl);
 						}
 						Pfs_faculty.testFaculty(PFSurl, driver); //TC-17
 						break;
