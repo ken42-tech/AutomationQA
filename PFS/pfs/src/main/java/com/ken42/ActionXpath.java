@@ -709,6 +709,7 @@ static String assignfacsaveandproceedrelative = "//span[.='Save and Proceed']";
 static String assignfacokrelative = "//span[.='OK']";
 static String assignexapnd1relative = "//*[. and contains(text(), 'Assignments')]/../../../..//*[local-name()='svg']";
 static String assignfacdot1relative = "";
+static String assignfacpublish="(//span[.='Publish'])[1]";
 static String assignfacpublishrelative = "//span[.='Publish']";
 static String assignfacpublish1relative = "//span[.='Publish']";
 static String assignfacclickonp1relative = "(//div[.='T'])[2]";
