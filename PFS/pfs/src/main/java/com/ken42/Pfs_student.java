@@ -29,7 +29,6 @@ public class Pfs_student {
 			}else {
 				log.warning(" TC-1: Student Home tab test case FAILED it does not contain all the tabs\n\n");
 			}
-
 		} catch (Exception e) {
 			Utils.printException(e);
 			Utils.goBackToHome(driver, url);
