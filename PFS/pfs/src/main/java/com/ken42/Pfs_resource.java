@@ -431,26 +431,32 @@ public class Pfs_resource {
         try {
             System.out.println("TC-49:  PPT resource Filter Option View Test case Started");
 			resourceFacultyInitialSteps(faculty, url, driver);
-			Utils.clickXpath(driver, ActionXpath.faccFilter, time, Role);
-            Utils.clickXpath(driver, ActionXpath.faccFilterClear, time, Role);
-            Utils.clickXpath(driver, ActionXpath.faccFilter, time, Role);
-            Utils.clickXpath(driver, ActionXpath.faccPPTOPen, time, Role);
-            Utils.clickXpath(driver, ActionXpath.faccPPTCheckBox, time, Role);
+			Thread.sleep(10000);
+			 WebElement l= driver.findElement(By.xpath("/html/body/div[1]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[3]/div/div/div/div[5]/div[1]/div/div/../../../.."));
+	         	String p = l.getText();
+	         	System.out.println("p"+p);
+	         	if (p.contains("Pdf") && (p.contains("Presentations"))  && (p.contains("Videos")) && (p.contains("Links"))) {
+	         		log.info(" it contain all the resources before filter ");
+	         	}else {
+					System.out.println(" All resource are not Presnet Quiting the Test. ");
+					Pfs_portal.quitDriver(url);
+	                log.warning("TC-49 PPt resource Filter Option View Test Case FAILED \n");
+				}
+			Utils.clickXpath(driver, ActionXpath.faccFilter, time, "Clik ont he Filter button");
+            Utils.clickXpath(driver, ActionXpath.faccFilterClear, time, "Clear all the filter ");
+            Utils.clickXpath(driver, ActionXpath.faccFilter, time, "Appling the Filter to click the filter button");
+            Utils.clickXpath(driver, ActionXpath.faccPPTOPen, time, "CLick on the filter Resource type span");
+            Utils.clickXpath(driver, ActionXpath.faccPPTCheckBox, time, "select the PPT Check box ");
             Actions qwe = new Actions(driver);
          qwe.moveByOffset(40, 40).click().perform();
             
-            WebElement facresult= driver.findElement(By.xpath("/html/body/div[1]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[3]/div/div/div/div[5]/div[1]/div/div/../../../.."));
-             String facgetresult= facresult.getText();
-             System.out.println(facgetresult);
-             WebElement getresult= driver.findElement(By.xpath("/html/body/div[1]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[3]/div/div/div/div[6]/div/div[1]/div[1]/div/p"));
-             String result= getresult.getText();
-             System.out.println(getresult);
-             if(result.equals(result)) {
-                 System.out.println("Result is same");
-             }
-             else {
-                 System.out.println("Result is not same");
-             }
+         WebElement l2= driver.findElement(By.xpath("/html/body/div[1]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[3]/div/div/div/div[5]/div[1]/div/div/../../../.."));
+      	String p2 = l2.getText();
+      	if (p2.contains("Presentations") && (!p2.contains("pdf")) &&  (!p2.contains("Spreadsheet")) && (!p2.contains("Videos")) && (!p2.contains("Links"))) {
+      		System.out.println(" TC-49: PPT resource Filter Option Contains PPT test case PASSED \n\n");
+      	}else {
+				log.warning(" TC-50: PPT resource Filter Option View FAILED it does not contain all the tabs\n\n");
+			}
             Utils.executeLongWait(url);
             Utils.logout(driver, url, Role);
             Utils.smallSleepBetweenClicks(1);
@@ -465,27 +471,34 @@ public class Pfs_resource {
             try {
                 System.out.println("TC-50:  PDF resource Filter Option View Test case Started");
 				resourceFacultyInitialSteps(faculty, url, driver);
-				Utils.clickXpath(driver, ActionXpath.faccFilter, time, Role);
-                Utils.clickXpath(driver, ActionXpath.faccFilterClear, time, Role);
-                Utils.clickXpath(driver, ActionXpath.faccFilter, time, Role);
+				Thread.sleep(10000);
+				 WebElement l= driver.findElement(By.xpath("/html/body/div[1]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[3]/div/div/div/div[5]/div[1]/div/div/../../../.."));
+		         	String p = l.getText();
+		         	System.out.println("p"+p);
+		         	if (p.contains("Pdf") && (p.contains("Presentations"))  && (p.contains("Videos")) && (p.contains("Links"))) {
+		         		log.info(" it contain all the resources before filter ");
+		         	}else {
+						System.out.println(" All resource are not Presnet Quiting the Test. ");
+						Pfs_portal.quitDriver(url);
+		                log.warning("TC-50: PDF resource Filter Option View Test Case FAILED \n");
+					}
+				Utils.clickXpath(driver, ActionXpath.faccFilter, time, "click on the filter button");
 				
-                Utils.clickXpath(driver, ActionXpath.faccPPTOPen, time, Role);
-                Utils.clickXpath(driver, ActionXpath.faccPDFCheckBox, time, Role);
+                Utils.clickXpath(driver, ActionXpath.faccFilterClear, time, "click the clear all on the filter ");
+                Utils.clickXpath(driver, ActionXpath.faccFilter, time, "click on the filter to open to apply the filter ");
+                Utils.clickXpath(driver, ActionXpath.faccPPTOPen, time, "Open the reosurce Filter  span opnen");
+                Utils.clickXpath(driver, ActionXpath.faccPDFCheckBox, time, "click the PDF checkbox");
                 Actions qwe = new Actions(driver);
-             	qwe.moveByOffset(40, 40).click().perform();
+             qwe.moveByOffset(40, 40).click().perform();
                 
-                WebElement facresult= driver.findElement(By.xpath("/html/body/div[1]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[3]/div/div/div/div[5]/div[1]/div/div/../../../.."));
-                 String facgetresult= facresult.getText();
-                 System.out.println(facgetresult);
-                 WebElement getresult= driver.findElement(By.xpath("/html/body/div[1]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[3]/div/div/div/div[6]/div/div[1]/div[1]/div"));
-                 String result= getresult.getText();
-                 System.out.println(getresult);
-                 if(result.equals(result)) {
-                     System.out.println("Result is same");
-                 }
-                 else {
-                     System.out.println("Result is not same");
-                 }
+             
+             WebElement l2= driver.findElement(By.xpath("/html/body/div[1]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[3]/div/div/div/div[5]/div[1]/div/div/../../../.."));
+         	String p2 = l2.getText();
+         	if (p2.contains("Pdf") && (!p2.contains("Presentations")) &&  (!p2.contains("Spreadsheet")) && (!p2.contains("Videos")) && (!p2.contains("Links"))) {
+         		System.out.println(" TC-50: PDF resource Filter Option Contains Pdf test case PASSED \n\n");
+         	}else {
+				log.warning(" TC-50: PDF resource Filter Option View FAILED it does not contain all the tabs\n\n");
+			}
                 Utils.executeLongWait(url);
                 Utils.logout(driver, url, Role);
                 Utils.smallSleepBetweenClicks(1);
@@ -501,33 +514,32 @@ public class Pfs_resource {
             try {
                 System.out.println("TC-51:  Video resource Filter Option View Test case Started");
                 resourceFacultyInitialSteps(faculty, url, driver);
-				
-				Utils.clickXpath(driver, ActionXpath.faccFilter, time, Role);
-                Utils.clickXpath(driver, ActionXpath.faccFilterClear, time, Role);
-                Utils.clickXpath(driver, ActionXpath.faccFilter, time, Role);
-                Utils.clickXpath(driver, ActionXpath.faccPPTOPen, time, Role);
-                Utils.clickXpath(driver, ActionXpath.faccVideoCheckBox, time, Role);
+                Thread.sleep(10000);
+                WebElement l= driver.findElement(By.xpath("/html/body/div[1]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[3]/div/div/div/div[5]/div[1]/div/div/../../../.."));
+	         	String p = l.getText();
+	         	System.out.println("p"+p);
+	         	if (p.contains("Pdf") && (p.contains("Presentations"))  && (p.contains("Videos")) && (p.contains("Links"))) {
+	         		log.info(" it contain all the resources before filter ");
+	         	}else {
+					System.out.println(" All resource are not Presnet Quiting the Test. ");
+					Pfs_portal.quitDriver(url);
+	                log.warning("TC-51 Video resource Filter Option View Test Case FAILED \n");
+				}
+				Utils.clickXpath(driver, ActionXpath.faccFilter, time, "Clik ont he Filter button");
+                Utils.clickXpath(driver, ActionXpath.faccFilterClear, time, "Clear all the filter");
+                Utils.clickXpath(driver, ActionXpath.faccFilter, time, "Appling the Filter to click the filter button");
+                Utils.clickXpath(driver, ActionXpath.faccPPTOPen, time, "CLick on the filter Resource type span");
+                Utils.clickXpath(driver, ActionXpath.faccVideoCheckBox, time, "select the Viedo Check box");
                 Actions qwe = new Actions(driver);
             	 qwe.moveByOffset(40, 40).click().perform();
                 
-				 String facgetresult = Utils.getTEXT(driver,"/html/body/div[1]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[3]/div/div/div/div[5]/div[1]/div/div/../../../.." );
-				 System.out.println(facgetresult);
-	 
-				 String getresult = Utils.getTEXT(driver,"/html/body/div[1]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[3]/div/div/div/div[6]/div/div[1]/div[1]");
-				 System.out.println(getresult);
-
-                // WebElement facresult= driver.findElement(By.xpath("/html/body/div[1]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[3]/div/div/div/div[5]/div[1]/div/div/../../../.."));
-                //  String facgetresult= facresult.getText();
-                //  System.out.println(facgetresult);
-                //  WebElement getresult= driver.findElement(By.xpath("/html/body/div[1]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[3]/div/div/div/div[6]/div/div[1]/div[1]"));
-                //  String result= getresult.getText();
-                //  System.out.println(getresult);
-                 if(getresult.equals(getresult)) {
-                     System.out.println("Result is same");
-                 }
-                 else {
-                     System.out.println("Result is not same");
-                 }
+            	 WebElement l2= driver.findElement(By.xpath("/html/body/div[1]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[3]/div/div/div/div[5]/div[1]/div/div/../../../.."));
+              	String p2 = l2.getText();
+              	if (p2.contains("Videos") && (!p2.contains("Presentations")) &&  (!p2.contains("Spreadsheet")) && (!p2.contains("pdf")) && (!p2.contains("Links"))) {
+              		System.out.println(" TC-51: Video resource Filter Option Contains Video test case PASSED \n\n");
+              	}else {
+     				log.warning(" TC-51: Video resource Filter Option View FAILED it does not contain all the tabs\n\n");
+     			}
                 Utils.executeLongWait(url);
                 Utils.logout(driver, url, Role);
                 Utils.smallSleepBetweenClicks(1);
@@ -544,28 +556,34 @@ public class Pfs_resource {
 				try {
 					System.out.println("TC-52:  Links resource Filter Option View Test case Started");
 					resourceFacultyInitialSteps(faculty, url, driver);
-					Utils.clickXpath(driver, ActionXpath.faccFilter, time, Role);
-					Utils.clickXpath(driver, ActionXpath.faccFilterClear, time, Role);
-					Utils.clickXpath(driver, ActionXpath.faccFilter, time, Role);
-					Utils.clickXpath(driver, ActionXpath.faccPPTOPen, time, Role);
+					Thread.sleep(10000);
+					 WebElement l= driver.findElement(By.xpath("/html/body/div[1]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[3]/div/div/div/div[5]/div[1]/div/div/../../../.."));
+			         	String p = l.getText();
+			         	System.out.println("p"+p);
+			         	if (p.contains("Pdf") && (p.contains("Presentations"))  && (p.contains("Videos")) && (p.contains("Links"))) {
+			         		log.info(" it contain all the resources before filter ");
+			         	}else {
+							System.out.println(" All resource are not Presnet Quiting the Test. ");
+							Pfs_portal.quitDriver(url);
+			                log.warning("TC-52 Links resource Filter Option View Test Case FAILED \n");
+						}
+					Utils.clickXpath(driver, ActionXpath.faccFilter, time, "Clik ont he Filter button");
+					Utils.clickXpath(driver, ActionXpath.faccFilterClear, time, "Clear all the filter");
+					Utils.clickXpath(driver, ActionXpath.faccFilter, time, "Appling the Filter to click the filter button");
+					Utils.clickXpath(driver, ActionXpath.faccPPTOPen, time, "CLick on the filter Resource type span");
 					JavascriptExecutor js = (JavascriptExecutor) driver; 
 					js.executeScript("window.scrollBy(5,5)");
-					Utils.clickXpath(driver, ActionXpath.faccLinksCheckBox, time, Role);
+					Utils.clickXpath(driver, ActionXpath.faccLinksCheckBox, time, "Selec the Link Check Box filter");
 					Actions qwe = new Actions(driver);
 				    qwe.moveByOffset(40, 40).click().perform();
 					
-					WebElement facresult= driver.findElement(By.xpath("/html/body/div[1]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[3]/div/div/div/div[5]/div[1]/div/div/../../../.."));
-					 String facgetresult= facresult.getText();
-					 System.out.println(facgetresult);
-					 WebElement getresult= driver.findElement(By.xpath("/html/body/div[1]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[3]/div/div/div/div[6]/div/div[1]/div[1]"));
-					 String result= getresult.getText();
-					 System.out.println(getresult);
-					 if(result.equals(result)) {
-						 System.out.println("Result is same");
-					 }
-					 else {
-						 System.out.println("Result is not same");
-					 }
+				    WebElement l2= driver.findElement(By.xpath("/html/body/div[1]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[3]/div/div/div/div[5]/div[1]/div/div/../../../.."));
+	              	String p2 = l2.getText();
+	              	if (p2.contains("Links") && (!p2.contains("Presentations")) &&  (!p2.contains("Spreadsheet")) && (!p2.contains("pdf")) && (!p2.contains("Videos"))) {
+	              		System.out.println(" TC-52: Links resource Filter Option Contains Links test case PASSED \n\n");
+	              	}else {
+	     				log.warning(" TC-52: Links resource Filter Option View FAILED it does not contain all the tabs\n\n");
+	     			}
 					Utils.executeLongWait(url);
 					Utils.logout(driver, url, Role);
 					Utils.smallSleepBetweenClicks(1);
@@ -577,9 +595,6 @@ public class Pfs_resource {
 					log.warning("TC-52: Links resource Filter Option View Test Case FAILED \n");
 				}
 			}
-	
-	
-
 
            
 

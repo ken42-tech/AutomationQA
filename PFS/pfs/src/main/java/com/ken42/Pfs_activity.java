@@ -1144,27 +1144,31 @@ public class Pfs_activity {
                 Utils.checkAcadAndClick(driver, url);
                 Utils.clickXpath(driver, ActionXpath.relativefacforumclickcouse1, time, "facforumclickcouse");
                 Thread.sleep(8000);
-                Utils.clickXpath(driver, ActionXpath.faccFilterassignment, time, Role);
-                Utils.clickXpath(driver, ActionXpath.faccFilterassignmnetClear, time, Role);
-                Utils.clickXpath(driver, ActionXpath.faccFilterassignment, time, Role);
-                Utils.clickXpath(driver,ActionXpath.FaccFilterOpen,time,Role);
-                Utils.clickXpath(driver, ActionXpath.faccAssignmentCheckBox, time, Role);
+                WebElement l= driver.findElement(By.xpath("//*[@id=\"app\"]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[2]/div/div/div"));
+	         	String p = l.getText();
+	         	System.out.println("p"+p);
+	         	if (p.contains("Assignments") && (p.contains("Assessments"))  && (p.contains("Forum"))) {
+	         		log.info(" it contain all the Activity before filter ");
+	         	}else {
+					System.out.println(" All Activity are not Presnet Quiting the Test. ");
+					Pfs_portal.quitDriver(url);
+	                log.warning("TC-60 Assignment Activity Filter Option View Test Case FAILED \n");
+				}
+                Utils.clickXpath(driver, ActionXpath.faccFilterassignment, time, "Click the filter button on activity section");
+                Utils.clickXpath(driver, ActionXpath.faccFilterassignmnetClear, time, "Clear all the fileter ");
+                Utils.clickXpath(driver, ActionXpath.faccFilterassignment, time, "Again clcik the fileter button to apply the filter");
+                Utils.clickXpath(driver,ActionXpath.FaccFilterOpen,time,"Click the Activuty type span to open ");
+                Utils.clickXpath(driver, ActionXpath.faccAssignmentCheckBox, time, "Select the Assignments Check box ");
                 Actions qwe = new Actions(driver);
                  qwe.moveByOffset(40, 40).click().perform();
                     
-                    WebElement facresult= driver.findElement(By.xpath("/html/body/div[1]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[2]/div"));
-                     String facgetresult= facresult.getText();
-                     System.out.println(facgetresult);
-                     WebElement getresult= driver.findElement(By.xpath("/html/body/div[1]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[2]/div/div/div/div[5]/div/div[1]/div[1]/div/p"));
-                     String result= getresult.getText();
-                     System.out.println(getresult);
-                     if(result.equals(result)) {
-
-                         System.out.println("Result is same");
-                     }
-                     else {
-                         System.out.println("Result is not same");
-                     }
+                 WebElement l2= driver.findElement(By.xpath("//*[@id=\"app\"]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[2]/div/div/div"));
+               	String p2 = l2.getText();
+               	if (p2.contains("Assignments") && (!p2.contains("Assessments")) &&  (!p2.contains("Forum"))) {
+               		System.out.println(" TC-60: Assignments Activity Filter Option Contains Assignments View test case PASSED \n\n");
+               	}else {
+      				log.warning(" TC-60: Assignments Activity Filter Option View FAILED it does not contain all the tabs\n\n");
+      			}
                      Utils.bigSleepBetweenClicks(2);
                     Utils.logout(driver, url, Role);
                     Utils.smallSleepBetweenClicks(1);
@@ -1184,27 +1188,31 @@ public class Pfs_activity {
                 Utils.checkAcadAndClick(driver, url);
                 Utils.clickXpath(driver, ActionXpath.relativefacforumclickcouse1, time, "facforumclickcouse");
                 Thread.sleep(8000);
-                Utils.clickXpath(driver, ActionXpath.faccFilterassignment, time, Role);
-                Utils.clickXpath(driver, ActionXpath.faccFilterassignmnetClear, time, Role);
-                Utils.clickXpath(driver, ActionXpath.faccFilterassignment, time, Role);
-                Utils.clickXpath(driver,ActionXpath.FaccFilterOpen,time,Role);
-                Utils.clickXpath(driver, ActionXpath.faccAssementCheckBox, time, Role);
+                WebElement l= driver.findElement(By.xpath("//*[@id=\"app\"]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[2]/div/div/div"));
+	         	String p = l.getText();
+	         	System.out.println("p"+p);
+	         	if (p.contains("Assignments") && (p.contains("Assessments"))  && (p.contains("Forum"))) {
+	         		log.info(" it contain all the Activity before filter ");
+	         	}else {
+					System.out.println(" All Activity are not Presnet Quiting the Test. ");
+					Pfs_portal.quitDriver(url);
+	                log.warning("TC-61 Assement Activity Filter Option View Test Case FAILED \n");
+				}
+                Utils.clickXpath(driver, ActionXpath.faccFilterassignment, time, "Click the filter button on activity section");
+                Utils.clickXpath(driver, ActionXpath.faccFilterassignmnetClear, time, "Clear all the fileter");
+                Utils.clickXpath(driver, ActionXpath.faccFilterassignment, time, "Again clcik the fileter button to apply the filter");
+                Utils.clickXpath(driver,ActionXpath.FaccFilterOpen,time,"Click the Activuty type span to open");
+                Utils.clickXpath(driver, ActionXpath.faccAssementCheckBox, time, "Select the Assessments Check box");
                 Actions qwe = new Actions(driver);
                  qwe.moveByOffset(40, 40).click().perform();
                     
-                    WebElement facresult= driver.findElement(By.xpath("/html/body/div[1]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[2]/div"));
-                     String facgetresult= facresult.getText();
-                     System.out.println(facgetresult);
-                     WebElement getresult= driver.findElement(By.xpath("/html/body/div[1]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[2]/div/div/div/div[5]/div/div[1]/div[1]/div/p"));
-                     String result= getresult.getText();
-                     System.out.println(getresult);
-                     if(result.equals(result)) {
-
-                         System.out.println("Result is same");
-                     }
-                     else {
-                         System.out.println("Result is not same");
-                     }
+                 WebElement l2= driver.findElement(By.xpath("//*[@id=\"app\"]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[2]/div/div/div"));
+                	String p2 = l2.getText();
+                	if (p2.contains("Assessments") && (!p2.contains("Assignments")) &&  (!p2.contains("Forum"))) {
+                		System.out.println(" TC-60: Assement Activity Filter Option Option Contains Assessments test case PASSED \n\n");
+                	}else {
+       				log.warning(" TC-60: Assement Activity Filter Option View FAILED it does not contain all the tabs\n\n");
+       			}
                      Utils.bigSleepBetweenClicks(2);
                     Utils.logout(driver, url, Role);
                     Utils.smallSleepBetweenClicks(1);
@@ -1224,27 +1232,31 @@ public class Pfs_activity {
                 Utils.checkAcadAndClick(driver, url);
                 Utils.clickXpath(driver, ActionXpath.relativefacforumclickcouse1, time, "facforumclickcouse");
                 Thread.sleep(8000);
-                Utils.clickXpath(driver, ActionXpath.faccFilterassignment, time, Role);
-                Utils.clickXpath(driver, ActionXpath.faccFilterassignmnetClear, time, Role);
-                Utils.clickXpath(driver, ActionXpath.faccFilterassignment, time, Role);
-                Utils.clickXpath(driver,ActionXpath.FaccFilterOpen,time,Role);
-                Utils.clickXpath(driver, ActionXpath.faccForumCheckBox, time, Role);
+                WebElement l= driver.findElement(By.xpath("//*[@id=\"app\"]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[2]/div/div/div"));
+	         	String p = l.getText();
+	         	System.out.println("p"+p);
+	         	if (p.contains("Assignments") && (p.contains("Assessments"))  && (p.contains("Forum"))) {
+	         		log.info(" it contain all the Activity before filter ");
+	         	}else {
+					System.out.println(" All Activity are not Presnet Quiting the Test. ");
+					Pfs_portal.quitDriver(url);
+	                log.warning("TC-61 Forum Activity Filter Option View Test Case FAILED \n");
+				}
+                Utils.clickXpath(driver, ActionXpath.faccFilterassignment, time, "Click the filter button on activity section");
+                Utils.clickXpath(driver, ActionXpath.faccFilterassignmnetClear, time, "Clear all the fileter");
+                Utils.clickXpath(driver, ActionXpath.faccFilterassignment, time, "Again clcik the fileter button to apply the filter");
+                Utils.clickXpath(driver,ActionXpath.FaccFilterOpen,time,"Click the Activuty type span to open");
+                Utils.clickXpath(driver, ActionXpath.faccForumCheckBox, time, "Select the Assessments Check box");
                 Actions qwe = new Actions(driver);
                  qwe.moveByOffset(40, 40).click().perform();
                     
-                    WebElement facresult= driver.findElement(By.xpath("/html/body/div[1]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[2]/div"));
-                     String facgetresult= facresult.getText();
-                     System.out.println(facgetresult);
-                     WebElement getresult= driver.findElement(By.xpath("/html/body/div[1]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[2]/div/div/div/div[5]/div/div[1]/div[1]/div/p"));
-                     String result= getresult.getText();
-                     System.out.println(getresult);
-                     if(result.equals(result)) {
-
-                         System.out.println("Result is same");
-                     }
-                     else {
-                         System.out.println("Result is not same");
-                     }
+                 WebElement l2= driver.findElement(By.xpath("//*[@id=\"app\"]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[2]/div/div/div"));
+             	String p2 = l2.getText();
+             	if (p2.contains("Forum") && (!p2.contains("Assignments")) &&  (!p2.contains("Assessments"))) {
+             		System.out.println(" TC-62: Forum Activity Filter Option Contains Forum filter  test case PASSED \n\n");
+             	}else {
+    				log.warning(" TC-62: Forum Activity Filter Option View FAILED it does not contain all the tabs\n\n");
+    			}
                      Utils.bigSleepBetweenClicks(2);
                     Utils.logout(driver, url, Role);
                     Utils.smallSleepBetweenClicks(1);
@@ -1255,8 +1267,7 @@ public class Pfs_activity {
                 Pfs_portal.quitDriver(url);
                 Pfs_portal.initDriver(Browser, url);
             }
-        }
-    @Test(priority = 63)
+        } @Test(priority = 63)
     public static void testForumCreatePublishEditDelete(String student, String faculty, String url,
             String Browser, String Role,WebDriver driver) throws Exception {
         try { 
