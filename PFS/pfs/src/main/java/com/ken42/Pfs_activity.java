@@ -110,9 +110,9 @@ public class Pfs_activity {
 			Utils.clickXpath(driver, "//p[.='"+fileName+"']/../../.././..//*[local-name()='svg']", time, "Click on fileName");
 			Utils.smallSleepBetweenClicks(1);
 
-			Utils.clickXpath(driver, ActionXpath. fsubltstadeleterelativedelete, time, "Delete button 1");
+			Utils.clickXpathWithJavascript(driver, ActionXpath. fsubltstadeleterelativedelete, time, "Delete button ");
 			// WebDriverWait wait = new WebDriverWait(driver, 20);
-			// WebElement el = wait
+			// WebElement el = wait   
 			// 		.until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[.='Delete'])[1]")));
 			// ((JavascriptExecutor) driver).executeScript("arguments[0].click();", el);
 			// Thread.sleep(10000);
