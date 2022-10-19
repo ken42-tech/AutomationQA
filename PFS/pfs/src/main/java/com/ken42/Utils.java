@@ -101,8 +101,6 @@ public class Utils {
 			WebElement el = wait
 					.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
 			((JavascriptExecutor) driver).executeScript("arguments[0].click();", el);
-		
-				el.click();
 				// new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(By.xpath(xpath))).click();
 				break;
 			} catch (Exception e) {
@@ -474,6 +472,9 @@ public class Utils {
 		if ("ENGLISH-CLASS 6-ICSE".equals(subject)){
 			return ("English-Class 6-ICSE");
 		}
+		if ("Bachelor's in Computer Application".equals(subject)){
+			return ("Bachelor\'s in Computer Application");
+		}
 		StringBuffer sb = new StringBuffer(subject);
 		// sb.deleteCharAt(sb.length() - 1);
 
@@ -523,8 +524,10 @@ public class Utils {
 			String[]  ProgSubj = new String [2];
 			Utils.clickXpath(driver, ActionXpath.program, time, "click on program");
 			Utils.clickXpath(driver, ActionXpath.programselect, time, "click on program select");
-			ProgSubj[0] = Utils.getTEXT(driver,"(//*[. and @aria-haspopup='listbox'])[1]");
+			String programconverted = Utils.getTEXT(driver,"(//*[. and @aria-haspopup='listbox'])[1]");
+			ProgSubj[0] = programconverted;
 			System.out.println("Text program is : " + ProgSubj[0]);
+			// return (ProgSubj);
 
 			Utils.clickXpath(driver, ActionXpath.subjectclick, time, "click on subject");
 			String subject = Utils.getTEXT(driver, "(//*[@class='MuiTab-wrapper']//p)[1]");
