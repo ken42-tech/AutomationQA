@@ -298,6 +298,7 @@ public class Pfs_activity {
 			Utils.clickXpath(driver, ActionXpath.facinstruction3dot, time, "facinstruction3dot");
 			Thread.sleep(2000);
 			Utils.clickXpath(driver, ActionXpath.relativefacforumclink1, time, "facforumclink");
+            Utils.bigSleepBetweenClicks(2);
 			Utils.callSendkeys(driver, ActionXpath.relativefacforumurl1,fileName, time);
 			Thread.sleep(2000);
 			Utils.clickXpath(driver, ActionXpath.relativefacforumsavlin1, time, "facforumsavlin");
@@ -307,6 +308,7 @@ public class Pfs_activity {
 			Utils.clickXpath(driver, ActionXpath.relativefaforumsave1, time, "faforumsave");
 			Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.relativefaforumok1, time, "faforumok");
+            Utils.bigSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.relativeformexpand1, time, "fourme expand click on arrow SVG");
 
 			// new WebDriverWait(driver, 25).until(ExpectedConditions.elementToBeClickable(By.xpath("//p[.='"+fileName+"']/../../.././..//*[local-name()='svg']"))).click();
@@ -442,10 +444,16 @@ public class Pfs_activity {
             el.sendKeys("9");
 
             Utils.smallSleepBetweenClicks(1);
+         
+            if(Utils.checknsom(url)){
+                System.out.println("nsom not have the attempt");
+            }
+            else{
             Utils.clickXpath(driver, ActionXpath.assignfacattementsrelative, time, "facattements");
             Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.assignfacselectattemtrelative, time, "facselectattemt");
             Utils.smallSleepBetweenClicks(1);
+            }
             Utils.clickXpath(driver, ActionXpath.assignfacsaveandproceedrelative, time, "facsaveandproceed");
             Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.assignfacokrelative, time, "facok");
@@ -491,16 +499,17 @@ public class Pfs_activity {
             ac.click(qqq).build().perform();
 
             Utils.smallSleepBetweenClicks(1);
-            Utils.clickXpath(driver, ActionXpath.clickonaddsubmission, time, "clickonaddsubmission");
+            // Utils.clickXpath(driver, ActionXpath.clickonaddsubmission, time, "clickonaddsubmission");
 
             JavascriptExecutor j = (JavascriptExecutor) driver;
             j.executeScript("window.scrollBy(0,2000)");
 
             Utils.smallSleepBetweenClicks(1);
+            Utils.bigSleepBetweenClicks(1);
             // Utils.callSendkeys(driver,
             // ActionXpath.clickonbrowser,"C:\\\\Users\\\\Dell\\\\Desktop\\\\Holiday List
             // 2022.pdf", time);
-            driver.findElement(By.xpath("//input[@accept='.pdf']")).sendKeys(PDF_file);
+            driver.findElement(By.xpath("//input[@type='file']")).sendKeys(PDF_file);
 			
             // driver.findElement(By.xpath("//input[@type='file']"))
             //         .sendKeys("C:\\\\Users\\\\USER\\\\Desktop\\\\pkpadmin,+1008-4741-1-CE (1).pdf");
@@ -562,6 +571,12 @@ public class Pfs_activity {
     public static void testFAssignmentCreatePublishsubmissiongradecheck(String student, String faculty, String url,
             String Browser, String Role,WebDriver driver) throws Exception {
         try {
+            String PDF_file = "";
+			if (Utils.checkWindowsOs()){
+				PDF_file = "C:\\Users\\Public\\Documents\\demo.pdf";
+			}else {
+				PDF_file = "/Users/shared/demo.pdf";
+			}
             String returnArray[] = new String[2];
             System.out.println(
                     "TC-57 Assignment was Create ,publish,gradecheck &submission Test Excecuation Started...\n");
@@ -582,7 +597,7 @@ public class Pfs_activity {
             Utils.smallSleepBetweenClicks(1);
 
             String fileName = "Assignment_" + Utils.generateRandom();
-            Utils.smallSleepBetweenClicks(1);
+            Utils.bigSleepBetweenClicks(1);
             Utils.callSendkeys(driver, ActionXpath.assignfacassignmentNamerelative, fileName, time);
             Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.program, time, "click on program");
@@ -590,6 +605,7 @@ public class Pfs_activity {
             Utils.clickXpath(driver, ActionXpath.subject, time, "click on subject");
             driver.findElement(By.xpath("//li[@data-value='" + converted + "']")).click();
             Utils.smallSleepBetweenClicks(1);
+
 
             Utils.clickXpath(driver, ActionXpath.facinstruction3dot, time, "facinstruction3dot");
             Utils.clickXpath(driver, ActionXpath.assignfaclinkrelative, time, "faclink");
@@ -606,11 +622,16 @@ public class Pfs_activity {
             el.clear();
             el.sendKeys("50");
 
+            if(Utils.checknsom(url)){
+                System.out.println("nsom not have the attempt");
+            }
+            else{
             Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.assignfacattementsrelative, time, "facattements");
             Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.assignfacselectattemtrelative, time, "facselectattemt");
             Utils.smallSleepBetweenClicks(1);
+            }
             Utils.clickXpath(driver, ActionXpath.assignfacsaveandproceedrelative, time, "facsaveandproceed");
             Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.assignfacokrelative, time, "facok");
@@ -621,6 +642,9 @@ public class Pfs_activity {
                     .elementToBeClickable(By.xpath("//p[.='" + fileName + "']/../../..//*[local-name()='svg']")))
                     .click();
             Utils.smallSleepBetweenClicks(1);
+
+            Utils.clickXpathWithJavascript(driver, ActionXpath.reviewassign, time, "Review button");
+            
             Utils.clickXpathWithJavascript(driver, ActionXpath.assignfacpublish, time, "Publish");
 
             // WebDriverWait wait = new WebDriverWait(driver, 20);
@@ -657,15 +681,16 @@ public class Pfs_activity {
             ac.click(qqq).build().perform();
 
             Utils.smallSleepBetweenClicks(1);
-            Utils.clickXpath(driver, ActionXpath.clickonaddsubmission, time, "clickonaddsubmission");
+            // Utils.clickXpath(driver, ActionXpath.clickonaddsubmission, time, "clickonaddsubmission");
 
             JavascriptExecutor j = (JavascriptExecutor) driver;
             j.executeScript("window.scrollBy(0,2000)");
 
-            Utils.smallSleepBetweenClicks(1);
-
-            driver.findElement(By.xpath("//input[@type='file']"))
-                    .sendKeys("C:\\Users\\Public\\Documents\\demo.pdf");
+            Utils.bigSleepBetweenClicks(1);
+            driver.findElement(By.xpath("//input[@type='file']")).sendKeys(PDF_file);
+			
+            // driver.findElement(By.xpath("//input[@type='file']"))
+            //         .sendKeys("C:\\Users\\Public\\Documents\\demo.pdf");
 
             Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.assignfaclinkrelative, time, "faclink");
@@ -692,36 +717,22 @@ public class Pfs_activity {
             new WebDriverWait(driver, 25).until(ExpectedConditions
                     .elementToBeClickable(By.xpath("//p[.='" + fileName + "']/../../.././..//*[local-name()='svg']")))
                     .click();
-            Utils.smallSleepBetweenClicks(1);
-            Utils.smallSleepBetweenClicks(1);
+            
 
-            WebDriverWait ele11 = new WebDriverWait(driver, 20);
-            WebElement elem1 = ele11
-                    .until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[.='Review'])[1]")));
-            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", elem1);
-            Thread.sleep(5000);
-
-            j.executeScript("window.scrollBy(0,200)");
-
-            Thread.sleep(5000);
+            Utils.clickXpathWithJavascript(driver, ActionXpath.reviewassign, time, "Review button");
+            
+            // WebDriverWait ele11 = new WebDriverWait(driver, 20);
+            // WebElement elem1 = ele11
+            //         .until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[.='Review'])[1]/..")));
+            // ((JavascriptExecutor) driver).executeScript("arguments[0].click();", elem1);
 
             Utils.clickXpath(driver, ActionXpath.clickongrade, time, "clickongrade");
 
-            Thread.sleep(8000);
 
             int s = new Utils().getDecimalRandomNumber();
-            if (s < 101) {
+            
                 driver.findElement(By.xpath("//input[@name='marks']")).sendKeys(Integer.toString(s));
-            } else {
-                driver.findElement(By.xpath("//input[@name='marks']")).sendKeys(Integer.toString(s));
-                Thread.sleep(5000);
-                Alert alert = driver.switchTo().alert(); // switch to alert
-                String alertMessage = driver.switchTo().alert().getText(); // capture alert message
-                System.out.println(alertMessage);
-                Thread.sleep(5000);
-                alert.accept();
-                Utils.smallSleepBetweenClicks(1);
-            }
+            
 
             WebDriverWait ele111 = new WebDriverWait(driver, 20);
             WebElement elem11 = ele111
@@ -906,7 +917,7 @@ public class Pfs_activity {
             
             
          Utils.clickXpath(driver, ActionXpath.viewattempt, time, "Click on view attempt");
-      
+         Utils.bigSleepBetweenClicks(1);
          WebElement result= driver.findElement(By.xpath("/html/body/div[1]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[1]/div/div[1]/div[2]/div/div[2]/p[1]"));
          String getresult= result.getText();
          System.out.println(getresult);
@@ -940,9 +951,11 @@ public class Pfs_activity {
 //            Utils.clickXpath(driver, ActionXpath.reviewquiz, time, " Review quiz");
             Utils.bigSleepBetweenClicks(1);
             Utils.callSendkeys(driver, ActionXpath.searchname,"test",time);
+            Utils.bigSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.viewresultinfac, time, " View result");
+            Utils.bigSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.viewattempt, time, " View attempt");
-            
+            Utils.bigSleepBetweenClicks(1);
             WebElement facresult= driver.findElement(By.xpath("/html/body/div[1]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[1]/div/div[1]/div[2]/div/div[2]/p[1]"));
             String facgetresult= facresult.getText();
             System.out.println(facgetresult);
@@ -1028,6 +1041,8 @@ public class Pfs_activity {
             Utils.clickXpath(driver, ActionXpath.facinstruction3dot, time, "facinstruction3dot");
             Thread.sleep(2000);
             Utils.clickXpath(driver, ActionXpath.relativefacforumclink1, time, "facforumclink");
+            Utils.bigSleepBetweenClicks(2);
+
             Utils.callSendkeys(driver, ActionXpath.relativefacforumurl1,fileName, time);
             Thread.sleep(2000);
             Utils.clickXpath(driver, ActionXpath.relativefacforumsavlin1, time, "facforumsavlin");
@@ -1074,6 +1089,8 @@ public class Pfs_activity {
             Utils.clickXpath(driver, ActionXpath.faccDiscussionMessgae3dot, time, "click on 3 dot ");
             Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.relativefacforumclink1, time, "facforumclink");
+            Utils.bigSleepBetweenClicks(2);
+
             Utils.callSendkeys(driver, ActionXpath.relativefacforumurl1,"https://unsplash.com/", time);
             Thread.sleep(2000);
             Utils.clickXpath(driver, ActionXpath.relativefacforumsavlin1, time, "facforumsavlin");
@@ -1306,6 +1323,7 @@ public class Pfs_activity {
             Utils.clickXpath(driver, ActionXpath.facinstruction3dot, time, "facinstruction3dot");
             Thread.sleep(2000);
             Utils.clickXpath(driver, ActionXpath.relativefacforumclink1, time, "facforumclink");
+            Utils.bigSleepBetweenClicks(2);
             Utils.callSendkeys(driver, ActionXpath.relativefacforumurl1,fileName, time);
             Thread.sleep(2000);
             Utils.clickXpath(driver, ActionXpath.relativefacforumsavlin1, time, "facforumsavlin");
@@ -1313,7 +1331,7 @@ public class Pfs_activity {
             Utils.clickXpath(driver, ActionXpath.relativefacforumsave1, time, " facforumsave");
             Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.relativefaforumsave1, time, "faforumsave");
-            Utils.smallSleepBetweenClicks(1);
+            Utils.smallSleepBetweenClicks(2);
             Utils.clickXpath(driver, ActionXpath.relativefaforumok1, time, "faforumok");
             Utils.clickXpath(driver, ActionXpath.relativeformexpand1, time, "fourme expand click on arrow SVG");
 
@@ -1346,6 +1364,7 @@ public class Pfs_activity {
             Thread.sleep(2000);
             
             Utils.clickXpath(driver, ActionXpath.relativefacforumclink1, time, "facforumclink");
+            Utils.bigSleepBetweenClicks(2);
             Utils.callSendkeys(driver, ActionXpath.relativefacforumurl1,fileName, time);
             Thread.sleep(2000);
             Utils.clickXpath(driver, ActionXpath.relativefacforumsavlin1, time, "facforumsavlin");
@@ -1439,10 +1458,11 @@ public class Pfs_activity {
             Utils.clickXpath(driver, ActionXpath.facinstruction3dot, time, "facinstruction3dot");
             Thread.sleep(2000);
             Utils.clickXpath(driver, ActionXpath.relativefacforumclink1, time, "facforumclink");
+            Utils.bigSleepBetweenClicks(2);
             Utils.callSendkeys(driver, ActionXpath.relativefacforumurl1,fileName, time);
             Thread.sleep(2000);
             Utils.clickXpath(driver, ActionXpath.relativefacforumsavlin1, time, "facforumsavlin");
-            Utils.smallSleepBetweenClicks(1);
+            Utils.smallSleepBetweenClicks(2);
             Utils.clickXpath(driver, ActionXpath.relativefacforumsave1, time, " facforumsave");
             Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.relativefaforumsave1, time, "faforumsave");
@@ -1478,6 +1498,8 @@ public class Pfs_activity {
             Thread.sleep(2000);
             
             Utils.clickXpath(driver, ActionXpath.relativefacforumclink1, time, "facforumclink");
+            Utils.bigSleepBetweenClicks(2);
+
             Utils.callSendkeys(driver, ActionXpath.relativefacforumurl1,fileName, time);
             Thread.sleep(2000);
             Utils.clickXpath(driver, ActionXpath.relativefacforumsavlin1, time, "facforumsavlin");
@@ -1572,7 +1594,7 @@ public class Pfs_activity {
             Utils.clickXpath(driver, ActionXpath.facinstruction3dot, time, "facinstruction3dot");
             Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.facclinkrelative, time, "facclink");
-            Utils.smallSleepBetweenClicks(1);
+            Utils.bigSleepBetweenClicks(1);
             Utils.callSendkeys(driver, ActionXpath.facurlrelative, fileName, time);
             Thread.sleep(2000);
             Utils.clickXpath(driver, ActionXpath.facsavlinrelative, time, "facsavlin");
@@ -1702,7 +1724,7 @@ public class Pfs_activity {
             Utils.clickXpath(driver, ActionXpath.facinstruction3dot, time, "facinstruction3dot");
             Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.facclinkrelative, time, "facclink");
-            Utils.smallSleepBetweenClicks(1);
+            Utils.bigSleepBetweenClicks(1);
             Utils.callSendkeys(driver, ActionXpath.facurlrelative, fileName, time);
             Thread.sleep(2000);
             Utils.clickXpath(driver, ActionXpath.facsavlinrelative, time, "facsavlin");
@@ -1821,7 +1843,7 @@ public class Pfs_activity {
             Utils.smallSleepBetweenClicks(1);
 
             String fileName = "Assignment_" + Utils.generateRandom();
-            Utils.smallSleepBetweenClicks(1);
+            Utils.bigSleepBetweenClicks(1);
             Utils.callSendkeys(driver, ActionXpath.assignfacassignmentNamerelative, fileName, time);
             Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.program, time, "click on program");
@@ -1844,12 +1866,16 @@ public class Pfs_activity {
             WebElement el = driver.findElement(By.xpath("//input[@name='gradetopass']"));
             el.clear();
             el.sendKeys("50");
-
+            if(Utils.checknsom(url)){
+                System.out.println("nsom not have the attempt");
+            }
+            else{
             Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.assignfacattementsrelative, time, "facattements");
             Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.assignfacselectattemtrelative, time, "facselectattemt");
             Utils.smallSleepBetweenClicks(1);
+            }
             Utils.clickXpath(driver, ActionXpath.assignfacsaveandproceedrelative, time, "facsaveandproceed");
             Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.assignfacokrelative, time, "facok");
@@ -1892,10 +1918,15 @@ public class Pfs_activity {
             elq.sendKeys("90");
 
             Utils.smallSleepBetweenClicks(1);
+            if(Utils.checknsom(url)){
+                System.out.println("nsom not have the attempt");
+            }
+            else{
             Utils.clickXpath(driver, ActionXpath.assignfacattementsrelative, time, "facattements");
             Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.assignfacselectattemtrelative, time, "facselectattemt");
             Utils.smallSleepBetweenClicks(1);
+            }
             Utils.clickXpath(driver, ActionXpath.assignfacsaveandproceedrelative, time, "facsaveandproceed");
             Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.assignfacokrelative, time, "facok");
@@ -1950,7 +1981,7 @@ public class Pfs_activity {
             Utils.smallSleepBetweenClicks(1);
 
             String fileName = "Assignment_" + Utils.generateRandom();
-            Utils.smallSleepBetweenClicks(1);
+            Utils.bigSleepBetweenClicks(1);
             Utils.callSendkeys(driver, ActionXpath.assignfacassignmentNamerelative, fileName, time);
             Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.program, time, "click on program");
@@ -1975,10 +2006,15 @@ public class Pfs_activity {
             el.sendKeys("50");
 
             Utils.smallSleepBetweenClicks(1);
+            if(Utils.checknsom(url)){
+                System.out.println("nsom not have the attempt");
+            }
+            else{
             Utils.clickXpath(driver, ActionXpath.assignfacattementsrelative, time, "facattements");
             Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.assignfacselectattemtrelative, time, "facselectattemt");
             Utils.smallSleepBetweenClicks(1);
+            }
             Utils.clickXpath(driver, ActionXpath.assignfacsaveandproceedrelative, time, "facsaveandproceed");
             Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.assignfacokrelative, time, "facok");
@@ -2049,10 +2085,15 @@ public class Pfs_activity {
             elq.sendKeys("90");
 
             Utils.smallSleepBetweenClicks(1);
+            if(Utils.checknsom(url)){
+                System.out.println("nsom not have the attempt");
+            }
+            else{
             Utils.clickXpath(driver, ActionXpath.assignfacattementsrelative, time, "facattements");
             Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.assignfacselectattemtrelative, time, "facselectattemt");
             Utils.smallSleepBetweenClicks(1);
+            }
             Utils.clickXpath(driver, ActionXpath.assignfacsaveandproceedrelative, time, "facsaveandproceed");
             Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.assignfacokrelative, time, "facok");

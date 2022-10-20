@@ -797,7 +797,7 @@ static String clickondot="(//*[@class='tox-tbtn' and @title='More...'])[2]";
 
 //////////////////////////////....................testcase50......................./////////////
 static String clickongradething="//input[@name='marks']";
-
+static String reviewassign="(//span[.='Review'])[1]/..";
 //56
 static String relativefacFormeDiscussion="//span[.='Discussions']";
 static String relativeFacformeCreateNewDiscussion="//span[text()='Create New discussion']";

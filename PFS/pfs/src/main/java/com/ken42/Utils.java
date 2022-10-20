@@ -236,7 +236,7 @@ public class Utils {
 
         Random r = new Random();
         int low = 50;
-        int high = 200;
+        int high = 99;
         int result = r.nextInt(high - low) + low;
         System.out.println(result);
         return result;
