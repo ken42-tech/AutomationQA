@@ -404,7 +404,7 @@ public class Pfs_resource {
 			String fileName = "Video_" + Utils.generateRandom();
             Utils.callSendkeys(driver, ActionXpath.facpptname, fileName, time);
             driver.findElement(By.xpath("//input[@accept='.mp4']")).sendKeys("C:\\Users\\Public\\Documents\\demo.pdf");
-            Thread.sleep(15000);
+            Utils.smallSleepBetweenClicks(2);
 
             
             WebElement s= driver.findElement(By.xpath("/html/body/div[5]/div[3]/div/div[1]"));
@@ -431,7 +431,7 @@ public class Pfs_resource {
         try {
             System.out.println("TC-49:  PPT resource Filter Option View Test case Started");
 			resourceFacultyInitialSteps(faculty, url, driver);
-			Thread.sleep(10000);
+			Utils.bigSleepBetweenClicks(1);
 			 WebElement l= driver.findElement(By.xpath("/html/body/div[1]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[3]/div/div/div/div[5]/div[1]/div/div/../../../.."));
 	         	String p = l.getText();
 	         	System.out.println("p"+p);
@@ -471,7 +471,7 @@ public class Pfs_resource {
             try {
                 System.out.println("TC-50:  PDF resource Filter Option View Test case Started");
 				resourceFacultyInitialSteps(faculty, url, driver);
-				Thread.sleep(10000);
+				Utils.bigSleepBetweenClicks(1);
 				 WebElement l= driver.findElement(By.xpath("/html/body/div[1]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[3]/div/div/div/div[5]/div[1]/div/div/../../../.."));
 		         	String p = l.getText();
 		         	System.out.println("p"+p);
@@ -514,7 +514,7 @@ public class Pfs_resource {
             try {
                 System.out.println("TC-51:  Video resource Filter Option View Test case Started");
                 resourceFacultyInitialSteps(faculty, url, driver);
-                Thread.sleep(10000);
+                Utils.bigSleepBetweenClicks(2);
                 WebElement l= driver.findElement(By.xpath("/html/body/div[1]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[3]/div/div/div/div[5]/div[1]/div/div/../../../.."));
 	         	String p = l.getText();
 	         	System.out.println("p"+p);
@@ -556,7 +556,7 @@ public class Pfs_resource {
 				try {
 					System.out.println("TC-52:  Links resource Filter Option View Test case Started");
 					resourceFacultyInitialSteps(faculty, url, driver);
-					Thread.sleep(10000);
+					Utils.bigSleepBetweenClicks(2);
 					 WebElement l= driver.findElement(By.xpath("/html/body/div[1]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[3]/div/div/div/div[5]/div[1]/div/div/../../../.."));
 			         	String p = l.getText();
 			         	System.out.println("p"+p);

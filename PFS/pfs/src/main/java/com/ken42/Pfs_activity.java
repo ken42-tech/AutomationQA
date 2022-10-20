@@ -52,7 +52,7 @@ public class Pfs_activity {
 			driver.findElement(By.xpath("//li[@data-value='" + program + "']")).click();
 			Utils.clickXpath(driver, ActionXpath.subject, time, "click on subject");
 			driver.findElement(By.xpath("//li[@data-value='" + converted + "']")).click();
-			Thread.sleep(2000);
+			Utils.smallSleepBetweenClicks(1);
 			//driver.findElement(By.xpath("//li[@data-value='" + section + "']")).click();
 
 
@@ -62,9 +62,9 @@ public class Pfs_activity {
 			Utils.clickXpath(driver, ActionXpath.facclinkrelative, time, "facclink");
 			Utils.smallSleepBetweenClicks(1);
 			Utils.callSendkeys(driver, ActionXpath.facurlrelative, fileName, time);
-			Thread.sleep(2000);
+			Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.facsavlinrelative, time, "facsavlin");
-			Thread.sleep(2000);
+			Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.facsaverelative, time, "Save and proceed 1");
 			Utils.smallSleepBetweenClicks(1);
 			Utils.callSendkeys(driver, ActionXpath.fachourrelative, "1", time);
@@ -115,7 +115,7 @@ public class Pfs_activity {
 			// WebElement el = wait   
 			// 		.until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[.='Delete'])[1]")));
 			// ((JavascriptExecutor) driver).executeScript("arguments[0].click();", el);
-			// Thread.sleep(10000);
+			// Utils.bigSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.fsubltstadelete1relativedelete2, time, " Delete Assessment 2");
 			Utils.bigSleepBetweenClicks(2);
 			Utils.logout(driver, url, Role);
@@ -202,7 +202,7 @@ public class Pfs_activity {
 			// WebElement element2 = wait
 			// 		.until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[.='Publish'])[1]")));
 			// ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element2);
-			Thread.sleep(2000);
+			Utils.smallSleepBetweenClicks(1);
            
             Utils.clickXpathWithJavascript(driver, ActionXpath.assignfacpublishrelative, time, "Publish");
 			
@@ -269,7 +269,7 @@ public class Pfs_activity {
 			Utils.bigSleepBetweenClicks(1);
 			Utils.checkAcadAndClick(driver, url);
 			Utils.clickXpath(driver, ActionXpath.relativefacforumclickcouse1, time, "facforumclickcouse");
-			Thread.sleep(8000);
+			Utils.bigSleepBetweenClicks(1);
 
 			returnArray = Utils.getClassSubjectAndSection(driver);
 			String program = returnArray[0];
@@ -296,11 +296,11 @@ public class Pfs_activity {
 
 			// new Forum creation 
 			Utils.clickXpath(driver, ActionXpath.facinstruction3dot, time, "facinstruction3dot");
-			Thread.sleep(2000);
+			Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.relativefacforumclink1, time, "facforumclink");
             Utils.bigSleepBetweenClicks(2);
 			Utils.callSendkeys(driver, ActionXpath.relativefacforumurl1,fileName, time);
-			Thread.sleep(2000);
+			Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.relativefacforumsavlin1, time, "facforumsavlin");
 			Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.relativefacforumsave1, time, " facforumsave");
@@ -333,37 +333,37 @@ public class Pfs_activity {
 			System.out.println("click on dot and  publish 2nd forum");
 			Utils.bigSleepBetweenClicks(2);
 			Utils.logout(driver, url, Role);
-			Thread.sleep(5000);
+			Utils.smallSleepBetweenClicks(2);
 
 			// ..............Student Login forum.......................//
 			Utils.login(driver, student,url);
-			Thread.sleep(2000);
+			Utils.smallSleepBetweenClicks(1);
 			Utils.checkAcadAndClick(driver, url);
 			Utils.clickXpath(driver, ActionXpath.relativeforumlearnltsta1, time, "Select learn");
 			Utils.clickXpath(driver, ActionXpath.relativeforumaexpandltsta1, time, "expand forum");
-			Thread.sleep(2000);
+			Utils.smallSleepBetweenClicks(1);
 			new WebDriverWait(driver, 25).until(ExpectedConditions.elementToBeClickable(By.xpath("//p[.='"+fileName+"']/../../.././..//*[local-name()='svg']"))).click();
-			Thread.sleep(2000);
+			Utils.smallSleepBetweenClicks(1);
 			Actions qq=new Actions(driver);
             qq.moveByOffset(40, 40).click().perform();
 			Utils.logout(driver, url, Role);
 
 			//// ..................... Delete fourm.................../////
 			Utils.login(driver, faculty,url);
-			Thread.sleep(4000);
+			Utils.smallSleepBetweenClicks(1);
 			Utils.checkAcadAndClick(driver, url);
 			Utils.clickXpath(driver, ActionXpath.relativeforumdacclickcouse12, time, "facclickcouse");
 			Utils.clickXpath(driver, ActionXpath.relativeforumdfexpandltsta12, time, "Exapand");
-			Thread.sleep(3000);
+			Utils.smallSleepBetweenClicks(1);
 			// new WebDriverWait(driver, 25).until(ExpectedConditions.elementToBeClickable(By.xpath("//p[.='"+fileName+"']/../../.././..//*[local-name()='svg']"))).click();
-			Thread.sleep(2000);
+			Utils.smallSleepBetweenClicks(1);
 
 			// Utils.clickXpath(driver, ActionXpath.relativeforumfclickondotltsta12, time, "facdot");
 			//Below line to click on 3 dots
 			new WebDriverWait(driver, 25).until(ExpectedConditions.elementToBeClickable(By.xpath("//p[.='"+fileName+"']/../../..//*[local-name()='svg']"))).click();
 
 
-			Thread.sleep(2000);
+			Utils.smallSleepBetweenClicks(1);
             Utils.clickXpathWithJavascript(driver, ActionXpath.assignfacdelerelative, time, "Delete");
 
 			// WebDriverWait waitei1 = new WebDriverWait(driver, 20);
@@ -371,10 +371,10 @@ public class Pfs_activity {
 			// 		.until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[.='Delete'])[1]")));
 			// ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element291);
 			System.out.println("clickon 1st delete");
-			Thread.sleep(2000);
+			Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.relativedfacdele12, time, "Click on Delete 2");
-
-			Thread.sleep(10000);
+            Utils.bigSleepBetweenClicks(1);
+			Utils.smallSleepBetweenClicks(1);
 
 			Utils.logout(driver, url, Role);
 
@@ -470,7 +470,7 @@ public class Pfs_activity {
             // WebElement element2 = wait
             //         .until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[.='Publish'])[1]")));
             // ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element2);
-            Thread.sleep(2000);
+            Utils.smallSleepBetweenClicks(1);
            Utils.clickXpathWithJavascript(driver, ActionXpath.assignfacpublish, time, "Publish");
         //    WebDriverWait waite = new WebDriverWait(driver, 20);
             
@@ -525,7 +525,7 @@ public class Pfs_activity {
             // driver.findElement(By.xpath("//span[.=' Submit']")).click();
             Utils.clickXpath(driver, ActionXpath.clickonsubmit, time, "clickonsubmit");
 
-            Thread.sleep(2000);
+            Utils.smallSleepBetweenClicks(1);
             WebElement ty = driver.findElement(By.xpath("//div[@role='alert']"));
             String tu = ty.getText();
             System.out.println(tu);
@@ -651,7 +651,7 @@ public class Pfs_activity {
             // WebElement element2 = wait
             //         .until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[.='Publish'])[1]")));
             // ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element2);
-            Thread.sleep(2000);
+            Utils.smallSleepBetweenClicks(1);
             Utils.clickXpathWithJavascript(driver, ActionXpath.assignfacpublish, time, "Publish");
 
             // WebDriverWait waite = new WebDriverWait(driver, 20);
@@ -738,7 +738,8 @@ public class Pfs_activity {
             WebElement elem11 = ele111
                     .until(ExpectedConditions.elementToBeClickable(By.xpath("//span[.='Back to List']")));
             ((JavascriptExecutor) driver).executeScript("arguments[0].click();", elem11);
-            Thread.sleep(8000);
+            
+            Utils.bigSleepBetweenClicks(1);
             // Utils.logout(driver, url, Role);
             // Utils.smallSleepBetweenClicks(1);
 
@@ -807,7 +808,7 @@ public class Pfs_activity {
             driver.findElement(By.xpath("//li[@data-value='" + program + "']")).click();
             Utils.clickXpath(driver, ActionXpath.subject, time, "click on subject");
             driver.findElement(By.xpath("//li[@data-value='" + converted + "']")).click();
-            Thread.sleep(2000);
+            Utils.smallSleepBetweenClicks(1);
             //driver.findElement(By.xpath("//li[@data-value='" + section + "']")).click();
 
 
@@ -817,9 +818,9 @@ public class Pfs_activity {
             Utils.clickXpath(driver, ActionXpath.facclinkrelative, time, "facclink");
             Utils.smallSleepBetweenClicks(1);
             Utils.callSendkeys(driver, ActionXpath.facurlrelative, fileName, time);
-            Thread.sleep(2000);
+            Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.facsavlinrelative, time, "facsavlin");
-            Thread.sleep(2000);
+            Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.facsaverelative, time, "Save and proceed 1");
             Utils.smallSleepBetweenClicks(1);
             Utils.callSendkeys(driver, ActionXpath.fachourrelative, "1", time);
@@ -891,9 +892,9 @@ public class Pfs_activity {
             Utils.bigSleepBetweenClicks(1);
             
            
-            Thread.sleep(5000);
+            Utils.smallSleepBetweenClicks(2);
             driver.switchTo().window(parentwindowid);
-            Thread.sleep(5000);
+            Utils.smallSleepBetweenClicks(2);
             
             Actions qwe = new Actions(driver);
             qwe.moveByOffset(40, 40).click().perform();
@@ -987,7 +988,7 @@ public class Pfs_activity {
             // WebElement el = wait
             //         .until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[.='Delete'])[1]")));
             // ((JavascriptExecutor) driver).executeScript("arguments[0].click();", el);
-            Thread.sleep(10000);
+            Utils.bigSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.fsubltstadelete1relativedelete2, time, " Delete Assessment 2");
             Utils.bigSleepBetweenClicks(2);
             Utils.logout(driver, url, faculty);
@@ -1012,7 +1013,7 @@ public class Pfs_activity {
             Utils.bigSleepBetweenClicks(1);
             Utils.checkAcadAndClick(driver, url);
             Utils.clickXpath(driver, ActionXpath.relativefacforumclickcouse1, time, "facforumclickcouse");
-            Thread.sleep(8000);
+            Utils.bigSleepBetweenClicks(1);
 
             returnArray = Utils.getClassSubjectAndSection(driver);
             String program = returnArray[0];
@@ -1040,12 +1041,12 @@ public class Pfs_activity {
 
             // new Forum creation 
             Utils.clickXpath(driver, ActionXpath.facinstruction3dot, time, "facinstruction3dot");
-            Thread.sleep(2000);
+            Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.relativefacforumclink1, time, "facforumclink");
             Utils.bigSleepBetweenClicks(2);
 
             Utils.callSendkeys(driver, ActionXpath.relativefacforumurl1,fileName, time);
-            Thread.sleep(2000);
+            Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.relativefacforumsavlin1, time, "facforumsavlin");
             Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.relativefacforumsave1, time, " facforumsave");
@@ -1093,55 +1094,55 @@ public class Pfs_activity {
             Utils.bigSleepBetweenClicks(2);
 
             Utils.callSendkeys(driver, ActionXpath.relativefacforumurl1,"https://unsplash.com/", time);
-            Thread.sleep(2000);
+            Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.relativefacforumsavlin1, time, "facforumsavlin");
             Utils.clickXpath(driver, ActionXpath.faccSavefinish, time, "Click on save & finished");
                 Utils.logout(driver, url, Role);
-            Thread.sleep(5000);
+                Utils.bigSleepBetweenClicks(1);
 
             // ..............Student Login forum.......................//
             Utils.login(driver, student,url);
-            Thread.sleep(2000);
+            Utils.smallSleepBetweenClicks(1);
             Utils.checkAcadAndClick(driver, url);
             Utils.clickXpath(driver, ActionXpath.relativeforumlearnltsta1, time, "Select learn");
             Utils.clickXpath(driver, ActionXpath.relativeforumaexpandltsta1, time, "expand forum");
-            Thread.sleep(2000);
+            Utils.smallSleepBetweenClicks(1);
             new WebDriverWait(driver, 25).until(ExpectedConditions.elementToBeClickable(By.xpath("//p[.='"+fileName+"']/../../.././..//*[local-name()='svg']"))).click();
             WebDriverWait wait355 = new WebDriverWait(driver, 20);
             WebElement element238 = wait355
                     .until(ExpectedConditions.elementToBeClickable(By.xpath("//span[.='Discussions']")));
             ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element238);
             Utils.smallSleepBetweenClicks(1);
-            Thread.sleep(2000);
+            Utils.smallSleepBetweenClicks(1);
             Actions qq=new Actions(driver);
             qq.moveByOffset(40, 40).click().perform();
             Utils.logout(driver, url, Role);
 
             //// ..................... Delete fourm.................../////
             Utils.login(driver, faculty,url);
-            Thread.sleep(4000);
+            Utils.smallSleepBetweenClicks(2);
             Utils.checkAcadAndClick(driver, url);
             Utils.clickXpath(driver, ActionXpath.relativeforumdacclickcouse12, time, "facclickcouse");
             Utils.clickXpath(driver, ActionXpath.relativeforumdfexpandltsta12, time, "Exapand");
-            Thread.sleep(3000);
+            Utils.smallSleepBetweenClicks(1);
             // new WebDriverWait(driver, 25).until(ExpectedConditions.elementToBeClickable(By.xpath("//p[.='"+fileName+"']/../../.././..//*[local-name()='svg']"))).click();
-            Thread.sleep(2000);
+            Utils.smallSleepBetweenClicks(1);
 
             // Utils.clickXpath(driver, ActionXpath.relativeforumfclickondotltsta12, time, "facdot");
             //Below line to click on 3 dots
             new WebDriverWait(driver, 25).until(ExpectedConditions.elementToBeClickable(By.xpath("//p[.='"+fileName+"']/../../..//*[local-name()='svg']"))).click();
 
 
-            Thread.sleep(2000);
+            Utils.smallSleepBetweenClicks(1);
             WebDriverWait waitei1 = new WebDriverWait(driver, 20);
             WebElement element291 = waitei1
                     .until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[.='Delete'])[1]")));
             ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element291);
             System.out.println("clickon 1st delete");
-            Thread.sleep(2000);
+            Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.relativedfacdele12, time, "Click on Delete 2");
 
-            Thread.sleep(10000);
+            Utils.bigSleepBetweenClicks(1);
 
             Utils.logout(driver, url, Role);
             log.info("TC-59 Faculty Fourm create,publish Delete,Decission test case PASSED...");
@@ -1161,7 +1162,7 @@ public class Pfs_activity {
                 Utils.login(driver, faculty,url);
                 Utils.checkAcadAndClick(driver, url);
                 Utils.clickXpath(driver, ActionXpath.relativefacforumclickcouse1, time, "facforumclickcouse");
-                Thread.sleep(8000);
+                Utils.bigSleepBetweenClicks(1);
                 WebElement l= driver.findElement(By.xpath("//*[@id=\"app\"]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[2]/div/div/div"));
 	         	String p = l.getText();
 	         	System.out.println("p"+p);
@@ -1205,7 +1206,7 @@ public class Pfs_activity {
                 Utils.login(driver, faculty,url);
                 Utils.checkAcadAndClick(driver, url);
                 Utils.clickXpath(driver, ActionXpath.relativefacforumclickcouse1, time, "facforumclickcouse");
-                Thread.sleep(8000);
+                Utils.bigSleepBetweenClicks(1);
                 WebElement l= driver.findElement(By.xpath("//*[@id=\"app\"]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[2]/div/div/div"));
 	         	String p = l.getText();
 	         	System.out.println("p"+p);
@@ -1249,7 +1250,7 @@ public class Pfs_activity {
                 Utils.login(driver, faculty,url);
                 Utils.checkAcadAndClick(driver, url);
                 Utils.clickXpath(driver, ActionXpath.relativefacforumclickcouse1, time, "facforumclickcouse");
-                Thread.sleep(8000);
+                Utils.bigSleepBetweenClicks(1);
                 WebElement l= driver.findElement(By.xpath("//*[@id=\"app\"]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[2]/div/div/div"));
 	         	String p = l.getText();
 	         	System.out.println("p"+p);
@@ -1295,7 +1296,7 @@ public class Pfs_activity {
             Utils.bigSleepBetweenClicks(1);
             Utils.checkAcadAndClick(driver, url);
             Utils.clickXpath(driver, ActionXpath.relativefacforumclickcouse1, time, "facforumclickcouse");
-            Thread.sleep(8000);
+            Utils.bigSleepBetweenClicks(1);
 
             returnArray = Utils.getClassSubjectAndSection(driver);
             String program = returnArray[0];
@@ -1322,11 +1323,11 @@ public class Pfs_activity {
 
             // new Forum creation 
             Utils.clickXpath(driver, ActionXpath.facinstruction3dot, time, "facinstruction3dot");
-            Thread.sleep(2000);
+            Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.relativefacforumclink1, time, "facforumclink");
             Utils.bigSleepBetweenClicks(2);
             Utils.callSendkeys(driver, ActionXpath.relativefacforumurl1,fileName, time);
-            Thread.sleep(2000);
+            Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.relativefacforumsavlin1, time, "facforumsavlin");
             Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.relativefacforumsave1, time, " facforumsave");
@@ -1362,12 +1363,12 @@ public class Pfs_activity {
             JavascriptExecutor js = (JavascriptExecutor) driver; 
             js.executeScript("window.scrollBy(-100,-100)");
             Utils.clickXpath(driver, ActionXpath.facinstruction3dot, time, "facinstruction3dot");
-            Thread.sleep(2000);
+            Utils.smallSleepBetweenClicks(1);
             
             Utils.clickXpath(driver, ActionXpath.relativefacforumclink1, time, "facforumclink");
             Utils.bigSleepBetweenClicks(2);
             Utils.callSendkeys(driver, ActionXpath.relativefacforumurl1,fileName, time);
-            Thread.sleep(2000);
+            Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.relativefacforumsavlin1, time, "facforumsavlin");
             Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.relativefacforumsave1, time, " facforumsave");
@@ -1382,22 +1383,22 @@ public class Pfs_activity {
             Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.relativefaforumok1, time, "faforumok");
             //delete fourm
-            Thread.sleep(4000);
+            Utils.smallSleepBetweenClicks(2);
             Utils.checkAcadAndClick(driver, url);
             Utils.clickXpath(driver, ActionXpath.ExpandAcademic, time, "Exapand Academic ");
             
             Utils.clickXpath(driver, ActionXpath.relativeforumdacclickcouse12, time, "facclickcouse");
             Utils.clickXpath(driver, ActionXpath.relativeforumdfexpandltsta12, time, "Exapand");
-            Thread.sleep(3000);
+            Utils.smallSleepBetweenClicks(1);
             // new WebDriverWait(driver, 25).until(ExpectedConditions.elementToBeClickable(By.xpath("//p[.='"+fileName+"']/../../.././..//*[local-name()='svg']"))).click();
-            Thread.sleep(2000);
+            Utils.smallSleepBetweenClicks(1);
 
             // Utils.clickXpath(driver, ActionXpath.relativeforumfclickondotltsta12, time, "facdot");
             //Below line to click on 3 dots
             new WebDriverWait(driver, 25).until(ExpectedConditions.elementToBeClickable(By.xpath("//p[.='"+fileName+"']/../../..//*[local-name()='svg']"))).click();
 
 
-            Thread.sleep(2000);
+            Utils.smallSleepBetweenClicks(1);
             Utils.clickXpathWithJavascript(driver, ActionXpath.assignfacdelerelative, time, "Delete");
 
             // WebDriverWait waitei1 = new WebDriverWait(driver, 20);
@@ -1405,10 +1406,10 @@ public class Pfs_activity {
             //         .until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[.='Delete'])[1]")));
             // ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element291);
             System.out.println("clickon 1st delete");
-            Thread.sleep(2000);
+            Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.relativedfacdele12, time, "Click on Delete 2");
 
-            Thread.sleep(10000);
+            Utils.bigSleepBetweenClicks(1);
 
             Utils.logout(driver, url, Role);
             log.info("TC-63 Forum publish edit delete test case PASSED...");
@@ -1430,7 +1431,7 @@ public class Pfs_activity {
             Utils.bigSleepBetweenClicks(1);
             Utils.checkAcadAndClick(driver, url);
             Utils.clickXpath(driver, ActionXpath.relativefacforumclickcouse1, time, "facforumclickcouse");
-            Thread.sleep(8000);
+            Utils.bigSleepBetweenClicks(1);
 
             returnArray = Utils.getClassSubjectAndSection(driver);
             String program = returnArray[0];
@@ -1457,11 +1458,11 @@ public class Pfs_activity {
 
             // new Forum creation 
             Utils.clickXpath(driver, ActionXpath.facinstruction3dot, time, "facinstruction3dot");
-            Thread.sleep(2000);
+            Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.relativefacforumclink1, time, "facforumclink");
             Utils.bigSleepBetweenClicks(2);
             Utils.callSendkeys(driver, ActionXpath.relativefacforumurl1,fileName, time);
-            Thread.sleep(2000);
+            Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.relativefacforumsavlin1, time, "facforumsavlin");
             Utils.smallSleepBetweenClicks(2);
             Utils.clickXpath(driver, ActionXpath.relativefacforumsave1, time, " facforumsave");
@@ -1496,13 +1497,13 @@ public class Pfs_activity {
             JavascriptExecutor js = (JavascriptExecutor) driver; 
             js.executeScript("window.scrollBy(-100,-100)");
             Utils.clickXpath(driver, ActionXpath.facinstruction3dot, time, "facinstruction3dot");
-            Thread.sleep(2000);
+            Utils.smallSleepBetweenClicks(1);
             
             Utils.clickXpath(driver, ActionXpath.relativefacforumclink1, time, "facforumclink");
             Utils.bigSleepBetweenClicks(2);
 
             Utils.callSendkeys(driver, ActionXpath.relativefacforumurl1,fileName, time);
-            Thread.sleep(2000);
+            Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.relativefacforumsavlin1, time, "facforumsavlin");
             Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.relativefacforumsave1, time, " facforumsave");
@@ -1517,15 +1518,15 @@ public class Pfs_activity {
             Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.relativefaforumok1, time, "faforumok");
             //delete fourm
-            Thread.sleep(4000);
+            Utils.smallSleepBetweenClicks(2);
             Utils.checkAcadAndClick(driver, url);
             Utils.clickXpath(driver, ActionXpath.ExpandAcademic, time, "Exapand Academic ");
             
             Utils.clickXpath(driver, ActionXpath.relativeforumdacclickcouse12, time, "facclickcouse");
             Utils.clickXpath(driver, ActionXpath.relativeforumdfexpandltsta12, time, "Exapand");
-            Thread.sleep(3000);
+            Utils.smallSleepBetweenClicks(1);
             // new WebDriverWait(driver, 25).until(ExpectedConditions.elementToBeClickable(By.xpath("//p[.='"+fileName+"']/../../.././..//*[local-name()='svg']"))).click();
-            Thread.sleep(2000);
+            Utils.smallSleepBetweenClicks(1);
 
             // Utils.clickXpath(driver, ActionXpath.relativeforumfclickondotltsta12, time, "facdot");
             //Below line to click on 3 dots
@@ -1533,16 +1534,16 @@ public class Pfs_activity {
 
             Utils.clickXpathWithJavascript(driver, ActionXpath.assignfacdelerelative, time, "Delete");
 
-            Thread.sleep(2000);
+            Utils.smallSleepBetweenClicks(1);
             // WebDriverWait waitei1 = new WebDriverWait(driver, 20);
             // WebElement element291 = waitei1
             //         .until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[.='Delete'])[1]")));
             // ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element291);
             System.out.println("clickon 1st delete");
-            Thread.sleep(2000);
+            Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.relativedfacdele12, time, "Click on Delete 2");
 
-            Thread.sleep(10000);
+            Utils.bigSleepBetweenClicks(1);
 
             Utils.logout(driver, url, Role);
             log.info("TC-64 Forum unpublish edit delete test case PASSED...");
@@ -1587,7 +1588,7 @@ public class Pfs_activity {
             driver.findElement(By.xpath("//li[@data-value='" + program + "']")).click();
             Utils.clickXpath(driver, ActionXpath.subject, time, "click on subject");
             driver.findElement(By.xpath("//li[@data-value='" + converted + "']")).click();
-            Thread.sleep(2000);
+            Utils.smallSleepBetweenClicks(1);
             //driver.findElement(By.xpath("//li[@data-value='" + section + "']")).click();
 
 
@@ -1597,9 +1598,9 @@ public class Pfs_activity {
             Utils.clickXpath(driver, ActionXpath.facclinkrelative, time, "facclink");
             Utils.bigSleepBetweenClicks(2);
             Utils.callSendkeys(driver, ActionXpath.facurlrelative, fileName, time);
-            Thread.sleep(2000);
+            Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.facsavlinrelative, time, "facsavlin");
-            Thread.sleep(2000);
+            Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.facsaverelative, time, "Save and proceed 1");
             Utils.smallSleepBetweenClicks(1);
             Utils.callSendkeys(driver, ActionXpath.fachourrelative, "1", time);
@@ -1669,7 +1670,7 @@ public class Pfs_activity {
             // WebElement el = wait
             //         .until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[.='Delete'])[1]")));
             // ((JavascriptExecutor) driver).executeScript("arguments[0].click();", el);
-            Thread.sleep(10000);
+            Utils.bigSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.fsubltstadelete1relativedelete2, time, " Delete Assessment 2");
             Utils.bigSleepBetweenClicks(2);
             Utils.logout(driver, url, faculty);
@@ -1717,7 +1718,7 @@ public class Pfs_activity {
             driver.findElement(By.xpath("//li[@data-value='" + program + "']")).click();
             Utils.clickXpath(driver, ActionXpath.subject, time, "click on subject");
             driver.findElement(By.xpath("//li[@data-value='" + converted + "']")).click();
-            Thread.sleep(2000);
+            Utils.smallSleepBetweenClicks(1);
             //driver.findElement(By.xpath("//li[@data-value='" + section + "']")).click();
 
 
@@ -1727,9 +1728,9 @@ public class Pfs_activity {
             Utils.clickXpath(driver, ActionXpath.facclinkrelative, time, "facclink");
             Utils.bigSleepBetweenClicks(1);
             Utils.callSendkeys(driver, ActionXpath.facurlrelative, fileName, time);
-            Thread.sleep(2000);
+            Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.facsavlinrelative, time, "facsavlin");
-            Thread.sleep(2000);
+            Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.facsaverelative, time, "Save and proceed 1");
             Utils.smallSleepBetweenClicks(1);
             Utils.callSendkeys(driver, ActionXpath.fachourrelative, "1", time);
@@ -1806,7 +1807,7 @@ public class Pfs_activity {
             // WebElement el = wait
             //         .until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[.='Delete'])[1]")));
             // ((JavascriptExecutor) driver).executeScript("arguments[0].click();", el);
-            Thread.sleep(10000);
+            Utils.bigSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.fsubltstadelete1relativedelete2, time, " Delete Assessment 2");
             Utils.bigSleepBetweenClicks(2);
             Utils.logout(driver, url, faculty);
@@ -1903,10 +1904,10 @@ public class Pfs_activity {
             // ((JavascriptExecutor) driver).executeScript("arguments[0].click();", elem111);
 
             // Utils.smallSleepBetweenClicks(1);
-            Thread.sleep(8000);
+            Utils.bigSleepBetweenClicks(1);
             WebElement elee = driver.findElement(By.name("assignmentName"));
             elee.sendKeys(Keys.CONTROL, "a", Keys.DELETE);
-            Thread.sleep(8000);
+            Utils.bigSleepBetweenClicks(1);
             String fileName1 = "Assignment_" + Utils.generateRandom();
             Utils.smallSleepBetweenClicks(1);
             Utils.callSendkeys(driver, ActionXpath.assignfacassignmentNamerelative, fileName1, time);
@@ -2043,7 +2044,7 @@ public class Pfs_activity {
             // WebElement element211 = wait11
             //         .until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[.='Publish'])[1]")));
             // ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element211);
-            Thread.sleep(2000);
+            Utils.smallSleepBetweenClicks(1);
             Utils.clickXpathWithJavascript(driver, ActionXpath.assignfacpublish, time, "Publish2");
 
             // WebDriverWait waite1 = new WebDriverWait(driver, 20);
@@ -2063,7 +2064,7 @@ public class Pfs_activity {
             // driver.findElement(By.xpath(
             //         "/html/body/div[1]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[2]/div/div/div/div[5]/div/div[1]/div[2]"))
             //         .click();
-            // Thread.sleep(8000);
+            // Utils.bigSleepBetweenClicks(1);
 
             Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.assignexapnd1relative, time, "Exapand Assigment");
