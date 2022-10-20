@@ -22,9 +22,9 @@ import org.openqa.selenium.Alert;
 
 
 public class Utils {
-	static Logger log = Logger.getLogger(Utils.class.getName());
+	// static Logger log = Logger.getLogger(Utils.class.getName());
 	static int time = 1000;
-	// public static Logger log = Logger.getLogger("Pfs_portal");
+	public static Logger log = Logger.getLogger("Pfs_portal");
 
     public static void clickXpath(WebDriver driver,String xpath, int time,String msg) throws Exception {
 		JavascriptExecutor js3 = (JavascriptExecutor) driver; 
@@ -175,14 +175,12 @@ public class Utils {
 
 			if (checkoldlogin(url)) {
 				int time = 2000;
-				smallSleepBetweenClicks(1);
 				String regex = "Null";
 				Utils.callSendkeys(driver, ActionXpath.email2, Email, time);
 				Utils.clickXpath(driver, ActionXpath.SignIn, time, "Sign in");
 				Utils.clickXpath(driver, ActionXpath.mobile, time, "Enter mobile Number");
 				Utils.clickXpath(driver, ActionXpath.mobile2, time, "Click Mobile ");
 				Utils.clickXpath(driver, ActionXpath.SignIn, time, "Sign in for otp");
-				Thread.sleep(10000);
 				Alert alert = driver.switchTo().alert(); // switch to alert
 				String alertMessage = driver.switchTo().alert().getText(); // capture alert message
 				System.out.println(alertMessage); // Print Alert Message
@@ -202,13 +200,25 @@ public class Utils {
 			int time = 2000;
 			smallSleepBetweenClicks(1);
 			String regex = "Null";
-			Thread.sleep(6000);
 			Utils.callSendkeys(driver, ActionXpath.email, Email, time);
-			Thread.sleep(3000);
 			Utils.clickXpath(driver, ActionXpath.requestotp, time, "Request OTP");
-			Thread.sleep(10000);
-			Alert alert = driver.switchTo().alert(); // switch to alert
-			String alertMessage = driver.switchTo().alert().getText(); // capture alert message
+			int count = 0;
+			int maxTries = 7;
+			String alertMessage = "";
+			while (true){
+				try {
+					Alert alert = driver.switchTo().alert(); // switch to alert
+					alertMessage = driver.switchTo().alert().getText(); // capture alert message
+					alert.accept();
+					break;
+				} catch (Exception e){
+					Utils.smallSleepBetweenClicks(1);
+					if (++count > maxTries){
+						throw (e);
+					}
+				}
+				
+			}
 			System.out.println(alertMessage); // Print Alert Message
 			Pattern pt = Pattern.compile("-?\\d+");
 			Matcher m = pt.matcher(alertMessage);
@@ -216,14 +226,11 @@ public class Utils {
 				regex = m.group();
 			}
 			// smallSleepBetweenClicks();
-			alert.accept();
-			Thread.sleep(5000);
 			Utils.callSendkeys(driver, ActionXpath.otprequest2, regex, time);
 			Utils.clickXpath(driver, ActionXpath.verifyotp, time, "Verify otp");
-			Thread.sleep(3000);
 			System.out.println(
-					"Sleeping after login for 7 seconds so that goBacktoHome function does not automatically logout user");
-			bigSleepBetweenClicks(1);
+				"Sleeping after login for 7 seconds so that goBacktoHome function does not automatically logout user");
+				bigSleepBetweenClicks(1);
 			}
 		} catch (Exception e) {
 			log.warning("Login to portal failed \n\n\n");
