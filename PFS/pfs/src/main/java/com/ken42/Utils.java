@@ -95,12 +95,11 @@ public class Utils {
 		final String XPATH = xpath;
 		while (true){
 			try {
-				Thread.sleep(1000);
+				// Thread.sleep(1000);
 				log.info("Click on the:"+msg);
-				WebDriverWait wait = new WebDriverWait(driver, 20);
-			WebElement el = wait
-					.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
-			((JavascriptExecutor) driver).executeScript("arguments[0].click();", el);
+				WebElement webElement = driver.findElement(By.xpath(xpath));
+				JavascriptExecutor javaScriptExecutor = (JavascriptExecutor)driver;
+				javaScriptExecutor.executeScript("arguments[0].click()", webElement);
 				// new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(By.xpath(xpath))).click();
 				break;
 			} catch (Exception e) {
