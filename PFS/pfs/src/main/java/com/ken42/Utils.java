@@ -22,9 +22,9 @@ import org.openqa.selenium.Alert;
 
 
 public class Utils {
-	// static Logger log = Logger.getLogger(Utils.class.getName());
+	 static Logger log = Logger.getLogger(Utils.class.getName());
 	static int time = 1000;
-	public static Logger log = Logger.getLogger("Pfs_portal");
+	// public static Logger log = Logger.getLogger("Pfs_portal");
 
     public static void clickXpath(WebDriver driver,String xpath, int time,String msg) throws Exception {
 		JavascriptExecutor js3 = (JavascriptExecutor) driver; 
@@ -311,8 +311,8 @@ public class Utils {
 		return false;
 	}
 	@Test
-	public static Boolean checknsom(String url) {
-		String urlToMatch = "nsom";
+	public static Boolean checkattempt(String url) {
+		String urlToMatch = "nsom|esscisamsung";
 		Pattern pt = Pattern.compile(urlToMatch);
 		Matcher m = pt.matcher(url);
 		while (m.find()) {

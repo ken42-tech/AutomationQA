@@ -176,8 +176,8 @@ public class Pfs_activity {
 			el.sendKeys("9");
 
 			Utils.smallSleepBetweenClicks(1);
-            if(Utils.checknsom(url)){
-                System.out.println("nsom not have the attempt");
+            if(Utils.checkattempt(url)){
+                System.out.println("nsom and essci not have the attempt");
             }
             else{
 			Utils.clickXpath(driver, ActionXpath.assignfacattementsrelative, time, "facattements");
@@ -286,6 +286,7 @@ public class Pfs_activity {
 			Utils.smallSleepBetweenClicks(1);
 
 			String fileName = "Forum_" + Utils.generateRandom();
+            Utils.bigSleepBetweenClicks(2);
 			Utils.callSendkeys(driver, ActionXpath.relativefacforumname1, fileName, time);
 			Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.program, time, "click on program");
@@ -445,8 +446,8 @@ public class Pfs_activity {
 
             Utils.smallSleepBetweenClicks(1);
          
-            if(Utils.checknsom(url)){
-                System.out.println("nsom not have the attempt");
+            if(Utils.checkattempt(url)){
+                System.out.println("nsom and essci not have the attempt");
             }
             else{
             Utils.clickXpath(driver, ActionXpath.assignfacattementsrelative, time, "facattements");
@@ -622,8 +623,8 @@ public class Pfs_activity {
             el.clear();
             el.sendKeys("50");
 
-            if(Utils.checknsom(url)){
-                System.out.println("nsom not have the attempt");
+            if(Utils.checkattempt(url)){
+                System.out.println("nsom and essci not have the attempt");
             }
             else{
             Utils.smallSleepBetweenClicks(1);
@@ -1868,8 +1869,8 @@ public class Pfs_activity {
             WebElement el = driver.findElement(By.xpath("//input[@name='gradetopass']"));
             el.clear();
             el.sendKeys("50");
-            if(Utils.checknsom(url)){
-                System.out.println("nsom not have the attempt");
+            if(Utils.checkattempt(url)){
+                System.out.println("nsom and essci not have the attempt");
             }
             else{
             Utils.smallSleepBetweenClicks(1);
@@ -1929,8 +1930,8 @@ public class Pfs_activity {
             elq.sendKeys("90");
 
             Utils.smallSleepBetweenClicks(1);
-            if(Utils.checknsom(url)){
-                System.out.println("nsom not have the attempt");
+            if(Utils.checkattempt(url)){
+                System.out.println("nsom and essci not have the attempt");
             }
             else{
             Utils.clickXpath(driver, ActionXpath.assignfacattementsrelative, time, "facattements");
@@ -2017,8 +2018,8 @@ public class Pfs_activity {
             el.sendKeys("50");
 
             Utils.smallSleepBetweenClicks(1);
-            if(Utils.checknsom(url)){
-                System.out.println("nsom not have the attempt");
+            if(Utils.checkattempt(url)){
+                System.out.println("nsom and essci not have the attempt");
             }
             else{
             Utils.clickXpath(driver, ActionXpath.assignfacattementsrelative, time, "facattements");
@@ -2105,8 +2106,8 @@ public class Pfs_activity {
             elq.sendKeys("90");
 
             Utils.smallSleepBetweenClicks(1);
-            if(Utils.checknsom(url)){
-                System.out.println("nsom not have the attempt");
+            if(Utils.checkattempt(url)){
+                System.out.println("nsom and essci not have the attempt");
             }
             else{
             Utils.clickXpath(driver, ActionXpath.assignfacattementsrelative, time, "facattements");
