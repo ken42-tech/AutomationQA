@@ -714,6 +714,7 @@ public class Pfs_activity {
             Utils.checkAcadAndClick(driver, url);
             Utils.smallSleepBetweenClicks(1);
             driver.navigate().refresh();
+            Utils.bigSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.ExpandAcademic, time, "Exapand Academic ");
             Utils.clickXpath(driver, ActionXpath.assignfacclickcouserelative, time, "facclickcouse");
             Utils.clickXpath(driver, ActionXpath.assignexapndrelative, time, "Exapand");
@@ -722,7 +723,7 @@ public class Pfs_activity {
                     .click();
             
 
-                    
+
             Utils.clickXpathWithJavascript(driver, ActionXpath.reviewassign, time, "Review button");
             
             // WebDriverWait ele11 = new WebDriverWait(driver, 20);
@@ -733,7 +734,7 @@ public class Pfs_activity {
             Utils.callSendkeys(driver,ActionXpath.assignsearch, "Test Student", time);
             Utils.clickXpath(driver, ActionXpath.assigngrade, time, "click on grade");
 
-
+            Utils.bigSleepBetweenClicks(1);
             int s = new Utils().getDecimalRandomNumber();
             
                 driver.findElement(By.xpath("//input[@name='marks']")).sendKeys(Integer.toString(s));
