@@ -814,6 +814,8 @@ static String faccPPTOPen="(//*[. and contains(text(), 'Resource Type')]/../../.
 //ltsta xpath
 
 //57,58,59
+static String assignsearch="(//*[@aria-label='search'])";
+static String assigngrade="(//*[text()='Grade'])[1]";
 static String faccPDFCheckBox="//input[@name='Pdf' and @type='checkbox']/..";
 static String faccVideoCheckBox="//input[@name='Video' and @type='checkbox']/..";
 static String faccLinksCheckBox="//input[@name='Links' and @type='checkbox']/..";

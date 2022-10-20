@@ -29,7 +29,7 @@ public class Pfs_activity {
 			Utils.login(driver, faculty,url);
 			Utils.checkAcadAndClick(driver, url);
 			Utils.clickXpath(driver, ActionXpath.facclickcouserelative, time, "Click on course content");
-			returnArray = Utils.getClassSubjectAndSection(driver);
+			returnArray = Utils.getClassSubjectAndSection(driver, url);
 			String program = returnArray[0];
 			String converted = returnArray[1];
 			
@@ -142,7 +142,7 @@ public class Pfs_activity {
 			Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.assignfacclickcouse1relative, time, "Click on course content");
 
-			returnArray = Utils.getClassSubjectAndSection(driver);
+			returnArray = Utils.getClassSubjectAndSection(driver, url);
 			String program = returnArray[0];
 			String converted = returnArray[1];
 
@@ -271,7 +271,7 @@ public class Pfs_activity {
 			Utils.clickXpath(driver, ActionXpath.relativefacforumclickcouse1, time, "facforumclickcouse");
 			Utils.bigSleepBetweenClicks(1);
 
-			returnArray = Utils.getClassSubjectAndSection(driver);
+			returnArray = Utils.getClassSubjectAndSection(driver, url);
 			String program = returnArray[0];
 			String converted = returnArray[1];
 
@@ -409,7 +409,7 @@ public class Pfs_activity {
             Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.assignfacclickcouse1relative, time, "Click on course content");
 
-            returnArray = Utils.getClassSubjectAndSection(driver);
+            returnArray = Utils.getClassSubjectAndSection(driver, url);
             String program = returnArray[0];
             String converted = returnArray[1];
 
@@ -588,7 +588,7 @@ public class Pfs_activity {
             Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.assignfacclickcouse1relative, time, "Click on course content");
 
-            returnArray = Utils.getClassSubjectAndSection(driver);
+            returnArray = Utils.getClassSubjectAndSection(driver, url);
             String program = returnArray[0];
             String converted = returnArray[1];
 
@@ -713,6 +713,8 @@ public class Pfs_activity {
             Utils.bigSleepBetweenClicks(1);
             Utils.checkAcadAndClick(driver, url);
             Utils.smallSleepBetweenClicks(1);
+            driver.navigate().refresh();
+            Utils.clickXpath(driver, ActionXpath.ExpandAcademic, time, "Exapand Academic ");
             Utils.clickXpath(driver, ActionXpath.assignfacclickcouserelative, time, "facclickcouse");
             Utils.clickXpath(driver, ActionXpath.assignexapndrelative, time, "Exapand");
             new WebDriverWait(driver, 25).until(ExpectedConditions
@@ -720,14 +722,15 @@ public class Pfs_activity {
                     .click();
             
 
-            // Utils.clickXpathWithJavascript(driver, ActionXpath.reviewassign, time, "Review button");
+            Utils.clickXpathWithJavascript(driver, ActionXpath.reviewassign, time, "Review button");
             
-            WebDriverWait ele11 = new WebDriverWait(driver, 20);
-            WebElement elem1 = ele11
-                    .until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[.='Review'])[1]/..")));
-            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", elem1);
-
-            Utils.clickXpath(driver, ActionXpath.clickongrade, time, "clickongrade");
+            // WebDriverWait ele11 = new WebDriverWait(driver, 20);
+            // WebElement elem1 = ele11
+            //         .until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[.='Review'])[1]/..")));
+            // ((JavascriptExecutor) driver).executeScript("arguments[0].click();", elem1);
+            Utils.bigSleepBetweenClicks(1);
+            Utils.callSendkeys(driver,ActionXpath.assignsearch, "Test Student", time);
+            Utils.clickXpath(driver, ActionXpath.assigngrade, time, "click on grade");
 
 
             int s = new Utils().getDecimalRandomNumber();
@@ -786,7 +789,7 @@ public class Pfs_activity {
            
             Utils.checkAcadAndClick(driver, url);
             Utils.clickXpath(driver, ActionXpath.facclickcouserelative, time, "Click on course content");
-            returnArray = Utils.getClassSubjectAndSection(driver);
+            returnArray = Utils.getClassSubjectAndSection(driver, url);
             String program = returnArray[0];
             String converted = returnArray[1];
             
@@ -1016,7 +1019,7 @@ public class Pfs_activity {
             Utils.clickXpath(driver, ActionXpath.relativefacforumclickcouse1, time, "facforumclickcouse");
             Utils.bigSleepBetweenClicks(1);
 
-            returnArray = Utils.getClassSubjectAndSection(driver);
+            returnArray = Utils.getClassSubjectAndSection(driver, url);
             String program = returnArray[0];
             String converted = returnArray[1];
 
@@ -1299,7 +1302,7 @@ public class Pfs_activity {
             Utils.clickXpath(driver, ActionXpath.relativefacforumclickcouse1, time, "facforumclickcouse");
             Utils.bigSleepBetweenClicks(1);
 
-            returnArray = Utils.getClassSubjectAndSection(driver);
+            returnArray = Utils.getClassSubjectAndSection(driver, url);
             String program = returnArray[0];
             String converted = returnArray[1];
 
@@ -1434,7 +1437,7 @@ public class Pfs_activity {
             Utils.clickXpath(driver, ActionXpath.relativefacforumclickcouse1, time, "facforumclickcouse");
             Utils.bigSleepBetweenClicks(1);
 
-            returnArray = Utils.getClassSubjectAndSection(driver);
+            returnArray = Utils.getClassSubjectAndSection(driver, url);
             String program = returnArray[0];
             String converted = returnArray[1];
 
@@ -1566,7 +1569,7 @@ public class Pfs_activity {
            
             Utils.checkAcadAndClick(driver, url);
             Utils.clickXpath(driver, ActionXpath.facclickcouserelative, time, "Click on course content");
-            returnArray = Utils.getClassSubjectAndSection(driver);
+            returnArray = Utils.getClassSubjectAndSection(driver, url);
             String program = returnArray[0];
             String converted = returnArray[1];
             
@@ -1696,7 +1699,7 @@ public class Pfs_activity {
            
             Utils.checkAcadAndClick(driver, url);
             Utils.clickXpath(driver, ActionXpath.facclickcouserelative, time, "Click on course content");
-            returnArray = Utils.getClassSubjectAndSection(driver);
+            returnArray = Utils.getClassSubjectAndSection(driver, url);
             String program = returnArray[0];
             String converted = returnArray[1];
             
@@ -1836,7 +1839,7 @@ public class Pfs_activity {
             Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.assignfacclickcouse1relative, time, "Click on course content");
 
-            returnArray = Utils.getClassSubjectAndSection(driver);
+            returnArray = Utils.getClassSubjectAndSection(driver, url);
             String program = returnArray[0];
             String converted = returnArray[1];
 
@@ -1983,7 +1986,7 @@ public class Pfs_activity {
             Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.assignfacclickcouse1relative, time, "Click on course content");
 
-            returnArray = Utils.getClassSubjectAndSection(driver);
+            returnArray = Utils.getClassSubjectAndSection(driver, url);
             String program = returnArray[0];
             String converted = returnArray[1];
 

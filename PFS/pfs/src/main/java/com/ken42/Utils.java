@@ -406,6 +406,17 @@ public class Utils {
 	}
 
 	@Test
+	public static Boolean checkifcourseissubject(String url){
+		String urlToMatch = "portal-demo";
+		Pattern pt = Pattern.compile(urlToMatch);
+        Matcher m = pt.matcher(url);
+        while (m.find()) {
+            return true;
+        }
+        return false;
+	}
+
+	@Test
 	public static Boolean checkDevBimtech(String url){
 		String urlToMatch = "dev|bimtech";
 		Pattern pt = Pattern.compile(urlToMatch);
@@ -458,31 +469,40 @@ public class Utils {
 	
 
 	@Test
-	public static String convertContent(String subject) {
+	public static String convertContent(String input) {
 
 		// delete a last char
-		if ("DESIGN TECHNOLOGY-D-FD".equals(subject)){
+		if ("DESIGN TECHNOLOGY-D-FD".equals(input)){
 			return ("Design Technology-D-FD");
 		}
-		if ("SALES & DISTRIBUTION MANAGEMENT-20-22-RETAIL MANAGEMENT".equals(subject)){
+		if ("SALES & DISTRIBUTION MANAGEMENT-20-22-RETAIL MANAGEMENT".equals(input)){
 			return ("Sales & Distribution Management-20-22-Retail Management");
 		}
-		if ("BCA-OBJECT ORIENTED PROGRAMMING".equals(subject)){
+		if ("BCA-OBJECT ORIENTED PROGRAMMING".equals(input)){
 			return ("BCA-Object Oriented Programming");
 		}
-		if ("ENGLISH - CLASS 8".equals(subject)){
+		if ("ENGLISH - CLASS 8".equals(input)){
 			return ("English - Class 8");
 		}
-		if ("MACHINE LEARNING CONCEPTS - AI".equals(subject)){
+		if ("MACHINE LEARNING CONCEPTS - AI".equals(input)){
 			return ("Machine Learning Concepts - AI");
 		}
-		if ("ENGLISH-CLASS 6-ICSE".equals(subject)){
+		if ("ENGLISH-CLASS 6-ICSE".equals(input)){
 			return ("English-Class 6-ICSE");
 		}
-		if ("Bachelor's in Computer Application".equals(subject)){
+		if ("Bachelor's in Computer Application".equals(input)){
 			return ("Bachelor\'s in Computer Application");
 		}
-		StringBuffer sb = new StringBuffer(subject);
+		if("2022-Class 6-ICSE".equals(input)){
+			return("Class 6 - ICSE");
+		}
+		if("Maths-Class 6-ICSE - A".equals(input)){
+			return("Maths-Class 6-ICSE");
+		}
+		if("PGDM".equals(input)){
+			return("PGDM");
+		}
+		StringBuffer sb = new StringBuffer(input);
 		// sb.deleteCharAt(sb.length() - 1);
 
 		String tri = sb.toString();
@@ -526,21 +546,35 @@ public class Utils {
 	}
 
 	@Test
-	public static String[]  getClassSubjectAndSection(WebDriver driver) throws Exception{
+	public static String[]  getClassSubjectAndSection(WebDriver driver,String url) throws Exception{
 		try {
+			String subject;
 			String[]  ProgSubj = new String [2];
 			Utils.clickXpath(driver, ActionXpath.program, time, "click on program");
 			Utils.clickXpath(driver, ActionXpath.programselect, time, "click on program select");
 			String programconverted = Utils.getTEXT(driver,"(//*[. and @aria-haspopup='listbox'])[1]");
-			ProgSubj[0] = programconverted;
-			System.out.println("Text program is : " + ProgSubj[0]);
-			// return (ProgSubj);
+			
 
-			Utils.clickXpath(driver, ActionXpath.subjectclick, time, "click on subject");
-			String subject = Utils.getTEXT(driver, "(//*[@class='MuiTab-wrapper']//p)[1]");
+			String program = convertContent(programconverted);
+			ProgSubj[0] = program;
+			System.out.println("Text program is : " + ProgSubj[0]);
+			
+			
+			
+			if(Utils.checkifcourseissubject(url))
+			{
+				Utils.clickXpath(driver, ActionXpath.course, time, "click on subject");
+				subject = Utils.getTEXT(driver, "(//li[@data-value])[1]");
+				Utils.clickXpath(driver, ActionXpath.courseselect, time, "click on select subject"); 
+			}
+			else{
+				Utils.clickXpath(driver, ActionXpath.subjectclick, time, "click on subject");
+				 subject = Utils.getTEXT(driver, "(//*[@class='MuiTab-wrapper']//p)[1]");
+			}
+			
 			String converted = convertContent(subject);
 			ProgSubj[1] = converted;
-			System.out.println("Conveted string is"+converted);
+			System.out.println("Conveted string is: "+converted);
 			return (ProgSubj);
 		} catch (Exception e){
 			Utils.printException(e);
