@@ -714,6 +714,7 @@ static String assignfacpublishrelative = "//span[.='Publish']";
 static String assignfacpublish1relative = "//span[.='Publish']";
 static String assignfacclickonp1relative = "(//div[.='T'])[2]";
 static String assignfacconsignout1relative = "(//li[@role='menuitem'])[2]";
+static String assignedit="(//span[.='Edit'])[1]";
 //// ................. ..student assignment view relative xpath................................////
 static String assignacadmicsltstastudentrelative = "//span[.='Academics']";
 static String assignlearnltstastudentrelative = "//span[.='Learn']";
@@ -797,7 +798,7 @@ static String clickondot="(//*[@class='tox-tbtn' and @title='More...'])[2]";
 
 //////////////////////////////....................testcase50......................./////////////
 static String clickongradething="//input[@name='marks']";
-static String reviewassign="(//span[.='Review'])[1]/..";
+static String reviewassign="(//span[.='Review'])[1]";
 //56
 static String relativefacFormeDiscussion="//span[.='Discussions']";
 static String relativeFacformeCreateNewDiscussion="//span[text()='Create New discussion']";
