@@ -265,7 +265,11 @@ public class Utils {
 		}
 	}
 
-	public static void checkAcadAndClick(WebDriver driver, String url) throws Exception{
+	public static void 
+	
+	
+	
+	checkAcadAndClick(WebDriver driver, String url) throws Exception{
 		try{
 			if (checkAcad(url)) {
 				Utils.clickXpath(driver, ActionXpath.ltstaaccademics, time, "Click on LTSTA ACad");
@@ -312,6 +316,15 @@ public class Utils {
 	@Test
 	public static Boolean checkattempt(String url) {
 		String urlToMatch = "nsom|esscisamsung";
+		Pattern pt = Pattern.compile(urlToMatch);
+		Matcher m = pt.matcher(url);
+		while (m.find()) {
+			return true;
+		}
+		return false;
+	}
+	public static Boolean skipsubject(String url) {
+		String urlToMatch = "esscisamsung";
 		Pattern pt = Pattern.compile(urlToMatch);
 		Matcher m = pt.matcher(url);
 		while (m.find()) {
@@ -466,7 +479,7 @@ public class Utils {
         }
 	}
 	
-
+	
 	@Test
 	public static String convertContent(String input) {
 
@@ -501,6 +514,13 @@ public class Utils {
 		if("PGDM".equals(input)){
 			return("PGDM");
 		}
+		if("UG - Fashion Design (IC)-HKV".equals(input)){
+			return("UG - Fashion Design (IC)-HKV");
+		}
+		if("Garment Manufacturing (Basics)-HKV-UG - Fashion Design (IC)-HKV".equals(input)){
+			return("Garment Manufacturing (Basics)-HKV-UG - Fashion Design (IC)-HKV");
+		}
+
 		StringBuffer sb = new StringBuffer(input);
 		// sb.deleteCharAt(sb.length() - 1);
 
@@ -546,6 +566,7 @@ public class Utils {
 
 	@Test
 	public static String[]  getClassSubjectAndSection(WebDriver driver,String url) throws Exception{
+		
 		try {
 			String subject;
 			String[]  ProgSubj = new String [2];
@@ -559,27 +580,31 @@ public class Utils {
 			System.out.println("Text program is : " + ProgSubj[0]);
 			
 			
-			
 			if(Utils.checkifcourseissubject(url))
 			{
+				
 				Utils.clickXpath(driver, ActionXpath.course, time, "click on subject");
 				subject = Utils.getTEXT(driver, "(//li[@data-value])[1]");
 				Utils.clickXpath(driver, ActionXpath.courseselect, time, "click on select subject"); 
-			}
+			
+				}
 			else{
 				Utils.clickXpath(driver, ActionXpath.subjectclick, time, "click on subject");
 				 subject = Utils.getTEXT(driver, "(//*[@class='MuiTab-wrapper']//p)[1]");
 			}
+		
 			
-			String converted = convertContent(subject);
-			ProgSubj[1] = converted;
-			System.out.println("Conveted string is: "+converted);
-			return (ProgSubj);
+				String converted = convertContent(subject);
+				ProgSubj[1] = converted;
+				System.out.println("Conveted string is: "+converted);
+				return (ProgSubj);
+			
 		} catch (Exception e){
 			Utils.printException(e);
 			System.out.println("Failure in getClassSubjectAndSection function");
 			log.info("Failure in Logout function");
 			throw (e);
 		}
+		
 	}
 }
