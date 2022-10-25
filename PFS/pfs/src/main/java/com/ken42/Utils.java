@@ -341,7 +341,7 @@ public class Utils {
 
 	@Test
 	public static Boolean checkUrlToSkipTest(String url){
-		String urlToMatch = "jdinstitutedelhi|nsom|ltsta|ltpct";
+		String urlToMatch = "jdinstitutedelhi|nsom|ltsta|ltpct|esscisamsung";
 		Pattern pt = Pattern.compile(urlToMatch);
         Matcher m = pt.matcher(url);
         while (m.find()) {
