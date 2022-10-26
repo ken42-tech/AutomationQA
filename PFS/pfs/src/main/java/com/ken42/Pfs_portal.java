@@ -1,6 +1,9 @@
 package com.ken42;
 
+import java.io.File;
 import java.io.FileReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -29,20 +32,21 @@ public class Pfs_portal {
 	
 
 	public static void main(String[] args) throws Exception {
+		InputStream folderPath = Pfs_portal.class.getResourceAsStream("folder.csv");
+		String folder= "";
+		CSVReader csvFolderPath = new CSVReader(new InputStreamReader(folderPath, "UTF-8"));
+		String[] csvCell_folder;
+		while ((csvCell_folder = csvFolderPath.readNext()) != null) {
+			folder = csvCell_folder[0];
+		}
+		System.out.println(folder);
+
 		String CSV_PATH = "";
 		String logFileName = "";
 		boolean append = false;
 		String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new java.util.Date());
-		
-		if (Utils.checkWindowsOs()){
-			CSV_PATH = "C:\\Users\\Public\\Documents\\pfs.csv";
-			logFileName = String.format("C:\\Users\\Public\\Documents\\Testresult_%s.HTML", timeStamp);
-		} else {
-			CSV_PATH = "/Users/Shared/pfs.csv";
-			logFileName = String.format("/users/Shared/Testresult_%s.HTML", timeStamp);
-		}
-		
-		
+		CSV_PATH = folder+"\\pfs.csv";
+		logFileName = String.format(folder+"\\Testresult_%s.HTML", timeStamp);
 		FileHandler logFile = new FileHandler(logFileName, append);
         logFile.setFormatter(new MyHtmlFormatter());
         log.addHandler(logFile);
@@ -361,10 +365,6 @@ public class Pfs_portal {
 			EdgeDriver = "Users/shared/msedgedriver.exe";
 			FirefoxDriver = "Users/shared/geckodriver.exe";
 		}
-		
-
-		System.out.println("Browser is "+Browser);
-			System.out.println("URL is "+url);
 		try {
 			System.out.println("Browser is ****"+Browser);
 			System.out.println("URL is "+url);
@@ -393,6 +393,7 @@ public class Pfs_portal {
 			driver.get(url);
 			driver.manage().window().maximize();
 		} catch (Exception e) {
+			Utils.printException(e);
 			log.warning("UNABLE TO LAUNCH BROWSER \n\n\n");
 			System.exit(01);
 		}
