@@ -134,7 +134,7 @@ public class Pfs_faculty {
         	String p = l.getText();
 			// log.info(p);
 			System.out.println(p);
-			if (p.contains("My Students") && p.contains("Courses")){
+			if (p.contains("My Students") && p.contains("Subjects")){
 				log.info(" TC-21: Faculty My Student  tab test case PASSED \n\n");
 			}else {
 				log.warning(" TC-21: Faculty My Student  tab test case FAILED it does not contain all the tabs\n\n");
