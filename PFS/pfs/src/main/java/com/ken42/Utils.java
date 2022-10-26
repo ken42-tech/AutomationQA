@@ -419,7 +419,7 @@ public class Utils {
 
 	@Test
 	public static Boolean checkifcourseissubject(String url){
-		String urlToMatch = "portal-demo";
+		String urlToMatch = "portal-demo|nsom|esscisamsung";
 		Pattern pt = Pattern.compile(urlToMatch);
         Matcher m = pt.matcher(url);
         while (m.find()) {
