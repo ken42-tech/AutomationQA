@@ -1,4 +1,7 @@
 package com.ken42;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.time.Duration;
 import java.util.NoSuchElementException;
 import java.util.Random;
@@ -15,7 +18,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
 import com.google.common.base.Function;
-
+import com.opencsv.CSVReader;
+import com.opencsv.exceptions.CsvValidationException;
 
 import org.openqa.selenium.Alert;
 
@@ -491,57 +495,76 @@ public class Utils {
 	
 	
 	@Test
-	public static String convertContent(String input) {
+	public static String convertContent(String input) throws CsvValidationException, IOException {
+		String CSV_PATH = "C:\\Users\\Public\\Documents\\programSubject.csv";
+        CSVReader csvReader;
+        int count =0;
+        csvReader = new CSVReader(new FileReader(CSV_PATH));
 
+        String[] csvCell;
+        System.out.println(count);
+        while ((csvCell = csvReader.readNext()) != null) {
+            if (count == 0){
+                count = count + 1;
+                continue;
+            }
+            if(input.equals(csvCell[0])){
+                System.out.println("Output is  ******"+csvCell[1]);
+				return(csvCell[1]);
+            }
+        }
 		// delete a last char
-		if ("DESIGN TECHNOLOGY-D-FD".equals(input)){
-			return ("Design Technology-D-FD");
-		}
-		if ("SALES & DISTRIBUTION MANAGEMENT-20-22-RETAIL MANAGEMENT".equals(input)){
-			return ("Sales & Distribution Management-20-22-Retail Management");
-		}
-		if ("BCA-OBJECT ORIENTED PROGRAMMING".equals(input)){
-			return ("BCA-Object Oriented Programming");
-		}
-		if ("ENGLISH - CLASS 8".equals(input)){
-			return ("English - Class 8");
-		}
-		if ("MACHINE LEARNING CONCEPTS - AI".equals(input)){
-			return ("Machine Learning Concepts - AI");
-		}
-		if ("Artificial Intelligence - A".equals(input)){
-			return ("Artificial Intelligence");
-		}
-		if ("2022-Artificial Intelligence-Term 1".equals(input)){
-			return ("Artificial Intelligence");
-		}
-		if ("ENGLISH-CLASS 6-ICSE".equals(input)){
-			return ("English-Class 6-ICSE");
-		}
-		if ("Bachelor's in Computer Application".equals(input)){
-			return ("Bachelor\'s in Computer Application");
-		}
-		if("2022-Class 6-ICSE".equals(input)){
-			return("Class 6 - ICSE");
-		}
-		if("Maths-Class 6-ICSE - A".equals(input)){
-			return("Maths-Class 6-ICSE");
-		}
-		if("PGDM".equals(input)){
-			return("PGDM");
-		}
-		if("UG - Fashion Design (IC)-HKV".equals(input)){
-			return("UG - Fashion Design (IC)-HKV");
-		}
-		if("Garment Manufacturing (Basics)-HKV-UG - Fashion Design (IC)-HKV".equals(input)){
-			return("Garment Manufacturing (Basics)-HKV-UG - Fashion Design (IC)-HKV");
-		}
-		if("2022-23-PGDM-Core-Sem-3".equals(input)){
-			return("PGDM");
-		}
-		if("Managerial Economics - A".equals(input)){
-			return("Managerial Economics");
-		}
+		// if ("DESIGN TECHNOLOGY-D-FD".equals(input)){
+		// 	return ("Design Technology-D-FD");
+		// }
+		// if ("SALES & DISTRIBUTION MANAGEMENT-20-22-RETAIL MANAGEMENT".equals(input)){
+		// 	return ("Sales & Distribution Management-20-22-Retail Management");
+		// }
+		// if ("BCA-OBJECT ORIENTED PROGRAMMING".equals(input)){
+		// 	return ("BCA-Object Oriented Programming");
+		// }
+		// if ("ENGLISH - CLASS 8".equals(input)){
+		// 	return ("English - Class 8");
+		// }
+		// if ("MACHINE LEARNING CONCEPTS - AI".equals(input)){
+		// 	return ("Machine Learning Concepts - AI");
+		// }
+		// if ("Artificial Intelligence - A".equals(input)){
+		// 	return ("Artificial Intelligence");
+		// }
+		// if ("2022-Artificial Intelligence-Term 1".equals(input)){
+		// 	return ("Artificial Intelligence");
+		// }
+		// if ("ENGLISH-CLASS 6-ICSE".equals(input)){
+		// 	return ("English-Class 6-ICSE");
+		// }
+		// if ("Bachelor's in Computer Application".equals(input)){
+		// 	return ("Bachelor's in Computer Application");
+		// }
+		// if("2022-Class 6-ICSE".equals(input)){
+		// 	return("Class 6 - ICSE");
+		// }
+		// if("Maths-Class 6-ICSE - A".equals(input)){
+		// 	return("Maths-Class 6-ICSE");
+		// }
+		// if("PGDM".equals(input)){
+		// 	return("PGDM");
+		// }
+		// if("UG - Fashion Design (IC)-HKV".equals(input)){
+		// 	return("UG - Fashion Design (IC)-HKV");
+		// }
+		// if("Garment Manufacturing (Basics)-HKV-UG - Fashion Design (IC)-HKV".equals(input)){
+		// 	return("Garment Manufacturing (Basics)-HKV-UG - Fashion Design (IC)-HKV");
+		// }
+		// if("2022-23-PGDM-Core-Sem-3".equals(input)){
+		// 	return("PGDM");
+		// }
+		// if("Managerial Economics - A".equals(input)){
+		// 	return("Managerial Economics");
+		// }
+		// if("GARMENT MANUFACTURING (BASICS)-HKV-UG - FASHION DESIGN (IC)-HKV".equals(input)){
+		// 	return("Garment Manufacturing (Basics)-HKV-UG - Fashion Design (IC)-HKV");
+		// }
 
 		StringBuffer sb = new StringBuffer(input);
 		// sb.deleteCharAt(sb.length() - 1);
