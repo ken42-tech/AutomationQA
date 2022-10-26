@@ -80,10 +80,10 @@ public class Pfs_resource {
 			System.out.println("TC-40:  SpreadSheet resource Create View delete Test case Started");
 			
 			resourceFacultyInitialSteps(faculty, url, driver);
-			String returnArray[] = new String[2];
-            returnArray = Utils.getClassSubjectAndSection(driver, url);
-			 String program = returnArray[0];
-			 String converted = returnArray[1];
+			// String returnArray[] = new String[2];
+            // returnArray = Utils.getClassSubjectAndSection(driver, url);
+			//  String program = returnArray[0];
+			//  String converted = returnArray[1];
 			Utils.clickXpath(driver, ActionXpath.facccres, time, "facccres");
 			Utils.clickXpath(driver, ActionXpath.facssclick, time, "facssclick");
 			resourceSubmitForm(faculty, url, driver);
