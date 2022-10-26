@@ -324,7 +324,7 @@ public class Utils {
 		return false;
 	}
 	public static Boolean skipsubject(String url) {
-		String urlToMatch = "esscisamsung";
+		String urlToMatch = "esscisamsung|nsom|demo";
 		Pattern pt = Pattern.compile(urlToMatch);
 		Matcher m = pt.matcher(url);
 		while (m.find()) {
@@ -354,6 +354,16 @@ public class Utils {
 	@Test
 	public static Boolean checknewlogin(String url){
 		String urlToMatch = "dev|jdinstitutedelhi|nsom|bimtech";
+		Pattern pt = Pattern.compile(urlToMatch);
+		Matcher m = pt.matcher(url);
+		while (m.find()) {
+			return true;
+		}
+		return false;
+	}
+	@Test
+	public static Boolean checksubject(String url){
+		String urlToMatch = "nsom";
 		Pattern pt = Pattern.compile(urlToMatch);
 		Matcher m = pt.matcher(url);
 		while (m.find()) {
@@ -419,7 +429,7 @@ public class Utils {
 
 	@Test
 	public static Boolean checkifcourseissubject(String url){
-		String urlToMatch = "portal-demo";
+		String urlToMatch = "portal-demo|nsom|esscisamsung";
 		Pattern pt = Pattern.compile(urlToMatch);
         Matcher m = pt.matcher(url);
         while (m.find()) {
@@ -499,6 +509,12 @@ public class Utils {
 		if ("MACHINE LEARNING CONCEPTS - AI".equals(input)){
 			return ("Machine Learning Concepts - AI");
 		}
+		if ("Artificial Intelligence - A".equals(input)){
+			return ("Artificial Intelligence");
+		}
+		if ("2022-Artificial Intelligence-Term 1".equals(input)){
+			return ("Artificial Intelligence");
+		}
 		if ("ENGLISH-CLASS 6-ICSE".equals(input)){
 			return ("English-Class 6-ICSE");
 		}
@@ -519,6 +535,12 @@ public class Utils {
 		}
 		if("Garment Manufacturing (Basics)-HKV-UG - Fashion Design (IC)-HKV".equals(input)){
 			return("Garment Manufacturing (Basics)-HKV-UG - Fashion Design (IC)-HKV");
+		}
+		if("2022-23-PGDM-Core-Sem-3".equals(input)){
+			return("PGDM");
+		}
+		if("Managerial Economics - A".equals(input)){
+			return("Managerial Economics");
 		}
 
 		StringBuffer sb = new StringBuffer(input);
