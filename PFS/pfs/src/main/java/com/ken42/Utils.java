@@ -7,6 +7,9 @@ import java.util.NoSuchElementException;
 import java.util.Random;
 import java.util.logging.*;
 import java.util.regex.*;
+
+import javax.mail.Quota.Resource;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -610,46 +613,54 @@ public class Utils {
 	}
 
 	@Test
-	public static String[]  getClassSubjectAndSection(WebDriver driver,String url) throws Exception{
+	public static String[]  getClassSubjectAndSection(WebDriver driver,String url,String type) throws Exception{
 		
 		try {
 			String subject;
-			String[]  ProgSubj = new String [2];
-			Utils.clickXpath(driver, ActionXpath.program, time, "click on program");
-			Utils.clickXpath(driver, ActionXpath.programselect, time, "click on program select");
-			String programconverted = Utils.getTEXT(driver,"(//*[. and @aria-haspopup='listbox'])[1]");
-			
-
-			String program = convertContent(programconverted);
-			ProgSubj[0] = program;
-			System.out.println("Text program is : " + ProgSubj[0]);
-			
-			
-			if(Utils.checkifcourseissubject(url))
-			{
-				
+			String program=null;
+				String[]  ProgSubj = new String [2];
+				Utils.clickXpath(driver, ActionXpath.program, time, "click on program");
+				Utils.clickXpath(driver, ActionXpath.programselect, time, "click on program select");
+				String programconverted = Utils.getTEXT(driver,"(//*[. and @aria-haspopup='listbox'])[1]");
 				Utils.clickXpath(driver, ActionXpath.course, time, "click on subject");
-				subject = Utils.getTEXT(driver, "(//li[@data-value])[1]");
 				Utils.clickXpath(driver, ActionXpath.courseselect, time, "click on select subject"); 
-			
+				subject = Utils.getTEXT(driver, "(//*[. and @aria-haspopup='listbox'])[2]");
+				
+			if(type.equals("activity"))
+			{
+				program = convertContent(programconverted);
+				ProgSubj[0] = program;
+				System.out.println("Text program is : " + ProgSubj[0]);
+				if(Utils.checkifcourseissubject(url))
+				{
+					Utils.clickXpath(driver, ActionXpath.course, time, "click on subject");
+					subject = Utils.getTEXT(driver, "(//li[@data-value])[1]");
+					Utils.clickXpath(driver, ActionXpath.courseselect, time, "click on select subject"); 
 				}
-			else{
-				Utils.clickXpath(driver, ActionXpath.subjectclick, time, "click on subject");
-				 subject = Utils.getTEXT(driver, "(//*[@class='MuiTab-wrapper']//p)[1]");
-			}
-		
-			
+				else{
+					Utils.clickXpath(driver, ActionXpath.subjectclick, time, "click on subject");
+				 	subject = Utils.getTEXT(driver, "(//*[@class='MuiTab-wrapper']//p)[1]");
+				}
 				String converted = convertContent(subject);
-				ProgSubj[1] = converted;
+				ProgSubj[0] = converted;
 				System.out.println("Conveted string is: "+converted);
 				return (ProgSubj);
-			
+			}
+			else if(type.equals("resource"))
+			{
+				ProgSubj[0] = programconverted;
+				ProgSubj[1] = subject;
+				return(ProgSubj);
+			}	
+			return(null);
 		} catch (Exception e){
 			Utils.printException(e);
 			System.out.println("Failure in getClassSubjectAndSection function");
 			log.info("Failure in Logout function");
 			throw (e);
 		}
+		
+		
 		
 	}
 }

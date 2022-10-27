@@ -29,7 +29,7 @@ public class Pfs_activity {
 			Utils.clickXpath(driver, ActionXpath.facclickcouserelative, time, "Click on course content");
 			
             String returnArray[] = new String[2];
-            returnArray = Utils.getClassSubjectAndSection(driver, url);
+            returnArray = Utils.getClassSubjectAndSection(driver, url,"activity");
 			 String program = returnArray[0];
 			 String converted = returnArray[1];
             
@@ -333,7 +333,7 @@ public class Pfs_activity {
     if(Utils.skipsubject(url)){
     }
     else{
-                returnArray = Utils.getClassSubjectAndSection(driver, url);
+                returnArray = Utils.getClassSubjectAndSection(driver, url,"activity");
     }
                 String program = returnArray[0];
                 String converted = returnArray[1];
@@ -458,7 +458,7 @@ public class Pfs_activity {
                 }
                 else{
                     String returnArray[] = new String[2];
-                    returnArray = Utils.getClassSubjectAndSection(driver, url);
+                    returnArray = Utils.getClassSubjectAndSection(driver, url,"activity");
                 }
             Utils.bigSleepBetweenClicks(1);
             Utils.checkAcadAndClick(driver, url);
@@ -680,7 +680,7 @@ public class Pfs_activity {
                 Utils.clickXpath(driver, ActionXpath.relativefacforumclickcouse1, time, "facforumclickcouse");
                 Utils.bigSleepBetweenClicks(1);
     
-                returnArray = Utils.getClassSubjectAndSection(driver, url);
+                returnArray = Utils.getClassSubjectAndSection(driver, url,"activity");
                 String program = returnArray[0];
                 String converted = returnArray[1];
     
