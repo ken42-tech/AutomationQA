@@ -401,7 +401,7 @@ public class Pfs_student {
 		try {
 			System.out.println("TC-16 :     Starting Student SIGNOUT  case execution ");
 			Utils.goBackToHome(driver, url);
-			Utils.clickXpath(driver, ActionXpath.SelectPrtoSignout, time, " on the Profile on the student portal");
+			Utils.clickXpath(driver, ActionXpath.FCCportal, time, " on the Profile on the student portal");
 			Utils.clickXpath(driver, ActionXpath.signOut, time, "Signout the student portal");
 			log.info(" TC-16: Student SIGNOUT Test Case PASSED \n");
 		} catch (Exception e) {

@@ -82,17 +82,10 @@ public class Pfs_resource {
 			System.out.println("TC-40:  SpreadSheet resource Create View delete Test case Started");
 			
 			resourceFacultyInitialSteps(faculty, url, driver);
-
-			String subject;
-			String[]  ProgSubj = new String [2];
-			Utils.clickXpath(driver, ActionXpath.program, time, "click on program");
-			Utils.clickXpath(driver, ActionXpath.programselect, time, "click on program select");
-			String programconverted = Utils.getTEXT(driver,"(//*[. and @aria-haspopup='listbox'])[1]");
-			Utils.clickXpath(driver, ActionXpath.course, time, "click on subject");
-			Utils.clickXpath(driver, ActionXpath.courseselect, time, "click on select subject"); 
-			subject = Utils.getTEXT(driver, "(//*[. and @aria-haspopup='listbox'])[2]");
-				
-
+			// String returnArray[] = new String[2];
+            // returnArray = Utils.getClassSubjectAndSection(driver, url);
+			//  String program = returnArray[0];
+			//  String converted = returnArray[1];
 			Utils.clickXpath(driver, ActionXpath.facccres, time, "facccres");
 			Utils.clickXpath(driver, ActionXpath.facssclick, time, "facssclick");
 			resourceSubmitForm(faculty, url, driver);
@@ -110,10 +103,10 @@ public class Pfs_resource {
 			Utils.checkAcadAndClick(driver, url);
 			Utils.clickXpath(driver, ActionXpath.learn, time, "learn");
 
-			Utils.clickXpath(driver, ActionXpath.program, time, "click on program");
-			driver.findElement(By.xpath("//li[@data-value='" + programconverted + "']")).click();
-			Utils.clickXpath(driver, ActionXpath.subject, time, "click on subject");
-			driver.findElement(By.xpath("//li[text()='" + subject + "']")).click();
+			// Utils.clickXpath(driver, ActionXpath.program, time, "click on program");
+			// driver.findElement(By.xpath("//li[@data-value='" + programconverted + "']")).click();
+			// Utils.clickXpath(driver, ActionXpath.subject, time, "click on subject");
+			// driver.findElement(By.xpath("//li[text()='" + subject + "']")).click();
 
 			Utils.smallSleepBetweenClicks(1);
 
