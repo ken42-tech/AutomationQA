@@ -107,7 +107,6 @@ public class Pfs_portal {
 						break;
 					case 2: 
 						Pfs_student.testStudentEnrollment(PFSurl, driver);	 //TC-2	
-						
 						break;
 					case 3:
 						Pfs_student.testStudentAcademic(PFSurl, driver);  //TC-3
