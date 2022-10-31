@@ -6,8 +6,7 @@ import org.openqa.selenium.WebElement;
 
 import java.util.logging.Logger;
 
-
-
+import org.testng.Reporter;
 import org.testng.annotations.Test;
 public class Pfs_faculty {
     public static Logger log = Logger.getLogger("Pfs_portal");
@@ -18,6 +17,16 @@ public class Pfs_faculty {
 		try {
 			System.out.println("TC-17:  Starting FACULTY PORTAL Academic tab test case executation\n");
 			Utils.goBackToHome(driver, url);
+			Utils.bigSleepBetweenClicks(2);
+			Utils.bigSleepBetweenClicks(2);
+			WebElement l= driver.findElement(By.tagName("body"));
+        	String p = l.getText();
+			if (p.contains("Students") && p.contains("Classes Conducted") 
+			&& p.contains("Assignments") && p.contains("Schedule") && p.contains("MY CLASSES")){
+				log.info(" TC-1: Faculty Home tab test case PASSED \n\n");
+			}else {
+				log.warning(" TC-1: Faculty Home tab test case FAILED it does not contain all the tabs\n\n");
+			}
 			if(Utils.checkLtsta(url))
             {
 				Utils.clickXpath(driver, ActionXpath.facClickacademicsltsta, time, "open the span on Academics");
@@ -33,6 +42,7 @@ public class Pfs_faculty {
 			Utils.clickXpath(driver, ActionXpath.facdbrestypes, time, "click Type to open span");
 			
 			log.info("TC-17: Faculty ACADEMIC Test case PASSED \n");
+			Reporter.log("Tc-17:Faculty ACADEMIC TEST CASE PASSED");
 		} catch (Exception e) {
 			Utils.printException(e);
 			driver.get(url);
