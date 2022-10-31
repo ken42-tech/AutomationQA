@@ -29,9 +29,9 @@ public class Pfs_portal {
 	static int time = 1000;
 	public static Logger log = Logger.getLogger("Pfs_portal");
 	
-	
 
 	public static void main(String[] args) throws Exception {
+<<<<<<< HEAD
 		InputStream folderPath = Pfs_portal.class.getResourceAsStream("folder.csv");
 		System.out.println("********Folder:");
 		String folder= "C:\\Users\\Public\\Documents";
@@ -44,6 +44,10 @@ public class Pfs_portal {
 		
 		System.out.println("********Folder:"+folder);
 
+=======
+		String folder = "";
+		folder = getFolderPath();
+>>>>>>> 92e47eb17cc91e317bf95f32171348f9b8d32687
 		String CSV_PATH = "";
 		String logFileName = "";
 		boolean append = false;
@@ -356,19 +360,14 @@ public class Pfs_portal {
 
 	@BeforeSuite
 	public static void initDriver(String Browser, String url) throws Exception {
-		String ChromeDriver = "";
-		String EdgeDriver =  "";
-		String FirefoxDriver = "";
-		if(Utils.checkWindowsOs()){
-			ChromeDriver = "C:\\Users\\Public\\Documents\\chromedriver.exe";
-			EdgeDriver = "C:\\Users\\Public\\Documents\\msedgedriver.exe";
-			FirefoxDriver = "C:\\Users\\Public\\Documents\\geckodriver.exe";
-		} else {
-			ChromeDriver = "Users/shared/chromedriver.exe";
-			EdgeDriver = "Users/shared/msedgedriver.exe";
-			FirefoxDriver = "Users/shared/geckodriver.exe";
-		}
+		
+		
 		try {
+			String folder = "";
+			folder = getFolderPath();
+			String ChromeDriver = folder+"\\chromedriver.exe";
+			String EdgeDriver =  folder+"\\msedgedriver.exe";
+			String FirefoxDriver = folder+"\\geckodriver.exe";
 			System.out.println("Browser is ****"+Browser);
 			System.out.println("URL is "+url);
 			if ("chrome".equals(Browser)) {
@@ -408,4 +407,22 @@ public class Pfs_portal {
 		log.info("\n");
 		driver.quit();
 	}
+
+	public static String getFolderPath() throws Exception{
+		try {
+			String folder = "";
+			InputStream folderPath = Pfs_portal.class.getResourceAsStream("folder.csv");
+			CSVReader csvFolderPath = new CSVReader(new InputStreamReader(folderPath, "UTF-8"));
+			String[] csvCell_folder;
+			while ((csvCell_folder = csvFolderPath.readNext()) != null) {
+				folder = csvCell_folder[0];
+			}
+			System.out.println(folder);
+			return folder;			
+		}catch (Exception e){
+			Utils.printException(e);
+		}
+		return null;
+	}
 }
+
