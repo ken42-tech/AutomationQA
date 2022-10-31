@@ -19,6 +19,7 @@ public class Pfs_student {
 	public static void testStudent(String url, WebDriver driver) throws Exception {
 		try {
 			System.out.println(" TC-1:  Student Starting Home tab  case execution");
+			Utils.bigSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.Stu_prName, time, "Click on Login initial");
 			//Check if Attendance, Assessments, Schedule are present in home tab.
 			WebElement l= driver.findElement(By.tagName("body"));
@@ -29,7 +30,6 @@ public class Pfs_student {
 			}else {
 				log.warning(" TC-1: Student Home tab test case FAILED it does not contain all the tabs\n\n");
 			}
-
 		} catch (Exception e) {
 			Utils.printException(e);
 			Utils.goBackToHome(driver, url);
@@ -401,7 +401,7 @@ public class Pfs_student {
 		try {
 			System.out.println("TC-16 :     Starting Student SIGNOUT  case execution ");
 			Utils.goBackToHome(driver, url);
-			Utils.clickXpath(driver, ActionXpath.SelectPrtoSignout, time, " on the Profile on the student portal");
+			Utils.clickXpath(driver, ActionXpath.FCCportal, time, " on the Profile on the student portal");
 			Utils.clickXpath(driver, ActionXpath.signOut, time, "Signout the student portal");
 			log.info(" TC-16: Student SIGNOUT Test Case PASSED \n");
 		} catch (Exception e) {

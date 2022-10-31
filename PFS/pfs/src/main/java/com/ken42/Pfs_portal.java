@@ -1,6 +1,9 @@
 package com.ken42;
 
+import java.io.File;
 import java.io.FileReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -26,23 +29,31 @@ public class Pfs_portal {
 	static int time = 1000;
 	public static Logger log = Logger.getLogger("Pfs_portal");
 	
-	
 
 	public static void main(String[] args) throws Exception {
+<<<<<<< HEAD
+		InputStream folderPath = Pfs_portal.class.getResourceAsStream("folder.csv");
+		System.out.println("********Folder:");
+		String folder= "C:\\Users\\Public\\Documents";
+		CSVReader csvFolderPath = new CSVReader(new InputStreamReader(folderPath, "UTF-8"));
+		String[] csvCell_folder;
+		while ((csvCell_folder = csvFolderPath.readNext()) != null) {
+			folder = csvCell_folder[0];
+		}
+		
+		
+		System.out.println("********Folder:"+folder);
+
+=======
+		String folder = "";
+		folder = getFolderPath();
+>>>>>>> 92e47eb17cc91e317bf95f32171348f9b8d32687
 		String CSV_PATH = "";
 		String logFileName = "";
 		boolean append = false;
 		String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new java.util.Date());
-		
-		if (Utils.checkWindowsOs()){
-			CSV_PATH = "C:\\Users\\Public\\Documents\\pfs.csv";
-			logFileName = String.format("C:\\Users\\Public\\Documents\\Testresult_%s.HTML", timeStamp);
-		} else {
-			CSV_PATH = "/Users/Shared/pfs.csv";
-			logFileName = String.format("/users/Shared/Testresult_%s.HTML", timeStamp);
-		}
-		
-		
+		CSV_PATH = folder+"\\pfs.csv";
+		logFileName = String.format(folder+"\\Testresult_%s.HTML", timeStamp);
 		FileHandler logFile = new FileHandler(logFileName, append);
         logFile.setFormatter(new MyHtmlFormatter());
         log.addHandler(logFile);
@@ -242,64 +253,64 @@ public class Pfs_portal {
 						break;
 					case 45:
 						Pfs_resource.testSpreadsheetFileType(studentEmail, facultyEmail, PFSurl, 
-								Browser, Role, driver); //TC-50
+								Browser, Role, driver); //TC-45
 						break;
 					case 46:
 						Pfs_resource.testPPTFileType(studentEmail, facultyEmail, PFSurl, 
-								Browser, Role, driver); //TC-51
+								Browser, Role, driver); //TC-46
 						break;
 					case 47:
 						Pfs_resource.testPDFFileType(studentEmail, facultyEmail, PFSurl, 
-								Browser, Role, driver); //TC-52
+								Browser, Role, driver); //TC-47
 						break;
 					case 48:
 						Pfs_resource.testVideoFileType(studentEmail, facultyEmail, PFSurl, 
-								Browser, Role, driver); //TC-53
+								Browser, Role, driver); //TC-48
 						break;
 					case 49:
 						Pfs_resource.testFacultyFilterResource(studentEmail, facultyEmail, PFSurl, 
-								Browser, Role, driver); //TC-56
+								Browser, Role, driver); //TC-49
 						break;
 					case 50:
 						Pfs_resource.testFacultyFilterPDFResource(studentEmail, facultyEmail, PFSurl, 
-								Browser, Role, driver); //TC-57
+								Browser, Role, driver); //TC-50
 						break;
 					case 51:
 						Pfs_resource.testFacultyFilterVideoResource(studentEmail, facultyEmail, PFSurl, 
-								Browser, Role, driver); //TC-58
+								Browser, Role, driver); //TC-51
 						break;
 					case 52:
 						Pfs_resource.testFacultyFilterLinksResource(studentEmail, facultyEmail, PFSurl, 
-								Browser, Role, driver); //TC-59
+								Browser, Role, driver); //TC-52
 						break;
 					
 					case 53:
 						Pfs_activity.testAssessmentCreatePublishViewDelete(studentEmail, facultyEmail, 
-							PFSurl, Browser, Role, driver); //TC-45
+							PFSurl, Browser, Role, driver); //TC-53
 						break;
 					case 54:
 						Pfs_activity.testFAssignmentCreatePublishViewDelete(studentEmail, facultyEmail, 
-						PFSurl, Browser, Role, driver); //TC-46
+						PFSurl, Browser, Role, driver); //TC-54
 						break;
 					case 55:
 						Pfs_activity.testForumCreatePublishViewDelete(studentEmail, facultyEmail, 
-							PFSurl, Browser, Role, driver); //TC-47
+							PFSurl, Browser, Role, driver); //TC-55
 						break;
 					case 56:
 							Pfs_activity.testFAssignmentCreatePublishsubmissionfileuploadchecking(studentEmail, facultyEmail, 
-								PFSurl, Browser, Role, driver); //TC-48
+								PFSurl, Browser, Role, driver); //TC-56
 							break;
 					case 57:
 							Pfs_activity.testFAssignmentCreatePublishsubmissiongradecheck(studentEmail, facultyEmail, 
-								PFSurl, Browser, Role, driver); //TC-49
+								PFSurl, Browser, Role, driver); //TC-57
 							break;
 					case 58:
 							Pfs_activity.testassesmentAttemptview(studentEmail, facultyEmail, 
-									PFSurl, Browser, Role, driver);//TC-54
+									PFSurl, Browser, Role, driver);//TC-58
 							break;
 					case 59:
 							Pfs_activity.testForumCreatePublishViewDeleteDecission(studentEmail, facultyEmail, 
-									PFSurl, Browser, Role, driver);//TC-55
+									PFSurl, Browser, Role, driver);//TC-59
 							break;
 					case 60:
 							Pfs_activity.testFilterActivityAssignment(studentEmail, facultyEmail, PFSurl, 
@@ -322,7 +333,7 @@ public class Pfs_portal {
 									Browser, Role, driver); //TC-64
 							break;
 					case 65:
-							Pfs_activity.testassesmenteditview(studentEmail, facultyEmail, PFSurl, 
+							Pfs_activity.testassesmenteditdelete(studentEmail, facultyEmail, PFSurl, 
 									Browser, Role, driver); //TC-65
 							break;
 					case 66:
@@ -349,23 +360,14 @@ public class Pfs_portal {
 
 	@BeforeSuite
 	public static void initDriver(String Browser, String url) throws Exception {
-		String ChromeDriver = "";
-		String EdgeDriver =  "";
-		String FirefoxDriver = "";
-		if(Utils.checkWindowsOs()){
-			ChromeDriver = "C:\\Users\\Public\\Documents\\chromedriver.exe";
-			EdgeDriver = "C:\\Users\\Public\\Documents\\msedgedriver.exe";
-			FirefoxDriver = "C:\\Users\\Public\\Documents\\geckodriver.exe";
-		} else {
-			ChromeDriver = "Users/shared/chromedriver.exe";
-			EdgeDriver = "Users/shared/msedgedriver.exe";
-			FirefoxDriver = "Users/shared/geckodriver.exe";
-		}
 		
-
-		System.out.println("Browser is "+Browser);
-			System.out.println("URL is "+url);
+		
 		try {
+			String folder = "";
+			folder = getFolderPath();
+			String ChromeDriver = folder+"\\chromedriver.exe";
+			String EdgeDriver =  folder+"\\msedgedriver.exe";
+			String FirefoxDriver = folder+"\\geckodriver.exe";
 			System.out.println("Browser is ****"+Browser);
 			System.out.println("URL is "+url);
 			if ("chrome".equals(Browser)) {
@@ -393,6 +395,7 @@ public class Pfs_portal {
 			driver.get(url);
 			driver.manage().window().maximize();
 		} catch (Exception e) {
+			Utils.printException(e);
 			log.warning("UNABLE TO LAUNCH BROWSER \n\n\n");
 			System.exit(01);
 		}
@@ -404,4 +407,22 @@ public class Pfs_portal {
 		log.info("\n");
 		driver.quit();
 	}
+
+	public static String getFolderPath() throws Exception{
+		try {
+			String folder = "";
+			InputStream folderPath = Pfs_portal.class.getResourceAsStream("folder.csv");
+			CSVReader csvFolderPath = new CSVReader(new InputStreamReader(folderPath, "UTF-8"));
+			String[] csvCell_folder;
+			while ((csvCell_folder = csvFolderPath.readNext()) != null) {
+				folder = csvCell_folder[0];
+			}
+			System.out.println(folder);
+			return folder;			
+		}catch (Exception e){
+			Utils.printException(e);
+		}
+		return null;
+	}
 }
+

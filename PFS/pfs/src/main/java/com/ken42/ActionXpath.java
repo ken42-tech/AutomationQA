@@ -256,7 +256,7 @@ static String facClickTimetableltsta="//span[text()='Timetable']";
 static String facServicespfsbmtnsom = "(//span[. and text()='Master Trainer Services' or text()='Support Services' or text()='Faculty Services'])[2]/../../..//*[local-name()='svg']";
 static String facServicesltsta = "(//span[. and text()='Master Trainer Services'])[1]";
 static String FacRaisecasedevbmtech = "//span[text()='Raise a Case']";
-static String FacRaisebutton = "//button[@label='Raise Case' or text()='Raise Case'] ";
+static String FacRaisebutton = "//button[@label='Raise Case' or text()='Raise a Case'] ";
 static String facCancelSer = "//span[text()='Cancel']";
 static String facMakedevNsom = "//p[text()='Make A Request']";
 static String facMakeRButtondevNsome = "//p[text()='Make A Request']";
@@ -502,7 +502,7 @@ static String facpdfdelete="//span[text()='Delete']";
 static String facpdfdelete2="//span[text()='Delete']";
 static String logout="//*[@id=\"menu-appbar\"]/div[3]/ul/li[2]";
 ////////////
-static String FCCportal="//*[text()='T']";
+static String FCCportal="//*[text()='T'] | //*[text()='A'] | //*[text()='I'] | //*[text()='S'] ";
 //TC-41 PPT Xpath Completed
    	
    	
@@ -714,6 +714,7 @@ static String assignfacpublishrelative = "//span[.='Publish']";
 static String assignfacpublish1relative = "//span[.='Publish']";
 static String assignfacclickonp1relative = "(//div[.='T'])[2]";
 static String assignfacconsignout1relative = "(//li[@role='menuitem'])[2]";
+static String assignedit="(//span[.='Edit'])[1]";
 //// ................. ..student assignment view relative xpath................................////
 static String assignacadmicsltstastudentrelative = "//span[.='Academics']";
 static String assignlearnltstastudentrelative = "//span[.='Learn']";
@@ -797,7 +798,7 @@ static String clickondot="(//*[@class='tox-tbtn' and @title='More...'])[2]";
 
 //////////////////////////////....................testcase50......................./////////////
 static String clickongradething="//input[@name='marks']";
-
+static String reviewassign="(//span[. and text()='Review'])[1]/../..//*[local-name()='svg']/../..";
 //56
 static String relativefacFormeDiscussion="//span[.='Discussions']";
 static String relativeFacformeCreateNewDiscussion="//span[text()='Create New discussion']";
@@ -813,6 +814,8 @@ static String faccPPTOPen="(//*[. and contains(text(), 'Resource Type')]/../../.
 //ltsta xpath
 
 //57,58,59
+static String assignsearch="(//*[@aria-label='search'])";
+static String assigngrade="(//*[text()='Grade'])[1]";
 static String faccPDFCheckBox="//input[@name='Pdf' and @type='checkbox']/..";
 static String faccVideoCheckBox="//input[@name='Video' and @type='checkbox']/..";
 static String faccLinksCheckBox="//input[@name='Links' and @type='checkbox']/..";
@@ -832,4 +835,6 @@ static String facfourmattachementset2="//*[text()='2' and @role='option' ]";
 
 //66
 static String assesmentdashboard="//*[text()=' to Dashboard']";
+
+
 }
