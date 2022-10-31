@@ -68,16 +68,13 @@ public class Pfs_resource {
         String Browser, String Role, WebDriver driver) throws Exception {
 		try {
 			String SpreadSheetFile = "";
+			String folder = "";
+			folder = Pfs_portal.getFolderPath();
 			if (Utils.checkBimtech(url)){
 				log.info("TC-40 Spreadsheet is not supported on this portal");
 				return;
 			}
-			if (Utils.checkWindowsOs()){
-				SpreadSheetFile = "C:\\Users\\Public\\Documents\\demo.xlsx";
-			}
-			else {
-				SpreadSheetFile = "/Users/Shared/demo.xlsx";
-			}
+			SpreadSheetFile = folder+"\\demo.xlsx";
 			
 			System.out.println("TC-40:  SpreadSheet resource Create View delete Test case Started");
 			
