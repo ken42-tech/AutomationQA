@@ -33,13 +33,16 @@ public class Pfs_portal {
 
 	public static void main(String[] args) throws Exception {
 		InputStream folderPath = Pfs_portal.class.getResourceAsStream("folder.csv");
-		String folder= "";
+		System.out.println("********Folder:");
+		String folder= "C:\\Users\\Public\\Documents";
 		CSVReader csvFolderPath = new CSVReader(new InputStreamReader(folderPath, "UTF-8"));
 		String[] csvCell_folder;
 		while ((csvCell_folder = csvFolderPath.readNext()) != null) {
 			folder = csvCell_folder[0];
 		}
-		System.out.println(folder);
+		
+		
+		System.out.println("********Folder:"+folder);
 
 		String CSV_PATH = "";
 		String logFileName = "";

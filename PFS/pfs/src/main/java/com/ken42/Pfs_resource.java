@@ -67,6 +67,7 @@ public class Pfs_resource {
 	public static void testSpreadsheetCreateViewDelete(String student, String faculty, String url, 
         String Browser, String Role, WebDriver driver) throws Exception {
 		try {
+			
 			String SpreadSheetFile = "";
 			if (Utils.checkBimtech(url)){
 				log.info("TC-40 Spreadsheet is not supported on this portal");
@@ -100,6 +101,8 @@ public class Pfs_resource {
 			Utils.clickXpath(driver, ActionXpath.facssopen, time, "Click on SS SVG");
 			resourcePublishAndLogout(faculty, url, driver, fileName, Role);
 
+
+			
 			//Student part starts
 			Utils.login(driver, student,url);
 			Utils.checkAcadAndClick(driver, url);

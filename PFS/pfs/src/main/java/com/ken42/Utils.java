@@ -498,7 +498,10 @@ public class Utils {
 	
 	
 	@Test
-	public static String convertContent(String input) throws CsvValidationException, IOException {
+	public static String[] convertContent(String input) throws CsvValidationException, IOException {
+		String returnarray[]=new String[2];
+		String Output1;
+		String Output2;
 		String CSV_PATH = "C:\\Users\\Public\\Documents\\programSubject.csv";
         CSVReader csvReader;
         int count =0;
@@ -512,84 +515,41 @@ public class Utils {
                 continue;
             }
             if(input.equals(csvCell[0])){
-                System.out.println("Output is  ******"+csvCell[1]);
-				return(csvCell[1]);
+				returnarray[0]=csvCell[1];
+				returnarray[1]=csvCell[2];
+				Output1=csvCell[1];
+				Output2=csvCell[2];
+
+                System.out.println("Output is1  ******"+Output1);
+				System.out.println("Output is2 ******"+Output2);
+				return(returnarray);
             }
+			
         }
-		// delete a last char
-		// if ("DESIGN TECHNOLOGY-D-FD".equals(input)){
-		// 	return ("Design Technology-D-FD");
-		// }
-		// if ("SALES & DISTRIBUTION MANAGEMENT-20-22-RETAIL MANAGEMENT".equals(input)){
-		// 	return ("Sales & Distribution Management-20-22-Retail Management");
-		// }
-		// if ("BCA-OBJECT ORIENTED PROGRAMMING".equals(input)){
-		// 	return ("BCA-Object Oriented Programming");
-		// }
-		// if ("ENGLISH - CLASS 8".equals(input)){
-		// 	return ("English - Class 8");
-		// }
-		// if ("MACHINE LEARNING CONCEPTS - AI".equals(input)){
-		// 	return ("Machine Learning Concepts - AI");
-		// }
-		// if ("Artificial Intelligence - A".equals(input)){
-		// 	return ("Artificial Intelligence");
-		// }
-		// if ("2022-Artificial Intelligence-Term 1".equals(input)){
-		// 	return ("Artificial Intelligence");
-		// }
-		// if ("ENGLISH-CLASS 6-ICSE".equals(input)){
-		// 	return ("English-Class 6-ICSE");
-		// }
-		// if ("Bachelor's in Computer Application".equals(input)){
-		// 	return ("Bachelor's in Computer Application");
-		// }
-		// if("2022-Class 6-ICSE".equals(input)){
-		// 	return("Class 6 - ICSE");
-		// }
-		// if("Maths-Class 6-ICSE - A".equals(input)){
-		// 	return("Maths-Class 6-ICSE");
-		// }
-		// if("PGDM".equals(input)){
-		// 	return("PGDM");
-		// }
-		// if("UG - Fashion Design (IC)-HKV".equals(input)){
-		// 	return("UG - Fashion Design (IC)-HKV");
-		// }
-		// if("Garment Manufacturing (Basics)-HKV-UG - Fashion Design (IC)-HKV".equals(input)){
-		// 	return("Garment Manufacturing (Basics)-HKV-UG - Fashion Design (IC)-HKV");
-		// }
-		// if("2022-23-PGDM-Core-Sem-3".equals(input)){
-		// 	return("PGDM");
-		// }
-		// if("Managerial Economics - A".equals(input)){
-		// 	return("Managerial Economics");
-		// }
-		// if("GARMENT MANUFACTURING (BASICS)-HKV-UG - FASHION DESIGN (IC)-HKV".equals(input)){
-		// 	return("Garment Manufacturing (Basics)-HKV-UG - Fashion Design (IC)-HKV");
-		// }
+		return(null);
+		
 
-		StringBuffer sb = new StringBuffer(input);
-		// sb.deleteCharAt(sb.length() - 1);
+// 		StringBuffer sb = new StringBuffer(input);
+// 		// sb.deleteCharAt(sb.length() - 1);
 
-		String tri = sb.toString();
-		String tr = tri.trim();
-		String msg = tr.toLowerCase();
-//		     System.out.println(msg);
+// 		String tri = sb.toString();
+// 		String tr = tri.trim();
+// 		String msg = tr.toLowerCase();
+// //		     System.out.println(msg);
 
-		char[] charArray = msg.toCharArray();
-		boolean foundSpace = true;
-		for (int i = 0; i < charArray.length; i++) {
-			if (Character.isLetter(charArray[i])) {
-				if (foundSpace) {
-					charArray[i] = Character.toUpperCase(charArray[i]);
-					foundSpace = false;
-				}
-			} else {
-				foundSpace = true;
-			}
-		}
-		 return tr = String.valueOf(charArray);
+// 		char[] charArray = msg.toCharArray();
+// 		boolean foundSpace = true;
+// 		for (int i = 0; i < charArray.length; i++) {
+// 			if (Character.isLetter(charArray[i])) {
+// 				if (foundSpace) {
+// 					charArray[i] = Character.toUpperCase(charArray[i]);
+// 					foundSpace = false;
+// 				}
+// 			} else {
+// 				foundSpace = true;
+// 			}
+// 		}
+// 		 return tr = String.valueOf(charArray);
 
 	}
 
@@ -616,21 +576,31 @@ public class Utils {
 	public static String[]  getClassSubjectAndSection(WebDriver driver,String url,String type) throws Exception{
 		
 		try {
-			String subject;
-			String program=null;
-				String[]  ProgSubj = new String [2];
+			String program,subject;
+			String subject1,subject2;
+			String program1,program2;
+			String[] programconverted;
+				String[]  ProgSubj = new String [4];
 				Utils.clickXpath(driver, ActionXpath.program, time, "click on program");
 				Utils.clickXpath(driver, ActionXpath.programselect, time, "click on program select");
-				String programconverted = Utils.getTEXT(driver,"(//*[. and @aria-haspopup='listbox'])[1]");
+				 program = Utils.getTEXT(driver,"(//*[. and @aria-haspopup='listbox'])[1]");
 				Utils.clickXpath(driver, ActionXpath.course, time, "click on subject");
 				Utils.clickXpath(driver, ActionXpath.courseselect, time, "click on select subject"); 
 				subject = Utils.getTEXT(driver, "(//*[. and @aria-haspopup='listbox'])[2]");
 				
+				System.out.println("program string is: "+program);
+				System.out.println("subject string is: "+subject);
 			if(type.equals("activity"))
 			{
-				program = convertContent(programconverted);
-				ProgSubj[0] = program;
-				System.out.println("Text program is : " + ProgSubj[0]);
+				programconverted = convertContent(program);
+				program1 = programconverted[0];
+				program2 = programconverted[1];
+
+				
+				System.out.println("Text program1 is : " + program1);
+				System.out.println("Text program2 is : " + program2);
+
+				
 				if(Utils.checkifcourseissubject(url))
 				{
 					Utils.clickXpath(driver, ActionXpath.course, time, "click on subject");
@@ -638,21 +608,38 @@ public class Utils {
 					Utils.clickXpath(driver, ActionXpath.courseselect, time, "click on select subject"); 
 				}
 				else{
+					
+				
 					Utils.clickXpath(driver, ActionXpath.subjectclick, time, "click on subject");
 				 	subject = Utils.getTEXT(driver, "(//*[@class='MuiTab-wrapper']//p)[1]");
 				}
-				String converted = convertContent(subject);
-				ProgSubj[0] = converted;
-				System.out.println("Conveted string is: "+converted);
+				String[] Subjectconvented = convertContent(subject);
+				subject1 = Subjectconvented[0];
+				subject2 = Subjectconvented[1];
+
+				System.out.println("Text subject1 is : " + subject1);
+				System.out.println("Text subject2 is : " + subject2);
+
+				ProgSubj[0] = program1;
+				ProgSubj[2] = program2;
+				ProgSubj[1] = subject1;
+				ProgSubj[3] = subject2;
+				
 				return (ProgSubj);
 			}
 			else if(type.equals("resource"))
 			{
-				ProgSubj[0] = programconverted;
-				ProgSubj[1] = subject;
+				// ProgSubj[0] = program1;
+				// ProgSubj[1] = subject1;
+				// ProgSubj[2] = program2;
+				// ProgSubj[3] = subject2;
+
 				return(ProgSubj);
 			}	
+
+
 			return(null);
+
 		} catch (Exception e){
 			Utils.printException(e);
 			System.out.println("Failure in getClassSubjectAndSection function");
