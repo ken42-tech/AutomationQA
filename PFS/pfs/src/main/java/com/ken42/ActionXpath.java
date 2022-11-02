@@ -13,7 +13,7 @@ static String submit ="//span[text()='Submit']";
 
 
 
-static String email="//input[@placeholder='Please enter your Email Id']";
+static String email="//input[@placeholder='Please enter your Email Id'] |//input[@placeholder='Email Address']";
 static String requestotp="//span[. ='Request OTP']";
 static String otprequest2="//input[@placeholder='Please enter the OTP sent to your registered Email ID.']";
 static String verifyotp="//span[. and text()='Verify & Sign in']";
@@ -658,6 +658,7 @@ static String attemptquestion="(//*[. and @type='radio'])[1]/../../..";
 static String clickquestiontype="//*[. and text()='Question Type']";
 static String selectmcq="(//*[. and text()='Multiple choice'])[1]";
 static String selectmcq1="(//*[. and text()='Multiple choice'])[3]";
+static String selectmcq2="(//*[. and text()='Multiple choice'])[2]";
 static String submitattempt="//*[. and text()='Submit Attempt']";
 static String submitagainattempt="//*[. and text()='Submit']";
 static String assesmentok="//*[. and text()='OK']";
@@ -710,7 +711,7 @@ static String assignfacokrelative = "//span[.='OK']";
 static String assignexapnd1relative = "//*[. and contains(text(), 'Assignments')]/../../../..//*[local-name()='svg']";
 static String assignfacdot1relative = "";
 static String assignfacpublish="(//span[.='Publish'])[1]";
-static String assignfacDiscussions="(//span[.='Discussions'])";
+static String assignfacDiscussions="(//span[.='Discussions'])[1]";
 static String assignfacpublishrelative = "//span[.='Publish']";
 static String assignfacpublish1relative = "//span[.='Publish']";
 static String assignfacclickonp1relative = "(//div[.='T'])[2]";

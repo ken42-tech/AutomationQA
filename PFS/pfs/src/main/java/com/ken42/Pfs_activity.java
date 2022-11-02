@@ -113,7 +113,7 @@ public class Pfs_activity {
                 Pfs_portal.initDriver(Browser, url);
             }
         }
-        public static String[] assesmentedit(String []returnAssement,
+        public static String[] publishassesmentedit(String []returnAssement,
         String faculty,String url, String Browser, String Role, WebDriver driver)
         throws Exception {
             try{
@@ -143,7 +143,7 @@ public class Pfs_activity {
                 Utils.clickXpath(driver, ActionXpath.facselectrelative2, time, "Select first question");
                 Utils.clickXpath(driver, ActionXpath.facaddselectrelative, time, "Click Add Select");
                 JavascriptExecutor j = (JavascriptExecutor) driver;
-                j.executeScript("window.scrollBy(0,2000)");
+                j.executeScript("window.scrollBy(-100,-100)");
                 Utils.smallSleepBetweenClicks(1);
                 Utils.clickXpath(driver, ActionXpath.preview, time, "Click on preview");
                 Utils.smallSleepBetweenClicks(1);
@@ -158,6 +158,53 @@ public class Pfs_activity {
             }
             return returnAssement;
         }
+
+        public static String[] unpubishassesmentedit(String []returnAssement,
+        String faculty,String url, String Browser, String Role, WebDriver driver)
+        throws Exception {
+            try{
+                String filename=returnAssement[0];
+                // Utils.checkAcadAndClick(driver, url);
+                Utils.clickXpath(driver, ActionXpath.facclickcouserelative, time, "Click on course content");
+                Utils.clickXpathWithScroll(driver, ActionXpath.facultyassessmenstrelativelexpandtodelete, time,
+                        "Click on Assessment SVG");
+                Utils.smallSleepBetweenClicks(1);
+                new WebDriverWait(driver, 25).until(ExpectedConditions.elementToBeClickable(By.xpath("//p[.='"+filename+"']/../../.././..//*[local-name()='svg']"))).click();
+                Utils.bigSleepBetweenClicks(2);
+                WebDriverWait wait35 = new WebDriverWait(driver, 20);
+                
+                WebElement element238 = wait35
+                        .until(ExpectedConditions.elementToBeClickable(By.xpath("//span[.='Edit']")));
+                ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element238);
+                Utils.smallSleepBetweenClicks(1); 
+                //edit
+                Utils.bigSleepBetweenClicks(2);
+               
+                Utils.clickXpath(driver, ActionXpath.fasquestionrelative, time, "Click on question bank ");
+                Utils.smallSleepBetweenClicks(1);
+                Utils.clickXpath(driver, ActionXpath.clickquestiontype, time, "Click on Questiontype ");
+                Utils.clickXpath(driver, ActionXpath.selectmcq2, time, "Click on Multiple choice question ");
+                
+                Utils.bigSleepBetweenClicks(1);
+                Utils.clickXpath(driver, ActionXpath.facselectrelative2, time, "Select first question");
+                Utils.clickXpath(driver, ActionXpath.facaddselectrelative, time, "Click Add Select");
+                JavascriptExecutor j = (JavascriptExecutor) driver;
+                j.executeScript("window.scrollBy(-100,-100)");
+                Utils.smallSleepBetweenClicks(1);
+                Utils.clickXpath(driver, ActionXpath.preview, time, "Click on preview");
+                Utils.smallSleepBetweenClicks(1);
+                Utils.smallSleepBetweenClicks(1);
+
+              
+            }
+            catch (Exception e) {
+                Utils.printException(e);
+                Pfs_portal.quitDriver(url);
+                Pfs_portal.initDriver(Browser, url);
+            }
+            return returnAssement;
+        }
+
 
         public static void assesmentviewstudent(String []returnAssement,
         String Student,String url, String Browser, String Role, WebDriver driver)
@@ -209,7 +256,7 @@ public class Pfs_activity {
                 // Utils.clickXpath(driver, ActionXpath.Studentassessmenstrelativelearn, time, "flearnltsta");
                 // Utils.clickXpath(driver, ActionXpath.Studentassessmenstrelativelexpand, time, "Click on Assesment SVG");
                 // Utils.bigSleepBetweenClicks(1);
-                // new WebDriverWait(driver, 25).until(ExpectedConditions.elementToBeClickable(By.xpath("//p[.='"+fileName+"']/../../.././..//*[local-name()='svg']"))).click();
+                new WebDriverWait(driver, 25).until(ExpectedConditions.elementToBeClickable(By.xpath("//p[.='"+filename+"']/../../.././..//*[local-name()='svg']"))).click();
                 //  Utils.bigSleepBetweenClicks(2);
                        
                 WebDriverWait ele11 = new WebDriverWait(driver, 20);
@@ -770,7 +817,7 @@ public class Pfs_activity {
              String program2 = returnArray[1];
              String subject1 = returnArray[2];
              String subject2 = returnArray[3];
-                returnArray = Utils.getClassSubjectAndSection(driver, url,"activity");
+                // returnArray = Utils.getClassSubjectAndSection(driver, url,"activity");
                 String program = returnArray[0];
                 String converted = returnArray[1];
     
@@ -923,6 +970,12 @@ public class Pfs_activity {
         String url, String Browser, String Role, WebDriver driver)
         throws Exception {
             try{
+                Utils.checkAcadAndClick(driver, url);
+                Utils.clickXpath(driver, ActionXpath.relativefacforumclickcouse1, time, "facforumclickcouse");
+                Utils.bigSleepBetweenClicks(1);
+                Utils.clickXpath(driver, ActionXpath.relativeformexpand1, time, "fourme expand click on arrow SVG");
+                Utils.smallSleepBetweenClicks(1);
+               
                 String filename=returnAssement[0];
             new WebDriverWait(driver, 25).until(ExpectedConditions.elementToBeClickable(By.xpath("//p[.='"+filename+"']/../../..//*[local-name()='svg']"))).click();
             Utils.clickXpathWithJavascript(driver, ActionXpath.assignedit, time, "Edit");
@@ -1356,6 +1409,8 @@ public class Pfs_activity {
             // String Filenameassesment= forumcreate(student, faculty, url, Browser, Role, driver);
             returnAssement= forumcreate(student, faculty, url, Browser, Role, driver);
             returnAssement= forumpublish(returnAssement, faculty, url, Browser, Role, driver);
+            Utils.logout(driver, url, Role);
+			Utils.login(driver, faculty,url);
             // forumpublish(faculty, url, Browser, Role, driver,Filenameassesment);
             returnAssement= forumedit(returnAssement, faculty, url, Browser, Role, driver);
             // forumedit(faculty, url, Browser, Role, driver,Filenameassesment);
@@ -1381,6 +1436,8 @@ public class Pfs_activity {
             Utils.login(driver, faculty,url);
             // String Filenameassesment= forumcreate(student, faculty, url, Browser, Role, driver);
             returnAssement= forumcreate(student, faculty, url, Browser, Role, driver);
+            Utils.logout(driver, url, Role);
+			Utils.login(driver, faculty,url);
             returnAssement= forumedit(returnAssement, faculty, url, Browser, Role, driver);
             // forumedit(faculty, url, Browser, Role, driver,Filenameassesment);
             Utils.logout(driver, url, Role);
@@ -1404,7 +1461,7 @@ public class Pfs_activity {
             System.out.println("TC-65: Assement create ,pubish & delete Test excutaion   started...");
             Utils.login(driver, faculty,url);
             returnAssement= assesmentcreate(student, faculty, url, Browser, Role, driver);
-            returnAssement= assesmentedit(returnAssement, faculty, url, Browser, Role, driver);
+            returnAssement= unpubishassesmentedit(returnAssement, faculty, url, Browser, Role, driver);
             Utils.logout(driver, url, Role); 
             Utils.login(driver, faculty,url);
 			returnAssement=assesmentdelete(returnAssement, faculty, url, Browser, Role, driver);
@@ -1428,7 +1485,7 @@ public class Pfs_activity {
             Utils.login(driver, faculty,url);
             returnAssement= assesmentcreate(student, faculty, url, Browser, Role, driver);
             assesmentpublish(faculty, url, Browser, Role, driver);
-            returnAssement= assesmentedit(returnAssement, faculty, url, Browser, Role, driver);
+            returnAssement= publishassesmentedit(returnAssement, faculty, url, Browser, Role, driver);
             Utils.logout(driver, url, Role);
             Utils.login(driver, faculty,url);
 			returnAssement=assesmentdelete(returnAssement, faculty, url, Browser, Role, driver);
