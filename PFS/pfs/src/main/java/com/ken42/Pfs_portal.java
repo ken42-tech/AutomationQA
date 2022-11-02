@@ -31,23 +31,12 @@ public class Pfs_portal {
 	
 
 	public static void main(String[] args) throws Exception {
-<<<<<<< HEAD
-		InputStream folderPath = Pfs_portal.class.getResourceAsStream("folder.csv");
-		System.out.println("********Folder:");
-		String folder= "C:\\Users\\Public\\Documents";
-		CSVReader csvFolderPath = new CSVReader(new InputStreamReader(folderPath, "UTF-8"));
-		String[] csvCell_folder;
-		while ((csvCell_folder = csvFolderPath.readNext()) != null) {
-			folder = csvCell_folder[0];
-		}
-		
-		
-		System.out.println("********Folder:"+folder);
 
-=======
 		String folder = "";
 		folder = getFolderPath();
->>>>>>> 92e47eb17cc91e317bf95f32171348f9b8d32687
+
+		System.out.println("********Folder:"+folder);
+
 		String CSV_PATH = "";
 		String logFileName = "";
 		boolean append = false;
@@ -392,7 +381,9 @@ public class Pfs_portal {
 				driver = new SafariDriver();
 				driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
 			}
+			System.out.println("********************"+url);
 			driver.get(url);
+			
 			driver.manage().window().maximize();
 		} catch (Exception e) {
 			Utils.printException(e);

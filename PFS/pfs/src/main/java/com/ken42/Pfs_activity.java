@@ -113,15 +113,17 @@ public class Pfs_activity {
                 Pfs_portal.initDriver(Browser, url);
             }
         }
-        public static void assesmentedit(String faculty, 
-        String url, String Browser, String Role, WebDriver driver,String fileName)
+        public static String[] assesmentedit(String []returnAssement,
+        String faculty,String url, String Browser, String Role, WebDriver driver)
         throws Exception {
             try{
+                String filename=returnAssement[0];
+                // Utils.checkAcadAndClick(driver, url);
                 Utils.clickXpath(driver, ActionXpath.facclickcouserelative, time, "Click on course content");
                 Utils.clickXpathWithScroll(driver, ActionXpath.facultyassessmenstrelativelexpandtodelete, time,
                         "Click on Assessment SVG");
                 Utils.smallSleepBetweenClicks(1);
-                new WebDriverWait(driver, 25).until(ExpectedConditions.elementToBeClickable(By.xpath("//p[.='"+fileName+"']/../../.././..//*[local-name()='svg']"))).click();
+                new WebDriverWait(driver, 25).until(ExpectedConditions.elementToBeClickable(By.xpath("//p[.='"+filename+"']/../../.././..//*[local-name()='svg']"))).click();
                 Utils.bigSleepBetweenClicks(2);
                 WebDriverWait wait35 = new WebDriverWait(driver, 20);
                 
@@ -144,7 +146,7 @@ public class Pfs_activity {
                 Utils.clickXpath(driver, ActionXpath.preview, time, "Click on preview");
                 Utils.smallSleepBetweenClicks(1);
                 Utils.smallSleepBetweenClicks(1);
-               
+
               
             }
             catch (Exception e) {
@@ -152,6 +154,7 @@ public class Pfs_activity {
                 Pfs_portal.quitDriver(url);
                 Pfs_portal.initDriver(Browser, url);
             }
+            return returnAssement;
         }
 
         public static void assesmentviewstudent(String []returnAssement,
@@ -207,10 +210,10 @@ public class Pfs_activity {
                 // new WebDriverWait(driver, 25).until(ExpectedConditions.elementToBeClickable(By.xpath("//p[.='"+fileName+"']/../../.././..//*[local-name()='svg']"))).click();
                 //  Utils.bigSleepBetweenClicks(2);
                        
-                // WebDriverWait ele11 = new WebDriverWait(driver, 20);
-                // WebElement elem1 = ele11
-                //         .until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[.='Attempt Now'])[1]")));
-                // ((JavascriptExecutor) driver).executeScript("arguments[0].click();", elem1);
+                WebDriverWait ele11 = new WebDriverWait(driver, 20);
+                WebElement elem1 = ele11
+                        .until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[.='Attempt Now'])[1]")));
+                ((JavascriptExecutor) driver).executeScript("arguments[0].click();", elem1);
               Utils.bigSleepBetweenClicks(1);
                 
                 
@@ -334,16 +337,17 @@ public class Pfs_activity {
             }
         }
 
-        public static void assesmentdelete(String faculty, 
-        String url, String Browser, String Role, WebDriver driver,String fileName)
+        public static String[] assesmentdelete(String []returnAssement,
+        String faculty,String url, String Browser, String Role, WebDriver driver)
         throws Exception {
             try{
+                String filename=returnAssement[0];
             Utils.bigSleepBetweenClicks(1);
 			Utils.checkAcadAndClick(driver, url);
 			Utils.clickXpath(driver, ActionXpath.facclickcouserelativedelete, time, "Click on course content");
 			Utils.clickXpath(driver, ActionXpath.facultyassessmenstrelativelexpandtodelete, time,
 					"Click on Assessment SVG");
-			Utils.clickXpath(driver, "//p[.='"+fileName+"']/../../.././..//*[local-name()='svg']", time, "Click on fileName");
+			Utils.clickXpath(driver, "//p[.='"+filename+"']/../../.././..//*[local-name()='svg']", time, "Click on fileName");
 			Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpathWithJavascript(driver, ActionXpath. fsubltstadeleterelativedelete, time, "Delete button ");
 			Utils.clickXpath(driver, ActionXpath.fsubltstadelete1relativedelete2, time, " Delete Assessment 2");
@@ -354,20 +358,28 @@ public class Pfs_activity {
 			Pfs_portal.quitDriver(url);
 			Pfs_portal.initDriver(Browser, url);
 		}
+            return returnAssement;
         }
         
-        public static String assignmentcreate(String student, String faculty, 
-    String url, String Browser, String Role, WebDriver driver)
+        public static String[] assignmentcreate(String student, String faculty, 
+        String url, String Browser, String Role, WebDriver driver)
 			throws Exception {
             try{
 
-                
-                String returnArray[] = new String[2];
-                Utils.smallSleepBetweenClicks(1);
-                Utils.checkAcadAndClick(driver, url);
+               
+            Utils.checkAcadAndClick(driver, url);
                 Utils.smallSleepBetweenClicks(1);
                 Utils.clickXpath(driver, ActionXpath.assignfacclickcouse1relative, time, "Click on course content");
-    if(Utils.skipsubject(url)){
+                String returnAssement[] = new String[5];
+                String returnArray[] = new String[4];
+                returnArray = Utils.getClassSubjectAndSection(driver, url,"activity");
+             String program1 = returnArray[0];
+             String program2 = returnArray[1];
+             String subject1 = returnArray[2];
+             String subject2 = returnArray[3];
+                
+                Utils.smallSleepBetweenClicks(1);
+                 if(Utils.skipsubject(url)){
     }
     else{
                 returnArray = Utils.getClassSubjectAndSection(driver, url,"activity");
@@ -384,18 +396,19 @@ public class Pfs_activity {
                 Utils.smallSleepBetweenClicks(1);
                 Utils.callSendkeys(driver, ActionXpath.assignfacassignmentNamerelative, fileName, time);
                 Utils.smallSleepBetweenClicks(1);
-                Utils.clickXpath(driver, ActionXpath.program, time, "click on program");
-                driver.findElement(By.xpath("//li[@data-value='" + program + "']")).click();
                 if(Utils.skipsubject(url)){
-                    System.out.println("The subject is not avialble in essci samsung");
+                    System.out.println("Subject is not avilable in essci");
                 }
                 else{
+                Utils.clickXpath(driver, ActionXpath.program, time, "click on program");
+                driver.findElement(By.xpath("//li[@data-value='" + program1 + "']")).click();
                 
                 Utils.clickXpath(driver, ActionXpath.subject, time, "click on subject");
-                driver.findElement(By.xpath("//li[@data-value='" + converted + "']")).click();
-                Utils.smallSleepBetweenClicks(1);
+                driver.findElement(By.xpath("//li[@data-value='" + subject1 + "']")).click();
                 }
-    
+                Utils.smallSleepBetweenClicks(1);
+                System.out.println("program1 is:"+program1);
+                System.out.println("Subject1 is:"+subject1);
                 Utils.clickXpath(driver, ActionXpath.facinstruction3dot, time, "facinstruction3dot");
                 Utils.clickXpath(driver, ActionXpath.assignfaclinkrelative, time, "faclink");
                 Utils.callSendkeys(driver, ActionXpath.assignfacurlrelative, "https://portal-dev.ken42.com/", time);
@@ -405,7 +418,7 @@ public class Pfs_activity {
                 Utils.clickXpath(driver, ActionXpath.assignfacsaverelative, time, " facsave");
                 // Utils.smallSleepBetweenClicks(1);
                 // Utils.cleartext(driver, ActionXpath.assignfactotalmarksrelative);
-                Utils.callSendkeys(driver, ActionXpath.assignfactotalmarksrelative, "9", time);
+                Utils.callSendkeys(driver, ActionXpath.assignfactotalmarksrelative, "100", time);
                 WebElement el = driver.findElement(By.xpath("//input[@name='gradetopass']"));
                 el.clear();
                 el.sendKeys("9");
@@ -424,7 +437,13 @@ public class Pfs_activity {
                 Utils.smallSleepBetweenClicks(1);
                 Utils.clickXpath(driver, ActionXpath.assignfacokrelative, time, "facok");
     
-            return(fileName);
+                returnAssement[0] = fileName;
+            returnAssement[1] = program1;
+            returnAssement[2] = program2;
+            returnAssement[3] = subject1;
+            returnAssement[4] = subject2;
+            return(returnAssement);
+            // return(returnAssement);
             }
             catch (Exception e) {
                 Utils.printException(e);
@@ -432,42 +451,57 @@ public class Pfs_activity {
                 Pfs_portal.initDriver(Browser, url);
                return( null ); 
             }
+            // return(returnAssement);
             
 		}
 
-        public static void assignmentpublish(String faculty, 
-        String url, String Browser, String Role, WebDriver driver,String fileName)
+        public static String[] assignmentpublish(String[] returnAssement, String faculty, 
+        String url, String Browser, String Role, WebDriver driver)
         throws Exception {
             try{
+               
+                String returnArray[] = new String[4];
+                //  returnAssement[0] = filename;
+                String filename=returnAssement[0];
+               
             Utils.clickXpath(driver, ActionXpath.assignfacclickcouse1relative, time, "Click on course content");
             Utils.bigSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.assignexapnd1relative, time, "Exapand Assigment");
 			Utils.smallSleepBetweenClicks(1);
-			new WebDriverWait(driver, 25).until(ExpectedConditions.elementToBeClickable(By.xpath("//p[.='"+fileName+"']/../../..//*[local-name()='svg']"))).click();
+			new WebDriverWait(driver, 25).until(ExpectedConditions.elementToBeClickable(By.xpath("//p[.='"+filename+"']/../../..//*[local-name()='svg']"))).click();
 			Utils.smallSleepBetweenClicks(1);
             Utils.clickXpathWithJavascript(driver, ActionXpath.assignfacpublish, time, "Publish assignment");
 			Utils.smallSleepBetweenClicks(1);
             Utils.clickXpathWithJavascript(driver, ActionXpath.assignfacpublishrelative, time, "Publish");
 			Utils.bigSleepBetweenClicks(2);
+            return returnAssement;
             }
             catch (Exception e) {
                 Utils.printException(e);
                 Pfs_portal.quitDriver(url);
                 Pfs_portal.initDriver(Browser, url);
             }
+            return returnAssement;
         }
 
-        public static void assignmentviewstudent(String student,
-        String url, String Browser, String Role, WebDriver driver,String fileName)
+        public static void assignmentviewstudent(String []returnAssement,
+        String Student,String url, String Browser, String Role, WebDriver driver)
         throws Exception {
             try{
                 Utils.bigSleepBetweenClicks(1);
                 Utils.checkAcadAndClick(driver, url);
                 Utils.clickXpath(driver, ActionXpath.assignlearnltstastudentrelative, time, "Select learn");
-                Utils.smallSleepBetweenClicks(1);
+                Utils.bigSleepBetweenClicks(1);
+                String program=returnAssement[3];
+                String Subject=returnAssement[4];
+                String filename=returnAssement[0];
+                Utils.clickXpath(driver, ActionXpath.program, time, "click on program");
+                driver.findElement(By.xpath("//li[@data-value='" + program + "']")).click();
+                Utils.clickXpath(driver, ActionXpath.subject, time, "click on subject");
+                driver.findElement(By.xpath("//li[text()='" + Subject + "']")).click();
                 Utils.clickXpath(driver, ActionXpath.assignexpandltstastudentrelative, time, "expand Assignement");
                 Utils.smallSleepBetweenClicks(1);
-                new WebDriverWait(driver, 25).until(ExpectedConditions.elementToBeClickable(By.xpath("//p[.='"+fileName+"']/../../.././..//*[local-name()='svg']"))).click();
+                new WebDriverWait(driver, 25).until(ExpectedConditions.elementToBeClickable(By.xpath("//p[.='"+filename+"']/../../.././..//*[local-name()='svg']"))).click();
                 Utils.smallSleepBetweenClicks(1);
                 Actions qq=new Actions(driver);
                 qq.moveByOffset(40, 40).click().perform();
@@ -479,11 +513,14 @@ public class Pfs_activity {
             }
         }
 
-        public static void assignmentsubmission(String faculty, 
-        String url, String Browser, String Role, WebDriver driver,String fileName)
+        public static void assignmentsubmission(String []returnAssement,
+        String Student,String url, String Browser, String Role, WebDriver driver)
         throws Exception {
             try{
-                
+                String filename=returnAssement[0];
+                String program=returnAssement[3];
+                String Subject=returnAssement[4];
+               
                 String PDF_file = "";
                 if (Utils.checkWindowsOs()){
                     PDF_file = "C:\\Users\\Public\\Documents\\demo.pdf";
@@ -501,11 +538,15 @@ public class Pfs_activity {
             Utils.checkAcadAndClick(driver, url);
             Utils.clickXpath(driver, ActionXpath.assignlearnltstastudentrelative, time, "Select learn");
             Utils.smallSleepBetweenClicks(1);
+                Utils.clickXpath(driver, ActionXpath.program, time, "click on program");
+                driver.findElement(By.xpath("//li[@data-value='" + program + "']")).click();
+                Utils.clickXpath(driver, ActionXpath.subject, time, "click on subject");
+                driver.findElement(By.xpath("//li[text()='" + Subject + "']")).click();
             Utils.clickXpath(driver, ActionXpath.assignexpandltstastudentrelative, time, "expand Assignement");
             Utils.smallSleepBetweenClicks(1);
             // Utils.scrollUpOrDown(driver, 500);
             new WebDriverWait(driver, 25).until(ExpectedConditions
-                    .elementToBeClickable(By.xpath("//p[.='" + fileName + "']/../../.././..//*[local-name()='svg']")))
+                    .elementToBeClickable(By.xpath("//p[.='" + filename + "']/../../.././..//*[local-name()='svg']")))
                     .click();
             Utils.smallSleepBetweenClicks(1);
 
@@ -554,10 +595,11 @@ public class Pfs_activity {
                 Pfs_portal.initDriver(Browser, url);
             }
         }
-        public static void assignmentreview(String faculty, 
-        String url, String Browser, String Role, WebDriver driver,String fileName)
+        public static void assignmentreview(String []returnAssement,
+        String faculty,String url, String Browser, String Role, WebDriver driver)
         throws Exception {
             try{
+                String filename=returnAssement[0];
                 Utils.bigSleepBetweenClicks(1);
                 Utils.checkAcadAndClick(driver, url);
                 Utils.smallSleepBetweenClicks(1);
@@ -567,7 +609,7 @@ public class Pfs_activity {
                 Utils.clickXpath(driver, ActionXpath.assignfacclickcouserelative, time, "facclickcouse");
                 Utils.clickXpath(driver, ActionXpath.assignexapndrelative, time, "Exapand");
                 new WebDriverWait(driver, 25).until(ExpectedConditions
-                        .elementToBeClickable(By.xpath("//p[.='" + fileName + "']/../../.././..//*[local-name()='svg']")))
+                        .elementToBeClickable(By.xpath("//p[.='" + filename + "']/../../.././..//*[local-name()='svg']")))
                         .click();
                 Utils.clickXpathWithJavascript(driver, ActionXpath.reviewassign, time, "Review button");
                 
@@ -601,10 +643,11 @@ public class Pfs_activity {
 			Pfs_portal.initDriver(Browser, url);
 		}
         }
-        public static void assigmnenteditview(String faculty, 
-        String url, String Browser, String Role, WebDriver driver,String fileName)
+        public static void assigmnenteditview(String []returnAssement,
+        String faculty,String url, String Browser, String Role, WebDriver driver)
         throws Exception {
             try{
+                String filename=returnAssement[0];
                 driver.navigate().refresh();
             Utils.bigSleepBetweenClicks(1);
             Utils.checkAcadAndClick(driver, url);
@@ -614,7 +657,7 @@ public class Pfs_activity {
             Utils.clickXpath(driver, ActionXpath.assignexapnd1relative, time, "Exapand Assigment");
             Utils.smallSleepBetweenClicks(1);
             new WebDriverWait(driver, 25).until(ExpectedConditions
-                    .elementToBeClickable(By.xpath("//p[.='" + fileName + "']/../../..//*[local-name()='svg']")))
+                    .elementToBeClickable(By.xpath("//p[.='" + filename + "']/../../..//*[local-name()='svg']")))
                     .click();
             Utils.smallSleepBetweenClicks(1);
 
@@ -628,13 +671,13 @@ public class Pfs_activity {
 
             // Utils.smallSleepBetweenClicks(1);
             Utils.bigSleepBetweenClicks(1);
-            WebElement elee = driver.findElement(By.name("assignmentName"));
-            elee.sendKeys(Keys.CONTROL, "a", Keys.DELETE);
-            Utils.bigSleepBetweenClicks(1);
-            String fileName1 = "Assignment_" + Utils.generateRandom();
-            Utils.smallSleepBetweenClicks(1);
-            Utils.callSendkeys(driver, ActionXpath.assignfacassignmentNamerelative, fileName1, time);
-            Utils.smallSleepBetweenClicks(1);
+            // WebElement elee = driver.findElement(By.name("assignmentName"));
+            // elee.sendKeys(Keys.CONTROL, "a", Keys.DELETE);
+            // Utils.bigSleepBetweenClicks(1);
+            // String fileName1 = "Assignment_" + Utils.generateRandom();
+            // Utils.smallSleepBetweenClicks(1);
+            // Utils.callSendkeys(driver, ActionXpath.assignfacassignmentNamerelative, fileName1, time);
+            // Utils.smallSleepBetweenClicks(1);
 
             JavascriptExecutor jwe = (JavascriptExecutor) driver;
             jwe.executeScript("window.scrollBy(0,-200)");
@@ -677,16 +720,17 @@ public class Pfs_activity {
 
 
 
-        public static void assignmentdelete(String faculty, 
-        String url, String Browser, String Role, WebDriver driver,String fileName)
+        public static String[] assignmentdelete(String []returnAssement,
+        String faculty,String url, String Browser, String Role, WebDriver driver)
         throws Exception {
             try{
+                String filename=returnAssement[0];
                 Utils.bigSleepBetweenClicks(1);
                 Utils.checkAcadAndClick(driver, url);
                 Utils.smallSleepBetweenClicks(1);
                 Utils.clickXpath(driver, ActionXpath.assignfacclickcouserelative, time, "facclickcouse");
                 Utils.clickXpath(driver, ActionXpath.assignexapndrelative, time, "Exapand");
-                new WebDriverWait(driver, 25).until(ExpectedConditions.elementToBeClickable(By.xpath("//p[.='"+fileName+"']/../../.././..//*[local-name()='svg']"))).click();
+                new WebDriverWait(driver, 25).until(ExpectedConditions.elementToBeClickable(By.xpath("//p[.='"+filename+"']/../../.././..//*[local-name()='svg']"))).click();
                 Utils.smallSleepBetweenClicks(1);
                 Utils.smallSleepBetweenClicks(1);
     
@@ -705,18 +749,25 @@ public class Pfs_activity {
 			Pfs_portal.quitDriver(url);
 			Pfs_portal.initDriver(Browser, url);
 		}
+            return returnAssement;
         }
 
-        public static String forumcreate(String student, String faculty, 
-    String url, String Browser, String Role, WebDriver driver)
+        public static String[] forumcreate(String student, String faculty, 
+        String url, String Browser, String Role, WebDriver driver)
 			throws Exception {
             try{
-                String returnArray[] = new String[2];
+                // String returnArray[] = new String[2];
                 Utils.bigSleepBetweenClicks(1);
                 Utils.checkAcadAndClick(driver, url);
                 Utils.clickXpath(driver, ActionXpath.relativefacforumclickcouse1, time, "facforumclickcouse");
                 Utils.bigSleepBetweenClicks(1);
-    
+                String returnAssement[] = new String[5];
+                String returnArray[] = new String[4];
+                returnArray = Utils.getClassSubjectAndSection(driver, url,"activity");
+             String program1 = returnArray[0];
+             String program2 = returnArray[1];
+             String subject1 = returnArray[2];
+             String subject2 = returnArray[3];
                 returnArray = Utils.getClassSubjectAndSection(driver, url,"activity");
                 String program = returnArray[0];
                 String converted = returnArray[1];
@@ -759,7 +810,13 @@ public class Pfs_activity {
                 Utils.clickXpath(driver, ActionXpath.relativefaforumsave1, time, "faforumsave");
                 Utils.smallSleepBetweenClicks(1);
                 Utils.clickXpath(driver, ActionXpath.relativefaforumok1, time, "faforumok");
-                return(fileName);
+                
+                returnAssement[0] = fileName;
+            returnAssement[1] = program1;
+            returnAssement[2] = program2;
+            returnAssement[3] = subject1;
+            returnAssement[4] = subject2;
+            return(returnAssement);
             }
             catch (Exception e) {
                 Utils.printException(e);
@@ -770,14 +827,17 @@ public class Pfs_activity {
             
 		}
 
-        public static void forumpublish(String faculty, 
-        String url, String Browser, String Role, WebDriver driver,String fileName)
+        public static String[] forumpublish(String[] returnAssement, String faculty, 
+        String url, String Browser, String Role, WebDriver driver)
         throws Exception {
             try{
+                String returnArray[] = new String[4];
+                //  returnAssement[0] = filename;
+                String filename=returnAssement[0];
                 Utils.bigSleepBetweenClicks(1);
                 Utils.clickXpath(driver, ActionXpath.relativeformexpand1, time, "fourme expand click on arrow SVG");
                Utils.smallSleepBetweenClicks(1);
-                new WebDriverWait(driver, 25).until(ExpectedConditions.elementToBeClickable(By.xpath("//p[.='"+fileName+"']/../../..//*[local-name()='svg']"))).click();
+                new WebDriverWait(driver, 25).until(ExpectedConditions.elementToBeClickable(By.xpath("//p[.='"+filename+"']/../../..//*[local-name()='svg']"))).click();
                 Utils.smallSleepBetweenClicks(1);
                 Utils.clickXpathWithJavascript(driver, ActionXpath.assignfacpublish, time, "Publish");
                System.out.println("click on dot and  publish 1st forum");
@@ -791,18 +851,21 @@ public class Pfs_activity {
                 Pfs_portal.quitDriver(url);
                 Pfs_portal.initDriver(Browser, url);
             }
+            return returnAssement;
         }
 
-        public static void forumdiscussion(String faculty, 
-        String url, String Browser, String Role, WebDriver driver,String fileName)
+        public static String[] forumdiscussion(String[] returnAssement, String faculty, 
+        String url, String Browser, String Role, WebDriver driver)
         throws Exception {
             try{
-                new WebDriverWait(driver, 25).until(ExpectedConditions.elementToBeClickable(By.xpath("//p[.='"+fileName+"']/../../..//*[local-name()='svg']"))).click();
-            WebDriverWait wait35 = new WebDriverWait(driver, 20);
-            WebElement element239 = wait35
-                    .until(ExpectedConditions.elementToBeClickable(By.xpath("//span[.='Discussions']")));
-            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element239);
-            Utils.smallSleepBetweenClicks(1);
+                String filename=returnAssement[0];
+                new WebDriverWait(driver, 25).until(ExpectedConditions.elementToBeClickable(By.xpath("//p[.='"+filename+"']/../../..//*[local-name()='svg']"))).click();
+                Utils.clickXpathWithJavascript(driver, ActionXpath.assignfacDiscussions, time, "Discussions");
+            //     WebDriverWait wait35 = new WebDriverWait(driver, 20);
+            // WebElement element239 = wait35
+            //         .until(ExpectedConditions.elementToBeClickable(By.xpath("//span[.='Discussions']")));
+            // ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element239);
+            Utils.bigSleepBetweenClicks(2);
             Utils.clickXpath(driver, ActionXpath.relativeFacformeCreateNewDiscussion, time, "click on the New Discussion Button");
             Utils.smallSleepBetweenClicks(1);
             String fileName2 = "Discussion_Edutech" + Utils.generateRandom();
@@ -823,18 +886,26 @@ public class Pfs_activity {
                 Pfs_portal.quitDriver(url);
                 Pfs_portal.initDriver(Browser, url);
             }
+            return returnAssement;
         }
 
-        public static void forumviewstudent(String student,
-        String url, String Browser, String Role, WebDriver driver,String fileName)
+        public static void forumviewstudent(String []returnAssement,
+        String Student,String url, String Browser, String Role, WebDriver driver)
         throws Exception {
             try{
                 Utils.smallSleepBetweenClicks(1);
                 Utils.checkAcadAndClick(driver, url);
                 Utils.clickXpath(driver, ActionXpath.relativeforumlearnltsta1, time, "Select learn");
+                String program=returnAssement[3];
+                String Subject=returnAssement[4];
+                String filename=returnAssement[0];
+                Utils.clickXpath(driver, ActionXpath.program, time, "click on program");
+                driver.findElement(By.xpath("//li[@data-value='" + program + "']")).click();
+                Utils.clickXpath(driver, ActionXpath.subject, time, "click on subject");
+                driver.findElement(By.xpath("//li[text()='" + Subject + "']")).click();
                 Utils.clickXpath(driver, ActionXpath.relativeforumaexpandltsta1, time, "expand forum");
                 Utils.smallSleepBetweenClicks(1);
-                new WebDriverWait(driver, 25).until(ExpectedConditions.elementToBeClickable(By.xpath("//p[.='"+fileName+"']/../../.././..//*[local-name()='svg']"))).click();
+                new WebDriverWait(driver, 25).until(ExpectedConditions.elementToBeClickable(By.xpath("//p[.='"+filename+"']/../../.././..//*[local-name()='svg']"))).click();
                 Utils.smallSleepBetweenClicks(1);
                 Actions qq=new Actions(driver);
                 qq.moveByOffset(40, 40).click().perform();
@@ -846,16 +917,19 @@ public class Pfs_activity {
             }
         }
 
-        public static void forumedit(String faculty, 
-        String url, String Browser, String Role, WebDriver driver,String fileName)
+        public static String[] forumedit(String[] returnAssement, String faculty, 
+        String url, String Browser, String Role, WebDriver driver)
         throws Exception {
             try{
-            new WebDriverWait(driver, 25).until(ExpectedConditions.elementToBeClickable(By.xpath("//p[.='"+fileName+"']/../../..//*[local-name()='svg']"))).click();
-            WebDriverWait wait35 = new WebDriverWait(driver, 20);
-            WebElement element239 = wait35
-                    .until(ExpectedConditions.elementToBeClickable(By.xpath("//span[.='Edit']")));
-            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element239);
-            Utils.smallSleepBetweenClicks(1);
+                String filename=returnAssement[0];
+            new WebDriverWait(driver, 25).until(ExpectedConditions.elementToBeClickable(By.xpath("//p[.='"+filename+"']/../../..//*[local-name()='svg']"))).click();
+            Utils.clickXpathWithJavascript(driver, ActionXpath.assignedit, time, "Edit");
+               
+            // WebDriverWait wait35 = new WebDriverWait(driver, 20);
+            // WebElement element239 = wait35
+            //         .until(ExpectedConditions.elementToBeClickable(By.xpath("//span[.='Edit']")));
+            // ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element239);
+            Utils.bigSleepBetweenClicks(1);
             JavascriptExecutor js = (JavascriptExecutor) driver; 
             js.executeScript("window.scrollBy(-100,-100)");
             Utils.clickXpath(driver, ActionXpath.facinstruction3dot, time, "facinstruction3dot");
@@ -863,7 +937,7 @@ public class Pfs_activity {
             
             Utils.clickXpath(driver, ActionXpath.relativefacforumclink1, time, "facforumclink");
             Utils.bigSleepBetweenClicks(2);
-            Utils.callSendkeys(driver, ActionXpath.relativefacforumurl1,fileName, time);
+            Utils.callSendkeys(driver, ActionXpath.relativefacforumurl1,filename, time);
             Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.relativefacforumsavlin1, time, "facforumsavlin");
             Utils.smallSleepBetweenClicks(1);
@@ -885,17 +959,19 @@ public class Pfs_activity {
 			Pfs_portal.quitDriver(url);
 			Pfs_portal.initDriver(Browser, url);
 		}
+            return returnAssement;
         }
-        public static void forumdelete(String faculty, 
-        String url, String Browser, String Role, WebDriver driver,String fileName)
+        public static String[] forumdelete(String []returnAssement,
+        String faculty,String url, String Browser, String Role, WebDriver driver)
         throws Exception {
             try{
+                String filename=returnAssement[0];
                 Utils.bigSleepBetweenClicks(1);
                 Utils.checkAcadAndClick(driver, url);
                 Utils.smallSleepBetweenClicks(1);
                 Utils.clickXpath(driver, ActionXpath.assignfacclickcouserelative, time, "facclickcouse");
                 Utils.clickXpath(driver, ActionXpath.relativeforumdfexpandltsta12, time, "Exapand");
-                new WebDriverWait(driver, 25).until(ExpectedConditions.elementToBeClickable(By.xpath("//p[.='"+fileName+"']/../../.././..//*[local-name()='svg']"))).click();
+                new WebDriverWait(driver, 25).until(ExpectedConditions.elementToBeClickable(By.xpath("//p[.='"+filename+"']/../../.././..//*[local-name()='svg']"))).click();
                 Utils.smallSleepBetweenClicks(1);
                 Utils.smallSleepBetweenClicks(1);
     
@@ -914,6 +990,7 @@ public class Pfs_activity {
 			Pfs_portal.quitDriver(url);
 			Pfs_portal.initDriver(Browser, url);
 		}
+            return returnAssement;
         }
 
        
@@ -952,7 +1029,7 @@ public class Pfs_activity {
                 assesmentviewstudent(returnAssement,student,url, Browser, Role, driver);
                 Utils.logout(driver, url, Role);
                 Utils.login(driver, faculty,url);
-                assesmentdelete(faculty, url, Browser, Role, driver,Filenameassesment);
+                returnAssement= assesmentdelete(returnAssement, faculty, url, Browser, Role, driver);
                 Utils.logout(driver, url, Role);
                 log.info("TC-53 Assement create, publish & delete test Executation PASSED....");
             }
@@ -965,20 +1042,23 @@ public class Pfs_activity {
 	}
 
 	@Test(priority = 54)
-	public static void testFAssignmentCreatePublishViewDelete(String student, 
-        String faculty, String url, String Browser, String Role, WebDriver driver)
+	public static void testFAssignmentCreatePublishViewDelete(String student, String faculty, 
+    String url, String Browser, String Role, WebDriver driver)
 			throws Exception {
 		try {
+            String returnAssement[] = new String[3];
+            String Filenameassesment = returnAssement[0];
 			System.out.println("TC-54: Assignment create ,pubish & delete Test excutaion started...");
 			Utils.login(driver, faculty,url);
-            String Filenameassesment= assignmentcreate(student, faculty, url, Browser, Role, driver);
-            assignmentpublish(faculty, url, Browser, Role, driver,Filenameassesment);
+            returnAssement= assignmentcreate(student, faculty, url, Browser, Role, driver);
+            // String Filenameassesment = returnAssement[0];
+            returnAssement= assignmentpublish(returnAssement, faculty, url, Browser, Role, driver);
 			Utils.logout(driver, url, Role);
 			Utils.login(driver, student,url);
-			assignmentviewstudent(student,url, Browser, Role, driver,Filenameassesment);
+			assignmentviewstudent(returnAssement,student,url, Browser, Role, driver);
 			Utils.logout(driver, url, Role);
 			Utils.login(driver, faculty,url);
-            assignmentdelete(faculty, url, Browser, Role, driver,Filenameassesment);
+            returnAssement= assignmentdelete(returnAssement, faculty, url, Browser, Role, driver);
 			Utils.logout(driver, url, Role);
             
             log.info("TC-54 Assignment create,publish & delete   PASSED....\n");
@@ -992,18 +1072,22 @@ public class Pfs_activity {
 
 	@Test(priority = 55)
 	public static void testForumCreatePublishViewDelete(String student, String faculty, 
-        String url, String Browser, String Role, WebDriver driver) throws Exception {
+    String url, String Browser, String Role, WebDriver driver) throws Exception {
 		try { 
-			System.out.println("TC-55 Faculty Fourm create,publish Delete test case Staerted...\n");
+            String returnAssement[] = new String[3];
+            String Filenameassesment = returnAssement[0];
+			System.out.println("Faculty Fourm create,publish Delete test case Staerted...\n");
 			Utils.login(driver, faculty,url);
-            String Filenameassesment= forumcreate(student, faculty, url, Browser, Role, driver);
-            forumpublish(faculty, url, Browser, Role, driver,Filenameassesment);
+            returnAssement= forumcreate(student, faculty, url, Browser, Role, driver);
+            returnAssement= forumpublish(returnAssement, faculty, url, Browser, Role, driver);
+            // forumpublish(faculty, url, Browser, Role, driver,Filenameassesment);
 			Utils.logout(driver, url, Role);
 			Utils.login(driver, student,url);
-			forumviewstudent(student,url, Browser, Role, driver,Filenameassesment);
+			forumviewstudent(returnAssement,student,url, Browser, Role, driver);
 			Utils.logout(driver, url, Role);
 			Utils.login(driver, faculty,url);
-            forumdelete(faculty, url, Browser, Role, driver,Filenameassesment);
+            returnAssement= forumdelete(returnAssement, faculty, url, Browser, Role, driver);
+            // forumdelete(faculty, url, Browser, Role, driver,Filenameassesment);
 			Utils.logout(driver, url, Role);
 
 			log.info("TC-55 Faculty Fourm create,publish Delete test case PASSED...");
@@ -1016,20 +1100,22 @@ public class Pfs_activity {
 		}
 	}
 	@Test(priority = 56)
-    public static void testFAssignmentCreatePublishsubmissionfileuploadchecking(String student, String faculty,
-            String url, String Browser, String Role,WebDriver driver) throws Exception {
+    public static void testFAssignmentCreatePublishsubmissionfileuploadchecking(String student, String faculty, 
+    String url, String Browser, String Role, WebDriver driver) throws Exception {
         try {
-           
+            String returnAssement[] = new String[3];
+            String Filenameassesment = returnAssement[0];
             Utils.login(driver, faculty,url);
-            String Filenameassesment= assignmentcreate(student, faculty, url, Browser, Role, driver);
-            assignmentpublish(faculty, url, Browser, Role, driver,Filenameassesment);
+            returnAssement= assignmentcreate(student, faculty, url, Browser, Role, driver);
+            // String Filenameassesment= assignmentcreate(student, faculty, url, Browser, Role, driver);
+            returnAssement= assignmentpublish(returnAssement, faculty, url, Browser, Role, driver);
 			Utils.logout(driver, url, Role);
 			Utils.login(driver, student,url);
-			assignmentviewstudent(student,url, Browser, Role, driver,Filenameassesment);
-            assignmentsubmission(faculty, url, Browser, Role, driver, Filenameassesment);
+			// assignmentviewstudent(returnAssement,student,url, Browser, Role, driver);
+            assignmentsubmission(returnAssement,faculty,url, Browser, Role, driver);
 			Utils.logout(driver, url, Role);
 			Utils.login(driver, faculty,url);
-            assignmentdelete(faculty, url, Browser, Role, driver,Filenameassesment);
+            returnAssement= assignmentdelete(returnAssement, faculty, url, Browser, Role, driver);
 			Utils.logout(driver, url, Role);
 
             log.info(
@@ -1046,20 +1132,23 @@ public class Pfs_activity {
     public static void testFAssignmentCreatePublishsubmissiongradecheck(String student, String faculty, String url,
             String Browser, String Role,WebDriver driver) throws Exception {
         try { 
+            String returnAssement[] = new String[3];
+            String Filenameassesment = returnAssement[0];
             System.out.println(
                     "TC-57 Assignment   Create ,publish,gradecheck &submission Test Excecuation Started...\n");
                     Utils.login(driver, faculty,url);
-                    String Filenameassesment= assignmentcreate(student, faculty, url, Browser, Role, driver);
-                    assignmentpublish(faculty, url, Browser, Role, driver,Filenameassesment);
+                    returnAssement= assignmentcreate(student, faculty, url, Browser, Role, driver);
+                    returnAssement= assignmentpublish(returnAssement, faculty, url, Browser, Role, driver);
+                    // assignmentpublish(faculty, url, Browser, Role, driver,Filenameassesment);
                     Utils.logout(driver, url, Role);
                     Utils.login(driver, student,url);
-                    assignmentsubmission(faculty, url, Browser, Role, driver, Filenameassesment);
+                    assignmentsubmission(returnAssement,faculty,url, Browser, Role, driver);
                     Utils.logout(driver, url, Role);
                     Utils.login(driver, faculty,url);
-                    assignmentreview(faculty, url, Browser, Role, driver, Filenameassesment);
+                    assignmentreview(returnAssement, faculty, url, Browser, Role, driver);
                     Utils.logout(driver, url, Role);
                     Utils.login(driver, faculty,url);
-                    assignmentdelete(faculty, url, Browser, Role, driver,Filenameassesment);
+                    returnAssement= assignmentdelete(returnAssement, faculty, url, Browser, Role, driver);
                     Utils.logout(driver, url, Role);       
             log.info("TC-57 Assignment create,publish,review submission  & grade check    PASSED....\n");
         } catch (Exception e) {
@@ -1071,8 +1160,8 @@ public class Pfs_activity {
 
     }
     @Test(priority = 58)
-    public static void testassesmentAttemptview(String student, String faculty, String url,
-            String Browser, String Role,WebDriver driver) throws Exception {
+    public static void testassesmentAttemptview(String student, String faculty, 
+    String url, String Browser, String Role, WebDriver driver)throws Exception {
         try {
             String returnAssement[] = new String[3];
             String Filenameassesment = returnAssement[0];
@@ -1089,7 +1178,7 @@ public class Pfs_activity {
             assesmentcheckresult(faculty, url, Browser, Role, driver, returnAssement, Filenameassesment);
             Utils.logout(driver, url, Role);
             Utils.login(driver, faculty,url);
-            assesmentdelete(faculty, url, Browser, Role, driver,Filenameassesment);
+            returnAssement= assesmentdelete(returnAssement, faculty, url, Browser, Role, driver);
             Utils.logout(driver, url, Role);
             log.info("TC-58 Assement Attempt and view result test Executation   PASSED....");
         }
@@ -1101,20 +1190,22 @@ public class Pfs_activity {
         }
     }
     @Test(priority = 59)
-    public static void testForumCreatePublishViewDeleteDecission(String student, String faculty, String url,
-            String Browser, String Role,WebDriver driver) throws Exception {
+    public static void testForumCreatePublishViewDeleteDecission(String student, String faculty, 
+    String url, String Browser, String Role, WebDriver driver) throws Exception {
         try { 
+            String returnAssement[] = new String[3];
+            String Filenameassesment = returnAssement[0];
             System.out.println("TC-59 Faculty Fourm create,publish Delete,Decission test case Staerted...\n");
             Utils.login(driver, faculty,url);
-            String Filenameassesment= forumcreate(student, faculty, url, Browser, Role, driver);
-            forumpublish(faculty, url, Browser, Role, driver,Filenameassesment);
-            forumdiscussion(faculty, url, Browser, Role, driver, Filenameassesment);
-			Utils.logout(driver, url, Role);
-			Utils.login(driver, student,url);
-			forumdiscussion(student,url, Browser, Role, driver,Filenameassesment);
+            // String Filenameassesment= forumcreate(student, faculty, url, Browser, Role, driver);
+            returnAssement= forumcreate(student, faculty, url, Browser, Role, driver);
+            returnAssement= forumpublish(returnAssement, faculty, url, Browser, Role, driver);
+            // forumpublish(faculty, url, Browser, Role, driver,Filenameassesment);
+            returnAssement= forumdiscussion(returnAssement, faculty, url, Browser, Role, driver);
+            // forumdiscussion(faculty, url, Browser, Role, driver, Filenameassesment);
 			Utils.logout(driver, url, Role);
 			Utils.login(driver, faculty,url);
-            forumdelete(faculty, url, Browser, Role, driver,Filenameassesment);
+            returnAssement= forumdelete(returnAssement, faculty, url, Browser, Role, driver);
 			Utils.logout(driver, url, Role);
             log.info("TC-59 Faculty Fourm create,publish Delete,Decission test case PASSED...");
         } catch (Exception e) {
@@ -1253,17 +1344,22 @@ public class Pfs_activity {
             }
         } 
     @Test(priority = 63)
-    public static void testForumCreatePublishEditDelete(String student, String faculty, String url,
-            String Browser, String Role,WebDriver driver) throws Exception {
+    public static void testForumCreatePublishEditDelete(String student, String faculty, 
+    String url, String Browser, String Role, WebDriver driver) throws Exception {
         try { 
+            String returnAssement[] = new String[3];
+            String Filenameassesment = returnAssement[0];
             System.out.println("TC-63 Faculty Fourm create,publish Delete,Decission test case Staerted...\n");           
             Utils.login(driver, faculty,url);
-            String Filenameassesment= forumcreate(student, faculty, url, Browser, Role, driver);
-            forumpublish(faculty, url, Browser, Role, driver,Filenameassesment);
-            forumedit(faculty, url, Browser, Role, driver,Filenameassesment);
+            // String Filenameassesment= forumcreate(student, faculty, url, Browser, Role, driver);
+            returnAssement= forumcreate(student, faculty, url, Browser, Role, driver);
+            returnAssement= forumpublish(returnAssement, faculty, url, Browser, Role, driver);
+            // forumpublish(faculty, url, Browser, Role, driver,Filenameassesment);
+            returnAssement= forumedit(returnAssement, faculty, url, Browser, Role, driver);
+            // forumedit(faculty, url, Browser, Role, driver,Filenameassesment);
             Utils.logout(driver, url, Role);
 			Utils.login(driver, faculty,url);
-            forumdelete(faculty, url, Browser, Role, driver,Filenameassesment);
+            returnAssement= forumdelete(returnAssement, faculty, url, Browser, Role, driver);
 			Utils.logout(driver, url, Role);
 
             log.info("TC-63 Forum publish edit delete test case PASSED...");
@@ -1275,15 +1371,19 @@ public class Pfs_activity {
         }
     }
     @Test(priority = 64)
-    public static void testForumCreateunPublishEditDelete(String student, String faculty, String url,
-            String Browser, String Role,WebDriver driver) throws Exception {
+    public static void testForumCreateunPublishEditDelete(String student, String faculty, 
+    String url, String Browser, String Role, WebDriver driver) throws Exception {
         try { 
+            String returnAssement[] = new String[3];
+            String Filenameassesment = returnAssement[0];
             Utils.login(driver, faculty,url);
-            String Filenameassesment= forumcreate(student, faculty, url, Browser, Role, driver);
-            forumedit(faculty, url, Browser, Role, driver,Filenameassesment);
+            // String Filenameassesment= forumcreate(student, faculty, url, Browser, Role, driver);
+            returnAssement= forumcreate(student, faculty, url, Browser, Role, driver);
+            returnAssement= forumedit(returnAssement, faculty, url, Browser, Role, driver);
+            // forumedit(faculty, url, Browser, Role, driver,Filenameassesment);
             Utils.logout(driver, url, Role);
 			Utils.login(driver, faculty,url);
-            forumdelete(faculty, url, Browser, Role, driver,Filenameassesment);
+            returnAssement= forumdelete(returnAssement, faculty, url, Browser, Role, driver);
 			Utils.logout(driver, url, Role);
             log.info("TC-64 Forum unpublish edit delete test case PASSED...");   
         }catch (Exception e) {
@@ -1294,16 +1394,18 @@ public class Pfs_activity {
         }
     }
     @Test(priority = 65)
-    public static void testassesmenteditdelete(String student, String faculty, String url,
-            String Browser, String Role,WebDriver driver) throws Exception {
+    public static void testassesmenteditdelete(String student, String faculty, 
+    String url, String Browser, String Role, WebDriver driver) throws Exception {
         try {
             String returnAssement[] = new String[3];
             String Filenameassesment = returnAssement[0];
             System.out.println("TC-65: Assement create ,pubish & delete Test excutaion   started...");
             Utils.login(driver, faculty,url);
             returnAssement= assesmentcreate(student, faculty, url, Browser, Role, driver);
-            assesmentedit(faculty, url, Browser, Role, driver,Filenameassesment);
-			assesmentdelete(faculty, url, Browser, Role, driver,Filenameassesment);
+            returnAssement= assesmentedit(returnAssement, faculty, url, Browser, Role, driver);
+            Utils.logout(driver, url, Role); 
+            Utils.login(driver, faculty,url);
+			returnAssement=assesmentdelete(returnAssement, faculty, url, Browser, Role, driver);
 			Utils.logout(driver, url, Role);  
             log.info("TC-65 Assement Attempt and view result test Executation PASSED....");
         }
@@ -1315,8 +1417,8 @@ public class Pfs_activity {
         }
     }
     @Test(priority = 66)
-    public static void testassesmentpublisheditview(String student, String faculty, String url,
-            String Browser, String Role,WebDriver driver) throws Exception {
+    public static void testassesmentpublisheditview(String student, String faculty, 
+    String url, String Browser, String Role, WebDriver driver) throws Exception {
         try {
             String returnAssement[] = new String[3];
             String Filenameassesment = returnAssement[0];
@@ -1324,8 +1426,10 @@ public class Pfs_activity {
             Utils.login(driver, faculty,url);
             returnAssement= assesmentcreate(student, faculty, url, Browser, Role, driver);
             assesmentpublish(faculty, url, Browser, Role, driver);
-            assesmentedit(faculty, url, Browser, Role, driver,Filenameassesment);
-			assesmentdelete(faculty, url, Browser, Role, driver,Filenameassesment);
+            returnAssement= assesmentedit(returnAssement, faculty, url, Browser, Role, driver);
+            Utils.logout(driver, url, Role);
+            Utils.login(driver, faculty,url);
+			returnAssement=assesmentdelete(returnAssement, faculty, url, Browser, Role, driver);
 			Utils.logout(driver, url, Role);
             log.info("TC-66 Assement Attempt and view result test Executation   PASSED....");
         }
@@ -1337,14 +1441,21 @@ public class Pfs_activity {
         }
     }
     @Test(priority = 67)
-    public static void testFAssignmentCreateEditDelete(String student, String faculty, String url,
-            String Browser, String Role,WebDriver driver) throws Exception {
+    public static void testFAssignmentCreateEditDelete(String student, String faculty, 
+    String url, String Browser, String Role, WebDriver driver) throws Exception {
         try {
+            String returnAssement[] = new String[3];
+            String Filenameassesment = returnAssement[0];
             System.out.println("TC-67 Assignment   Create ,edit and delete Test Excecuation Started...\n");
                     Utils.login(driver, faculty,url);
-                    String Filenameassesment= assignmentcreate(student, faculty, url, Browser, Role, driver);
-                    assigmnenteditview(faculty, url, Browser, Role, driver,Filenameassesment);
-                    assignmentdelete(faculty, url, Browser, Role, driver,Filenameassesment);
+                    returnAssement= assignmentcreate(student, faculty, url, Browser, Role, driver);
+           
+                    // String Filenameassesment= assignmentcreate(student, faculty, url, Browser, Role, driver);
+                    assigmnenteditview(returnAssement, faculty, url, Browser, Role, driver);
+                    Utils.logout(driver, url, Role);
+                    Utils.login(driver, faculty,url);
+                    returnAssement= assignmentdelete(returnAssement, faculty, url, Browser, Role, driver);
+			
                     Utils.logout(driver, url, Role);
             log.info("TC-67 Assignment create,edit and delete   check    PASSED....");
         } catch (Exception e) {
@@ -1355,15 +1466,22 @@ public class Pfs_activity {
         }
     }
     @Test(priority = 68)
-    public static void testFAssignmentCreatepublishEditDelete(String student, String faculty, String url,
-            String Browser, String Role,WebDriver driver) throws Exception {
+    public static void testFAssignmentCreatepublishEditDelete(String student, String faculty, 
+    String url, String Browser, String Role, WebDriver driver) throws Exception {
         try {
+            String returnAssement[] = new String[3];
+            String Filenameassesment = returnAssement[0];
             System.out.println("TC-68 Assignment   Create ,publish and delete Test Excecuation Started...\n");
             Utils.login(driver, faculty,url);
-            String Filenameassesment= assignmentcreate(student, faculty, url, Browser, Role, driver);
-            assignmentpublish(faculty, url, Browser, Role, driver,Filenameassesment);
-            assigmnenteditview(faculty, url, Browser, Role, driver,Filenameassesment);
-            assignmentdelete(faculty, url, Browser, Role, driver,Filenameassesment);
+            returnAssement= assignmentcreate(student, faculty, url, Browser, Role, driver);
+             
+            // String Filenameassesment= assignmentcreate(student, faculty, url, Browser, Role, driver);
+            returnAssement= assignmentpublish(returnAssement, faculty, url, Browser, Role, driver);
+            // assignmentpublish(faculty, url, Browser, Role, driver,Filenameassesment);
+            assigmnenteditview(returnAssement, faculty, url, Browser, Role, driver);
+            Utils.logout(driver, url, Role);
+                    Utils.login(driver, faculty,url);
+            returnAssement= assignmentdelete(returnAssement, faculty, url, Browser, Role, driver);
             Utils.logout(driver, url, Role);
             log.info("TC-68 Assignment create,publish,edit  & delete check    PASSED....");
         } catch (Exception e) {
