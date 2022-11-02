@@ -508,7 +508,7 @@ public class Pfs_resource {
 	         	String p = l.getText();
 	         	System.out.println("p"+p);
 	         	if (p.contains("Pdf") && (p.contains("Presentations"))  && (p.contains("Videos")) && (p.contains("Links"))) {
-	         		log.info(" it contain all the resources before filter ");
+	         		
 	         	}else {
 					System.out.println(" All resource are not Presnet Quiting the Test. ");
 					Pfs_portal.quitDriver(url);
@@ -525,7 +525,7 @@ public class Pfs_resource {
          WebElement l2= driver.findElement(By.xpath("/html/body/div[1]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[3]/div/div/div/div[5]/div[1]/div/div/../../../.."));
       	String p2 = l2.getText();
       	if (p2.contains("Presentations") && (!p2.contains("pdf")) &&  (!p2.contains("Spreadsheet")) && (!p2.contains("Videos")) && (!p2.contains("Links"))) {
-      		System.out.println(" TC-49: PPT resource Filter Option Contains PPT test case PASSED \n\n");
+      		
       	}else {
 				log.warning(" TC-50: PPT resource Filter Option View FAILED it does not contain all the tabs\n\n");
 			}
@@ -548,7 +548,7 @@ public class Pfs_resource {
 		         	String p = l.getText();
 		         	System.out.println("p"+p);
 		         	if (p.contains("Pdf") && (p.contains("Presentations"))  && (p.contains("Videos")) && (p.contains("Links"))) {
-		         		log.info(" it contain all the resources before filter ");
+		         		
 		         	}else {
 						System.out.println(" All resource are not Presnet Quiting the Test. ");
 						Pfs_portal.quitDriver(url);
@@ -567,7 +567,7 @@ public class Pfs_resource {
              WebElement l2= driver.findElement(By.xpath("/html/body/div[1]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[3]/div/div/div/div[5]/div[1]/div/div/../../../.."));
          	String p2 = l2.getText();
          	if (p2.contains("Pdf") && (!p2.contains("Presentations")) &&  (!p2.contains("Spreadsheet")) && (!p2.contains("Videos")) && (!p2.contains("Links"))) {
-         		System.out.println(" TC-50: PDF resource Filter Option Contains Pdf test case PASSED \n\n");
+         		
          	}else {
 				log.warning(" TC-50: PDF resource Filter Option View FAILED it does not contain all the tabs\n\n");
 			}
@@ -591,7 +591,7 @@ public class Pfs_resource {
 	         	String p = l.getText();
 	         	System.out.println("p"+p);
 	         	if (p.contains("Pdf") && (p.contains("Presentations"))  && (p.contains("Videos")) && (p.contains("Links"))) {
-	         		log.info(" it contain all the resources before filter ");
+	         		
 	         	}else {
 					System.out.println(" All resource are not Presnet Quiting the Test. ");
 					Pfs_portal.quitDriver(url);
@@ -633,7 +633,7 @@ public class Pfs_resource {
 			         	String p = l.getText();
 			         	System.out.println("p"+p);
 			         	if (p.contains("Pdf") && (p.contains("Presentations"))  && (p.contains("Videos")) && (p.contains("Links"))) {
-			         		log.info(" it contain all the resources before filter ");
+			         		
 			         	}else {
 							System.out.println(" All resource are not Presnet Quiting the Test. ");
 							Pfs_portal.quitDriver(url);
