@@ -31,8 +31,12 @@ public class Pfs_portal {
 	
 
 	public static void main(String[] args) throws Exception {
+
 		String folder = "";
 		folder = getFolderPath();
+
+		System.out.println("********Folder:"+folder);
+
 		String CSV_PATH = "";
 		String logFileName = "";
 		CSV_PATH = folder+"\\pfs.csv";
@@ -377,7 +381,9 @@ public class Pfs_portal {
 				driver = new SafariDriver();
 				driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
 			}
+			System.out.println("********************"+url);
 			driver.get(url);
+			
 			driver.manage().window().maximize();
 		} catch (Exception e) {
 			Utils.printException(e);

@@ -27,6 +27,7 @@ public class Pfs_resource {
 
 	public static void resourceSubmitForm( String faculty, String url, WebDriver driver) throws Exception{
 		Utils.clickXpath(driver, ActionXpath.facssadd, time, "Click of add resource");
+		Utils.smallSleepBetweenClicks(2);
 		Utils.clickXpath(driver, ActionXpath.facccresdescclick, time, "Click on URL resource link");
 		// Utils.smallSleepBetweenClicks(1);
 		// Utils.clickXpath(driver, ActionXpath.facssadd, time, "facssadd");
@@ -67,6 +68,7 @@ public class Pfs_resource {
 	public static void testSpreadsheetCreateViewDelete(String student, String faculty, String url, 
         String Browser, String Role, WebDriver driver) throws Exception {
 		try {
+			
 			String SpreadSheetFile = "";
 			String folder = "";
 			folder = Pfs_portal.getFolderPath();
@@ -79,11 +81,18 @@ public class Pfs_resource {
 			System.out.println("TC-40:  SpreadSheet resource Create View delete Test case Started");
 			
 			resourceFacultyInitialSteps(faculty, url, driver);
-
-			String returnArray[] = new String[2];
-            returnArray = Utils.getClassSubjectAndSection(driver, url,"resource");
-			 String programconverted = returnArray[0];
-			 String subject = returnArray[1];
+			String program,subject;
+			Utils.clickXpath(driver, ActionXpath.program, time, "click on program");
+				Utils.clickXpath(driver, ActionXpath.programselect, time, "click on program select");
+				 program = Utils.getTEXT(driver,"(//*[. and @aria-haspopup='listbox'])[1]");
+				Utils.clickXpath(driver, ActionXpath.course, time, "click on subject");
+				Utils.clickXpath(driver, ActionXpath.courseselect, time, "click on select subject"); 
+				subject = Utils.getTEXT(driver, "(//*[. and @aria-haspopup='listbox'])[2]");
+				
+			// String returnArray[] = new String[2];
+            // returnArray = Utils.getClassSubjectAndSection(driver, url,"resource");
+			//  String programconverted = returnArray[0];
+			//  String subject = returnArray[1];
 			
 			Utils.clickXpath(driver, ActionXpath.facccres, time, "facccres");
 			Utils.clickXpath(driver, ActionXpath.facssclick, time, "facssclick");
@@ -97,13 +106,15 @@ public class Pfs_resource {
 			Utils.clickXpath(driver, ActionXpath.facssopen, time, "Click on SS SVG");
 			resourcePublishAndLogout(faculty, url, driver, fileName, Role);
 
+
+			
 			//Student part starts
 			Utils.login(driver, student,url);
 			Utils.checkAcadAndClick(driver, url);
 			Utils.clickXpath(driver, ActionXpath.learn, time, "learn");
-
+			Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.program, time, "click on program");
-			driver.findElement(By.xpath("//li[@data-value='" + programconverted + "']")).click();
+			driver.findElement(By.xpath("//li[@data-value='" + program + "']")).click();
 			Utils.clickXpath(driver, ActionXpath.subject, time, "click on subject");
 			driver.findElement(By.xpath("//li[text()='" + subject + "']")).click();
 
@@ -129,19 +140,22 @@ public class Pfs_resource {
 	public static void testPPTCreateViewDelete(String student, String faculty, 
         String url, String Browser, String Role, WebDriver driver) throws Exception {
 		try {
+			
+			String folder = "";
+			folder = Pfs_portal.getFolderPath();
 			String PPT_file = "";
-			if (Utils.checkWindowsOs()){
-				PPT_file = "C:\\Users\\Public\\Documents\\demo.pptx";
-			}else {
-				PPT_file = "/Users/Shared/demo.pptx";
-			}
+			PPT_file = folder+"\\demo.pptx";
 			
 			System.out.println("TC-41:  PPT resource Create View delete Test case Started");
 			resourceFacultyInitialSteps(faculty, url, driver);
-			String returnArray[] = new String[2];
-            returnArray = Utils.getClassSubjectAndSection(driver, url,"resource");
-			 String programconverted = returnArray[0];
-			 String subject = returnArray[1];
+			String program,subject;
+			Utils.clickXpath(driver, ActionXpath.program, time, "click on program");
+				Utils.clickXpath(driver, ActionXpath.programselect, time, "click on program select");
+				 program = Utils.getTEXT(driver,"(//*[. and @aria-haspopup='listbox'])[1]");
+				Utils.clickXpath(driver, ActionXpath.course, time, "click on subject");
+				Utils.clickXpath(driver, ActionXpath.courseselect, time, "click on select subject"); 
+				subject = Utils.getTEXT(driver, "(//*[. and @aria-haspopup='listbox'])[2]");
+				
 			Utils.clickXpath(driver, ActionXpath.facccres, time, "facccres");
 			Utils.clickXpath(driver, ActionXpath.facpptclick, time, "facpptclick");
 			resourceSubmitForm(faculty, url, driver);
@@ -160,7 +174,7 @@ public class Pfs_resource {
 			Utils.clickXpath(driver, ActionXpath.learn, time, "learn");
 
 			Utils.clickXpath(driver, ActionXpath.program, time, "click on program");
-			driver.findElement(By.xpath("//li[@data-value='" + programconverted + "']")).click();
+			driver.findElement(By.xpath("//li[@data-value='" + program + "']")).click();
 			Utils.clickXpath(driver, ActionXpath.subject, time, "click on subject");
 			driver.findElement(By.xpath("//li[text()='" + subject + "']")).click();
 
@@ -185,18 +199,20 @@ public class Pfs_resource {
         String url, String Browser, String Role, WebDriver driver) throws Exception {
 		try {
 			String PDF_file = "";
-			if(Utils.checkWindowsOs()){
-				PDF_file = "C:\\Users\\Public\\Documents\\demo.pdf";
-			}else {
-				PDF_file = "/Users/Shared/demo.pdf";
-			}
+			String folder = "";
+			folder = Pfs_portal.getFolderPath();
+			PDF_file = folder+"\\demo.pdf";
 			
 			System.out.println("TC-42:  Create PDF resource publish and delete PDF");
 			resourceFacultyInitialSteps(faculty, url, driver);		
-			String returnArray[] = new String[2];
-            returnArray = Utils.getClassSubjectAndSection(driver, url,"resource");
-			 String programconverted = returnArray[0];
-			 String subject = returnArray[1];	
+			String program ,subject ;
+			Utils.clickXpath(driver, ActionXpath.program, time, "click on program");
+			Utils.clickXpath(driver, ActionXpath.programselect, time, "click on program select");
+			program = Utils.getTEXT(driver,"(//*[. and @aria-haspopup='listbox'])[1]");
+			Utils.clickXpath(driver, ActionXpath.course, time, "click on subject");
+			Utils.clickXpath(driver, ActionXpath.courseselect, time, "click on select subject"); 
+			subject = Utils.getTEXT(driver, "(//*[. and @aria-haspopup='listbox'])[2]");
+
 			Utils.clickXpath(driver, ActionXpath.facccres, time, "facccres");
 			Utils.clickXpath(driver, ActionXpath.facccrespdf, time, "facccrespdf");
 			resourceSubmitForm(faculty, url, driver);
@@ -216,7 +232,7 @@ public class Pfs_resource {
 			Utils.clickXpath(driver, ActionXpath.learn, time, "learn");
 
 			Utils.clickXpath(driver, ActionXpath.program, time, "click on program");
-			driver.findElement(By.xpath("//li[@data-value='" + programconverted + "']")).click();
+			driver.findElement(By.xpath("//li[@data-value='" + program  + "']")).click();
 			Utils.clickXpath(driver, ActionXpath.subject, time, "click on subject");
 			driver.findElement(By.xpath("//li[text()='" + subject + "']")).click();
 
@@ -240,18 +256,20 @@ public class Pfs_resource {
 		String url, String Browser, String Role, WebDriver driver) throws Exception {
 		try {
 			String Video_file = "";
-			if (Utils.checkWindowsOs()){
-				Video_file = "C:\\Users\\Public\\Documents\\demo.mp4";
-			}else {
-				Video_file = "/Users/Shared/demo.mp4";
-			}
+			String folder = "";
+			folder = Pfs_portal.getFolderPath();
+			Video_file = folder+"\\demo.mp4";
 			
 			System.out.println("TC-43:  Create Video resource create view  and delete");
 			resourceFacultyInitialSteps(faculty, url, driver);
-			String returnArray[] = new String[2];
-            returnArray = Utils.getClassSubjectAndSection(driver, url,"resource");
-			 String programconverted = returnArray[0];
-			 String subject = returnArray[1];
+			String program ,subject ;
+			Utils.clickXpath(driver, ActionXpath.program, time, "click on program");
+			Utils.clickXpath(driver, ActionXpath.programselect, time, "click on program select");
+			program = Utils.getTEXT(driver,"(//*[. and @aria-haspopup='listbox'])[1]");
+			Utils.clickXpath(driver, ActionXpath.course, time, "click on subject");
+			Utils.clickXpath(driver, ActionXpath.courseselect, time, "click on select subject"); 
+			subject = Utils.getTEXT(driver, "(//*[. and @aria-haspopup='listbox'])[2]");
+
 			Utils.clickXpath(driver, ActionXpath.facccres, time, "facccres");
 			Utils.clickXpath(driver, ActionXpath.facvideoclick, time, "facvideoclick");
 			resourceSubmitForm(faculty, url, driver);
@@ -271,7 +289,7 @@ public class Pfs_resource {
 			Utils.clickXpath(driver, ActionXpath.learn, time, "Click on learnlearn");
 
 			Utils.clickXpath(driver, ActionXpath.program, time, "click on program");
-			driver.findElement(By.xpath("//li[@data-value='" + programconverted + "']")).click();
+			driver.findElement(By.xpath("//li[@data-value='" + program + "']")).click();
 			Utils.clickXpath(driver, ActionXpath.subject, time, "click on subject");
 			driver.findElement(By.xpath("//li[text()='" + subject + "']")).click();
 
@@ -298,10 +316,14 @@ public class Pfs_resource {
 		try {
 			System.out.println("TC-44:  Link resource Create View delete Test case Started");
 			resourceFacultyInitialSteps(faculty, url, driver);
-			String returnArray[] = new String[2];
-            returnArray = Utils.getClassSubjectAndSection(driver, url,"resource");
-			 String programconverted = returnArray[0];
-			 String subject = returnArray[1];
+			String program ,subject ;
+			Utils.clickXpath(driver, ActionXpath.program, time, "click on program");
+			Utils.clickXpath(driver, ActionXpath.programselect, time, "click on program select");
+			program = Utils.getTEXT(driver,"(//*[. and @aria-haspopup='listbox'])[1]");
+			Utils.clickXpath(driver, ActionXpath.course, time, "click on subject");
+			Utils.clickXpath(driver, ActionXpath.courseselect, time, "click on select subject"); 
+			subject = Utils.getTEXT(driver, "(//*[. and @aria-haspopup='listbox'])[2]");
+
 			Utils.clickXpath(driver, ActionXpath.facccres, time, "facccres");
 			Utils.clickXpath(driver, ActionXpath.faclinkclick, time, "faclinkclick");
 			resourceSubmitForm(faculty, url, driver);
@@ -317,7 +339,7 @@ public class Pfs_resource {
 			Utils.clickXpath(driver, ActionXpath.learn, time, "learn");
 
 			Utils.clickXpath(driver, ActionXpath.program, time, "click on program");
-			driver.findElement(By.xpath("//li[@data-value='" + programconverted + "']")).click();
+			driver.findElement(By.xpath("//li[@data-value='" + program + "']")).click();
 			Utils.clickXpath(driver, ActionXpath.subject, time, "click on subject");
 			driver.findElement(By.xpath("//li[text()='" + subject + "']")).click();
 
