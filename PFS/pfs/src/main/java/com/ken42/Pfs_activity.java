@@ -142,6 +142,8 @@ public class Pfs_activity {
                 Utils.bigSleepBetweenClicks(1);
                 Utils.clickXpath(driver, ActionXpath.facselectrelative2, time, "Select first question");
                 Utils.clickXpath(driver, ActionXpath.facaddselectrelative, time, "Click Add Select");
+                JavascriptExecutor j = (JavascriptExecutor) driver;
+                j.executeScript("window.scrollBy(0,2000)");
                 Utils.smallSleepBetweenClicks(1);
                 Utils.clickXpath(driver, ActionXpath.preview, time, "Click on preview");
                 Utils.smallSleepBetweenClicks(1);
