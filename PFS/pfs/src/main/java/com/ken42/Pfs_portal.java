@@ -35,9 +35,9 @@ public class Pfs_portal {
 		folder = getFolderPath();
 		String CSV_PATH = "";
 		String logFileName = "";
+		CSV_PATH = folder+"\\pfs.csv";
 		boolean append = false;
 		String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new java.util.Date());
-		CSV_PATH = folder+"\\pfs.csv";
 		logFileName = String.format(folder+"\\Testresult_%s.HTML", timeStamp);
 		FileHandler logFile = new FileHandler(logFileName, append);
         logFile.setFormatter(new MyHtmlFormatter());
@@ -145,7 +145,7 @@ public class Pfs_portal {
 					case 17: 
 						if (!faculty_login_set){
 							// Utils.logout(driver, PFSurl, Role);
-							Utils.smallSleepBetweenClicks(i);
+							Utils.smallSleepBetweenClicks(1);
 							Utils.login(driver, facultyEmail,PFSurl);
 						}
 						Pfs_faculty.testFaculty(PFSurl, driver); //TC-17
