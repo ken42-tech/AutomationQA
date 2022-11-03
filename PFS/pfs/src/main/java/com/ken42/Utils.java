@@ -312,7 +312,7 @@ public class Utils {
 	}
 	@Test
 	public static Boolean checkoldlogin(String url) {
-		String urlToMatch = "ltsta|ltpct";
+		String urlToMatch = "ltsta";
 		Pattern pt = Pattern.compile(urlToMatch);
 		Matcher m = pt.matcher(url);
 		while (m.find()) {
@@ -349,7 +349,7 @@ public class Utils {
 
 	@Test
 	public static Boolean checkUrlToSkipTest(String url){
-		String urlToMatch = "jdinstitutedelhi|nsom|ltsta|ltpct|esscisamsung|jdinstitutedelhi";
+		String urlToMatch = "jdinstitutedelhi|nsom|ltsta|ltpct|esscisamsung|jdinstitutedelhi|sbmppsjal";
 		Pattern pt = Pattern.compile(urlToMatch);
         Matcher m = pt.matcher(url);
         while (m.find()) {
@@ -361,7 +361,7 @@ public class Utils {
 
 	@Test
 	public static Boolean checknewlogin(String url){
-		String urlToMatch = "dev|jdinstitutedelhi|nsom|bimtech";
+		String urlToMatch = "dev|jdinstitutedelhi|nsom|bimtech|ltpct";
 		Pattern pt = Pattern.compile(urlToMatch);
 		Matcher m = pt.matcher(url);
 		while (m.find()) {
