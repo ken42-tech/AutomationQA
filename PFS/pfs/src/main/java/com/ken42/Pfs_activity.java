@@ -1230,9 +1230,9 @@ public class Pfs_activity {
             assesmentattempt(faculty, url, Browser, Role, driver, returnAssement);
             Utils.logout(driver, url, Role);
             Utils.login(driver, faculty,url);
-            assesmentcheckresult(faculty, url, Browser, Role, driver, returnAssement, Filenameassesment);
-            Utils.logout(driver, url, Role);
-            Utils.login(driver, faculty,url);
+            // assesmentcheckresult(faculty, url, Browser, Role, driver, returnAssement, Filenameassesment);
+            // Utils.logout(driver, url, Role);
+            // Utils.login(driver, faculty,url);
             returnAssement= assesmentdelete(returnAssement, faculty, url, Browser, Role, driver);
             Utils.logout(driver, url, Role);
             log.info("TC-58 Assement Attempt and view result test Executation   PASSED.... ");
