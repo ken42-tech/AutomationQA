@@ -212,7 +212,7 @@ public class Pfs_faculty {
 			Utils.clickXpath(driver, ActionXpath.FacRaisebutton, time, "Click on Raise case button");
 			Utils.smallSleepBetweenClicks(1);
 			// Utils.scrollUpOrDown(driver, 300);
-			Utils.clickXpath(driver, ActionXpath.facCancelSer, time, "cancel");
+			// Utils.clickXpath(driver, ActionXpath.facCancelSer, time, "cancel");
 			Utils.smallSleepBetweenClicks(1);
 			log.info("TC-24: Faculty Service test cancel button Test case PASSED \n ");
 		} catch (Exception e) {
@@ -231,6 +231,7 @@ public class Pfs_faculty {
 			Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.FacRaisebutton, time, "Raise a case button");
 			Utils.smallSleepBetweenClicks(1);
+			Utils.clickXpath(driver, ActionXpath.Raisebutton, time, "Raise case button");
 			Utils.callSendkeys(driver, ActionXpath.inputSub, "Regd Error on Inviligation Secation", time);
 			Utils.callSendkeys(driver, ActionXpath.FacDesc,
 					"while i need to regd on the inviligation section m unable to do bcz its showing the system admin Error Sever not availbale 404 error.",
@@ -364,6 +365,7 @@ public class Pfs_faculty {
 			Utils.clickXpath(driver, ActionXpath.FCCportal, time, "facSelectPrtoSignout");
 			Utils.clickXpath(driver, ActionXpath.faccProfile, time, "facprofile");
 			Utils.clickXpath(driver, ActionXpath.facdpacdeails, time, "facdpacdeails");
+			Utils.smallSleepBetweenClicks(2);
 			Utils.clickXpath(driver, ActionXpath.facdpacadd, time, "facdpacadd");
 			Utils.clickXpath(driver, ActionXpath.facdplevel, time, "facdplevel");
 			Utils.clickXpath(driver, ActionXpath.facdplevelselect, time, "facdplevelselect");
