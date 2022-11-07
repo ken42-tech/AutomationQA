@@ -1267,7 +1267,7 @@ public class Pfs_activity {
             Utils.printException(e);
             log.warning("TC-59 Faculty Fourm create,publish Delete,Decission test case FAILED...  ");
 //            Pfs_portal.quitDriver(url);
-            Utils.logout(driver, url, Role);
+            // Utils.logout(driver, url, Role);
             Pfs_portal.quitDriver(url);
             Pfs_portal.initDriver(Browser, url); 
         }
@@ -1453,7 +1453,7 @@ public class Pfs_activity {
             Utils.printException(e);
             log.warning("TC-64 Faculty Fourm create,unpublish Delete,Decission test case FAILED...  ");
 //            Pfs_portal.quitDriver(url);
-            Utils.logout(driver, url, Role);
+            // Utils.logout(driver, url, Role);
             Pfs_portal.quitDriver(url);
             Pfs_portal.initDriver(Browser, url); 
         }
