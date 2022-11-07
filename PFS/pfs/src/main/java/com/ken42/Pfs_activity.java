@@ -474,7 +474,7 @@ public class Pfs_activity {
     
                 Utils.smallSleepBetweenClicks(1);
                 if(Utils.checkattempt(url)){
-                    System.out.println("nsom,essci and sbmppsjal not have the attempt");
+                    System.out.println("nsom,essci,ltsta,ltpct and sbmppsjal not have the attempt");
                 }
                 else{
                 Utils.clickXpath(driver, ActionXpath.assignfacattementsrelative, time, "facattements");

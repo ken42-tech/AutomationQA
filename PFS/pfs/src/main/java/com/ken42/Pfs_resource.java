@@ -333,8 +333,15 @@ public class Pfs_resource {
 			Utils.scrollUpOrDown(driver, time);
 			Utils.clickXpath(driver, ActionXpath.facccressubmit, time, "facccressubmit");
 			Utils.clickXpath(driver, ActionXpath.facccressubmityes, time, "facccressubmityes");
-			Utils.logout(driver, url, Role);
 
+			if(Utils.checkLtsta(url)){
+				Utils.clickXpath(driver, ActionXpath.viewlink, time, "faclinkopen");
+				resourcePublishAndLogout(faculty, url, driver, fileName, Role);
+			}
+			else{
+				Utils.logout(driver, url, Role);
+			}
+			
 			Utils.login(driver, student,url);
 			Utils.checkAcadAndClick(driver, url);
 			Utils.clickXpath(driver, ActionXpath.learn, time, "learn");
