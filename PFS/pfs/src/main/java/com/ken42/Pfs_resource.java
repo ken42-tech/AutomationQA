@@ -330,6 +330,7 @@ public class Pfs_resource {
 			String fileName = "Link_" + Utils.generateRandom();
 			Utils.callSendkeys(driver, ActionXpath.facpptname, fileName, time);
 			Utils.callSendkeys(driver, ActionXpath.faclinkexternal, url, time);
+			Utils.scrollUpOrDown(driver, time);
 			Utils.clickXpath(driver, ActionXpath.facccressubmit, time, "facccressubmit");
 			Utils.clickXpath(driver, ActionXpath.facccressubmityes, time, "facccressubmityes");
 			Utils.logout(driver, url, Role);

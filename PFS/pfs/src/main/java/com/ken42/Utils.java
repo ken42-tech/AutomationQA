@@ -312,7 +312,7 @@ public class Utils {
 	}
 	@Test
 	public static Boolean checkoldlogin(String url) {
-		String urlToMatch = "ltsta";
+		String urlToMatch = "aaahealthcare";
 		Pattern pt = Pattern.compile(urlToMatch);
 		Matcher m = pt.matcher(url);
 		while (m.find()) {
@@ -344,7 +344,7 @@ public class Utils {
 	@Test
 	public static void scrollUpOrDown(WebDriver driver, int pixel){
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("window.scrollBy(0,pixel)");
+		js.executeScript("window.scrollBy(0,-100)");
 	}
 
 	@Test
@@ -361,7 +361,7 @@ public class Utils {
 
 	@Test
 	public static Boolean checknewlogin(String url){
-		String urlToMatch = "dev|jdinstitutedelhi|nsom|bimtech|ltpct";
+		String urlToMatch = "dev|jdinstitutedelhi|nsom|bimtech|ltpct|ltsta";
 		Pattern pt = Pattern.compile(urlToMatch);
 		Matcher m = pt.matcher(url);
 		while (m.find()) {
