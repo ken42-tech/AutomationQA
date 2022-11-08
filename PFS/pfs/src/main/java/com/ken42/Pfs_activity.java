@@ -63,6 +63,7 @@ public class Pfs_activity {
             }
             //driver.findElement(By.xpath("//li[@data-value='" + section + "']")).click();
             // Create and save assessment
+            // Utils.dot(driver);
             Utils.clickXpath(driver, ActionXpath.facinstruction3dot, time, "facinstruction3dot");
             Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.facclinkrelative, time, "facclink");
@@ -458,6 +459,7 @@ public class Pfs_activity {
                 Utils.smallSleepBetweenClicks(1);
                 System.out.println("program1 is:"+program1);
                 System.out.println("Subject1 is:"+subject1);
+              
                 Utils.clickXpath(driver, ActionXpath.facinstruction3dot, time, "facinstruction3dot");
                 Utils.clickXpath(driver, ActionXpath.assignfaclinkrelative, time, "faclink");
                 Utils.callSendkeys(driver, ActionXpath.assignfacurlrelative, "https://portal-dev.ken42.com/", time);

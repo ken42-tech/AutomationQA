@@ -5,6 +5,8 @@ import java.io.FileReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.concurrent.TimeUnit;
+
+import org.jaxen.function.TrueFunction;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -17,6 +19,8 @@ import org.openqa.selenium.safari.SafariDriver;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import push.returnArray;
+
 import com.opencsv.CSVReader;
 import java.util.logging.*;
 import java.util.logging.FileHandler;
@@ -27,6 +31,7 @@ public class Pfs_portal {
 	private static final Exception Exception = null;
 	private static WebDriver driver;
 	static int time = 1000;
+	static Boolean headless;
 	public static Logger log = Logger.getLogger("Pfs_portal");
 	
 
@@ -34,6 +39,8 @@ public class Pfs_portal {
 
 		String folder = "";
 		folder = getFolderPath();
+
+
 
 		System.out.println("********Folder:"+folder);
 
@@ -68,6 +75,7 @@ public class Pfs_portal {
 			String From = csvCell[4];
             String To = csvCell[5];
 			String studentName = csvCell[6];
+			// String headless = csvCell[7];
 			int from = Integer.parseInt(From);
 			int to = Integer.parseInt(To);
 			if ((from < 1 || from > 68 || to < 1 || to > 68) || (to < from)){
@@ -75,7 +83,9 @@ public class Pfs_portal {
 				log.warning("Please correct the From and To Columns in CSV file and run again");
 				System.exit(1);
 			}
-
+			
+			headless= getHeadless(csvCell);
+			
 			initDriver(Browser, PFSurl);
 			if ((from >=1 && to <=16)){
 				Utils.login(driver, studentEmail,PFSurl);
@@ -365,7 +375,13 @@ public class Pfs_portal {
 			if ("chrome".equals(Browser)) {
 				System.setProperty("webdriver.chrome.driver", ChromeDriver);
 				ChromeOptions op = new ChromeOptions();
+				if(headless){
+					op.addArguments("--headless", "--window-size=1920,1200");
+				}
+				else{
 				op.addArguments("--disable-notifications");
+				}
+				// op.addArguments("--headless");
 				WebDriverManager.chromedriver().setup();
 				driver = new ChromeDriver(op);
 				driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
@@ -417,6 +433,20 @@ public class Pfs_portal {
 			Utils.printException(e);
 		}
 		return null;
+	}
+	public static Boolean getHeadless(String[] csvCell) throws Exception{
+		try {
+			String headless=csvCell[7];
+			if("TRUE".equals(headless)){
+				return true;
+			}
+			else{
+				return false;
+			}
+		}catch (Exception e){
+			Utils.printException(e);
+		}
+		return false;
 	}
 }
 
