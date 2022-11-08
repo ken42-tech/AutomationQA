@@ -645,7 +645,7 @@ public class Pfs_activity {
             }
         }
         public static void assignmentreview(String []returnAssement,
-        String faculty,String url, String Browser, String Role, WebDriver driver)
+        String faculty,String url, String Browser, String Role, WebDriver driver,String studentName)
         throws Exception {
             try{
                 String filename=returnAssement[0];
@@ -667,7 +667,7 @@ public class Pfs_activity {
                 //         .until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[.='Review'])[1]/..")));
                 // ((JavascriptExecutor) driver).executeScript("arguments[0].click();", elem1);
                 Utils.bigSleepBetweenClicks(1);
-                Utils.callSendkeys(driver,ActionXpath.assignsearch, "Test Student", time);
+                Utils.callSendkeys(driver,ActionXpath.assignsearch, studentName, time);
                 Utils.clickXpath(driver, ActionXpath.assigngrade, time, "click on grade");
     
                 Utils.bigSleepBetweenClicks(1);
@@ -1185,7 +1185,7 @@ public class Pfs_activity {
     }
     @Test(priority = 57)
     public static void testFAssignmentCreatePublishsubmissiongradecheck(String student, String faculty, String url,
-            String Browser, String Role,WebDriver driver) throws Exception {
+            String Browser, String Role,WebDriver driver,String studentName) throws Exception {
         try { 
             String returnAssement[] = new String[3];
             String Filenameassesment = returnAssement[0];
@@ -1200,7 +1200,7 @@ public class Pfs_activity {
                     assignmentsubmission(returnAssement,faculty,url, Browser, Role, driver);
                     Utils.logout(driver, url, Role);
                     Utils.login(driver, faculty,url);
-                    assignmentreview(returnAssement, faculty, url, Browser, Role, driver);
+                    assignmentreview(returnAssement, faculty, url, Browser, Role, driver,studentName);
                     Utils.logout(driver, url, Role);
                     Utils.login(driver, faculty,url);
                     returnAssement= assignmentdelete(returnAssement, faculty, url, Browser, Role, driver);

@@ -67,6 +67,7 @@ public class Pfs_portal {
 			String Browser = csvCell[3];
 			String From = csvCell[4];
             String To = csvCell[5];
+			String studentName = csvCell[6];
 			int from = Integer.parseInt(From);
 			int to = Integer.parseInt(To);
 			if ((from < 1 || from > 68 || to < 1 || to > 68) || (to < from)){
@@ -292,7 +293,8 @@ public class Pfs_portal {
 							break;
 					case 57:
 							Pfs_activity.testFAssignmentCreatePublishsubmissiongradecheck(studentEmail, facultyEmail, 
-								PFSurl, Browser, Role, driver); //TC-57
+								PFSurl, Browser, Role, driver,studentName); //TC-57
+
 							break;
 					case 58:
 							Pfs_activity.testassesmentAttemptview(studentEmail, facultyEmail, 
