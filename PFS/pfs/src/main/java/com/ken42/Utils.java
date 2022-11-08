@@ -322,7 +322,7 @@ public class Utils {
 	}
 	@Test
 	public static Boolean checkattempt(String url) {
-		String urlToMatch = "nsom|esscisamsung|sbmppsjal|ltpct|ltsta";
+		String urlToMatch = "nsom|esscisamsung|sbmppsjal|ltpct|ltsta|jdinstitutedelhi";
 		Pattern pt = Pattern.compile(urlToMatch);
 		Matcher m = pt.matcher(url);
 		while (m.find()) {

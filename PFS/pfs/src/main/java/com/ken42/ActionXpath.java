@@ -503,7 +503,7 @@ static String facpdfdelete="//span[text()='Delete']";
 static String facpdfdelete2="//span[text()='Delete']";
 static String logout="//*[@id=\"menu-appbar\"]/div[3]/ul/li[2]";
 ////////////
-static String FCCportal="//*[text()='T'] | //*[text()='A'] | //*[text()='I'] | //*[text()='S'] ";
+static String FCCportal="//*[text()='T'] | //*[text()='A'] | //*[text()='I'] | //*[text()='S'] |//*[text()='K']";
 //TC-41 PPT Xpath Completed
    	
    	

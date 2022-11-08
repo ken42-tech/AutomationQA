@@ -47,9 +47,7 @@ public class Pfs_portal {
         logFile.setFormatter(new MyHtmlFormatter());
         log.addHandler(logFile);
 		
-		String facultyEmail = "test.faculty@ken42.com";
-		String studentEmail = "test.student@ken42.com";
-		String Role = "";
+		
 		CSVReader csvReader;
 		int count = 0;
 		csvReader = new CSVReader(new FileReader(CSV_PATH));
@@ -63,9 +61,12 @@ public class Pfs_portal {
 				continue;
 			}
 			String PFSurl = csvCell[0];
-			String Browser = csvCell[1];
-			String From = csvCell[2];
-            String To = csvCell[3];
+			String facultyEmail = csvCell[1];
+			String studentEmail = csvCell[2];
+			String Role = "";
+			String Browser = csvCell[3];
+			String From = csvCell[4];
+            String To = csvCell[5];
 			int from = Integer.parseInt(From);
 			int to = Integer.parseInt(To);
 			if ((from < 1 || from > 68 || to < 1 || to > 68) || (to < from)){
