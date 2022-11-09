@@ -19,8 +19,6 @@ import org.openqa.selenium.safari.SafariDriver;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import push.returnArray;
-
 import com.opencsv.CSVReader;
 import java.util.logging.*;
 import java.util.logging.FileHandler;
@@ -376,7 +374,7 @@ public class Pfs_portal {
 				System.setProperty("webdriver.chrome.driver", ChromeDriver);
 				ChromeOptions op = new ChromeOptions();
 				if(headless){
-					op.addArguments("--headless", "--window-size=1920,1200");
+					op.addArguments("--headless", "--window-size=1280,266");
 				}
 				else{
 				op.addArguments("--disable-notifications");
