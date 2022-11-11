@@ -83,13 +83,14 @@ public class Pfs_activity {
             returnAssement[2] = program2;
             returnAssement[3] = subject1;
             returnAssement[4] = subject2;
+            log.info("Create assesment Passed  ");
+
             return(returnAssement);
             }
             catch (Exception e) {
                 Utils.printException(e);
-                Pfs_portal.quitDriver(url);
-                Pfs_portal.initDriver(Browser, url);
-               return( null ); 
+                log.warning("Create assesment FAILED  ");
+                throw(e);
             }
             
         }
@@ -107,11 +108,13 @@ public class Pfs_activity {
             Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.facAssPublish, time, "Publish Assessment");
             Utils.bigSleepBetweenClicks(2);
+            log.info("Create Publish Passed");
+
             }
             catch (Exception e) {
                 Utils.printException(e);
-                Pfs_portal.quitDriver(url);
-                Pfs_portal.initDriver(Browser, url);
+                log.warning("Create Publish FAILED  ");
+                throw(e);
             }
         }
         public static String[] publishassesmentedit(String []returnAssement,
@@ -150,12 +153,13 @@ public class Pfs_activity {
                 Utils.smallSleepBetweenClicks(1);
                 Utils.smallSleepBetweenClicks(1);
 
+                log.info("Create publishassesmentedit passed  ");
               
             }
             catch (Exception e) {
                 Utils.printException(e);
-                Pfs_portal.quitDriver(url);
-                Pfs_portal.initDriver(Browser, url);
+                log.warning("Create publishassesmentedit FAILED  ");
+                throw(e);
             }
             return returnAssement;
         }
@@ -195,13 +199,14 @@ public class Pfs_activity {
                 Utils.clickXpath(driver, ActionXpath.preview, time, "Click on preview");
                 Utils.smallSleepBetweenClicks(1);
                 Utils.smallSleepBetweenClicks(1);
+                log.info("Create unpubishassesmentedit FAILED  ");
 
               
             }
             catch (Exception e) {
                 Utils.printException(e);
-                Pfs_portal.quitDriver(url);
-                Pfs_portal.initDriver(Browser, url);
+                log.warning("Create unpubishassesmentedit FAILED  ");
+                throw(e);
             }
             return returnAssement;
         }
@@ -236,11 +241,13 @@ public class Pfs_activity {
             Actions qq=new Actions(driver);
             qq.moveByOffset(40, 40).click().perform();
             Utils.smallSleepBetweenClicks(1);
+            log.info("Create assesmentviewstudent passed  ");
+
             }
             catch (Exception e) {
                 Utils.printException(e);
-                Pfs_portal.quitDriver(url);
-                Pfs_portal.initDriver(Browser, url);
+                log.warning("Create assesmentviewstudent FAILED  ");
+                throw(e);
             }
         }
 
@@ -330,13 +337,15 @@ public class Pfs_activity {
              WebElement result= driver.findElement(By.xpath("/html/body/div[1]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[1]/div/div[1]/div[2]/div/div[2]/p[1]"));
              String getresult= result.getText();
              System.out.println(getresult);
+             log.info("Create assesmentattempt passed  ");
              return(getresult);
+            
+            
               }
             catch (Exception e) {
                 Utils.printException(e);
-                Pfs_portal.quitDriver(url);
-                Pfs_portal.initDriver(Browser, url);
-                return(null);
+                log.warning("Create assesmentattempt FAILED  ");
+                throw(e);
 
             }
         }
@@ -379,11 +388,14 @@ public class Pfs_activity {
                 else {
                     System.out.println("Result is not same");
                 }
+                log.info("Create assesmentcheckresult FAILED  ");
+
                 }
+                
             catch (Exception e) {
                 Utils.printException(e);
-                Pfs_portal.quitDriver(url);
-                Pfs_portal.initDriver(Browser, url);
+                log.warning("Create assesmentcheckresult FAILED  ");
+                throw(e);
             }
         }
 
@@ -402,11 +414,13 @@ public class Pfs_activity {
 			Utils.clickXpathWithJavascript(driver, ActionXpath. fsubltstadeleterelativedelete, time, "Delete button ");
 			Utils.clickXpath(driver, ActionXpath.fsubltstadelete1relativedelete2, time, " Delete Assessment 2");
 			Utils.bigSleepBetweenClicks(2);
+			log.info("Create assesmentdelete passed  ");
+
         }
 		catch (Exception e) {
 			Utils.printException(e);
-			Pfs_portal.quitDriver(url);
-			Pfs_portal.initDriver(Browser, url);
+			log.warning("Create assesmentdelete FAILED  ");
+                throw(e);
 		}
             return returnAssement;
         }
@@ -493,14 +507,17 @@ public class Pfs_activity {
             returnAssement[2] = program2;
             returnAssement[3] = subject1;
             returnAssement[4] = subject2;
+            log.info("Create assignmentcreate passed  ");
+
             return(returnAssement);
             // return(returnAssement);
+
+            
             }
             catch (Exception e) {
                 Utils.printException(e);
-                Pfs_portal.quitDriver(url);
-                Pfs_portal.initDriver(Browser, url);
-               return( null ); 
+                log.warning("Create assignmentcreate FAILED  ");
+                throw(e);
             }
             // return(returnAssement);
             
@@ -525,14 +542,17 @@ public class Pfs_activity {
 			Utils.smallSleepBetweenClicks(1);
             Utils.clickXpathWithJavascript(driver, ActionXpath.assignfacpublishrelative, time, "Publish");
 			Utils.bigSleepBetweenClicks(2);
+            log.info("Create assignmentpublish passed  ");
+
             return returnAssement;
+
             }
             catch (Exception e) {
                 Utils.printException(e);
-                Pfs_portal.quitDriver(url);
-                Pfs_portal.initDriver(Browser, url);
+                log.warning("Create assignmentpublish FAILED  ");
+                throw(e);
             }
-            return returnAssement;
+            // return returnAssement;
         }
 
         public static void assignmentviewstudent(String []returnAssement,
@@ -556,11 +576,14 @@ public class Pfs_activity {
                 Utils.smallSleepBetweenClicks(1);
                 Actions qq=new Actions(driver);
                 qq.moveByOffset(40, 40).click().perform();
+                log.info("Create assignmentviewstudent passed  ");
+
                 }
             catch (Exception e) {
                 Utils.printException(e);
-                Pfs_portal.quitDriver(url);
-                Pfs_portal.initDriver(Browser, url);
+                log.warning("Create assignmentviewstudent FAILED  ");
+                throw(e);
+
             }
         }
 
@@ -637,13 +660,14 @@ public class Pfs_activity {
             String tu = ty.getText();
             System.out.println(tu);
            
+            log.info("Create assignmentsubmission passed  ");
 
 
             }
             catch (Exception e) {
                 Utils.printException(e);
-                Pfs_portal.quitDriver(url);
-                Pfs_portal.initDriver(Browser, url);
+                log.warning("Create assignmentsubmission FAILED  ");
+                throw(e);
             }
         }
         public static void assignmentreview(String []returnAssement,
@@ -684,14 +708,15 @@ public class Pfs_activity {
                 ((JavascriptExecutor) driver).executeScript("arguments[0].click();", elem11);
                 
                 Utils.bigSleepBetweenClicks(1);
+            log.info("Create assignmentreview passed  ");
                     
 
 
         }
 		catch (Exception e) {
 			Utils.printException(e);
-			Pfs_portal.quitDriver(url);
-			Pfs_portal.initDriver(Browser, url);
+            log.warning("Create assignmentreview FAILED  ");
+            throw(e);
 		}
         }
         public static void assigmnenteditview(String []returnAssement,
@@ -759,12 +784,14 @@ public class Pfs_activity {
             Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.assignfacokrelative, time, "facok");
             Utils.smallSleepBetweenClicks(1);
+			log.info("Create assigmnenteditview passed  ");
+
             
         }
 		catch (Exception e) {
 			Utils.printException(e);
-			Pfs_portal.quitDriver(url);
-			Pfs_portal.initDriver(Browser, url);
+			log.warning("Create assigmnenteditview FAILED  ");
+            throw(e);
 		}
         }
 
@@ -793,12 +820,14 @@ public class Pfs_activity {
                 Utils.smallSleepBetweenClicks(1);
                 Utils.clickXpath(driver, ActionXpath.assignfacdelerelative, time, "Delete button 2");
                 Utils.bigSleepBetweenClicks(2);
+			log.info("Create assigmnentdelete passed");
+
                 
         }
 		catch (Exception e) {
 			Utils.printException(e);
-			Pfs_portal.quitDriver(url);
-			Pfs_portal.initDriver(Browser, url);
+			log.warning("Create assigmnentdelete FAILED  ");
+            throw(e);
 		}
             return returnAssement;
         }
@@ -867,13 +896,15 @@ public class Pfs_activity {
             returnAssement[2] = program2;
             returnAssement[3] = subject1;
             returnAssement[4] = subject2;
+            log.info("Create forumcreate passed  ");
+
             return(returnAssement);
             }
             catch (Exception e) {
                 Utils.printException(e);
-                Pfs_portal.quitDriver(url);
-                Pfs_portal.initDriver(Browser, url);
-               return( null ); 
+                log.warning("Create forumcreate FAILED  ");
+               throw(e);
+               
             }
             
 		}
@@ -895,12 +926,14 @@ public class Pfs_activity {
                 Utils.smallSleepBetweenClicks(1);
                 Utils.clickXpathWithJavascript(driver, ActionXpath.assignfacpublish, time, "Publish");
                 System.out.println("click on dot and  publish 2nd forum");
-                Utils.bigSleepBetweenClicks(2);  
+                Utils.bigSleepBetweenClicks(2); 
+                log.info("Create forumpublish passed  ");
+
             }
             catch (Exception e) {
                 Utils.printException(e);
-                Pfs_portal.quitDriver(url);
-                Pfs_portal.initDriver(Browser, url);
+                log.warning("Create forumpublish FAILED  ");
+               throw(e);
             }
             return returnAssement;
         }
@@ -930,12 +963,14 @@ public class Pfs_activity {
             Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.relativefacforumsavlin1, time, "facforumsavlin");
             Utils.clickXpath(driver, ActionXpath.faccSavefinish, time, "Click on save & finished");
+            log.info("Create forumdiscussion passed  ");
            
             }
             catch (Exception e) {
                 Utils.printException(e);
-                Pfs_portal.quitDriver(url);
-                Pfs_portal.initDriver(Browser, url);
+                log.warning("Create forumdiscussion FAILED  ");
+                throw(e);
+
             }
             return returnAssement;
         }
@@ -960,11 +995,13 @@ public class Pfs_activity {
                 Utils.smallSleepBetweenClicks(1);
                 Actions qq=new Actions(driver);
                 qq.moveByOffset(40, 40).click().perform();
+                log.info("Create forumviewstudent passed ");
+
                 }
             catch (Exception e) {
                 Utils.printException(e);
-                Pfs_portal.quitDriver(url);
-                Pfs_portal.initDriver(Browser, url);
+                log.warning("Create forumviewstudent FAILED  ");
+                throw(e);
             }
         }
 
@@ -1009,12 +1046,14 @@ public class Pfs_activity {
             Utils.clickXpath(driver, ActionXpath.relativefaforumsave1, time, "faforumsave");
             Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.relativefaforumok1, time, "faforumok");
+            log.info("Create forumedit passed  ");
            
         }
 		catch (Exception e) {
 			Utils.printException(e);
-			Pfs_portal.quitDriver(url);
-			Pfs_portal.initDriver(Browser, url);
+            log.warning("Create forumedit FAILED  ");
+            throw(e);
+
 		}
             return returnAssement;
         }
@@ -1040,12 +1079,13 @@ public class Pfs_activity {
                 Utils.smallSleepBetweenClicks(1);
                 Utils.clickXpath(driver, ActionXpath.assignfacdelerelative, time, "Delete button 2");
                 Utils.bigSleepBetweenClicks(2);
+			log.info("Create forumdelete passed  ");
                 
         }
 		catch (Exception e) {
 			Utils.printException(e);
-			Pfs_portal.quitDriver(url);
-			Pfs_portal.initDriver(Browser, url);
+			log.warning("Create forumdelete FAILED  ");
+            throw(e);
 		}
             return returnAssement;
         }
