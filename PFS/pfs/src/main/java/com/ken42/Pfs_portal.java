@@ -19,7 +19,6 @@ import org.openqa.selenium.safari.SafariDriver;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import push.returnArray;
 
 import com.opencsv.CSVReader;
 import java.util.logging.*;
@@ -406,7 +405,7 @@ public class Pfs_portal {
 			driver.manage().window().maximize();
 		} catch (Exception e) {
 			Utils.printException(e);
-			log.warning("UNABLE TO LAUNCH BROWSER \n\n\n");
+			log.warning("UNABLE TO LAUNCH BROWSER");
 			System.exit(01);
 		}
 	}
@@ -414,7 +413,6 @@ public class Pfs_portal {
 	@AfterSuite
 	public static void quitDriver(String Url) throws Exception {
 		// log.info("Completed testing of portal" + Url);
-		log.info("\n");
 		driver.quit();
 	}
 
