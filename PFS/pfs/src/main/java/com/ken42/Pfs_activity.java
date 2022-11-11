@@ -1057,42 +1057,26 @@ public class Pfs_activity {
         String url, String Browser, String Role, WebDriver driver)throws Exception {
             try {   
                 String returnAssement[] = new String[3];
-                System.out.println("TC-53: Assement create ,pubish & delete Test excutaion started...");
+                System.out.println("TC-53: Assement create ,pubish & delete Test excutaion started ");
                 Utils.login(driver, faculty,url);
                 Thread.sleep(6000);
                 returnAssement= assesmentcreate(student, faculty, url, Browser, Role, driver);
-                
                 String Filenameassesment = returnAssement[0];
-                // String program = returnAssement[1];
-                // String subject = returnAssement[2];
-                // System.out.println(program);
-                // System.out.println(subject);
                 assesmentpublish(faculty, url, Browser, Role, driver);
+                log.info("TC-53 Assesment Publish Executation PASSED");
                 Utils.logout(driver, url, Role);
                 Utils.login(driver, student,url);
-
-                // if(Utils.skipsubject(url)){
-                //     program=returnAssement[1];
-                //     subject=returnAssement[3];
-                // }
-                // else{
-                //     program=returnAssement[2];
-                //     subject=returnAssement[4];
-                // }
-                // System.out.println(program);
-                // System.out.println(subject);
-
-               
                 assesmentviewstudent(returnAssement,student,url, Browser, Role, driver);
+                log.info("TC-53 assesmentviewstudent Executation PASSED");
                 Utils.logout(driver, url, Role);
                 Utils.login(driver, faculty,url);
                 returnAssement= assesmentdelete(returnAssement, faculty, url, Browser, Role, driver);
                 Utils.logout(driver, url, Role);
-                log.info("TC-53 Assement create, publish & delete test Executation PASSED.... ");
+                log.info("TC-53 Assement create, publish & delete test Executation PASSED  ");
             }
 		catch (Exception e) {
 			Utils.printException(e);
-			log.warning("TC-53 Assement create,publish & delete test executation FAILED... ");
+			log.warning("TC-53 Assement create,publish & delete test executation FAILED  ");
 			Pfs_portal.quitDriver(url);
 			Pfs_portal.initDriver(Browser, url);
 		}
@@ -1105,23 +1089,23 @@ public class Pfs_activity {
 		try {
             String returnAssement[] = new String[3];
             String Filenameassesment = returnAssement[0];
-			System.out.println("TC-54: Assignment create ,pubish & delete Test excutaion started...");
+			System.out.println("TC-54: Assignment create ,pubish & delete Test excutaion started ");
 			Utils.login(driver, faculty,url);
             returnAssement= assignmentcreate(student, faculty, url, Browser, Role, driver);
-            // String Filenameassesment = returnAssement[0];
             returnAssement= assignmentpublish(returnAssement, faculty, url, Browser, Role, driver);
+            log.info("TC-54 assignment Publish Executation PASSED");
 			Utils.logout(driver, url, Role);
 			Utils.login(driver, student,url);
 			assignmentviewstudent(returnAssement,student,url, Browser, Role, driver);
+            log.info("TC-54 assignmentviewstudent Executation PASSED");
 			Utils.logout(driver, url, Role);
 			Utils.login(driver, faculty,url);
             returnAssement= assignmentdelete(returnAssement, faculty, url, Browser, Role, driver);
 			Utils.logout(driver, url, Role);
-            
-            log.info("TC-54 Assignment create,publish & delete   PASSED.... ");
+            log.info("TC-54 Assignment create,publish & delete   PASSED  ");
 		} catch (Exception e) {
 			Utils.printException(e);
-			log.warning("TC-54 Assignment create,publish & delte   FAILED.... ");
+			log.warning("TC-54 Assignment create,publish & delte   FAILED  ");
 			Pfs_portal.quitDriver(url);
 			Pfs_portal.initDriver(Browser, url);
 		}
@@ -1133,25 +1117,25 @@ public class Pfs_activity {
 		try { 
             String returnAssement[] = new String[3];
             String Filenameassesment = returnAssement[0];
-			System.out.println("Faculty Fourm create,publish Delete test case Staerted... ");
+			System.out.println("Faculty Fourm create,publish Delete test case Staerted  ");
 			Utils.login(driver, faculty,url);
             returnAssement= forumcreate(student, faculty, url, Browser, Role, driver);
             returnAssement= forumpublish(returnAssement, faculty, url, Browser, Role, driver);
+            log.info("TC-55 forumpublish Executation PASSED");
             // forumpublish(faculty, url, Browser, Role, driver,Filenameassesment);
 			Utils.logout(driver, url, Role);
 			Utils.login(driver, student,url);
 			forumviewstudent(returnAssement,student,url, Browser, Role, driver);
+            log.info("TC-55 forumviewstudent Executation PASSED");
 			Utils.logout(driver, url, Role);
 			Utils.login(driver, faculty,url);
             returnAssement= forumdelete(returnAssement, faculty, url, Browser, Role, driver);
             // forumdelete(faculty, url, Browser, Role, driver,Filenameassesment);
 			Utils.logout(driver, url, Role);
-
-			log.info("TC-55 Faculty Fourm create,publish Delete test case PASSED...");
-
+			log.info("TC-55 Faculty Fourm create,publish Delete test case PASSED ");
 		} catch (Exception e) {
 			Utils.printException(e);
-			log.warning("TC-55 Faculty Fourm create,publish Delete test case FAILED...  ");
+			log.warning("TC-55 Faculty Fourm create,publish Delete test case FAILED   ");
 			Pfs_portal.quitDriver(url);
             Pfs_portal.initDriver(Browser, url);
 		}
@@ -1166,21 +1150,23 @@ public class Pfs_activity {
             returnAssement= assignmentcreate(student, faculty, url, Browser, Role, driver);
             // String Filenameassesment= assignmentcreate(student, faculty, url, Browser, Role, driver);
             returnAssement= assignmentpublish(returnAssement, faculty, url, Browser, Role, driver);
+            log.info("TC-56 assignmentpublish Executation PASSED");
+
 			Utils.logout(driver, url, Role);
 			Utils.login(driver, student,url);
 			// assignmentviewstudent(returnAssement,student,url, Browser, Role, driver);
             assignmentsubmission(returnAssement,faculty,url, Browser, Role, driver);
+            log.info("TC-56 assignmentsubmission Executation PASSED");
 			Utils.logout(driver, url, Role);
 			Utils.login(driver, faculty,url);
             returnAssement= assignmentdelete(returnAssement, faculty, url, Browser, Role, driver);
 			Utils.logout(driver, url, Role);
-
             log.info(
-                    "TC-56 Assignment create,publish,submission and fileuploadchecking & submission  PASSED.... ");
+                    "TC-56 Assignment create,publish,submission and fileuploadchecking & submission  PASSED  ");
         } catch (Exception e) {
             Utils.printException(e);
             log.warning(
-                    "TC-56 Assignment create,publish, review ,submission and fileuploadchecking & submission    FAILED.... ");
+                    "TC-56 Assignment create,publish, review ,submission and fileuploadchecking & submission    FAILED  ");
             Pfs_portal.quitDriver(url);
             Pfs_portal.initDriver(Browser, url);
         }
@@ -1192,25 +1178,31 @@ public class Pfs_activity {
             String returnAssement[] = new String[3];
             String Filenameassesment = returnAssement[0];
             System.out.println(
-                    "TC-57 Assignment   Create ,publish,gradecheck &submission Test Excecuation Started... ");
+                    "TC-57 Assignment   Create ,publish,gradecheck &submission Test Excecuation Started  ");
                     Utils.login(driver, faculty,url);
                     returnAssement= assignmentcreate(student, faculty, url, Browser, Role, driver);
                     returnAssement= assignmentpublish(returnAssement, faculty, url, Browser, Role, driver);
                     // assignmentpublish(faculty, url, Browser, Role, driver,Filenameassesment);
+                     log.info("TC-57 assignmentpublish Executation PASSED");
+                    
                     Utils.logout(driver, url, Role);
                     Utils.login(driver, student,url);
                     assignmentsubmission(returnAssement,faculty,url, Browser, Role, driver);
+                    log.info("TC-57 assignmentsubmission Executation PASSED");
+
                     Utils.logout(driver, url, Role);
                     Utils.login(driver, faculty,url);
                     assignmentreview(returnAssement, faculty, url, Browser, Role, driver,studentName);
+                    log.info("TC-57 assignmentreview Executation PASSED");
+                    
                     Utils.logout(driver, url, Role);
                     Utils.login(driver, faculty,url);
                     returnAssement= assignmentdelete(returnAssement, faculty, url, Browser, Role, driver);
                     Utils.logout(driver, url, Role);       
-            log.info("TC-57 Assignment create,publish,review submission  & grade check    PASSED.... ");
+            log.info("TC-57 Assignment create,publish,review submission  & grade check    PASSED  ");
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("TC-57 Assignment create,publish, submission & grade check   FAILED.... ");
+            log.warning("TC-57 Assignment create,publish, submission & grade check   FAILED  ");
             Pfs_portal.quitDriver(url);
             Pfs_portal.initDriver(Browser, url);
         }
@@ -1222,14 +1214,18 @@ public class Pfs_activity {
         try {
             String returnAssement[] = new String[3];
             String Filenameassesment = returnAssement[0];
-            System.out.println("TC-58: Assement create ,pubish & delete Test excutaion   started... ");
+            System.out.println("TC-58: Assement create ,pubish & delete Test excutaion   started  ");
             Utils.login(driver, faculty,url);
             returnAssement= assesmentcreate(student, faculty, url, Browser, Role, driver);
             assesmentpublish(faculty, url, Browser, Role, driver);
+            log.info("TC-58 assesmentpublish Executation PASSED");
+
             Utils.logout(driver, url, Role);
             Utils.login(driver, student,url);
             assesmentviewstudent(returnAssement,student,url, Browser, Role, driver);
             assesmentattempt(faculty, url, Browser, Role, driver, returnAssement);
+            log.info("TC-58 assesmentviewstudent & assesmentattempt Executation PASSED");
+            
             Utils.logout(driver, url, Role);
             Utils.login(driver, faculty,url);
             // assesmentcheckresult(faculty, url, Browser, Role, driver, returnAssement, Filenameassesment);
@@ -1237,11 +1233,11 @@ public class Pfs_activity {
             // Utils.login(driver, faculty,url);
             returnAssement= assesmentdelete(returnAssement, faculty, url, Browser, Role, driver);
             Utils.logout(driver, url, Role);
-            log.info("TC-58 Assement Attempt and view result test Executation   PASSED.... ");
+            log.info("TC-58 Assement Attempt and view result test Executation   PASSED  ");
         }
         catch (Exception e) {
             Utils.printException(e);
-            log.warning("TC-58 Assement Attempt and view result test executation   FAILED... ");
+            log.warning("TC-58 Assement Attempt and view result test executation   FAILED  ");
             Pfs_portal.quitDriver(url);
             Pfs_portal.initDriver(Browser, url);    
         }
@@ -1252,22 +1248,26 @@ public class Pfs_activity {
         try { 
             String returnAssement[] = new String[3];
             String Filenameassesment = returnAssement[0];
-            System.out.println("TC-59 Faculty Fourm create,publish Delete,Decission test case Staerted... ");
+            System.out.println("TC-59 Faculty Fourm create,publish Delete,Decission test case Staerted  ");
             Utils.login(driver, faculty,url);
             // String Filenameassesment= forumcreate(student, faculty, url, Browser, Role, driver);
             returnAssement= forumcreate(student, faculty, url, Browser, Role, driver);
             returnAssement= forumpublish(returnAssement, faculty, url, Browser, Role, driver);
+            log.info("TC-59 forumpublish Executation PASSED");
+
             // forumpublish(faculty, url, Browser, Role, driver,Filenameassesment);
             returnAssement= forumdiscussion(returnAssement, faculty, url, Browser, Role, driver);
+            log.info("TC-59 forumdiscussion Executation PASSED");
+
             // forumdiscussion(faculty, url, Browser, Role, driver, Filenameassesment);
 			Utils.logout(driver, url, Role);
 			Utils.login(driver, faculty,url);
             returnAssement= forumdelete(returnAssement, faculty, url, Browser, Role, driver);
 			Utils.logout(driver, url, Role);
-            log.info("TC-59 Faculty Fourm create,publish Delete,Decission test case PASSED... ");
+            log.info("TC-59 Faculty Fourm create,publish Delete,Decission test case PASSED  ");
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("TC-59 Faculty Fourm create,publish Delete,Decission test case FAILED...  ");
+            log.warning("TC-59 Faculty Fourm create,publish Delete,Decission test case FAILED   ");
 //            Pfs_portal.quitDriver(url);
             // Utils.logout(driver, url, Role);
             Pfs_portal.quitDriver(url);
@@ -1277,7 +1277,7 @@ public class Pfs_activity {
     @Test(priority = 60)
     public static void testFilterActivityAssignment(String student, String faculty, String url, String Browser, String Role, WebDriver driver) throws Exception {
             try { 
-                System.out.println("TC-60: Assignment Filter Test excutaion   started...");
+                System.out.println("TC-60: Assignment Filter Test excutaion   started ");
                 Utils.login(driver, faculty,url);
                 Utils.checkAcadAndClick(driver, url);
                 Utils.clickXpath(driver, ActionXpath.relativefacforumclickcouse1, time, "facforumclickcouse");
@@ -1308,10 +1308,10 @@ public class Pfs_activity {
                      Utils.bigSleepBetweenClicks(2);
                     Utils.logout(driver, url, Role);
                     Utils.smallSleepBetweenClicks(1);
-                    log.info("TC-60 Assignment Filter test case PASSED... ");
+                    log.info("TC-60 Assignment Filter test case PASSED  ");
             } catch (Exception e) {
                 Utils.printException(e);
-                log.warning("TC-60 Assignment Filter test case FAILED...  ");
+                log.warning("TC-60 Assignment Filter test case FAILED   ");
                 Pfs_portal.quitDriver(url);
                 Pfs_portal.initDriver(Browser, url);
             }
@@ -1319,7 +1319,7 @@ public class Pfs_activity {
     @Test(priority = 61)
     public static void testFilterActivityAssement(String student, String faculty, String url, String Browser, String Role, WebDriver driver) throws Exception {
             try { 
-                System.out.println("TC-61: Assement Filter Test excutaion   started...");
+                System.out.println("TC-61: Assement Filter Test excutaion   started ");
                 Utils.login(driver, faculty,url);
                 Utils.checkAcadAndClick(driver, url);
                 Utils.clickXpath(driver, ActionXpath.relativefacforumclickcouse1, time, "facforumclickcouse");
@@ -1351,10 +1351,10 @@ public class Pfs_activity {
                      Utils.bigSleepBetweenClicks(2);
                     Utils.logout(driver, url, Role);
                     Utils.smallSleepBetweenClicks(1);
-                    log.info("TC-61 Assement Filter test case PASSED...");
+                    log.info("TC-61 Assement Filter test case PASSED ");
             } catch (Exception e) {
                 Utils.printException(e);
-                log.warning("TC-61 Assement Filter test case FAILED... ");
+                log.warning("TC-61 Assement Filter test case FAILED  ");
                 Pfs_portal.quitDriver(url);
                 Pfs_portal.initDriver(Browser, url);
             }
@@ -1362,7 +1362,7 @@ public class Pfs_activity {
     @Test(priority = 62)
     public static void testFilterActivityForum(String student, String faculty, String url, String Browser, String Role, WebDriver driver) throws Exception {
             try { 
-                System.out.println("TC-62: Forum Filter Test excutaion   started...");
+                System.out.println("TC-62: Forum Filter Test excutaion   started ");
                 Utils.login(driver, faculty,url);
                 Utils.checkAcadAndClick(driver, url);
                 Utils.clickXpath(driver, ActionXpath.relativefacforumclickcouse1, time, "facforumclickcouse");
@@ -1394,10 +1394,10 @@ public class Pfs_activity {
                      Utils.bigSleepBetweenClicks(2);
                     Utils.logout(driver, url, Role);
                     Utils.smallSleepBetweenClicks(1);
-                    log.info("TC-62 Forum Filter test case PASSED...");
+                    log.info("TC-62 Forum Filter test case PASSED ");
             } catch (Exception e) {
                 Utils.printException(e);
-                log.warning("TC-62 Forum Filter test case FAILED...  ");
+                log.warning("TC-62 Forum Filter test case FAILED   ");
                 Pfs_portal.quitDriver(url);
                 Pfs_portal.initDriver(Browser, url);
             }
@@ -1408,25 +1408,26 @@ public class Pfs_activity {
         try { 
             String returnAssement[] = new String[3];
             String Filenameassesment = returnAssement[0];
-            System.out.println("TC-63 Faculty Fourm create,publish Delete,Decission test case Staerted... ");           
+            System.out.println("TC-63 Faculty Fourm create,publish Delete,Decission test case Staerted  ");           
             Utils.login(driver, faculty,url);
             // String Filenameassesment= forumcreate(student, faculty, url, Browser, Role, driver);
             returnAssement= forumcreate(student, faculty, url, Browser, Role, driver);
             returnAssement= forumpublish(returnAssement, faculty, url, Browser, Role, driver);
+            log.info("TC-63 forumpublish Executation PASSED");
             Utils.logout(driver, url, Role);
 			Utils.login(driver, faculty,url);
             // forumpublish(faculty, url, Browser, Role, driver,Filenameassesment);
             returnAssement= forumedit(returnAssement, faculty, url, Browser, Role, driver);
+            log.info("TC-63 forumedit Executation PASSED");
             // forumedit(faculty, url, Browser, Role, driver,Filenameassesment);
             Utils.logout(driver, url, Role);
 			Utils.login(driver, faculty,url);
             returnAssement= forumdelete(returnAssement, faculty, url, Browser, Role, driver);
 			Utils.logout(driver, url, Role);
-
-            log.info("TC-63 Forum publish edit delete test case PASSED...");
+            log.info("TC-63 Forum publish edit delete test case PASSED ");
         }catch (Exception e) {
             Utils.printException(e);
-            log.warning("TC-63 Faculty Fourm create,publish Delete,Decission test case FAILED...  ");
+            log.warning("TC-63 Faculty Fourm create,publish Delete,Decission test case FAILED   ");
 //            Pfs_portal.quitDriver(url);
             // Utils.logout(driver, url, Role);
             Pfs_portal.quitDriver(url);
@@ -1442,18 +1443,20 @@ public class Pfs_activity {
             Utils.login(driver, faculty,url);
             // String Filenameassesment= forumcreate(student, faculty, url, Browser, Role, driver);
             returnAssement= forumcreate(student, faculty, url, Browser, Role, driver);
+            log.info("TC-64 forumcreate Executation PASSED");
             Utils.logout(driver, url, Role);
 			Utils.login(driver, faculty,url);
             returnAssement= forumedit(returnAssement, faculty, url, Browser, Role, driver);
+            log.info("TC-64 forumedit Executation PASSED");
             // forumedit(faculty, url, Browser, Role, driver,Filenameassesment);
             Utils.logout(driver, url, Role);
 			Utils.login(driver, faculty,url);
             returnAssement= forumdelete(returnAssement, faculty, url, Browser, Role, driver);
 			Utils.logout(driver, url, Role);
-            log.info("TC-64 Forum unpublish edit delete test case PASSED...");   
+            log.info("TC-64 Forum unpublish edit delete test case PASSED ");   
         }catch (Exception e) {
             Utils.printException(e);
-            log.warning("TC-64 Faculty Fourm create,unpublish Delete,Decission test case FAILED...  ");
+            log.warning("TC-64 Faculty Fourm create,unpublish Delete,Decission test case FAILED   ");
 //            Pfs_portal.quitDriver(url);
             // Utils.logout(driver, url, Role);
             Pfs_portal.quitDriver(url);
@@ -1466,19 +1469,20 @@ public class Pfs_activity {
         try {
             String returnAssement[] = new String[3];
             String Filenameassesment = returnAssement[0];
-            System.out.println("TC-65: Assement create ,pubish & delete Test excutaion   started...");
+            System.out.println("TC-65: Assement create ,pubish & delete Test excutaion   started ");
             Utils.login(driver, faculty,url);
             returnAssement= assesmentcreate(student, faculty, url, Browser, Role, driver);
             returnAssement= unpubishassesmentedit(returnAssement, faculty, url, Browser, Role, driver);
+            log.info("TC-65 unpubishassesmentedit Executation PASSED");
             Utils.logout(driver, url, Role); 
             Utils.login(driver, faculty,url);
 			returnAssement=assesmentdelete(returnAssement, faculty, url, Browser, Role, driver);
 			Utils.logout(driver, url, Role);  
-            log.info("TC-65 Assement Attempt and view result test Executation PASSED....");
+            log.info("TC-65 Assement Attempt and view result test Executation PASSED ");
         }
         catch (Exception e) {
             Utils.printException(e);
-            log.warning("TC-65 Assement Attempt and view result test executation FAILED...");
+            log.warning("TC-65 Assement Attempt and view result test executation FAILED ");
             Pfs_portal.quitDriver(url);
             Pfs_portal.initDriver(Browser, url);    
         }
@@ -1489,20 +1493,22 @@ public class Pfs_activity {
         try {
             String returnAssement[] = new String[3];
             String Filenameassesment = returnAssement[0];
-            System.out.println("TC-66: Assement create ,pubish & delete Test excutaion   started...");
+            System.out.println("TC-66: Assement create ,pubish & delete Test excutaion   started ");
             Utils.login(driver, faculty,url);
             returnAssement= assesmentcreate(student, faculty, url, Browser, Role, driver);
             assesmentpublish(faculty, url, Browser, Role, driver);
+            log.info("TC-66 assesmentpublish Executation PASSED");
             returnAssement= publishassesmentedit(returnAssement, faculty, url, Browser, Role, driver);
+            log.info("TC-66 publishassesmentedit Executation PASSED");
             Utils.logout(driver, url, Role);
             Utils.login(driver, faculty,url);
 			returnAssement=assesmentdelete(returnAssement, faculty, url, Browser, Role, driver);
 			Utils.logout(driver, url, Role);
-            log.info("TC-66 Assement Attempt and view result test Executation   PASSED....");
+            log.info("TC-66 Assement Attempt and view result test Executation   PASSED ");
         }
         catch (Exception e) {
             Utils.printException(e);
-            log.warning("TC-66 Assement Attempt and view result test executation   FAILED...");
+            log.warning("TC-66 Assement Attempt and view result test executation   FAILED ");
             Pfs_portal.quitDriver(url);
             Pfs_portal.initDriver(Browser, url);
         }
@@ -1513,21 +1519,20 @@ public class Pfs_activity {
         try {
             String returnAssement[] = new String[3];
             String Filenameassesment = returnAssement[0];
-            System.out.println("TC-67 Assignment   Create ,edit and delete Test Excecuation Started... ");
+            System.out.println("TC-67 Assignment   Create ,edit and delete Test Excecuation Started  ");
                     Utils.login(driver, faculty,url);
                     returnAssement= assignmentcreate(student, faculty, url, Browser, Role, driver);
-           
                     // String Filenameassesment= assignmentcreate(student, faculty, url, Browser, Role, driver);
                     assigmnenteditview(returnAssement, faculty, url, Browser, Role, driver);
+                     log.info("TC-65 assigmnenteditview Executation PASSED");
                     Utils.logout(driver, url, Role);
                     Utils.login(driver, faculty,url);
                     returnAssement= assignmentdelete(returnAssement, faculty, url, Browser, Role, driver);
-			
                     Utils.logout(driver, url, Role);
-            log.info("TC-67 Assignment create,edit and delete   check    PASSED....");
+            log.info("TC-67 Assignment create,edit and delete   check    PASSED ");
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("TC-67 Assignment create,edit and delete  check   FAILED....");
+            log.warning("TC-67 Assignment create,edit and delete  check   FAILED ");
             Pfs_portal.quitDriver(url);
             Pfs_portal.initDriver(Browser, url);
         }
@@ -1538,22 +1543,23 @@ public class Pfs_activity {
         try {
             String returnAssement[] = new String[3];
             String Filenameassesment = returnAssement[0];
-            System.out.println("TC-68 Assignment   Create ,publish and delete Test Excecuation Started... ");
+            System.out.println("TC-68 Assignment   Create ,publish and delete Test Excecuation Started  ");
             Utils.login(driver, faculty,url);
             returnAssement= assignmentcreate(student, faculty, url, Browser, Role, driver);
-             
             // String Filenameassesment= assignmentcreate(student, faculty, url, Browser, Role, driver);
             returnAssement= assignmentpublish(returnAssement, faculty, url, Browser, Role, driver);
+            log.info("TC-68 assignmentpublish Executation PASSED");
             // assignmentpublish(faculty, url, Browser, Role, driver,Filenameassesment);
             assigmnenteditview(returnAssement, faculty, url, Browser, Role, driver);
+            log.info("TC-68 assigmnenteditview Executation PASSED");
             Utils.logout(driver, url, Role);
                     Utils.login(driver, faculty,url);
             returnAssement= assignmentdelete(returnAssement, faculty, url, Browser, Role, driver);
             Utils.logout(driver, url, Role);
-            log.info("TC-68 Assignment create,publish,edit  & delete check    PASSED....");
+            log.info("TC-68 Assignment create,publish,edit  & delete check    PASSED ");
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("TC-68 Assignment create,publish,edit & delete check   FAILED....");
+            log.warning("TC-68 Assignment create,publish,edit & delete check   FAILED ");
             Pfs_portal.quitDriver(url);
             Pfs_portal.initDriver(Browser, url);
         }
