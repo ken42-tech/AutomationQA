@@ -374,7 +374,7 @@ public class Pfs_portal {
 				System.setProperty("webdriver.chrome.driver", ChromeDriver);
 				ChromeOptions op = new ChromeOptions();
 				if(headless){
-					op.addArguments("--headless", "--window-size=1280,266");
+					op.addArguments("--headless", "--window-size=1920,1080");
 				}
 				else{
 				op.addArguments("--disable-notifications");
