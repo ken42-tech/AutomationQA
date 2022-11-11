@@ -1103,11 +1103,9 @@ public class Pfs_activity {
                 returnAssement= assesmentcreate(student, faculty, url, Browser, Role, driver);
                 String Filenameassesment = returnAssement[0];
                 assesmentpublish(faculty, url, Browser, Role, driver);
-                log.info("TC-53-1 Assesment Publish Executation PASSED");
                 Utils.logout(driver, url, Role);
                 Utils.login(driver, student,url);
                 assesmentviewstudent(returnAssement,student,url, Browser, Role, driver);
-                log.info("TC-53-2 assesmentviewstudent Executation PASSED");
                 Utils.logout(driver, url, Role);
                 Utils.login(driver, faculty,url);
                 returnAssement= assesmentdelete(returnAssement, faculty, url, Browser, Role, driver);
@@ -1133,11 +1131,9 @@ public class Pfs_activity {
 			Utils.login(driver, faculty,url);
             returnAssement= assignmentcreate(student, faculty, url, Browser, Role, driver);
             returnAssement= assignmentpublish(returnAssement, faculty, url, Browser, Role, driver);
-            log.info("TC-54-1 assignment Publish Executation PASSED");
 			Utils.logout(driver, url, Role);
 			Utils.login(driver, student,url);
 			assignmentviewstudent(returnAssement,student,url, Browser, Role, driver);
-            log.info("TC-54-2 assignmentviewstudent Executation PASSED");
 			Utils.logout(driver, url, Role);
 			Utils.login(driver, faculty,url);
             returnAssement= assignmentdelete(returnAssement, faculty, url, Browser, Role, driver);
@@ -1161,12 +1157,10 @@ public class Pfs_activity {
 			Utils.login(driver, faculty,url);
             returnAssement= forumcreate(student, faculty, url, Browser, Role, driver);
             returnAssement= forumpublish(returnAssement, faculty, url, Browser, Role, driver);
-            log.info("TC-55-1 forumpublish Executation PASSED");
             // forumpublish(faculty, url, Browser, Role, driver,Filenameassesment);
 			Utils.logout(driver, url, Role);
 			Utils.login(driver, student,url);
 			forumviewstudent(returnAssement,student,url, Browser, Role, driver);
-            log.info("TC-55-2 forumviewstudent Executation PASSED");
 			Utils.logout(driver, url, Role);
 			Utils.login(driver, faculty,url);
             returnAssement= forumdelete(returnAssement, faculty, url, Browser, Role, driver);
@@ -1190,13 +1184,11 @@ public class Pfs_activity {
             returnAssement= assignmentcreate(student, faculty, url, Browser, Role, driver);
             // String Filenameassesment= assignmentcreate(student, faculty, url, Browser, Role, driver);
             returnAssement= assignmentpublish(returnAssement, faculty, url, Browser, Role, driver);
-            log.info("TC-56-1 assignmentpublish Executation PASSED");
 
 			Utils.logout(driver, url, Role);
 			Utils.login(driver, student,url);
 			// assignmentviewstudent(returnAssement,student,url, Browser, Role, driver);
             assignmentsubmission(returnAssement,faculty,url, Browser, Role, driver);
-            log.info("TC-56-2 assignmentsubmission Executation PASSED");
 			Utils.logout(driver, url, Role);
 			Utils.login(driver, faculty,url);
             returnAssement= assignmentdelete(returnAssement, faculty, url, Browser, Role, driver);
@@ -1223,17 +1215,14 @@ public class Pfs_activity {
                     returnAssement= assignmentcreate(student, faculty, url, Browser, Role, driver);
                     returnAssement= assignmentpublish(returnAssement, faculty, url, Browser, Role, driver);
                     // assignmentpublish(faculty, url, Browser, Role, driver,Filenameassesment);
-                     log.info("TC-57-1 assignmentpublish Executation PASSED");
                     
                     Utils.logout(driver, url, Role);
                     Utils.login(driver, student,url);
                     assignmentsubmission(returnAssement,faculty,url, Browser, Role, driver);
-                    log.info("TC-57-2 assignmentsubmission Executation PASSED");
 
                     Utils.logout(driver, url, Role);
                     Utils.login(driver, faculty,url);
                     assignmentreview(returnAssement, faculty, url, Browser, Role, driver,studentName);
-                    log.info("TC-57-3 assignmentreview Executation PASSED");
                     
                     Utils.logout(driver, url, Role);
                     Utils.login(driver, faculty,url);
@@ -1258,13 +1247,11 @@ public class Pfs_activity {
             Utils.login(driver, faculty,url);
             returnAssement= assesmentcreate(student, faculty, url, Browser, Role, driver);
             assesmentpublish(faculty, url, Browser, Role, driver);
-            log.info("TC-58-1 assesmentpublish Executation PASSED");
 
             Utils.logout(driver, url, Role);
             Utils.login(driver, student,url);
             assesmentviewstudent(returnAssement,student,url, Browser, Role, driver);
             assesmentattempt(faculty, url, Browser, Role, driver, returnAssement);
-            log.info("TC-58-2 assesmentviewstudent & assesmentattempt Executation PASSED");
             
             Utils.logout(driver, url, Role);
             Utils.login(driver, faculty,url);
@@ -1293,11 +1280,9 @@ public class Pfs_activity {
             // String Filenameassesment= forumcreate(student, faculty, url, Browser, Role, driver);
             returnAssement= forumcreate(student, faculty, url, Browser, Role, driver);
             returnAssement= forumpublish(returnAssement, faculty, url, Browser, Role, driver);
-            log.info("TC-59-1 forumpublish Executation PASSED");
 
             // forumpublish(faculty, url, Browser, Role, driver,Filenameassesment);
             returnAssement= forumdiscussion(returnAssement, faculty, url, Browser, Role, driver);
-            log.info("TC-59-2 forumdiscussion Executation PASSED");
 
             // forumdiscussion(faculty, url, Browser, Role, driver, Filenameassesment);
 			Utils.logout(driver, url, Role);
@@ -1453,12 +1438,10 @@ public class Pfs_activity {
             // String Filenameassesment= forumcreate(student, faculty, url, Browser, Role, driver);
             returnAssement= forumcreate(student, faculty, url, Browser, Role, driver);
             returnAssement= forumpublish(returnAssement, faculty, url, Browser, Role, driver);
-            log.info("TC-63 forumpublish Executation PASSED");
             Utils.logout(driver, url, Role);
 			Utils.login(driver, faculty,url);
             // forumpublish(faculty, url, Browser, Role, driver,Filenameassesment);
             returnAssement= forumedit(returnAssement, faculty, url, Browser, Role, driver);
-            log.info("TC-63 forumedit Executation PASSED");
             // forumedit(faculty, url, Browser, Role, driver,Filenameassesment);
             Utils.logout(driver, url, Role);
 			Utils.login(driver, faculty,url);
@@ -1483,17 +1466,15 @@ public class Pfs_activity {
             Utils.login(driver, faculty,url);
             // String Filenameassesment= forumcreate(student, faculty, url, Browser, Role, driver);
             returnAssement= forumcreate(student, faculty, url, Browser, Role, driver);
-            log.info("TC-64-1 forumcreate Executation PASSED");
             Utils.logout(driver, url, Role);
 			Utils.login(driver, faculty,url);
             returnAssement= forumedit(returnAssement, faculty, url, Browser, Role, driver);
-            log.info("TC-64-2 forumedit Executation PASSED");
             // forumedit(faculty, url, Browser, Role, driver,Filenameassesment);
             Utils.logout(driver, url, Role);
 			Utils.login(driver, faculty,url);
             returnAssement= forumdelete(returnAssement, faculty, url, Browser, Role, driver);
 			Utils.logout(driver, url, Role);
-            log.info("TC-64-3 Forum unpublish edit delete test case PASSED ");   
+            log.info("TC-64 Forum unpublish edit delete test case PASSED ");   
         }catch (Exception e) {
             Utils.printException(e);
             log.warning("TC-64 Faculty Fourm create,unpublish Delete,Decission test case FAILED   ");
@@ -1513,12 +1494,11 @@ public class Pfs_activity {
             Utils.login(driver, faculty,url);
             returnAssement= assesmentcreate(student, faculty, url, Browser, Role, driver);
             returnAssement= unpubishassesmentedit(returnAssement, faculty, url, Browser, Role, driver);
-            log.info("TC-65-1 unpubishassesmentedit Executation PASSED");
             Utils.logout(driver, url, Role); 
             Utils.login(driver, faculty,url);
 			returnAssement=assesmentdelete(returnAssement, faculty, url, Browser, Role, driver);
 			Utils.logout(driver, url, Role);  
-            log.info("TC-65-2 Assement Attempt and view result test Executation PASSED ");
+            log.info("TC-65 Assement Attempt and view result test Executation PASSED ");
         }
         catch (Exception e) {
             Utils.printException(e);
@@ -1537,9 +1517,7 @@ public class Pfs_activity {
             Utils.login(driver, faculty,url);
             returnAssement= assesmentcreate(student, faculty, url, Browser, Role, driver);
             assesmentpublish(faculty, url, Browser, Role, driver);
-            log.info("TC-66-1 assesmentpublish Executation PASSED");
             returnAssement= publishassesmentedit(returnAssement, faculty, url, Browser, Role, driver);
-            log.info("TC-66-2 publishassesmentedit Executation PASSED");
             Utils.logout(driver, url, Role);
             Utils.login(driver, faculty,url);
 			returnAssement=assesmentdelete(returnAssement, faculty, url, Browser, Role, driver);
@@ -1564,7 +1542,6 @@ public class Pfs_activity {
                     returnAssement= assignmentcreate(student, faculty, url, Browser, Role, driver);
                     // String Filenameassesment= assignmentcreate(student, faculty, url, Browser, Role, driver);
                     assigmnenteditview(returnAssement, faculty, url, Browser, Role, driver);
-                     log.info("TC-67-1 assigmnenteditview Executation PASSED");
                     Utils.logout(driver, url, Role);
                     Utils.login(driver, faculty,url);
                     returnAssement= assignmentdelete(returnAssement, faculty, url, Browser, Role, driver);
@@ -1588,10 +1565,8 @@ public class Pfs_activity {
             returnAssement= assignmentcreate(student, faculty, url, Browser, Role, driver);
             // String Filenameassesment= assignmentcreate(student, faculty, url, Browser, Role, driver);
             returnAssement= assignmentpublish(returnAssement, faculty, url, Browser, Role, driver);
-            log.info("TC-68-1 assignmentpublish Executation PASSED");
             // assignmentpublish(faculty, url, Browser, Role, driver,Filenameassesment);
             assigmnenteditview(returnAssement, faculty, url, Browser, Role, driver);
-            log.info("TC-68-2 assigmnenteditview Executation PASSED");
             Utils.logout(driver, url, Role);
                     Utils.login(driver, faculty,url);
             returnAssement= assignmentdelete(returnAssement, faculty, url, Browser, Role, driver);
