@@ -105,7 +105,6 @@ public class Pfs_portal {
 				switch (i){
 					case 1: 
 						if (!student_login_set){
-							// Utils.logout(driver, PFSurl, Role);
 							Utils.smallSleepBetweenClicks(i);
 							Utils.login(driver, studentEmail,PFSurl);
 						}

@@ -23,26 +23,10 @@ public class Pfs_faculty {
         	String p = l.getText();
 			if (p.contains("Students") && p.contains("Classes Conducted") 
 			&& p.contains("Assignments") && p.contains("Schedule") && p.contains("MY CLASSES")){
-				log.info(" TC-1: Faculty Home tab test case PASSED \n\n");
+				log.info(" TC-17: Faculty Home tab test case PASSED");
 			}else {
-				log.warning(" TC-1: Faculty Home tab test case FAILED it does not contain all the tabs\n\n");
+				log.warning(" TC-17: Faculty Home tab test case FAILED it does not contain all the tabs\n\n");
 			}
-			if(Utils.checkLtsta(url))
-            {
-				Utils.clickXpath(driver, ActionXpath.facClickacademicsltsta, time, "open the span on Academics");
-			} else {
-            	Utils.clickXpath(driver, ActionXpath.openFacdevnosbm, time, "open the acadmics for nsom & bmtech");    
-            }
-			Utils.smallSleepBetweenClicks(1);
-			Utils.clickXpath(driver, ActionXpath.clickFacDashdevnosbm, time, "click on the dashboard");
-			Utils.smallSleepBetweenClicks(6);
-			// Utils.clickXpath(driver, ActionXpath.facFilter, time, "click the dashboard activity filiter span bar");
-			// Utils.clickXpath(driver, ActionXpath.facdbfilterselect, time, "select the factivity filter option");
-			Utils.clickXpath(driver, ActionXpath.facdbresfilter, time, "click on the resources filter");
-			Utils.clickXpath(driver, ActionXpath.facdbrestypes, time, "click Type to open span");
-			
-			log.info("TC-17: Faculty ACADEMIC Test case PASSED \n");
-			Reporter.log("Tc-17:Faculty ACADEMIC TEST CASE PASSED");
 		} catch (Exception e) {
 			Utils.printException(e);
 			driver.get(url);
