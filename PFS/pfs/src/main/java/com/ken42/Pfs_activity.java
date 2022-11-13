@@ -64,10 +64,16 @@ public class Pfs_activity {
             //driver.findElement(By.xpath("//li[@data-value='" + section + "']")).click();
             // Create and save assessment
             // Utils.dot(driver);
-            Utils.clickXpath(driver, ActionXpath.facinstruction3dot, time, "facinstruction3dot");
-            Utils.smallSleepBetweenClicks(1);
-            Utils.clickXpath(driver, ActionXpath.facclinkrelative, time, "facclink");
-            Utils.smallSleepBetweenClicks(1);
+            if(Pfs_portal.headless){
+                 Utils.clickXpath(driver, ActionXpath.facclinkrelative, time, "facclink");
+                 Utils.smallSleepBetweenClicks(1);
+            }
+            else{
+                Utils.clickXpath(driver, ActionXpath.facinstruction3dot, time, "facinstruction3dot");
+                Utils.smallSleepBetweenClicks(1);
+                Utils.clickXpath(driver, ActionXpath.facclinkrelative, time, "facclink");
+                Utils.smallSleepBetweenClicks(1);
+            }
             Utils.callSendkeys(driver, ActionXpath.facurlrelative, fileName, time);
             Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.facsavlinrelative, time, "facsavlin");
@@ -474,8 +480,16 @@ public class Pfs_activity {
                 System.out.println("program1 is:"+program1);
                 System.out.println("Subject1 is:"+subject1);
               
-                Utils.clickXpath(driver, ActionXpath.facinstruction3dot, time, "facinstruction3dot");
-                Utils.clickXpath(driver, ActionXpath.assignfaclinkrelative, time, "faclink");
+                if(Pfs_portal.headless){
+                    Utils.clickXpath(driver, ActionXpath.facclinkrelative, time, "facclink");
+                    Utils.smallSleepBetweenClicks(1);
+               }
+               else{
+                   Utils.clickXpath(driver, ActionXpath.facinstruction3dot, time, "facinstruction3dot");
+                   Utils.smallSleepBetweenClicks(1);
+                   Utils.clickXpath(driver, ActionXpath.facclinkrelative, time, "facclink");
+                   Utils.smallSleepBetweenClicks(1);
+               }
                 Utils.callSendkeys(driver, ActionXpath.assignfacurlrelative, "https://portal-dev.ken42.com/", time);
                 Utils.smallSleepBetweenClicks(1);
                 Utils.clickXpath(driver, ActionXpath.assignfacsavlinrelative, time, "facsavlink");
@@ -877,10 +891,16 @@ public class Pfs_activity {
                 //driver.findElement(By.xpath("//li[@data-value='" + section + "']")).click();
                 }
                 // new Forum creation 
-                Utils.clickXpath(driver, ActionXpath.facinstruction3dot, time, "facinstruction3dot");
-                Utils.smallSleepBetweenClicks(1);
-                Utils.clickXpath(driver, ActionXpath.relativefacforumclink1, time, "facforumclink");
-                Utils.bigSleepBetweenClicks(2);
+                if(Pfs_portal.headless){
+                    Utils.clickXpath(driver, ActionXpath.facclinkrelative, time, "facclink");
+                    Utils.smallSleepBetweenClicks(1);
+               }
+               else{
+                   Utils.clickXpath(driver, ActionXpath.facinstruction3dot, time, "facinstruction3dot");
+                   Utils.smallSleepBetweenClicks(1);
+                   Utils.clickXpath(driver, ActionXpath.facclinkrelative, time, "facclink");
+                   Utils.smallSleepBetweenClicks(1);
+               }
                 Utils.callSendkeys(driver, ActionXpath.relativefacforumurl1,fileName, time);
                 Utils.smallSleepBetweenClicks(1);
                 Utils.clickXpath(driver, ActionXpath.relativefacforumsavlin1, time, "facforumsavlin");
