@@ -20,12 +20,14 @@ public class Pfs_resource {
 
 	@Test
 	public static void resourceFacultyInitialSteps(String faculty, String url, WebDriver driver) throws Exception{
+		
 		Utils.login(driver, faculty,url);
 		Utils.checkAcadAndClick(driver, url);
 		Utils.clickXpath(driver, ActionXpath.faccc, time, "Click on course content");
-	}
+		}
 
 	public static void resourceSubmitForm( String faculty, String url, WebDriver driver) throws Exception{
+		try{
 		Utils.clickXpath(driver, ActionXpath.facssadd, time, "Click of add resource");
 		Utils.smallSleepBetweenClicks(2);
 		Utils.clickXpath(driver, ActionXpath.facccresdescclick, time, "Click on URL resource link");
@@ -36,30 +38,63 @@ public class Pfs_resource {
 		Utils.callSendkeys(driver, ActionXpath.facccresurl, "Hello", time);
 		// Utils.callSendkeys(driver, "//*[@id='tinymce']//p", "Testing", time);
 		Utils.clickXpath(driver, ActionXpath.facccressubmitform, time, "Save URL link button");
+		log.info("Resources Create passed  ");
+	}
+	catch (Exception e){
+		Utils.printException(e);
+		log.warning("Resources Create FAILED  ");
+		throw(e);
+	}
+
 	}
 
 	public static void resourcePublishAndLogout(String faculty, String url, 
 		WebDriver driver, String fileName, String Role) throws Exception{
+	try{
 		Utils.clickXpath(driver, "//p[. ='"+fileName+"']/../../.././..//*[local-name()='svg']", time, "Select PPT file name");
 		Utils.clickXpath(driver, ActionXpath.facsspublish, time, "Click on publish button1");
 		Utils.clickXpath(driver, ActionXpath.facsspublishyes, time, "Click on publish button2");
 		Utils.logout(driver, url, Role);
+		log.info("Resources Publish passed  ");
+	}
+	catch (Exception e){
+		Utils.printException(e);
+		log.warning("Resources Publish FAILED  ");
+		throw(e);
+	}
+		
 	}
 
 	public static void resourceStudentViewAndLogout(String faculty, String url, 
 		WebDriver driver, String fileName, String Role) throws Exception{
+	try{
 		Utils.clickXpath(driver, "//p[.='"+fileName+"']/../../.././..//*[local-name()='svg']", time, "Select PPT file name");
 		Utils.clickXpath(driver, ActionXpath.viewpdf2, time, "Click on View Spreadsheet");
 		Utils.clickXpath(driver, ActionXpath.learn, time, "click learn");
 		Utils.logout(driver, url, Role);
+		log.info("Resources Studentview passed  ");
+	}
+	catch (Exception e){
+		Utils.printException(e);
+		log.warning("Resources Studentview FAILED  ");
+		throw(e);
+	}
 	}
 
 	public static void resourceDeleteAndLogout(String faculty, String url, 
 		WebDriver driver, String fileName, String Role) throws Exception{
+	try{
 		Utils.clickXpath(driver, "//p[.='"+fileName+"']/../../.././..//*[local-name()='svg']", time, "Select PPT file name");
 		Utils.clickXpath(driver, ActionXpath.facpdfdelete, time, "Click on Delete button1");
 		Utils.clickXpath(driver, ActionXpath.facpdfdelete2, time, "Click on delete button2");
 		Utils.logout(driver, url, Role);
+		log.info("Resources Delete passed  ");
+	}
+	catch (Exception e){
+		Utils.printException(e);
+		log.warning("Resources Delete FAILED  ");
+		throw(e);
+	}
 	}
 
 
