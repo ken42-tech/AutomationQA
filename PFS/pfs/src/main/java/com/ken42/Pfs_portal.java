@@ -294,12 +294,17 @@ public class Pfs_portal {
 								Browser, Role, driver); //TC-62
 						break;
 					case 56:
-						Pfs_activity.testForumCreatePublishViewDelete(studentEmail, facultyEmail, 
+						if(to < 57){
+							Pfs_activity.testForumCreatePublishViewDelete(studentEmail, facultyEmail, 
 							PFSurl, Browser, Role, driver); //TC-55
+						} else {
+							log.info("TC-56: Skipped as it's a subset of next test");
+						}
+						
 						break;
 					case 57:
-						Pfs_activity.testForumCreatePublishViewDeleteDecission(studentEmail, facultyEmail, 
-								PFSurl, Browser, Role, driver);//TC-59
+							Pfs_activity.testForumCreatePublishViewDeleteDecission(studentEmail, facultyEmail, 
+							PFSurl, Browser, Role, driver);//TC-59
 						break;
 				
 					case 58:
