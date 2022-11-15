@@ -953,13 +953,15 @@ public class Pfs_activity {
             new WebDriverWait(driver, 25).until(ExpectedConditions
                     .elementToBeClickable(By.xpath("//p[.='" + filename + "']/../../..//*[local-name()='svg']")))
                     .click();
+            Utils.smallSleepBetweenClicks(1);
+
             Utils.clickXpathWithJavascript(driver, ActionXpath.assignfacDiscussions, time, "Discussions");
             // WebDriverWait wait35 = new WebDriverWait(driver, 20);
             // WebElement element239 = wait35
-            // .until(ExpectedConditions.elementToBeClickable(By.xpath("//span[.='Discussions']")));
+            // .until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[.='Discussions'])[1]")));
             // ((JavascriptExecutor) driver).executeScript("arguments[0].click();",
             // element239);
-            Utils.bigSleepBetweenClicks(2);
+            // Utils.bigSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.relativeFacformeCreateNewDiscussion, time,
                     "click on the New Discussion Button");
             Utils.smallSleepBetweenClicks(1);
