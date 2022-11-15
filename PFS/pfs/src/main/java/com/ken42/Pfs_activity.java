@@ -1306,10 +1306,10 @@ public class Pfs_activity {
             Utils.login(driver, faculty, url);
             returnAssement = forumdelete(returnAssement, faculty, url, Browser, Role, driver);
             Utils.logout(driver, url, Role);
-            log.info("TC-57 Faculty Fourm create,publish Delete,Decission test case PASSED  ");
+            log.info("TC-57 Faculty Fourm create,publish Delete,Dicussion test case PASSED  ");
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("TC-57 Faculty Fourm create,publish Delete,Decission test case FAILED   ");
+            log.warning("TC-57 Faculty Fourm create,publish Delete,Dicussion test case FAILED   ");
             // Pfs_portal.quitDriver(url);
             // Utils.logout(driver, url, Role);
             Pfs_portal.quitDriver(url);
