@@ -56,6 +56,7 @@ public class Pfs_activity {
                 driver.findElement(By.xpath("//li[@data-value='" + program1 + "']")).click();
 
                 Utils.clickXpath(driver, ActionXpath.subject, time, "click on subject");
+                Utils.smallSleepBetweenClicks(2);
                 driver.findElement(By.xpath("//li[@data-value='" + subject1 + "']")).click();
                 Utils.smallSleepBetweenClicks(1);
                 System.out.println("program1 is:" + program1);
@@ -239,6 +240,7 @@ public class Pfs_activity {
             Utils.clickXpath(driver, ActionXpath.program, time, "click on program");
             driver.findElement(By.xpath("//li[@data-value='" + program + "']")).click();
             Utils.clickXpath(driver, ActionXpath.subject, time, "click on subject");
+            Utils.smallSleepBetweenClicks(2);
             driver.findElement(By.xpath("//li[text()='" + Subject + "']")).click();
             Utils.clickXpath(driver, ActionXpath.Studentassessmenstrelativelexpand, time, "Click on Assesment SVG");
             Utils.clickXpath(driver, "//p[.='" + filename + "']/../../.././..//*[local-name()='svg']", time,
@@ -323,8 +325,9 @@ public class Pfs_activity {
             Utils.clickXpath(driver, ActionXpath.program, time, "click on program");
             driver.findElement(By.xpath("//li[@data-value='" + program + "']")).click();
             Utils.clickXpath(driver, ActionXpath.subject, time, "click on subject");
+            Utils.smallSleepBetweenClicks(2);
             driver.findElement(By.xpath("//li[text()='" + Subject + "']")).click();
-            Utils.bigSleepBetweenClicks(1);
+            Utils.bigSleepBetweenClicks(2);
             Utils.clickXpath(driver, ActionXpath.Studentassessmenstrelativelexpand, time, "Click on Assesment SVG");
             Utils.bigSleepBetweenClicks(1);
             new WebDriverWait(driver, 25).until(ExpectedConditions
@@ -341,7 +344,7 @@ public class Pfs_activity {
             Utils.clickXpath(driver, ActionXpath.viewattempt, time, "Click on view attempt");
             Utils.bigSleepBetweenClicks(1);
             WebElement result = driver.findElement(By.xpath(
-                    "/html/body/div[1]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[1]/div/div[1]/div[2]/div/div[2]/p[1]"));
+                    "/html/body/div[1]/div/div/div/main/div[2]/div[2]/div[2]/div[3]/div[1]/div/div[1]/div[2]/div/div[2]/p[1]"));
             String getresult = result.getText();
             System.out.println(getresult);
             log.info("Create assesmentattempt passed  ");
@@ -472,6 +475,7 @@ public class Pfs_activity {
                 driver.findElement(By.xpath("//li[@data-value='" + program1 + "']")).click();
 
                 Utils.clickXpath(driver, ActionXpath.subject, time, "click on subject");
+                Utils.smallSleepBetweenClicks(2);
                 driver.findElement(By.xpath("//li[@data-value='" + subject1 + "']")).click();
             }
             Utils.smallSleepBetweenClicks(1);
@@ -578,6 +582,7 @@ public class Pfs_activity {
             Utils.clickXpath(driver, ActionXpath.program, time, "click on program");
             driver.findElement(By.xpath("//li[@data-value='" + program + "']")).click();
             Utils.clickXpath(driver, ActionXpath.subject, time, "click on subject");
+            Utils.smallSleepBetweenClicks(2);
             driver.findElement(By.xpath("//li[text()='" + Subject + "']")).click();
             Utils.clickXpath(driver, ActionXpath.assignexpandltstastudentrelative, time, "expand Assignement");
             Utils.smallSleepBetweenClicks(1);
@@ -624,6 +629,7 @@ public class Pfs_activity {
             Utils.clickXpath(driver, ActionXpath.program, time, "click on program");
             driver.findElement(By.xpath("//li[@data-value='" + program + "']")).click();
             Utils.clickXpath(driver, ActionXpath.subject, time, "click on subject");
+            Utils.smallSleepBetweenClicks(2);
             driver.findElement(By.xpath("//li[text()='" + Subject + "']")).click();
             Utils.clickXpath(driver, ActionXpath.assignexpandltstastudentrelative, time, "expand Assignement");
             Utils.smallSleepBetweenClicks(1);
@@ -875,6 +881,7 @@ public class Pfs_activity {
                 System.out.println("The subject is not avialble in essci samsung");
             } else {
                 Utils.clickXpath(driver, ActionXpath.subject, time, "click on subject");
+                Utils.smallSleepBetweenClicks(2);
                 driver.findElement(By.xpath("//li[@data-value='" + converted + "']")).click();
                 // driver.findElement(By.xpath("//li[@data-value='" + section + "']")).click();
             }
@@ -1000,6 +1007,7 @@ public class Pfs_activity {
             Utils.clickXpath(driver, ActionXpath.program, time, "click on program");
             driver.findElement(By.xpath("//li[@data-value='" + program + "']")).click();
             Utils.clickXpath(driver, ActionXpath.subject, time, "click on subject");
+            Utils.smallSleepBetweenClicks(2);
             driver.findElement(By.xpath("//li[text()='" + Subject + "']")).click();
             Utils.clickXpath(driver, ActionXpath.relativeforumaexpandltsta1, time, "expand forum");
             Utils.smallSleepBetweenClicks(1);
