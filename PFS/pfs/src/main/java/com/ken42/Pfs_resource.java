@@ -51,6 +51,7 @@ public class Pfs_resource {
 	public static void resourcePublishAndLogout(String faculty, String url,
 			WebDriver driver, String fileName, String Role) throws Exception {
 		try {
+
 			Utils.clickXpath(driver, "//p[. ='" + fileName + "']/../../.././..//*[local-name()='svg']", time,
 					"Select PPT file name");
 			Utils.clickXpath(driver, ActionXpath.facsspublish, time, "Click on publish button1");
@@ -136,7 +137,13 @@ public class Pfs_resource {
 			driver.findElement(By.xpath("//input[@accept='.xlsx,.xls']")).sendKeys(SpreadSheetFile);
 			Utils.clickXpath(driver, ActionXpath.facccressubmit, time, "facccressubmit");
 			Utils.clickXpath(driver, ActionXpath.facccressubmityes, time, "facccressubmityes");
+			Utils.clickXpath(driver, ActionXpath.program, time, "click on program");
+			driver.findElement(By.xpath("//li[@data-value='" + program + "']")).click();
+			Utils.clickXpath(driver, ActionXpath.subject, time, "click on subject");
+			Utils.smallSleepBetweenClicks(2);
+			driver.findElement(By.xpath("//li[text()='" + subject + "']")).click();
 			Utils.clickXpath(driver, ActionXpath.facssopen, time, "Click on SS SVG");
+
 			resourcePublishAndLogout(faculty, url, driver, fileName, Role);
 
 			// Student part starts
@@ -197,6 +204,11 @@ public class Pfs_resource {
 			Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.facccressubmit, time, "facccressubmit");
 			Utils.clickXpath(driver, ActionXpath.facccressubmityes, time, "facccressubmityes");
+			Utils.clickXpath(driver, ActionXpath.program, time, "click on program");
+			driver.findElement(By.xpath("//li[@data-value='" + program + "']")).click();
+			Utils.clickXpath(driver, ActionXpath.subject, time, "click on subject");
+			Utils.smallSleepBetweenClicks(2);
+			driver.findElement(By.xpath("//li[text()='" + subject + "']")).click();
 			Utils.clickXpath(driver, ActionXpath.facpptfopen, time, "facpptfopen");
 			resourcePublishAndLogout(faculty, url, driver, fileName, Role);
 
@@ -255,6 +267,11 @@ public class Pfs_resource {
 					.sendKeys(PDF_file);
 			Utils.clickXpath(driver, ActionXpath.facccressubmit, time, "facccressubmit");
 			Utils.clickXpath(driver, ActionXpath.facccressubmityes, time, "facccressubmityes");
+			Utils.clickXpath(driver, ActionXpath.program, time, "click on program");
+			driver.findElement(By.xpath("//li[@data-value='" + program + "']")).click();
+			Utils.clickXpath(driver, ActionXpath.subject, time, "click on subject");
+			Utils.smallSleepBetweenClicks(2);
+			driver.findElement(By.xpath("//li[text()='" + subject + "']")).click();
 			Utils.clickXpath(driver, ActionXpath.facpdfopen, time, "facpdfopen");
 			resourcePublishAndLogout(faculty, url, driver, fileName, Role);
 
@@ -312,6 +329,11 @@ public class Pfs_resource {
 					.sendKeys(Video_file);
 			Utils.clickXpath(driver, ActionXpath.facccressubmit, time, "facccressubmit");
 			Utils.clickXpath(driver, ActionXpath.facccressubmityes, time, "facccressubmityes");
+			Utils.clickXpath(driver, ActionXpath.program, time, "click on program");
+			driver.findElement(By.xpath("//li[@data-value='" + program + "']")).click();
+			Utils.clickXpath(driver, ActionXpath.subject, time, "click on subject");
+			Utils.smallSleepBetweenClicks(2);
+			driver.findElement(By.xpath("//li[text()='" + subject + "']")).click();
 			Utils.clickXpath(driver, ActionXpath.facvideoopen, time, "facvideoopen");
 			resourcePublishAndLogout(faculty, url, driver, fileName, Role);
 
@@ -367,7 +389,12 @@ public class Pfs_resource {
 			Utils.clickXpath(driver, ActionXpath.facccressubmit, time, "facccressubmit");
 			Utils.clickXpath(driver, ActionXpath.facccressubmityes, time, "facccressubmityes");
 
-			if (Utils.checkLtsta(url)) {
+			if (Utils.publishlink(url)) {
+				Utils.clickXpath(driver, ActionXpath.program, time, "click on program");
+				driver.findElement(By.xpath("//li[@data-value='" + program + "']")).click();
+				Utils.clickXpath(driver, ActionXpath.subject, time, "click on subject");
+				Utils.smallSleepBetweenClicks(2);
+				driver.findElement(By.xpath("//li[text()='" + subject + "']")).click();
 				Utils.clickXpath(driver, ActionXpath.viewlink, time, "faclinkopen");
 				resourcePublishAndLogout(faculty, url, driver, fileName, Role);
 			} else {

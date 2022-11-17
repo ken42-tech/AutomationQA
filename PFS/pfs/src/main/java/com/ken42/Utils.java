@@ -408,6 +408,17 @@ public class Utils {
 	}
 
 	@Test
+	public static Boolean publishlink(String url) {
+		String urlToMatch = "ltsta|nsom|ltpct|dev";
+		Pattern pt = Pattern.compile(urlToMatch);
+		Matcher m = pt.matcher(url);
+		while (m.find()) {
+			return true;
+		}
+		return false;
+	}
+
+	@Test
 	public static Boolean checkBimtech(String url) {
 		String urlToMatch = "bimtech";
 		Pattern pt = Pattern.compile(urlToMatch);
