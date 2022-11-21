@@ -13,7 +13,7 @@ public class Pfs_faculty {
     static int time = 2000;
 
     @Test(priority = 17)
-	public static void testFaculty(String url, WebDriver driver) throws Exception {
+	public static void testFaculty(String url, WebDriver driver, Logger log) throws Exception {
 		try {
 			System.out.println("TC-17:  Starting FACULTY PORTAL Academic tab test case executation\n");
 			Utils.goBackToHome(driver, url);
@@ -36,7 +36,7 @@ public class Pfs_faculty {
 	}
 
 	@Test(priority = 18)
-	public static void testFacultyQuestionBank(String url, WebDriver driver) throws Exception {
+	public static void testFacultyQuestionBank(String url, WebDriver driver, Logger log) throws Exception {
 		try {
 			System.out.println(" TC-18:  Faculty Starting QuestionBank Tab test case Executation");
 			Utils.goBackToHome(driver, url);
@@ -60,7 +60,7 @@ public class Pfs_faculty {
 
 
 	@Test(priority = 19)
-	public static void testFacultyCourseContent(String url, WebDriver driver) throws Exception {
+	public static void testFacultyCourseContent(String url, WebDriver driver, Logger log) throws Exception {
 		try {
 			Utils.goBackToHome(driver, url);
 			System.out.println("TC-19: Faculty Course Content Test Execution  Started ");
@@ -89,7 +89,7 @@ public class Pfs_faculty {
 	}
 
 	@Test(priority = 20)
-	public static void testFacultyExamination(String url, WebDriver driver) throws Exception {
+	public static void testFacultyExamination(String url, WebDriver driver, Logger log) throws Exception {
 		try {
 			System.out.println("TC-20:     Faculty Examination Test Executation Statred");
 			Utils.goBackToHome(driver, url);
@@ -112,7 +112,7 @@ public class Pfs_faculty {
 	}
 
 	@Test(priority = 21)
-	public static void testFacultyMYStudent(String url, WebDriver driver) throws Exception {
+	public static void testFacultyMYStudent(String url, WebDriver driver, Logger log) throws Exception {
 		try {
 			System.out.println("TC-21:   Faculty My Students Test Executation Started");
 			Utils.goBackToHome(driver, url);
@@ -141,7 +141,7 @@ public class Pfs_faculty {
 	}
 
 	@Test(priority = 22)
-	public static void testFacultyAttendance(String url, WebDriver driver) throws Exception {
+	public static void testFacultyAttendance(String url, WebDriver driver, Logger log) throws Exception {
 		try {
 			System.out.println("TC-22 :    Faculty Attendance Test Executation Startred ");
 			Utils.goBackToHome(driver, url);
@@ -162,7 +162,7 @@ public class Pfs_faculty {
 	}
 
 	@Test(priority = 23)
-	public static void testFaculityTimetable(String url, WebDriver driver) throws Exception {
+	public static void testFaculityTimetable(String url, WebDriver driver, Logger log) throws Exception {
 		try {
 			System.out.println("TC-23 :    Faculty Timetable Test Executation Started ");
 			Utils.goBackToHome(driver, url);
@@ -186,7 +186,7 @@ public class Pfs_faculty {
 	}
 
 	@Test(priority = 24)
-	public static void testFacultyService(String url, WebDriver driver) throws Exception {
+	public static void testFacultyService(String url, WebDriver driver, Logger log) throws Exception {
 		try {
 			System.out.println("TC-24:  Faculty Service Test case Started");
 			Utils.goBackToHome(driver, url);
@@ -207,7 +207,7 @@ public class Pfs_faculty {
 	}
 
 	@Test(priority = 25)
-	public static void testFacultyRaiseCase(String student, String faculty, String url, WebDriver driver) throws InterruptedException {
+	public static void testFacultyRaiseCase(String student, String faculty, String url, WebDriver driver, Logger log) throws InterruptedException {
 		try {
 			System.out.println("TC-25 Faculty Service Raise A Case ");
 			Utils.goBackToHome(driver, url);
@@ -231,7 +231,7 @@ public class Pfs_faculty {
 	}
 
 	@Test(priority = 26)
-	public static void testFacultyMakeRequest(String student, String faculty, String url, WebDriver driver) throws Exception {
+	public static void testFacultyMakeRequest(String student, String faculty, String url, WebDriver driver, Logger log) throws Exception {
 		try {
 			System.out.println("TC-26: Starting Faculty make a request test case");
 			Utils.goBackToHome(driver, url);
@@ -257,7 +257,7 @@ public class Pfs_faculty {
 	}
 
 	@Test(priority = 27)
-	public static void testFacultyEvent(String url, WebDriver driver) throws Exception {
+	public static void testFacultyEvent(String url, WebDriver driver, Logger log) throws Exception {
 		try {
 			System.out.println("TC-27: Faculty Portal Event Tab Test case Started");
 			Utils.goBackToHome(driver, url);
@@ -280,7 +280,7 @@ public class Pfs_faculty {
 	}
 
 	@Test(priority = 28)
-	public static void testfacultyEditProfile(String student, String faculty, String url, WebDriver driver) throws Exception {
+	public static void testfacultyEditProfile(String student, String faculty, String url, WebDriver driver, Logger log) throws Exception {
 		try {
 			System.out.println(" TC-28:   Faculty Starting PersonalDetails Started  case executation");
 			Utils.goBackToHome(driver, url);
@@ -307,7 +307,7 @@ public class Pfs_faculty {
 	}
 
 	@Test(priority = 29)
-	public static void testfacultyEditAddress(String student, String faculty, String url, WebDriver driver) throws Exception {
+	public static void testfacultyEditAddress(String student, String faculty, String url, WebDriver driver, Logger log) throws Exception {
 		try {
 			System.out.println(" TC-29 :   Faculty Address Details Started  case executation");
 			Utils.goBackToHome(driver, url);
@@ -340,7 +340,7 @@ public class Pfs_faculty {
 	}
 
 	@Test(priority = 30)
-	public static void testfacultyEditAcademicDetails(String student, String faculty, String url, WebDriver driver) throws Exception {
+	public static void testfacultyEditAcademicDetails(String student, String faculty, String url, WebDriver driver, Logger log) throws Exception {
 		try {
 
 			System.out.println(" TC-30:   Academic Details Started  case executation");
@@ -367,7 +367,7 @@ public class Pfs_faculty {
 	}
 
 	@Test(priority = 31)
-	public static void testfacultyEditReaserchSupervision(String student, String faculty, String url, WebDriver driver) throws Exception {
+	public static void testfacultyEditReaserchSupervision(String student, String faculty, String url, WebDriver driver, Logger log) throws Exception {
 		try {
 
 			System.out.println(" TC:31 :   RESEARCH SUPERVISION Started  case executation");
@@ -394,7 +394,7 @@ public class Pfs_faculty {
 	}
 
 	@Test(priority = 32)
-	public static void testfacultyEditResearchPublication(String student, String faculty, String url, WebDriver driver) throws Exception {
+	public static void testfacultyEditResearchPublication(String student, String faculty, String url, WebDriver driver, Logger log) throws Exception {
 		try {
 
 			System.out.println(" TC-32 :   RESEARCH PUBLICATION Started  case executation");
@@ -418,7 +418,7 @@ public class Pfs_faculty {
 	}
 
 	@Test(priority = 33)
-	public static void testfacultyEditConference(String student, String faculty, String url, WebDriver driver) throws Exception {
+	public static void testfacultyEditConference(String student, String faculty, String url, WebDriver driver, Logger log) throws Exception {
 		try {
 
 			System.out.println(" TC-33 :   Faculty edit Conference Started  case executation");
@@ -445,7 +445,7 @@ public class Pfs_faculty {
 	}
 
 	@Test(priority = 34)
-	public static void testfacultyEditBook(String student, String faculty, String url, WebDriver driver) throws Exception {
+	public static void testfacultyEditBook(String student, String faculty, String url, WebDriver driver, Logger log) throws Exception {
 		try {
 			System.out.println(" TC:34 :   Book Started  case executation");
 			Utils.goBackToHome(driver, url);
@@ -472,7 +472,7 @@ public class Pfs_faculty {
 	}
 
 	@Test(priority = 35)
-	public static void testfacultyEditProfessionalAssociation(String student, String faculty, String url, WebDriver driver) throws Exception {
+	public static void testfacultyEditProfessionalAssociation(String student, String faculty, String url, WebDriver driver, Logger log) throws Exception {
 		try {
 			Utils.goBackToHome(driver, url);
 			System.out.println(" TC-35 :   Professional Association Started  case executation");
@@ -495,7 +495,7 @@ public class Pfs_faculty {
 	}
 
 	@Test(priority = 36)
-	public static void testfacultyOthers(String student, String faculty, String url, WebDriver driver) throws Exception {
+	public static void testfacultyOthers(String student, String faculty, String url, WebDriver driver, Logger log) throws Exception {
 		try {
 			System.out.println(" TC-36 :   Faculty edit Others Started  case executation");
 			Utils.goBackToHome(driver, url);
@@ -518,7 +518,7 @@ public class Pfs_faculty {
 	}
 
 	@Test(priority = 37)
-	public static void testFacultyDashboard(String student, String faculty, String url, WebDriver driver) throws Exception {
+	public static void testFacultyDashboard(String student, String faculty, String url, WebDriver driver, Logger log) throws Exception {
 		try {
 			System.out.println("TC-37 Faculty DASHBOARD test executation \n");
 			Utils.goBackToHome(driver, url);
@@ -546,7 +546,7 @@ public class Pfs_faculty {
 	}
 
 	@Test(priority = 38)
-	public static void testFacultyQuestionPaper(String student, String faculty, String url, WebDriver driver) throws Exception {
+	public static void testFacultyQuestionPaper(String student, String faculty, String url, WebDriver driver, Logger log) throws Exception {
 		try {
 			System.out.println("TC-38 Faculty QUESTION PAPER test executation \n");
 			Utils.goBackToHome(driver, url);
@@ -598,7 +598,7 @@ public class Pfs_faculty {
 	}
 
 	@Test(priority = 39)
-	public static void testFacultySignout(String url, WebDriver driver) throws Exception {
+	public static void testFacultySignout(String url, WebDriver driver, Logger log) throws Exception {
 		try {
 			System.out.println(" TC-39:  Faculty  View Profile test Executation Started");
 			Utils.goBackToHome(driver, url);

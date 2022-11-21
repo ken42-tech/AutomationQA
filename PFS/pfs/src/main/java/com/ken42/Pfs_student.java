@@ -16,7 +16,7 @@ public class Pfs_student {
 
 
     @Test(priority = 1)
-	public static void testStudent(String url, WebDriver driver) throws Exception {
+	public static void testStudent(String url, WebDriver driver, Logger log) throws Exception {
 		try {
 			System.out.println(" TC-1:  Student Starting Home tab  case execution");
 			Utils.bigSleepBetweenClicks(1);
@@ -38,7 +38,7 @@ public class Pfs_student {
 	}
 
 	@Test(priority = 2)
-	public static void testStudentEnrollment(String url, WebDriver driver) throws Exception {
+	public static void testStudentEnrollment(String url, WebDriver driver, Logger log) throws Exception {
 		try {
 			System.out.println(" TC-2:  Starting Student Enrollment  case execution");
 			if (Utils.checkUrlToSkipTest(url)){
@@ -61,7 +61,7 @@ public class Pfs_student {
 	}
 
 	@Test(priority = 3)
-	public static void testStudentAcademic(String url, WebDriver driver) throws Exception {
+	public static void testStudentAcademic(String url, WebDriver driver, Logger log) throws Exception {
 		try {
 			System.out.println("TC-3: Starting Student Academic  test case execution\n");
 			Utils.goBackToHome(driver, url); 
@@ -86,7 +86,7 @@ public class Pfs_student {
 	}
 
 	@Test(priority = 4)
-	public static void testStudentExamination(String url, WebDriver driver) throws Exception {
+	public static void testStudentExamination(String url, WebDriver driver, Logger log) throws Exception {
 		try {
 			System.out.println("TC-4:   Starting Student Examination test case execution");
 			Utils.goBackToHome(driver, url);
@@ -109,7 +109,7 @@ public class Pfs_student {
 	}
 
 	@Test(priority = 5)
-	public static void testStudentAttendance(String url, WebDriver driver) throws Exception {
+	public static void testStudentAttendance(String url, WebDriver driver, Logger log) throws Exception {
 		try {
 			System.out.println("TC-5: Starting Student Attendance test case execution");
 			Utils.goBackToHome(driver, url);
@@ -128,7 +128,7 @@ public class Pfs_student {
 	}
 
 	@Test(priority = 6)
-	public static void testStudentTimeTable(String url, WebDriver driver) throws Exception {
+	public static void testStudentTimeTable(String url, WebDriver driver, Logger log) throws Exception {
 		try {
 			System.out.println("TC-6: Starting Student Timetable test case execution ");
 			Utils.goBackToHome(driver, url);
@@ -149,7 +149,7 @@ public class Pfs_student {
 	}
 
 	@Test(priority = 7)
-	public static void testStudentFees(String url, WebDriver driver) throws Exception {
+	public static void testStudentFees(String url, WebDriver driver, Logger log) throws Exception {
 		try {
 			System.out.println("TC-7:  Starting Student FEES test case execution");
 			Utils.goBackToHome(driver, url);
@@ -175,7 +175,7 @@ public class Pfs_student {
 	}
 
 	@Test(priority = 8)
-	public static void testStudentFeedback(String url, WebDriver driver) throws Exception {
+	public static void testStudentFeedback(String url, WebDriver driver, Logger log) throws Exception {
 		try {
 			System.out.println("TC-8:   Starting Student FEEDBACK test case execution");
 			Utils.goBackToHome(driver, url);
@@ -195,7 +195,7 @@ public class Pfs_student {
 	}
 
 	@Test(priority = 9)
-	public static void testStudentStudentStatus(String url, WebDriver driver) throws Exception {
+	public static void testStudentStudentStatus(String url, WebDriver driver, Logger log) throws Exception {
 		try {
 			System.out.println("TC-9:  Starting  Student Services check cancel button test case execution ");
 			Utils.goBackToHome(driver, url);
@@ -217,7 +217,7 @@ public class Pfs_student {
 	}
 
 	@Test(priority = 10)
-	public static void testStudentRaiseCase(String student, String faculty, String url, WebDriver driver) throws InterruptedException {
+	public static void testStudentRaiseCase(String student, String faculty, String url, WebDriver driver, Logger log) throws InterruptedException {
 		try {
 			System.out.println("TC-10: Starting Student Services Raise test case execution \n");
 			Utils.goBackToHome(driver, url);
@@ -243,7 +243,7 @@ public class Pfs_student {
 	}
 
 	@Test(priority = 11)
-	public static void testStudentMakeRequest(String student, String faculty, String url, WebDriver driver) throws InterruptedException {
+	public static void testStudentMakeRequest(String student, String faculty, String url, WebDriver driver, Logger log) throws InterruptedException {
 		try {
 			System.out.println("TC-11 Starting Student Services make request test case execution ");
 			Utils.goBackToHome(driver, url);
@@ -269,7 +269,7 @@ public class Pfs_student {
 	}
 
 	@Test(priority = 12)
-	public static void testStudentEvent(String student, String faculty, String url, WebDriver driver) throws Exception {
+	public static void testStudentEvent(String student, String faculty, String url, WebDriver driver, Logger log) throws Exception {
 		try {
 			System.out.println("TC-12:  Starting Student Event case Execution ");
 			Utils.goBackToHome(driver, url);
@@ -289,7 +289,7 @@ public class Pfs_student {
 	}
 
 	@Test(priority = 13)
-	public static void testStudentEditProfile(String url, WebDriver driver) throws Exception{
+	public static void testStudentEditProfile(String url, WebDriver driver, Logger log) throws Exception{
 		try {
 			System.out.println("TC-13: Starting execution of edit basic details of student profile");
 			Utils.goBackToHome(driver, url);
@@ -319,7 +319,7 @@ public class Pfs_student {
 	}
 
 	@Test(priority = 14)
-	public static void testStudentEditEducationDetails(String url, WebDriver driver) throws Exception {
+	public static void testStudentEditEducationDetails(String url, WebDriver driver, Logger log) throws Exception {
 		try {
 			System.out.println(" TC-14 :   Starting student edit profile education Details case execution");
 			Utils.goBackToHome(driver, url);
@@ -356,7 +356,7 @@ public class Pfs_student {
 	}
 
 	@Test(priority = 15)
-	public static void testStudentEditAddress(String url, WebDriver driver) throws Exception {
+	public static void testStudentEditAddress(String url, WebDriver driver, Logger log) throws Exception {
 		try {
 			if (Utils.checkltpct(url)){
 				log.info("TC-15: Student Address Edit is not supported on this portal");
@@ -397,7 +397,7 @@ public class Pfs_student {
 	}
 
 	@Test(priority = 16)
-	public static void testStudentSignout(String url, WebDriver driver) throws Exception {
+	public static void testStudentSignout(String url, WebDriver driver, Logger log) throws Exception {
 		try {
 			System.out.println("TC-16 :     Starting Student SIGNOUT  case execution ");
 			Utils.goBackToHome(driver, url);
