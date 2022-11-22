@@ -12,10 +12,6 @@ import org.testng.annotations.Test;
 public class Pfs_resource {
 	public static Logger log = Logger.getLogger("Pfs_portal");
 	static int time = 2000;
-	// static String SpreadSheetFile = "C:\\Users\\Public\\Documents\\demo.xlsx";
-	// static String PPT_file = "C:\\Users\\Public\\Documents\\demo.pptx";
-	// static String Video_file = "C:\\Users\\Public\\Documents\\demo.mp4";
-	// static String PDF_file = "C:\\Users\\Public\\Documents\\demo.pdf";
 	private static String PFSurl;
 
 	@Test
@@ -166,9 +162,8 @@ public class Pfs_resource {
 			log.info("TC-40: SpreadSheet resource Create View delete Test Case PASSED \n");
 		} catch (Exception e) {
 			Utils.printException(e);
-			Pfs_portal.quitDriver(driver, url);
-			Pfs_portal.initDriver(Browser, url);
 			log.warning("TC-40: SpreadSheet resource Create View delete Test Case FAILED \n");
+			Utils.logout(driver, url, Role);
 		}
 	}
 
@@ -229,9 +224,8 @@ public class Pfs_resource {
 
 		} catch (Exception e) {
 			Utils.printException(e);
-			Pfs_portal.quitDriver(driver, url);;
-			Pfs_portal.initDriver(Browser, url);
 			log.warning("TC-41: PPT resource Create View delete Test Case FAILED \n");
+			Utils.logout(driver, url, Role);
 		}
 	}
 
@@ -292,9 +286,8 @@ public class Pfs_resource {
 			log.info("TC-42: Create PDF resource publish and delete PDF PASSED \n");
 		} catch (Exception e) {
 			Utils.printException(e);
-			Pfs_portal.quitDriver(driver, url);;;
-			Pfs_portal.initDriver(Browser, url);
 			log.warning("TC-42: Create PDF resource publish and delete PDF FAILED \n");
+			Utils.logout(driver, url, Role);
 		}
 	}
 
@@ -353,12 +346,11 @@ public class Pfs_resource {
 			resourceFacultyInitialSteps(faculty, url, driver);
 			Utils.clickXpath(driver, ActionXpath.facvideoopen, time, "facvideoopen");
 			resourceDeleteAndLogout(faculty, url, driver, fileName, Role, log);
-			log.info("TC-43: Create Video resource create view  and delete PASSED \n");
+			log.info("TC-43: Create Video resource create view  and delete PASSED");
 		} catch (Exception e) {
 			Utils.printException(e);
-			Pfs_portal.quitDriver(driver, url);;
-			Pfs_portal.initDriver(Browser, url);
-			log.warning("TC-43: Create Video resource create view  and delete FAILED \n");
+			log.warning("TC-43: Create Video resource create view  and delete FAILED");
+			Utils.logout(driver, url, Role);
 		}
 	}
 
@@ -414,12 +406,11 @@ public class Pfs_resource {
 			resourceFacultyInitialSteps(faculty, url, driver);
 			Utils.clickXpath(driver, ActionXpath.faclinkopen, time, "faclinkopen");
 			resourceDeleteAndLogout(faculty, url, driver, fileName, Role, log);
-			log.info("TC-44 Link resource Create View delete Test Case PASSED \n");
+			log.info("TC-44 Link resource Create View delete Test Case PASSED");
 		} catch (Exception e) {
 			Utils.printException(e);
-			log.warning("TC-44: Link resource Create View delete Test Case FAILED \n");
-			Pfs_portal.quitDriver(driver, url);;
-			Pfs_portal.initDriver(Browser, url);
+			log.warning("TC-44: Link resource Create View delete Test Case FAILED");
+			Utils.logout(driver, url, Role);
 		}
 	}
 
@@ -455,14 +446,13 @@ public class Pfs_resource {
 
 			driver.findElement(By.xpath("/html/body/div[5]/div[3]/div/div[2]/button/span[1]")).click();
 			Utils.logout(driver, url, faculty);
-			log.info("TC-45: Test Spreadsheet File type Test Case PASSED \n");
+			log.info("TC-45: Test Spreadsheet File type Test Case PASSED");
 
 		} catch (Exception e) {
 			Utils.printException(e);
-			log.warning("TC-45 Test Spreadsheet File type test case FAILED... \n");
-			Pfs_portal.quitDriver(driver, url);;
+			log.warning("TC-45 Test Spreadsheet File type test case FAILED");
+			Utils.logout(driver, url, Role);
 		}
-
 	}
 
 	@Test(priority = 46)
@@ -491,11 +481,11 @@ public class Pfs_resource {
 			}
 			driver.findElement(By.xpath("/html/body/div[5]/div[3]/div/div[2]/button/span[1]")).click();
 			Utils.logout(driver, url, faculty);
-			log.info("TC-46: Test PPT File type Test Case PASSED \n");
+			log.info("TC-46: Test PPT File type Test Case PASSED");
 		} catch (Exception e) {
 			Utils.printException(e);
-			Pfs_portal.quitDriver(driver, url);;
-			log.warning("TC-46: Test PPT File type Test Case FAILED \n");
+			log.warning("TC-46: Test PPT File type Test Case FAILED");
+			Utils.logout(driver, url, Role);
 		}
 	}
 
@@ -523,11 +513,11 @@ public class Pfs_resource {
 			}
 			driver.findElement(By.xpath("/html/body/div[5]/div[3]/div/div[2]/button/span[1]")).click();
 			Utils.logout(driver, url, faculty);
-			log.info("TC-47: Test PDF File type Test Case PASSED \n");
+			log.info("TC-47: Test PDF File type Test Case PASSED");
 		} catch (Exception e) {
 			Utils.printException(e);
-			Pfs_portal.quitDriver(driver, url);;
-			log.warning("TC-47:Test PDF File type Test Case FAILED \n");
+			log.warning("TC-47:Test PDF File type Test Case FAILED");
+			Utils.logout(driver, url, Role);
 		}
 	}
 
@@ -560,6 +550,7 @@ public class Pfs_resource {
 		} catch (Exception e) {
 			Utils.printException(e);
 			log.warning("TC-48:Test Video File type Test Case FAILED \n");
+			Utils.logout(driver, url, Role);
 		}
 	}
 
@@ -578,8 +569,8 @@ public class Pfs_resource {
 
 			} else {
 				System.out.println(" All resource are not Presnet Quiting the Test. ");
-				Pfs_portal.quitDriver(driver, url);;
 				log.warning("TC-49 PPt resource Filter Option View Test Case FAILED \n");
+				Utils.logout(driver, url, Role);
 			}
 			Utils.clickXpath(driver, ActionXpath.faccFilter, time, "Clik ont he Filter button");
 			Utils.clickXpath(driver, ActionXpath.faccFilterClear, time, "Clear all the filter ");
@@ -601,10 +592,11 @@ public class Pfs_resource {
 			Utils.executeLongWait(url);
 			Utils.logout(driver, url, Role);
 			Utils.smallSleepBetweenClicks(1);
-			log.info("TC-49: PPT resource Filter Option View Test Case PASSED \n");
+			log.info("TC-49: PPT resource Filter Option View Test Case PASSED");
 		} catch (Exception e) {
 			Utils.printException(e);
-			log.warning("TC-49: PPT resource Filter Option View Test Case FAILED \n");
+			log.warning("TC-49: PPT resource Filter Option View Test Case FAILED");
+			Utils.logout(driver, url, Role);
 		}
 	}
 
@@ -623,8 +615,8 @@ public class Pfs_resource {
 
 			} else {
 				System.out.println(" All resource are not Presnet Quiting the Test. ");
-				Pfs_portal.quitDriver(driver, url);;
-				log.warning("TC-50: PDF resource Filter Option View Test Case FAILED \n");
+				Utils.logout(driver, url, Role);
+				log.warning("TC-50: PDF resource Filter Option View Test Case FAILED");
 			}
 			Utils.clickXpath(driver, ActionXpath.faccFilter, time, "click on the filter button");
 
@@ -647,11 +639,11 @@ public class Pfs_resource {
 			Utils.executeLongWait(url);
 			Utils.logout(driver, url, Role);
 			Utils.smallSleepBetweenClicks(1);
-			log.info("TC-50: PDF resource Filter Option View Test Case PASSED \n");
+			log.info("TC-50: PDF resource Filter Option View Test Case PASSED");
 		} catch (Exception e) {
 			Utils.printException(e);
-			Pfs_portal.quitDriver(driver, url);;
-			log.warning("TC-50: PDF resource Filter Option View Test Case FAILED \n");
+			log.warning("TC-50: PDF resource Filter Option View Test Case FAILED");
+			Utils.logout(driver, Role, url);
 		}
 	}
 
@@ -661,7 +653,7 @@ public class Pfs_resource {
 		try {
 			System.out.println("TC-51:  Video resource Filter Option View Test case Started");
 			resourceFacultyInitialSteps(faculty, url, driver);
-			Utils.bigSleepBetweenClicks(2);
+			Utils.bigSleepBetweenClicks(1);
 			WebElement l = driver.findElement(By.xpath(
 					"/html/body/div[1]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[3]/div/div/div/div[5]/div[1]/div/div/../../../.."));
 			String p = l.getText();
@@ -670,8 +662,8 @@ public class Pfs_resource {
 
 			} else {
 				System.out.println(" All resource are not Presnet Quiting the Test. ");
-				Pfs_portal.quitDriver(driver, url);;
 				log.warning("TC-51 Video resource Filter Option View Test Case FAILED \n");
+				Utils.logout(driver, url, Role);
 			}
 			Utils.clickXpath(driver, ActionXpath.faccFilter, time, "Clik ont he Filter button");
 			Utils.clickXpath(driver, ActionXpath.faccFilterClear, time, "Clear all the filter");
@@ -690,14 +682,13 @@ public class Pfs_resource {
 			} else {
 				log.warning(" TC-51: Video resource Filter Option View FAILED it does not contain all the tabs\n\n");
 			}
-			Utils.executeLongWait(url);
 			Utils.logout(driver, url, Role);
 			Utils.smallSleepBetweenClicks(1);
-			log.info("TC-51: Video resource Filter Option View Test Case PASSED \n");
+			log.info("TC-51: Video resource Filter Option View Test Case PASSED");
 		} catch (Exception e) {
 			Utils.printException(e);
-			Pfs_portal.quitDriver(driver, url);;
-			log.warning("TC-51: Video resource Filter Option View Test Case FAILED \n");
+			log.warning("TC-51: Video resource Filter Option View Test Case FAILED");
+			Utils.logout(driver, url, Role);
 		}
 	}
 
@@ -707,7 +698,7 @@ public class Pfs_resource {
 		try {
 			System.out.println("TC-52:  Links resource Filter Option View Test case Started");
 			resourceFacultyInitialSteps(faculty, url, driver);
-			Utils.bigSleepBetweenClicks(2);
+			Utils.bigSleepBetweenClicks(1);
 			WebElement l = driver.findElement(By.xpath(
 					"/html/body/div[1]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[3]/div/div/div/div[5]/div[1]/div/div/../../../.."));
 			String p = l.getText();
@@ -716,8 +707,8 @@ public class Pfs_resource {
 
 			} else {
 				System.out.println(" All resource are not Presnet Quiting the Test. ");
-				Pfs_portal.quitDriver(driver, url);;
 				log.warning("TC-52 Links resource Filter Option View Test Case FAILED \n");
+				Utils.logout(driver, url, Role);
 			}
 			Utils.clickXpath(driver, ActionXpath.faccFilter, time, "Clik ont he Filter button");
 			Utils.clickXpath(driver, ActionXpath.faccFilterClear, time, "Clear all the filter");
@@ -741,12 +732,11 @@ public class Pfs_resource {
 			Utils.executeLongWait(url);
 			Utils.logout(driver, url, Role);
 			Utils.smallSleepBetweenClicks(1);
-			log.info("TC-52: Links resource Filter Option View Test Case PASSED \n");
+			log.info("TC-52: Links resource Filter Option View Test Case PASSED");
 		} catch (Exception e) {
 			Utils.printException(e);
-			Pfs_portal.quitDriver(driver, url);;
-			Pfs_portal.initDriver(Browser, url);
-			log.warning("TC-52: Links resource Filter Option View Test Case FAILED \n");
+			log.warning("TC-52: Links resource Filter Option View Test Case FAILED");
+			Utils.logout(driver, url, Role);
 		}
 	}
 

@@ -261,6 +261,7 @@ public class Utils {
 	@Test
 	public static void logout(WebDriver driver, String url, String Role) throws Exception {
 		try {
+			driver.navigate().to(url);
 			smallSleepBetweenClicks(1);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("window.scrollBy(0,0)");

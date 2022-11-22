@@ -6,7 +6,6 @@ import org.openqa.selenium.WebElement;
 
 import java.util.logging.Logger;
 
-import org.testng.Reporter;
 import org.testng.annotations.Test;
 public class Pfs_faculty {
     public static Logger log = Logger.getLogger("Pfs_portal");

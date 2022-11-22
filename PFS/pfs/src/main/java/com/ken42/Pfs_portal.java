@@ -60,14 +60,6 @@ public class Pfs_portal extends Thread {
 		folder = getFolderPath();
 		String CSV_PATH = "";
 		CSV_PATH = folder + "\\pfs.csv";
-		// String logFileName = "";
-		// boolean append = false;
-		// String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new java.util.Date());
-		// logFileName = String.format(folder + "\\Testresult_%s.HTML", timeStamp);
-		// FileHandler logFile = new FileHandler(logFileName, append);
-		// logFile.setFormatter(new MyHtmlFormatter());
-		// log.addHandler(logFile);
-
 		CSVReader csvReader1;
 		int ThreadCount = 0;
 		csvReader1 = new CSVReader(new FileReader(CSV_PATH));
@@ -476,7 +468,9 @@ public class Pfs_portal extends Thread {
 	@AfterSuite
 	public static void quitDriver(WebDriver driver,String Url) throws Exception {
 		// log.info("Completed testing of portal" + Url);
+		System.out.println("Qutting driver");
 		driver.quit();
+		Utils.smallSleepBetweenClicks(1);
 	}
 
 	public static String getFolderPath() throws Exception {

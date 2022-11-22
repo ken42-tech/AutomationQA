@@ -109,7 +109,7 @@ public class Pfs_activity {
             Utils.clickXpath(driver, ActionXpath.preview, time, "Click on preview");
             Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.facAssPublish, time, "Publish Assessment");
-            Utils.bigSleepBetweenClicks(2);
+            Utils.bigSleepBetweenClicks(1);
             log.info("Create Publish Passed");
 
         } catch (Exception e) {
@@ -132,7 +132,7 @@ public class Pfs_activity {
             new WebDriverWait(driver, 25).until(ExpectedConditions
                     .elementToBeClickable(By.xpath("//p[.='" + filename + "']/../../.././..//*[local-name()='svg']")))
                     .click();
-            Utils.bigSleepBetweenClicks(2);
+            Utils.bigSleepBetweenClicks(1);
             WebDriverWait wait35 = new WebDriverWait(driver, 20);
 
             WebElement element238 = wait35
@@ -140,7 +140,7 @@ public class Pfs_activity {
             ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element238);
             Utils.smallSleepBetweenClicks(1);
             // edit
-            Utils.bigSleepBetweenClicks(2);
+            Utils.bigSleepBetweenClicks(1);
 
             Utils.clickXpath(driver, ActionXpath.fasquestionrelative, time, "Click on question bank ");
             Utils.smallSleepBetweenClicks(1);
@@ -180,7 +180,7 @@ public class Pfs_activity {
             new WebDriverWait(driver, 25).until(ExpectedConditions
                     .elementToBeClickable(By.xpath("//p[.='" + filename + "']/../../.././..//*[local-name()='svg']")))
                     .click();
-            Utils.bigSleepBetweenClicks(2);
+            Utils.bigSleepBetweenClicks(1);
             WebDriverWait wait35 = new WebDriverWait(driver, 20);
 
             WebElement element238 = wait35
@@ -986,7 +986,6 @@ public class Pfs_activity {
             Utils.printException(e);
             log.warning("Create forumdiscussion FAILED  ");
             throw (e);
-
         }
         return returnAssement;
     }
@@ -1129,8 +1128,8 @@ public class Pfs_activity {
             if (p.contains("Assignments") && (p.contains("Assessments")) && (p.contains("Forum"))) {
             } else {
                 System.out.println(" All Activity are not Presnet Quiting the Test. ");
-                Pfs_portal.quitDriver(driver, url);
                 log.warning("TC-53 Assignment Activity Filter Option View Test Case FAILED  ");
+                Utils.logout(driver, url, Role);
             }
             Utils.clickXpath(driver, ActionXpath.faccFilterassignment, time,
                     "Click the filter button on activity section");
@@ -1158,8 +1157,7 @@ public class Pfs_activity {
         } catch (Exception e) {
             Utils.printException(e);
             log.warning("TC-53 Assignment Filter test case FAILED   ");
-            Pfs_portal.quitDriver(driver, url);
-            Pfs_portal.initDriver(Browser, url);
+            Utils.logout(driver, url, Role);
         }
     }
 
@@ -1179,8 +1177,8 @@ public class Pfs_activity {
             if (p.contains("Assignments") && (p.contains("Assessments")) && (p.contains("Forum"))) {
             } else {
                 System.out.println(" All Activity are not Presnet Quiting the Test. ");
-                Pfs_portal.quitDriver(driver, url);
                 log.warning("TC-54 Assement Activity Filter Option View Test Case FAILED");
+                Utils.logout(driver, url, Role);
             }
             Utils.clickXpath(driver, ActionXpath.faccFilterassignment, time,
                     "Click the filter button on activity section");
@@ -1208,8 +1206,7 @@ public class Pfs_activity {
         } catch (Exception e) {
             Utils.printException(e);
             log.warning("TC-54 Assement Filter test case FAILED  ");
-            Pfs_portal.quitDriver(driver, url);
-            Pfs_portal.initDriver(Browser, url);
+            Utils.logout(driver, url, Role);
         }
     }
 
@@ -1229,7 +1226,7 @@ public class Pfs_activity {
             if (p.contains("Assignments") && (p.contains("Assessments")) && (p.contains("Forum"))) {
             } else {
                 System.out.println(" All Activity are not Presnet Quiting the Test. ");
-                Pfs_portal.quitDriver(driver, url);
+                Utils.logout(driver, url, Role);
                 log.warning("TC-55 Forum Activity Filter Option View Test Case FAILED ");
             }
             Utils.clickXpath(driver, ActionXpath.faccFilterassignment, time,
@@ -1257,8 +1254,7 @@ public class Pfs_activity {
         } catch (Exception e) {
             Utils.printException(e);
             log.warning("TC-55 Forum Filter test case FAILED   ");
-            Pfs_portal.quitDriver(driver, url);
-            Pfs_portal.initDriver(Browser, url);
+            Utils.logout(driver, url, Role);
         }
     }
 
@@ -1285,8 +1281,7 @@ public class Pfs_activity {
         } catch (Exception e) {
             Utils.printException(e);
             log.warning("TC-56 Faculty Fourm create,publish Delete test case FAILED   ");
-            Pfs_portal.quitDriver(driver, url);
-            Pfs_portal.initDriver(Browser, url);
+            Utils.logout(driver, url, Role);
         }
     }
 
@@ -1315,10 +1310,7 @@ public class Pfs_activity {
         } catch (Exception e) {
             Utils.printException(e);
             log.warning("TC-57 Faculty Fourm create,publish Delete,Dicussion test case FAILED   ");
-            // Pfs_portal.quitDriver(driver, url);
-            // Utils.logout(driver, url, Role);
-            Pfs_portal.quitDriver(driver, url);
-            Pfs_portal.initDriver(Browser, url);
+            Utils.logout(driver, url, Role);
         }
     }
 
@@ -1327,8 +1319,7 @@ public class Pfs_activity {
             String url, String Browser, String Role, WebDriver driver, Logger log) throws Exception {
         try {
             String returnAssement[] = new String[3];
-            String Filenameassesment = returnAssement[0];
-            System.out.println("TC-63 Faculty Fourm create,publish Delete,Decission test case Staerted  ");
+            System.out.println("TC-58: Faculty Fourm create,publish Delete,Decission test case Staerted  ");
             Utils.login(driver, faculty, url);
             // String Filenameassesment= forumcreate(student, faculty, url, Browser, Role,
             // driver);
@@ -1347,10 +1338,7 @@ public class Pfs_activity {
         } catch (Exception e) {
             Utils.printException(e);
             log.warning("TC-58 Faculty Fourm create,publish Delete,Decission test case FAILED   ");
-            // Pfs_portal.quitDriver(driver, url);
-            // Utils.logout(driver, url, Role);
-            Pfs_portal.quitDriver(driver, url);
-            Pfs_portal.initDriver(Browser, url);
+            Utils.logout(driver, url, Role);
         }
     }
 
@@ -1376,10 +1364,7 @@ public class Pfs_activity {
         } catch (Exception e) {
             Utils.printException(e);
             log.warning("TC-59 Faculty Fourm create,unpublish Delete,Decission test case FAILED   ");
-            // Pfs_portal.quitDriver(driver, url);
-            // Utils.logout(driver, url, Role);
-            Pfs_portal.quitDriver(driver, url);
-            Pfs_portal.initDriver(Browser, url);
+            Utils.logout(driver, url, Role);
         }
     }
 
@@ -1405,8 +1390,7 @@ public class Pfs_activity {
         } catch (Exception e) {
             Utils.printException(e);
             log.warning("TC-60 Assement create,publish & delete test executation FAILED  ");
-            Pfs_portal.quitDriver(driver, url);
-            Pfs_portal.initDriver(Browser, url);
+            Utils.logout(driver, url, Role);
         }
     }
 
@@ -1438,8 +1422,7 @@ public class Pfs_activity {
         } catch (Exception e) {
             Utils.printException(e);
             log.warning("TC-61 Assement Attempt and view result test executation   FAILED  ");
-            Pfs_portal.quitDriver(driver, url);
-            Pfs_portal.initDriver(Browser, url);
+            Utils.logout(driver, url, Role);
         }
     }
 
@@ -1461,8 +1444,7 @@ public class Pfs_activity {
         } catch (Exception e) {
             Utils.printException(e);
             log.warning("TC-62 Assement Attempt and view result test executation FAILED ");
-            Pfs_portal.quitDriver(driver, url);
-            Pfs_portal.initDriver(Browser, url);
+            Utils.logout(driver, url, Role);
         }
     }
 
@@ -1471,7 +1453,6 @@ public class Pfs_activity {
             String url, String Browser, String Role, WebDriver driver, Logger log) throws Exception {
         try {
             String returnAssement[] = new String[3];
-            String Filenameassesment = returnAssement[0];
             System.out.println("TC-63: Assement create ,pubish & delete Test excutaion   started ");
             Utils.login(driver, faculty, url);
             returnAssement = assesmentcreate(student, faculty, url, Browser, Role, driver, log);
@@ -1485,8 +1466,7 @@ public class Pfs_activity {
         } catch (Exception e) {
             Utils.printException(e);
             log.warning("TC-63 Assement Attempt and view result test executation   FAILED ");
-            Pfs_portal.quitDriver(driver, url);
-            Pfs_portal.initDriver(Browser, url);
+            Utils.logout(driver, url, Role);
         }
     }
 
@@ -1496,7 +1476,6 @@ public class Pfs_activity {
             throws Exception {
         try {
             String returnAssement[] = new String[3];
-            String Filenameassesment = returnAssement[0];
             System.out.println("TC-64: Assignment create ,pubish & delete Test excutaion started ");
             Utils.login(driver, faculty, url);
             returnAssement = assignmentcreate(student, faculty, url, Browser, Role, driver, log);
@@ -1512,8 +1491,7 @@ public class Pfs_activity {
         } catch (Exception e) {
             Utils.printException(e);
             log.warning("TC-64 Assignment create,publish & delte   FAILED  ");
-            Pfs_portal.quitDriver(driver, url);
-            Pfs_portal.initDriver(Browser, url);
+            Utils.logout(driver, url, Role);
         }
     }
 
@@ -1522,16 +1500,12 @@ public class Pfs_activity {
             String url, String Browser, String Role, WebDriver driver, Logger log) throws Exception {
         try {
             String returnAssement[] = new String[3];
-            String Filenameassesment = returnAssement[0];
             Utils.login(driver, faculty, url);
             returnAssement = assignmentcreate(student, faculty, url, Browser, Role, driver, log);
-            // String Filenameassesment= assignmentcreate(student, faculty, url, Browser,
-            // Role, driver);
             returnAssement = assignmentpublish(returnAssement, faculty, url, Browser, Role, driver, log);
 
             Utils.logout(driver, url, Role);
             Utils.login(driver, student, url);
-            // assignmentviewstudent(returnAssement,student,url, Browser, Role, driver);
             assignmentsubmission(returnAssement, faculty, url, Browser, Role, driver, log);
             Utils.logout(driver, url, Role);
             Utils.login(driver, faculty, url);
@@ -1541,10 +1515,8 @@ public class Pfs_activity {
                     "TC-65 Assignment create,publish,submission and fileuploadchecking & submission  PASSED  ");
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning(
-                    "TC-65 Assignment create,publish, review ,submission and fileuploadchecking & submission    FAILED  ");
-            Pfs_portal.quitDriver(driver, url);
-            Pfs_portal.initDriver(Browser, url);
+            log.warning("TC-65 Assignment create,publish, review ,submission and fileuploadchecking & submission    FAILED  ");
+            Utils.logout(driver, url, Role);
         }
     }
 
@@ -1553,22 +1525,19 @@ public class Pfs_activity {
             String Browser, String Role, WebDriver driver, String studentName, Logger log) throws Exception {
         try {
             String returnAssement[] = new String[3];
-            String Filenameassesment = returnAssement[0];
             System.out.println(
                     "TC-66 Assignment   Create ,publish,gradecheck &submission Test Excecuation Started  ");
             Utils.login(driver, faculty, url);
             returnAssement = assignmentcreate(student, faculty, url, Browser, Role, driver, log);
             returnAssement = assignmentpublish(returnAssement, faculty, url, Browser, Role, driver, log);
-            // assignmentpublish(faculty, url, Browser, Role, driver,Filenameassesment);
-
             Utils.logout(driver, url, Role);
+
             Utils.login(driver, student, url);
             assignmentsubmission(returnAssement, faculty, url, Browser, Role, driver, log);
-
             Utils.logout(driver, url, Role);
             Utils.login(driver, faculty, url);
-            assignmentreview(returnAssement, faculty, url, Browser, Role, driver, studentName, log);
 
+            assignmentreview(returnAssement, faculty, url, Browser, Role, driver, studentName, log);
             Utils.logout(driver, url, Role);
             Utils.login(driver, faculty, url);
             returnAssement = assignmentdelete(returnAssement, faculty, url, Browser, Role, driver, log);
@@ -1577,8 +1546,7 @@ public class Pfs_activity {
         } catch (Exception e) {
             Utils.printException(e);
             log.warning("TC-66 Assignment create,publish, submission & grade check   FAILED  ");
-            Pfs_portal.quitDriver(driver, url);
-            Pfs_portal.initDriver(Browser, url);
+            Utils.logout(driver, url, Role);
         }
 
     }
@@ -1588,12 +1556,9 @@ public class Pfs_activity {
             String url, String Browser, String Role, WebDriver driver, Logger log) throws Exception {
         try {
             String returnAssement[] = new String[3];
-            String Filenameassesment = returnAssement[0];
             System.out.println("TC-67 Assignment   Create ,edit and delete Test Excecuation Started  ");
             Utils.login(driver, faculty, url);
             returnAssement = assignmentcreate(student, faculty, url, Browser, Role, driver, log);
-            // String Filenameassesment= assignmentcreate(student, faculty, url, Browser,
-            // Role, driver);
             assigmnenteditview(returnAssement, faculty, url, Browser, Role, driver, log);
             Utils.logout(driver, url, Role);
             Utils.login(driver, faculty, url);
@@ -1603,8 +1568,7 @@ public class Pfs_activity {
         } catch (Exception e) {
             Utils.printException(e);
             log.warning("TC-67 Assignment create,edit and delete  check   FAILED ");
-            Pfs_portal.quitDriver(driver, url);
-            Pfs_portal.initDriver(Browser, url);
+            Utils.logout(driver, url, Role);
         }
     }
 
@@ -1613,14 +1577,10 @@ public class Pfs_activity {
             String url, String Browser, String Role, WebDriver driver, Logger log) throws Exception {
         try {
             String returnAssement[] = new String[3];
-            String Filenameassesment = returnAssement[0];
             System.out.println("TC-68 Assignment   Create ,publish and delete Test Excecuation Started  ");
             Utils.login(driver, faculty, url);
             returnAssement = assignmentcreate(student, faculty, url, Browser, Role, driver, log);
-            // String Filenameassesment= assignmentcreate(student, faculty, url, Browser,
-            // Role, driver);
             returnAssement = assignmentpublish(returnAssement, faculty, url, Browser, Role, driver, log);
-            // assignmentpublish(faculty, url, Browser, Role, driver,Filenameassesment);
             assigmnenteditview(returnAssement, faculty, url, Browser, Role, driver, log);
             Utils.logout(driver, url, Role);
             Utils.login(driver, faculty, url);
@@ -1630,8 +1590,7 @@ public class Pfs_activity {
         } catch (Exception e) {
             Utils.printException(e);
             log.warning("TC-68 Assignment create,publish,edit & delete check   FAILED ");
-            Pfs_portal.quitDriver(driver, url);
-            Pfs_portal.initDriver(Browser, url);
+            Utils.logout(driver, url, Role);
         }
     }
 }
