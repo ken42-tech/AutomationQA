@@ -35,7 +35,7 @@ public class Utils {
 	public static void clickXpath(WebDriver driver, String xpath, int time, String msg) throws Exception {
 		JavascriptExecutor js3 = (JavascriptExecutor) driver;
 		int count = 0;
-		int maxTries = 7;
+		int maxTries = 10;
 		final String XPATH = xpath;
 		while (true) {
 			try {

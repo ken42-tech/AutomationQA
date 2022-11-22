@@ -61,7 +61,7 @@ public class Pfs_activity {
                 System.out.println("program1 is:" + program1);
                 System.out.println("Subject1 is:" + subject1);
             }
-            
+
             if (Pfs_portal.headless) {
                 Utils.clickXpath(driver, ActionXpath.facclinkrelative, time, "facclink");
                 Utils.smallSleepBetweenClicks(1);
@@ -86,12 +86,11 @@ public class Pfs_activity {
             returnAssement[2] = program2;
             returnAssement[3] = subject1;
             returnAssement[4] = subject2;
-            log.info("Create assesment Passed  ");
 
             return (returnAssement);
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("Create assesment FAILED  ");
+            log.warning("\t\tCreate assesment FAILED  ");
             throw (e);
         }
 
@@ -110,11 +109,10 @@ public class Pfs_activity {
             Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.facAssPublish, time, "Publish Assessment");
             Utils.bigSleepBetweenClicks(1);
-            log.info("Create Publish Passed");
 
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("Create Publish FAILED  ");
+            log.warning("\t\tCreate Publish FAILED  ");
             throw (e);
         }
     }
@@ -157,11 +155,9 @@ public class Pfs_activity {
             Utils.smallSleepBetweenClicks(1);
             Utils.smallSleepBetweenClicks(1);
 
-            log.info("Create publishassesmentedit passed  ");
-
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("Create publishassesmentedit FAILED  ");
+            log.warning("\t\tCreate publishassesmentedit FAILED  ");
             throw (e);
         }
         return returnAssement;
@@ -204,11 +200,10 @@ public class Pfs_activity {
             Utils.clickXpath(driver, ActionXpath.preview, time, "Click on preview");
             Utils.smallSleepBetweenClicks(1);
             Utils.smallSleepBetweenClicks(1);
-            log.info("Create unpubishassesmentedit FAILED  ");
 
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("Create unpubishassesmentedit FAILED  ");
+            log.warning("\t\tCreate unpubishassesmentedit FAILED  ");
             throw (e);
         }
         return returnAssement;
@@ -245,11 +240,10 @@ public class Pfs_activity {
             Actions qq = new Actions(driver);
             qq.moveByOffset(40, 40).click().perform();
             Utils.smallSleepBetweenClicks(1);
-            log.info("Create assesmentviewstudent passed  ");
 
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("Create assesmentviewstudent FAILED  ");
+            log.warning("\t\tCreate assesmentviewstudent FAILED  ");
             throw (e);
         }
     }
@@ -344,19 +338,19 @@ public class Pfs_activity {
                     "/html/body/div[1]/div/div/div/main/div[2]/div[2]/div[2]/div[3]/div[1]/div/div[1]/div[2]/div/div[2]/p[1]"));
             String getresult = result.getText();
             System.out.println(getresult);
-            log.info("Create assesmentattempt passed  ");
             return (getresult);
 
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("Create assesmentattempt FAILED  ");
+            log.warning("\t\tCreate assesmentattempt FAILED  ");
             throw (e);
 
         }
     }
 
     public static void assesmentcheckresult(String student,
-            String url, String Browser, String Role, WebDriver driver, String[] returnAssement, String getresult, Logger log)
+            String url, String Browser, String Role, WebDriver driver, String[] returnAssement, String getresult,
+            Logger log)
             throws Exception {
         try {
             String filename = returnAssement[0];
@@ -395,13 +389,12 @@ public class Pfs_activity {
             } else {
                 System.out.println("Result is not same");
             }
-            log.info("Create assesmentcheckresult FAILED  ");
 
         }
 
         catch (Exception e) {
             Utils.printException(e);
-            log.warning("Create assesmentcheckresult FAILED  ");
+            log.warning("\t\tCreate assesmentcheckresult FAILED  ");
             throw (e);
         }
     }
@@ -422,11 +415,10 @@ public class Pfs_activity {
             Utils.clickXpathWithJavascript(driver, ActionXpath.fsubltstadeleterelativedelete, time, "Delete button ");
             Utils.clickXpath(driver, ActionXpath.fsubltstadelete1relativedelete2, time, " Delete Assessment 2");
             Utils.bigSleepBetweenClicks(2);
-            log.info("Create assesmentdelete passed  ");
 
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("Create assesmentdelete FAILED  ");
+            log.warning("\t\tCreate assesmentdelete FAILED  ");
             throw (e);
         }
         return returnAssement;
@@ -518,14 +510,13 @@ public class Pfs_activity {
             returnAssement[2] = program2;
             returnAssement[3] = subject1;
             returnAssement[4] = subject2;
-            log.info("Create assignmentcreate passed  ");
 
             return (returnAssement);
             // return(returnAssement);
 
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("Create assignmentcreate FAILED  ");
+            log.warning("\t\tCreate assignmentcreate FAILED  ");
             throw (e);
         }
         // return(returnAssement);
@@ -553,13 +544,12 @@ public class Pfs_activity {
             Utils.smallSleepBetweenClicks(1);
             Utils.clickXpathWithJavascript(driver, ActionXpath.assignfacpublishrelative, time, "Publish");
             Utils.bigSleepBetweenClicks(2);
-            log.info("Create assignmentpublish passed  ");
 
             return returnAssement;
 
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("Create assignmentpublish FAILED  ");
+            log.warning("\t\tCreate assignmentpublish FAILED  ");
             throw (e);
         }
         // return returnAssement;
@@ -589,11 +579,10 @@ public class Pfs_activity {
             Utils.smallSleepBetweenClicks(1);
             Actions qq = new Actions(driver);
             qq.moveByOffset(40, 40).click().perform();
-            log.info("Create assignmentviewstudent passed  ");
 
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("Create assignmentviewstudent FAILED  ");
+            log.warning("\t\tCreate assignmentviewstudent FAILED  ");
             throw (e);
 
         }
@@ -674,11 +663,9 @@ public class Pfs_activity {
             String tu = ty.getText();
             System.out.println(tu);
 
-            log.info("Create assignmentsubmission passed  ");
-
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("Create assignmentsubmission FAILED  ");
+            log.warning("\t\tCreate assignmentsubmission FAILED  ");
             throw (e);
         }
     }
@@ -720,11 +707,10 @@ public class Pfs_activity {
             ((JavascriptExecutor) driver).executeScript("arguments[0].click();", elem11);
 
             Utils.bigSleepBetweenClicks(1);
-            log.info("Create assignmentreview passed  ");
 
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("Create assignmentreview FAILED  ");
+            log.warning("\t\tCreate assignmentreview FAILED  ");
             throw (e);
         }
     }
@@ -794,11 +780,10 @@ public class Pfs_activity {
             Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.assignfacokrelative, time, "facok");
             Utils.smallSleepBetweenClicks(1);
-            log.info("Create assigmnenteditview passed  ");
 
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("Create assigmnenteditview FAILED  ");
+            log.warning("\t\tCreate assigmnenteditview FAILED  ");
             throw (e);
         }
     }
@@ -828,11 +813,10 @@ public class Pfs_activity {
             Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.assignfacdelerelative, time, "Delete button 2");
             Utils.bigSleepBetweenClicks(2);
-            log.info("Create assigmnentdelete passed");
 
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("Create assigmnentdelete FAILED  ");
+            log.warning("\t\tCreate assigmnentdelete FAILED  ");
             throw (e);
         }
         return returnAssement;
@@ -907,12 +891,11 @@ public class Pfs_activity {
             returnAssement[2] = program2;
             returnAssement[3] = subject1;
             returnAssement[4] = subject2;
-            log.info("Create forumcreate passed  ");
 
             return (returnAssement);
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("Create forumcreate FAILED  ");
+            log.warning("\t\tCreate forumcreate FAILED  ");
             throw (e);
 
         }
@@ -939,11 +922,10 @@ public class Pfs_activity {
             Utils.clickXpathWithJavascript(driver, ActionXpath.assignfacpublish, time, "Publish");
             System.out.println("click on dot and  publish 2nd forum");
             Utils.bigSleepBetweenClicks(2);
-            log.info("Create forumpublish passed  ");
 
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("Create forumpublish FAILED  ");
+            log.warning("\t\tCreate forumpublish FAILED  ");
             throw (e);
         }
         return returnAssement;
@@ -980,11 +962,10 @@ public class Pfs_activity {
             Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.relativefacforumsavlin1, time, "facforumsavlin");
             Utils.clickXpath(driver, ActionXpath.faccSavefinish, time, "Click on save & finished");
-            log.info("Create forumdiscussion passed  ");
 
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("Create forumdiscussion FAILED  ");
+            log.warning("\t\tCreate forumdiscussion FAILED  ");
             throw (e);
         }
         return returnAssement;
@@ -1013,11 +994,10 @@ public class Pfs_activity {
             Utils.smallSleepBetweenClicks(1);
             Actions qq = new Actions(driver);
             qq.moveByOffset(40, 40).click().perform();
-            log.info("Create forumviewstudent passed ");
 
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("Create forumviewstudent FAILED  ");
+            log.warning("\t\tCreate forumviewstudent FAILED  ");
             throw (e);
         }
     }
@@ -1066,11 +1046,10 @@ public class Pfs_activity {
             Utils.clickXpath(driver, ActionXpath.relativefaforumsave1, time, "faforumsave");
             Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.relativefaforumok1, time, "faforumok");
-            log.info("Create forumedit passed  ");
 
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("Create forumedit FAILED  ");
+            log.warning("\t\tCreate forumedit FAILED  ");
             throw (e);
 
         }
@@ -1102,11 +1081,10 @@ public class Pfs_activity {
             Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.assignfacdelerelative, time, "Delete button 2");
             Utils.bigSleepBetweenClicks(2);
-            log.info("Create forumdelete passed  ");
 
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("Create forumdelete FAILED  ");
+            log.warning("\t\tCreate forumdelete FAILED  ");
             throw (e);
         }
         return returnAssement;
@@ -1121,9 +1099,7 @@ public class Pfs_activity {
             Utils.checkAcadAndClick(driver, url);
             Utils.clickXpath(driver, ActionXpath.relativefacforumclickcouse1, time, "facforumclickcouse");
             Utils.bigSleepBetweenClicks(2);
-            WebElement l = driver.findElement(
-                    By.xpath("//*[@id=\"app\"]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[2]/div/div/div"));
-            String p = l.getText();
+            String p = Utils.getTEXT(driver, ActionXpath.filterassignment);
             System.out.println("p" + p);
             if (p.contains("Assignments") && (p.contains("Assessments")) && (p.contains("Forum"))) {
             } else {
@@ -1170,9 +1146,8 @@ public class Pfs_activity {
             Utils.checkAcadAndClick(driver, url);
             Utils.clickXpath(driver, ActionXpath.relativefacforumclickcouse1, time, "facforumclickcouse");
             Utils.bigSleepBetweenClicks(2);
-            WebElement l = driver.findElement(
-                    By.xpath("//*[@id=\"app\"]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[2]/div/div/div"));
-            String p = l.getText();
+            String p = Utils.getTEXT(driver, ActionXpath.filterassessment);
+
             System.out.println("p" + p);
             if (p.contains("Assignments") && (p.contains("Assessments")) && (p.contains("Forum"))) {
             } else {
@@ -1189,10 +1164,8 @@ public class Pfs_activity {
             Utils.clickXpath(driver, ActionXpath.faccAssementCheckBox, time, "Select the Assessments Check box");
             Actions qwe = new Actions(driver);
             qwe.moveByOffset(40, 40).click().perform();
+            String p2 = Utils.getTEXT(driver, ActionXpath.filterforum);
 
-            WebElement l2 = driver.findElement(
-                    By.xpath("//*[@id=\"app\"]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[2]/div/div/div"));
-            String p2 = l2.getText();
             if (p2.contains("Assessments") && (!p2.contains("Assignments")) && (!p2.contains("Forum"))) {
                 System.out.println(
                         " TC-61: Assement Activity Filter Option Option Contains Assessments test case PASSED   ");
@@ -1277,10 +1250,10 @@ public class Pfs_activity {
             returnAssement = forumdelete(returnAssement, faculty, url, Browser, Role, driver, log);
             // forumdelete(faculty, url, Browser, Role, driver,Filenameassesment);
             Utils.logout(driver, url, Role);
-            log.info("TC-56 Faculty Fourm create,publish Delete test case PASSED ");
+            log.info("TC-56 Faculty Fourm create,publish,delete test case PASSED ");
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("TC-56 Faculty Fourm create,publish Delete test case FAILED   ");
+            log.warning("TC-56 Faculty Fourm create,publish,delete test case FAILED   ");
             Utils.logout(driver, url, Role);
         }
     }
@@ -1291,7 +1264,7 @@ public class Pfs_activity {
         try {
             String returnAssement[] = new String[3];
             String Filenameassesment = returnAssement[0];
-            System.out.println("TC-57 Faculty Fourm create,publish Delete,Decission test case Staerted  ");
+            System.out.println("TC-57 Faculty Fourm create,publish Delete,Discussion test case Staerted  ");
             Utils.login(driver, faculty, url);
             // String Filenameassesment= forumcreate(student, faculty, url, Browser, Role,
             // driver);
@@ -1306,10 +1279,10 @@ public class Pfs_activity {
             Utils.login(driver, faculty, url);
             returnAssement = forumdelete(returnAssement, faculty, url, Browser, Role, driver, log);
             Utils.logout(driver, url, Role);
-            log.info("TC-57 Faculty Fourm create,publish Delete,Dicussion test case PASSED  ");
+            log.info("TC-57 Faculty Fourm Create,Publish,View,Dicussion,Delete test case PASSED  ");
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("TC-57 Faculty Fourm create,publish Delete,Dicussion test case FAILED   ");
+            log.warning("TC-57 Faculty Fourm Create,Publish,View,Dicussion,Delete test case FAILED   ");
             Utils.logout(driver, url, Role);
         }
     }
@@ -1319,7 +1292,7 @@ public class Pfs_activity {
             String url, String Browser, String Role, WebDriver driver, Logger log) throws Exception {
         try {
             String returnAssement[] = new String[3];
-            System.out.println("TC-58: Faculty Fourm create,publish Delete,Decission test case Staerted  ");
+            System.out.println("TC-58: Faculty Fourm create,publish,edit, Delete, test case Staerted  ");
             Utils.login(driver, faculty, url);
             // String Filenameassesment= forumcreate(student, faculty, url, Browser, Role,
             // driver);
@@ -1334,10 +1307,10 @@ public class Pfs_activity {
             Utils.login(driver, faculty, url);
             returnAssement = forumdelete(returnAssement, faculty, url, Browser, Role, driver, log);
             Utils.logout(driver, url, Role);
-            log.info("TC-58 Forum publish edit delete test case PASSED ");
+            log.info("TC-58 Forum Create,Publish,Edit,Delete test case PASSED ");
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("TC-58 Faculty Fourm create,publish Delete,Decission test case FAILED   ");
+            log.warning("TC-58 Faculty Fourm Create,Publish,Edit,Delete test case FAILED   ");
             Utils.logout(driver, url, Role);
         }
     }
@@ -1360,10 +1333,10 @@ public class Pfs_activity {
             Utils.login(driver, faculty, url);
             returnAssement = forumdelete(returnAssement, faculty, url, Browser, Role, driver, log);
             Utils.logout(driver, url, Role);
-            log.info("TC-59 Forum unpublish edit delete test case PASSED ");
+            log.info("TC-59 Forum Create,Unpublish,Edit,Delete test case PASSED ");
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("TC-59 Faculty Fourm create,unpublish Delete,Decission test case FAILED   ");
+            log.warning("TC-59 Faculty Fourm Create,Unpublish,Edit,Delete test case FAILED   ");
             Utils.logout(driver, url, Role);
         }
     }
@@ -1386,10 +1359,10 @@ public class Pfs_activity {
             Utils.login(driver, faculty, url);
             returnAssement = assesmentdelete(returnAssement, faculty, url, Browser, Role, driver, log);
             Utils.logout(driver, url, Role);
-            log.info("TC-60 Assement create, publish & delete test Executation PASSED  ");
+            log.info("TC-60 Assement Create,Publish,View,Delete test Executation PASSED  ");
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("TC-60 Assement create,publish & delete test executation FAILED  ");
+            log.warning("TC-60 Assement Create,Publish,View,Delete test executation FAILED  ");
             Utils.logout(driver, url, Role);
         }
     }
@@ -1418,10 +1391,11 @@ public class Pfs_activity {
             // Utils.login(driver, faculty,url);
             returnAssement = assesmentdelete(returnAssement, faculty, url, Browser, Role, driver, log);
             Utils.logout(driver, url, Role);
-            log.info("TC-61 Assement Attempt and view result test Executation   PASSED  ");
+            log.info("TC-61 Assement Create,Publish,View,Attempt and view result,Delete test Executation   PASSED  ");
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("TC-61 Assement Attempt and view result test executation   FAILED  ");
+            log.warning(
+                    "TC-61 Assement Create,Publish,View,Attempt and view result,Delete test executation   FAILED  ");
             Utils.logout(driver, url, Role);
         }
     }
@@ -1440,10 +1414,10 @@ public class Pfs_activity {
             Utils.login(driver, faculty, url);
             returnAssement = assesmentdelete(returnAssement, faculty, url, Browser, Role, driver, log);
             Utils.logout(driver, url, Role);
-            log.info("TC-62 Assement Attempt and view result test Executation PASSED ");
+            log.info("TC-62 Assement Create,Unpublish,Edit,Delete test Executation PASSED ");
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("TC-62 Assement Attempt and view result test executation FAILED ");
+            log.warning("TC-62 Assement Create,Unpublish,Edit,Delete test executation FAILED ");
             Utils.logout(driver, url, Role);
         }
     }
@@ -1462,10 +1436,10 @@ public class Pfs_activity {
             Utils.login(driver, faculty, url);
             returnAssement = assesmentdelete(returnAssement, faculty, url, Browser, Role, driver, log);
             Utils.logout(driver, url, Role);
-            log.info("TC-63 Assement Attempt and view result test Executation   PASSED ");
+            log.info("TC-63 Assement Create,Publish,Edit,Delete test Executation PASSED ");
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("TC-63 Assement Attempt and view result test executation   FAILED ");
+            log.warning("TC-63 Assement Create,Publish,Edit,Delete test executation FAILED ");
             Utils.logout(driver, url, Role);
         }
     }
@@ -1487,10 +1461,10 @@ public class Pfs_activity {
             Utils.login(driver, faculty, url);
             returnAssement = assignmentdelete(returnAssement, faculty, url, Browser, Role, driver, log);
             Utils.logout(driver, url, Role);
-            log.info("TC-64 Assignment create,publish & delete   PASSED  ");
+            log.info("TC-64 Assignment Create,Publish,View,Delete PASSED  ");
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("TC-64 Assignment create,publish & delte   FAILED  ");
+            log.warning("TC-64 Assignment Create,Publish,View,Delete FAILED  ");
             Utils.logout(driver, url, Role);
         }
     }
@@ -1512,10 +1486,11 @@ public class Pfs_activity {
             returnAssement = assignmentdelete(returnAssement, faculty, url, Browser, Role, driver, log);
             Utils.logout(driver, url, Role);
             log.info(
-                    "TC-65 Assignment create,publish,submission and fileuploadchecking & submission  PASSED  ");
+                    "TC-65 Assignment Create,Publish,View,Fileuploadchecking,Submission,Delete PASSED  ");
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("TC-65 Assignment create,publish, review ,submission and fileuploadchecking & submission    FAILED  ");
+            log.warning(
+                    "TC-65 Assignment Create,Publish,View,Fileuploadchecking,Submission,Delete FAILED  ");
             Utils.logout(driver, url, Role);
         }
     }
@@ -1542,10 +1517,10 @@ public class Pfs_activity {
             Utils.login(driver, faculty, url);
             returnAssement = assignmentdelete(returnAssement, faculty, url, Browser, Role, driver, log);
             Utils.logout(driver, url, Role);
-            log.info("TC-66 Assignment create,publish,review submission  & grade check    PASSED  ");
+            log.info("TC-66 Assignment Create,Publish,Submission,Review,Delete PASSED  ");
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("TC-66 Assignment create,publish, submission & grade check   FAILED  ");
+            log.warning("TC-66 Assignment  Create,Publish,Submission,Review,Delete FAILED  ");
             Utils.logout(driver, url, Role);
         }
 
@@ -1564,10 +1539,10 @@ public class Pfs_activity {
             Utils.login(driver, faculty, url);
             returnAssement = assignmentdelete(returnAssement, faculty, url, Browser, Role, driver, log);
             Utils.logout(driver, url, Role);
-            log.info("TC-67 Assignment create,edit and delete   check    PASSED ");
+            log.info("TC-67 Assignment Create,Unpublish,Edit,Delete check PASSED ");
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("TC-67 Assignment create,edit and delete  check   FAILED ");
+            log.warning("TC-67 Assignment Create,Unpublish,Edit,Delete check FAILED ");
             Utils.logout(driver, url, Role);
         }
     }
@@ -1586,10 +1561,10 @@ public class Pfs_activity {
             Utils.login(driver, faculty, url);
             returnAssement = assignmentdelete(returnAssement, faculty, url, Browser, Role, driver, log);
             Utils.logout(driver, url, Role);
-            log.info("TC-68 Assignment create,publish,edit  & delete check    PASSED ");
+            log.info("TC-68 Assignment Create,Publish,Edit,Delete PASSED ");
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("TC-68 Assignment create,publish,edit & delete check   FAILED ");
+            log.warning("TC-68 Assignment Create,Publish,Edit,Delete check FAILED ");
             Utils.logout(driver, url, Role);
         }
     }

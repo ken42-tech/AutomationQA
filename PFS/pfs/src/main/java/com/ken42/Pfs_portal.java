@@ -35,21 +35,21 @@ public class Pfs_portal extends Thread {
 
 	@Override
 	public void run() {
-		System.out.println("Thread- Started" +Thread.currentThread().getName());
-		String threadname=Thread.currentThread().getName();
+		System.out.println("Thread- Started" + Thread.currentThread().getName());
+		String threadname = Thread.currentThread().getName();
 		System.out.println(threadname);
 		try {
 			Thread.sleep(1000);
 			testPFSPortal(this.csvLineData, this.count);
 		} catch (InterruptedException e) {
-					e.printStackTrace();
+			e.printStackTrace();
 		} catch (java.lang.Exception e) {
 			e.printStackTrace();
 		}
 		System.out.println("Thread- END " + Thread.currentThread().getName());
 	}
 
-	public Pfs_portal (String[] csvCell, int count) {
+	public Pfs_portal(String[] csvCell, int count) {
 		this.csvLineData = csvCell;
 		this.count = count;
 	}
@@ -67,7 +67,7 @@ public class Pfs_portal extends Thread {
 		while ((csvCell1 = csvReader1.readNext()) != null) {
 			ThreadCount++;
 		}
-		System.out.println("Number of threads to start  "+ThreadCount);
+		System.out.println("Number of threads to start  " + ThreadCount);
 		Thread[] threads = new Thread[ThreadCount];
 
 		CSVReader csvReader;
@@ -77,13 +77,13 @@ public class Pfs_portal extends Thread {
 		String[] csvCell;
 		while ((csvCell = csvReader.readNext()) != null) {
 			// if (count == 0) {
-			// 	count = count + 1;
-			// 	continue;
+			// count = count + 1;
+			// continue;
 			// }
 			// testPFSPortal(csvCell);
 			Thread t = new Pfs_portal(csvCell, count);
 			threads[count] = t;
-			threads[count].setName("T"+String.valueOf(count + 1));
+			threads[count].setName("T" + String.valueOf(count + 1));
 			t.start();
 			Utils.smallSleepBetweenClicks(8);
 			count++;
@@ -91,10 +91,9 @@ public class Pfs_portal extends Thread {
 		// SendMail.sendEmail(logFileName);
 	}
 
-	
-	//Created a function so this can be threaded
-	public static void testPFSPortal(String [] csvCell, int count) throws Exception{
-		Logger log = Logger.getLogger("Pfs_portal"+count);
+	// Created a function so this can be threaded
+	public static void testPFSPortal(String[] csvCell, int count) throws Exception {
+		Logger log = Logger.getLogger("Pfs_portal" + count);
 		String folder = "";
 		folder = getFolderPath();
 		String logFileName = "";
@@ -104,7 +103,8 @@ public class Pfs_portal extends Thread {
 		FileHandler logFile = new FileHandler(logFileName, append);
 		logFile.setFormatter(new MyHtmlFormatter());
 		log.addHandler(logFile);
-		WebDriver driver = null;;
+		WebDriver driver = null;
+		;
 		boolean faculty_login_set = false;
 		boolean student_login_set = false;
 		String PFSurl = csvCell[0];
@@ -339,7 +339,7 @@ public class Pfs_portal extends Thread {
 						Pfs_activity.testForumCreatePublishViewDelete(studentEmail, facultyEmail,
 								PFSurl, Browser, Role, driver, log); // TC-55
 					} else {
-						log.info("TC-56: Skipped as it's subset of next test case");
+						log.info("TC-56: Forum Create,Publish,View,delete Skipped as it's subset of next test case");
 					}
 					break;
 				case 57:
@@ -361,7 +361,8 @@ public class Pfs_portal extends Thread {
 						Pfs_activity.testAssessmentCreatePublishViewDelete(studentEmail, facultyEmail,
 								PFSurl, Browser, Role, driver, log); // TC-53
 					} else {
-						log.info("TC-60: Skipped as it's subset of next test case");
+						log.info(
+								"TC-60: Assessment Create,Publish,View,delete Skipped as it's subset of next test case");
 					}
 					break;
 				case 61:
@@ -387,7 +388,8 @@ public class Pfs_portal extends Thread {
 								facultyEmail,
 								PFSurl, Browser, Role, driver, log); // TC-56
 					} else {
-						log.info("TC-65: Skipped as it's subset of next test case");
+						log.info(
+								"TC-65:Assignment Create,Publish,View,delete Skipped as it's subset of next test case");
 					}
 					break;
 				case 66:
@@ -410,7 +412,6 @@ public class Pfs_portal extends Thread {
 		log.info("***************** COMPLETED TESTTING OF PORTAL" + PFSurl);
 		SendMail.sendEmail(logFileName);
 	}
-
 
 	@BeforeSuite
 	public static WebDriver initDriver(String Browser, String url) throws Exception {
@@ -452,7 +453,7 @@ public class Pfs_portal extends Thread {
 				driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
 			}
 			System.out.println("********************" + url);
-			if(driver != null){
+			if (driver != null) {
 				driver.get(url);
 				driver.manage().window().maximize();
 				return (driver);
@@ -466,7 +467,7 @@ public class Pfs_portal extends Thread {
 	}
 
 	@AfterSuite
-	public static void quitDriver(WebDriver driver,String Url) throws Exception {
+	public static void quitDriver(WebDriver driver, String Url) throws Exception {
 		// log.info("Completed testing of portal" + Url);
 		System.out.println("Qutting driver");
 		driver.quit();
