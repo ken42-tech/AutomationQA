@@ -248,6 +248,33 @@ public class Pfs_activity {
         }
     }
 
+    public static void assesmentviewstudentwithoutfilename(String[] returnAssement,
+            String Student, String url, String Browser, String Role, WebDriver driver, Logger log)
+            throws Exception {
+        try {
+            Utils.checkAcadAndClick(driver, url);
+            Utils.smallSleepBetweenClicks(1);
+            Utils.clickXpath(driver, ActionXpath.learn, time, "Click on course content");
+
+            Utils.clickXpath(driver, ActionXpath.program, time, "click on program");
+            driver.findElement(By.xpath("//li[@data-value='2022-23-PGDM-Core-Sem-3']")).click();
+            Utils.clickXpath(driver, ActionXpath.subject, time, "click on subject");
+            Utils.smallSleepBetweenClicks(2);
+            driver.findElement(By.xpath("//li[text()='Managerial Economics - A']")).click();
+
+            Utils.clickXpath(driver, ActionXpath.Studentassessmenstrelativelexpand, time, "Click on Assesment SVG");
+            Utils.clickXpath(driver, "//p[.='Sample21']/../../.././..//*[local-name()='svg']", time,
+                    "Click on fileName");
+
+            Utils.smallSleepBetweenClicks(1);
+
+        } catch (Exception e) {
+            Utils.printException(e);
+            log.warning("\t\tCreate assesmentviewstudent FAILED  ");
+            throw (e);
+        }
+    }
+
     public static String assesmentattempt(String faculty,
             String url, String Browser, String Role, WebDriver driver, String[] returnAssement, Logger log)
             throws Exception {
@@ -323,6 +350,91 @@ public class Pfs_activity {
             Utils.bigSleepBetweenClicks(1);
             new WebDriverWait(driver, 25).until(ExpectedConditions
                     .elementToBeClickable(By.xpath("//p[.='" + filename + "']/../../.././..//*[local-name()='svg']")))
+                    .click();
+            Utils.bigSleepBetweenClicks(2);
+
+            WebDriverWait ele12 = new WebDriverWait(driver, 20);
+            WebElement elem12 = ele12
+                    .until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[.='Result'])[1]")));
+            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", elem12);
+            Utils.bigSleepBetweenClicks(1);
+
+            Utils.clickXpath(driver, ActionXpath.viewattempt, time, "Click on view attempt");
+            Utils.bigSleepBetweenClicks(1);
+            WebElement result = driver.findElement(By.xpath(
+                    "/html/body/div[1]/div/div/div/main/div[2]/div[2]/div[2]/div[3]/div[1]/div/div[1]/div[2]/div/div[2]/p[1]"));
+            String getresult = result.getText();
+            System.out.println(getresult);
+            return (getresult);
+
+        } catch (Exception e) {
+            Utils.printException(e);
+            log.warning("\t\tCreate assesmentattempt FAILED  ");
+            throw (e);
+
+        }
+    }
+
+    public static String assesmentattemptwithotfilename(String faculty,
+            String url, String Browser, String Role, WebDriver driver, String[] returnAssement, Logger log)
+            throws Exception {
+        try {
+
+            WebDriverWait ele11 = new WebDriverWait(driver, 20);
+            WebElement elem1 = ele11
+                    .until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[.='Attempt Now'])[1]")));
+            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", elem1);
+            Utils.bigSleepBetweenClicks(1);
+
+            Set<String> set = driver.getWindowHandles();
+
+            Iterator<String> it = set.iterator();
+
+            String parentwindowid = it.next();
+            System.out.println("parent windowid:" + parentwindowid);
+
+            String childwindowid = it.next();
+            System.out.println("childwindowid" + childwindowid);
+
+            driver.switchTo().window(childwindowid);
+
+            // System.out.println("child window pop title"+driver.getTitle());
+
+            String ele = driver.getTitle();
+            System.out.println(ele);
+
+            Utils.clickXpath(driver, ActionXpath.assesmentinstruction, time, "Click on check box");
+            Utils.clickXpath(driver, ActionXpath.startassesment, time, "Click on start assesment");
+            Utils.clickXpath(driver, ActionXpath.attemptquestion, time, "Click on answer");
+            Utils.clickXpath(driver, ActionXpath.submitattempt, time, "Click on submit");
+            Utils.bigSleepBetweenClicks(1);
+            Utils.clickXpath(driver, ActionXpath.submitagainattempt, time, "Click on submit 2");
+            Utils.bigSleepBetweenClicks(1);
+            Utils.clickXpath(driver, ActionXpath.assesmentok, time, "Click on ok");
+            Utils.bigSleepBetweenClicks(1);
+
+            Utils.smallSleepBetweenClicks(2);
+            driver.switchTo().window(parentwindowid);
+            Utils.smallSleepBetweenClicks(2);
+
+            Actions qwe = new Actions(driver);
+            qwe.moveByOffset(40, 40).click().perform();
+
+            driver.navigate().refresh();
+            Utils.bigSleepBetweenClicks(2);
+            Utils.clickXpath(driver, ActionXpath.ExpandAcademic, time, "Exapand Academic ");
+            Utils.clickXpath(driver, ActionXpath.ClickLearn, time, "Click learn ");
+            Utils.bigSleepBetweenClicks(1);
+            Utils.clickXpath(driver, ActionXpath.program, time, "click on program");
+            driver.findElement(By.xpath("//li[@data-value='2022-23-PGDM-Core-Sem-3']")).click();
+            Utils.clickXpath(driver, ActionXpath.subject, time, "click on subject");
+            Utils.smallSleepBetweenClicks(2);
+            driver.findElement(By.xpath("//li[text()='Managerial Economics - A']")).click();
+
+            Utils.clickXpath(driver, ActionXpath.Studentassessmenstrelativelexpand, time, "Click on Assesment SVG");
+            Utils.bigSleepBetweenClicks(1);
+            new WebDriverWait(driver, 25).until(ExpectedConditions
+                    .elementToBeClickable(By.xpath("//p[.='Sample21']/../../.././..//*[local-name()='svg']")))
                     .click();
             Utils.bigSleepBetweenClicks(2);
 
@@ -1568,4 +1680,27 @@ public class Pfs_activity {
             Utils.logout(driver, url, Role);
         }
     }
+
+    @Test(priority = 69)
+    public static void testAttemptview(String student, String faculty,
+            String url, String Browser, String Role, WebDriver driver, Logger log) throws Exception {
+        try {
+            String returnAssement[] = new String[3];
+            String Filenameassesment = returnAssement[0];
+            System.out.println("TC-69: Student view and attempt started  ");
+
+            Utils.login(driver, student, url);
+            assesmentviewstudentwithoutfilename(returnAssement, student, url, Browser, Role, driver, log);
+            assesmentattemptwithotfilename(faculty, url, Browser, Role, driver, returnAssement, log);
+            Utils.logout(driver, url, Role);
+
+            log.info("TC-69 Assement Student view and attempt test Executation PASSED  ");
+        } catch (Exception e) {
+            Utils.printException(e);
+            log.warning(
+                    "TC-69 Assement Student view and attempt  test executation FAILED  ");
+            Utils.logout(driver, url, Role);
+        }
+    }
+
 }

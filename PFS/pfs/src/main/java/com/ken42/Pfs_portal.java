@@ -119,7 +119,7 @@ public class Pfs_portal extends Thread {
 		int from = Integer.parseInt(From);
 		int to = Integer.parseInt(To);
 		headless = getHeadless(csvCell);
-		if ((from < 1 || from > 68 || to < 1 || to > 68) || (to < from)) {
+		if ((from < 1 || from > 69 || to < 1 || to > 69) || (to < from)) {
 			log.warning("The range specificed is incorrect it has to be between 1 and 68");
 			log.warning("Please correct the From and To Columns in CSV file and run again");
 			System.exit(1);
@@ -135,7 +135,7 @@ public class Pfs_portal extends Thread {
 			Utils.login(driver, facultyEmail, PFSurl);
 			Role = "faculty";
 			faculty_login_set = true;
-		} else if ((from >= 1 && to <= 68) && (to >= 1 && to <= 68)) {
+		} else if ((from >= 1 && to <= 69) && (to >= 1 && to <= 69)) {
 			student_login_set = false;
 			faculty_login_set = false;
 		}
@@ -403,6 +403,10 @@ public class Pfs_portal extends Thread {
 				case 68:
 					Pfs_activity.testFAssignmentCreatepublishEditDelete(studentEmail, facultyEmail, PFSurl,
 							Browser, Role, driver, log); // TC-68
+					break;
+				case 69:
+					Pfs_activity.testAttemptview(studentEmail, facultyEmail, PFSurl,
+							Browser, Role, driver, log); // TC-69
 					break;
 				default:
 					throw Exception;
