@@ -326,7 +326,7 @@ public class Utils {
 
 	@Test
 	public static Boolean checkattempt(String url) {
-		String urlToMatch = "ecampus|nsom|esscisamsung|sbmppsjal|ltpct|ltsta|jdinstitutedelhi|bimtech|demo";
+		String urlToMatch = "ecampus|nsom|esscisamsung|sbmppsjal|ltpct|ltsta|jdinstitutedelhi|bimtech|demo|portal-dev";
 		Pattern pt = Pattern.compile(urlToMatch);
 		Matcher m = pt.matcher(url);
 		while (m.find()) {
@@ -376,7 +376,7 @@ public class Utils {
 
 	@Test
 	public static Boolean checksubject(String url) {
-		String urlToMatch = "ecampus|nsom|ltpct|sbmppsjal|jdinstitutedelhi|ltpct|esscisamsung|ltsta|bimtech";
+		String urlToMatch = "portal-dev|ecampus|nsom|ltpct|sbmppsjal|jdinstitutedelhi|ltpct|esscisamsung|ltsta|bimtech";
 		Pattern pt = Pattern.compile(urlToMatch);
 		Matcher m = pt.matcher(url);
 		while (m.find()) {
