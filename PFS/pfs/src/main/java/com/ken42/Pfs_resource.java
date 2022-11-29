@@ -35,7 +35,7 @@ public class Pfs_resource {
 			Utils.callSendkeys(driver, ActionXpath.facccresurl, "Hello", time);
 			// Utils.callSendkeys(driver, "//*[@id='tinymce']//p", "Testing", time);
 			Utils.clickXpath(driver, ActionXpath.facccressubmitform, time, "Save URL link button");
-			log.info("resource create passed  ");
+			// log.info("resource create passed ");
 		} catch (Exception e) {
 			Utils.printException(e);
 			log.warning(" resource create FAILED  ");
@@ -54,7 +54,7 @@ public class Pfs_resource {
 			Utils.clickXpath(driver, ActionXpath.facsspublishyes, time, "Click on publish button2");
 			Utils.logout(driver, url, Role);
 
-			log.info(fileName + "  Publish passed  ");
+			// log.info(fileName + " Publish passed ");
 		} catch (Exception e) {
 			Utils.printException(e);
 			log.warning(fileName + " Publish FAILED  ");
@@ -71,7 +71,7 @@ public class Pfs_resource {
 			Utils.clickXpath(driver, ActionXpath.viewpdf2, time, "Click on View Spreadsheet");
 			Utils.clickXpath(driver, ActionXpath.learn, time, "click learn");
 			Utils.logout(driver, url, Role);
-			log.info(fileName + "Studentview passed  ");
+			// log.info(fileName + "Studentview passed ");
 		} catch (Exception e) {
 			Utils.printException(e);
 			log.warning(fileName + "Studentview FAILED  ");
@@ -87,7 +87,7 @@ public class Pfs_resource {
 			Utils.clickXpath(driver, ActionXpath.facpdfdelete, time, "Click on Delete button1");
 			Utils.clickXpath(driver, ActionXpath.facpdfdelete2, time, "Click on delete button2");
 			Utils.logout(driver, url, Role);
-			log.info(fileName + "Delete passed  ");
+			// log.info(fileName + "Delete passed ");
 		} catch (Exception e) {
 			Utils.printException(e);
 			log.warning(fileName + "Delete FAILED  ");
