@@ -348,7 +348,7 @@ public class Utils {
 	@Test
 	public static void scrollUpOrDown(WebDriver driver, int pixel) {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("window.scrollBy(0,-100)");
+		js.executeScript("window.scrollBy(0,-300)");
 	}
 
 	@Test
@@ -410,7 +410,7 @@ public class Utils {
 
 	@Test
 	public static Boolean publishlink(String url) {
-		String urlToMatch = "ltsta|nsom|ltpct|dev|demo|ecampus";
+		String urlToMatch = "ltsta|nsom|ltpct|dev|demo|ecampus|bimtech";
 		Pattern pt = Pattern.compile(urlToMatch);
 		Matcher m = pt.matcher(url);
 		while (m.find()) {

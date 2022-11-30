@@ -643,6 +643,9 @@ public class ActionXpath {
    static String fasquestionrelative = "//p[.='From question bank']";
    static String facselectrelative = "(//input[@type='checkbox'])[7]/..";
    static String facselectrelative2 = "(//input[@type='checkbox'])[8]/..";
+   static String questionlink = "//button[@title='Insert/edit link']";
+   static String questionurl = "//input[@type='url']";
+   static String questionsubmitform = "//*[.='Save']";
 
    static String facaddselectrelative = "//span[.='Add Selected']";
    static String facprevirelative = "//p[.='Preview']";

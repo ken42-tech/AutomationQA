@@ -7,23 +7,24 @@ import org.openqa.selenium.WebElement;
 import java.util.logging.Logger;
 
 import org.testng.annotations.Test;
-public class Pfs_faculty {
-    public static Logger log = Logger.getLogger("Pfs_portal");
-    static int time = 2000;
 
-    @Test(priority = 17)
+public class Pfs_faculty {
+	public static Logger log = Logger.getLogger("Pfs_portal");
+	static int time = 2000;
+
+	@Test(priority = 17)
 	public static void testFaculty(String url, WebDriver driver, Logger log) throws Exception {
 		try {
 			System.out.println("TC-17:  Starting FACULTY PORTAL Academic tab test case executation\n");
 			Utils.goBackToHome(driver, url);
 			Utils.bigSleepBetweenClicks(2);
 			Utils.bigSleepBetweenClicks(2);
-			WebElement l= driver.findElement(By.tagName("body"));
-        	String p = l.getText();
-			if (p.contains("Students") && p.contains("Classes Conducted") 
-			&& p.contains("Assignments") && p.contains("Schedule") && p.contains("MY CLASSES")){
+			WebElement l = driver.findElement(By.tagName("body"));
+			String p = l.getText();
+			if (p.contains("Students") && p.contains("Classes Conducted")
+					&& p.contains("Assignments") && p.contains("Schedule") && p.contains("MY CLASSES")) {
 				log.info(" TC-17: Faculty Home tab test case PASSED");
-			}else {
+			} else {
 				log.warning(" TC-17: Faculty Home tab test case FAILED it does not contain all the tabs\n\n");
 			}
 		} catch (Exception e) {
@@ -39,13 +40,11 @@ public class Pfs_faculty {
 		try {
 			System.out.println(" TC-18:  Faculty Starting QuestionBank Tab test case Executation");
 			Utils.goBackToHome(driver, url);
-			if(Utils.checkLtsta(url))
-           	{
+			if (Utils.checkLtsta(url)) {
 				Utils.clickXpath(driver, ActionXpath.facClickacademicsltsta, time, "open the span on Academics");
-				 }
-           	else {
-           		Utils.clickXpath(driver, ActionXpath.openFacdevnosbm, time, "open the acadmics for nsom & bmtech");    
-           	}
+			} else {
+				Utils.clickXpath(driver, ActionXpath.openFacdevnosbm, time, "open the acadmics for nsom & bmtech");
+			}
 			Utils.clickXpath(driver, ActionXpath.facqb, time, "click  the Question bank");
 			Utils.clickXpath(driver, ActionXpath.facaddque, time, "clcik on the add Question manualy");
 			Utils.clickXpath(driver, ActionXpath.facqueback, time, "go back");
@@ -57,22 +56,20 @@ public class Pfs_faculty {
 		}
 	}
 
-
 	@Test(priority = 19)
 	public static void testFacultyCourseContent(String url, WebDriver driver, Logger log) throws Exception {
 		try {
 			Utils.goBackToHome(driver, url);
 			System.out.println("TC-19: Faculty Course Content Test Execution  Started ");
-			if(Utils.checkLtsta(url))
-            {
-                Utils.clickXpath(driver, ActionXpath.facClickacademicsltsta, time, "open academics sapn on the ltsta");    
-            }
-            else {
-            	Utils.clickXpath(driver, ActionXpath.openFacltsta, time, "open span on acadmics on the ltsta");    
-            }
+			if (Utils.checkLtsta(url)) {
+				Utils.clickXpath(driver, ActionXpath.facClickacademicsltsta, time, "open academics sapn on the ltsta");
+			} else {
+				Utils.clickXpath(driver, ActionXpath.openFacltsta, time, "open span on acadmics on the ltsta");
+			}
 			Utils.clickXpath(driver, ActionXpath.faccc, time, "click on the Course content");
 			Utils.clickXpath(driver, ActionXpath.facccactivity, time, "clck on activity button ");
-			Utils.clickXpath(driver, ActionXpath.facassessmentrelative, time, "select the activity option named was fourm");
+			Utils.clickXpath(driver, ActionXpath.facassessmentrelative, time,
+					"select the activity option named was fourm");
 			Utils.clickXpath(driver, ActionXpath.facaddactivityrelative, time, "click to add fourm");
 			Utils.clickXpath(driver, ActionXpath.facccAsscancel, time, "cancel it ");
 			Utils.clickXpath(driver, ActionXpath.faccAssYes, time, "confirm to cancel");
@@ -92,22 +89,23 @@ public class Pfs_faculty {
 		try {
 			System.out.println("TC-20:     Faculty Examination Test Executation Statred");
 			Utils.goBackToHome(driver, url);
-			if (Utils.checkUrlToSkipTest(url)){
+			if (Utils.checkUrlToSkipTest(url)) {
 				log.info("TC_20 Faculty Examination Skipping this test as this is not applicable for this portal\n\n");
 				return;
 			}
-				Utils.clickXpath(driver, ActionXpath.facexam, time, "Click on the Examination span");
-				// Utils.clickXpath(driver, ActionXpath.facexamarrow, time, "facexamarrow");
-				// Utils.clickXpath(driver, ActionXpath.facexamdropdown, time, "Examination naroow dropdown");
-				// Utils.clickXpath(driver, ActionXpath.facexamexam, time, "facexamexam");
-				// Utils.clickXpath(driver, ActionXpath.facexamdate, time, "facexamdate");
-				// Utils.clickXpath(driver, ActionXpath.faceexamtime, time, "faceexamtime");
-				log.info("TC-20: Faculty Examanation test cases PASSED... \n ");
-			} catch (Exception e) {
-				Utils.printException(e);
-				Utils.goBackToHome(driver, url);
-				log.warning("TC-20: Faculty Examanation test cases FAILED \n");
-			}
+			Utils.clickXpath(driver, ActionXpath.facexam, time, "Click on the Examination span");
+			// Utils.clickXpath(driver, ActionXpath.facexamarrow, time, "facexamarrow");
+			// Utils.clickXpath(driver, ActionXpath.facexamdropdown, time, "Examination
+			// naroow dropdown");
+			// Utils.clickXpath(driver, ActionXpath.facexamexam, time, "facexamexam");
+			// Utils.clickXpath(driver, ActionXpath.facexamdate, time, "facexamdate");
+			// Utils.clickXpath(driver, ActionXpath.faceexamtime, time, "faceexamtime");
+			log.info("TC-20: Faculty Examanation test cases PASSED... \n ");
+		} catch (Exception e) {
+			Utils.printException(e);
+			Utils.goBackToHome(driver, url);
+			log.warning("TC-20: Faculty Examanation test cases FAILED \n");
+		}
 	}
 
 	@Test(priority = 21)
@@ -115,21 +113,20 @@ public class Pfs_faculty {
 		try {
 			System.out.println("TC-21:   Faculty My Students Test Executation Started");
 			Utils.goBackToHome(driver, url);
-			if(Utils.checkLtsta(url))
-            {
+			if (Utils.checkLtsta(url)) {
 				Utils.clickXpath(driver, ActionXpath.faccMyStudentltsta, time, "open the my student on ltsta");
-				  }
-            else {
-            	Utils.clickXpath(driver, ActionXpath.faccMyStudent, time, "open the commom for all portal expect ltsta");    
-            }
+			} else {
+				Utils.clickXpath(driver, ActionXpath.faccMyStudent, time,
+						"open the commom for all portal expect ltsta");
+			}
 			Utils.bigSleepBetweenClicks(2);
-			WebElement l= driver.findElement(By.tagName("body"));
-        	String p = l.getText();
+			WebElement l = driver.findElement(By.tagName("body"));
+			String p = l.getText();
 			// log.info(p);
 			System.out.println(p);
-			if (p.contains("My Students") && p.contains("Subjects")){
+			if (p.contains("My Students") && p.contains("Subjects")) {
 				log.info(" TC-21: Faculty My Student  tab test case PASSED \n\n");
-			}else {
+			} else {
 				log.warning(" TC-21: Faculty My Student  tab test case FAILED it does not contain all the tabs\n\n");
 			}
 		} catch (Exception e) {
@@ -144,13 +141,11 @@ public class Pfs_faculty {
 		try {
 			System.out.println("TC-22 :    Faculty Attendance Test Executation Startred ");
 			Utils.goBackToHome(driver, url);
-			if(Utils.checkLtsta(url))
-            {
+			if (Utils.checkLtsta(url)) {
 				Utils.clickXpath(driver, ActionXpath.facattendanceforltsta, time, "click Attendance tab");
-				  }
-            else {
-            	Utils.clickXpath(driver, ActionXpath.facatt, time, "click Attendance tab");    
-            }
+			} else {
+				Utils.clickXpath(driver, ActionXpath.facatt, time, "click Attendance tab");
+			}
 			Utils.clickXpath(driver, ActionXpath.faccAttendahis, time, "Click attendance history");
 			log.info("TC-22 : Faculty Attendance Test Executation PASSED \n ");
 		} catch (Exception e) {
@@ -165,17 +160,17 @@ public class Pfs_faculty {
 		try {
 			System.out.println("TC-23 :    Faculty Timetable Test Executation Started ");
 			Utils.goBackToHome(driver, url);
-			if(Utils.checkLtsta(url)) {
+			if (Utils.checkLtsta(url)) {
 				Utils.clickXpath(driver, ActionXpath.facClickTimetableltsta, time, "facClickTimetable");
 			} else {
-            	Utils.clickXpath(driver, ActionXpath.facClickTimetable, time, "facClickTimetable");    
-            }
+				Utils.clickXpath(driver, ActionXpath.facClickTimetable, time, "facClickTimetable");
+			}
 			Utils.clickXpath(driver, ActionXpath.facttmonth, time, "facttmonth");
-			//Utils.smallSleepBetweenClicks(1);
+			// Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.facttweek, time, "facttweek");
-			//Utils.smallSleepBetweenClicks(1);
+			// Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.facttday, time, "facttday");
-			//Utils.smallSleepBetweenClicks(1);
+			// Utils.smallSleepBetweenClicks(1);
 			log.info("TC-23 : Faculty Timetable test case PASSED \n ");
 		} catch (Exception e) {
 			Utils.printException(e);
@@ -206,7 +201,8 @@ public class Pfs_faculty {
 	}
 
 	@Test(priority = 25)
-	public static void testFacultyRaiseCase(String student, String faculty, String url, WebDriver driver, Logger log) throws InterruptedException {
+	public static void testFacultyRaiseCase(String student, String faculty, String url, WebDriver driver, Logger log)
+			throws InterruptedException {
 		try {
 			System.out.println("TC-25 Faculty Service Raise A Case ");
 			Utils.goBackToHome(driver, url);
@@ -230,7 +226,8 @@ public class Pfs_faculty {
 	}
 
 	@Test(priority = 26)
-	public static void testFacultyMakeRequest(String student, String faculty, String url, WebDriver driver, Logger log) throws Exception {
+	public static void testFacultyMakeRequest(String student, String faculty, String url, WebDriver driver, Logger log)
+			throws Exception {
 		try {
 			System.out.println("TC-26: Starting Faculty make a request test case");
 			Utils.goBackToHome(driver, url);
@@ -260,11 +257,11 @@ public class Pfs_faculty {
 		try {
 			System.out.println("TC-27: Faculty Portal Event Tab Test case Started");
 			Utils.goBackToHome(driver, url);
-			if(Utils.checkLtsta(url)) {
+			if (Utils.checkLtsta(url)) {
 				Utils.clickXpath(driver, ActionXpath.faccEventltsta, time, "facEvent");
 			} else {
-            	Utils.clickXpath(driver, ActionXpath.faccEvent, time, "facEvent");
-    		}
+				Utils.clickXpath(driver, ActionXpath.faccEvent, time, "facEvent");
+			}
 			Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.faceventlocation, time, "faceventlocation");
 			Utils.smallSleepBetweenClicks(1);
@@ -279,7 +276,8 @@ public class Pfs_faculty {
 	}
 
 	@Test(priority = 28)
-	public static void testfacultyEditProfile(String student, String faculty, String url, WebDriver driver, Logger log) throws Exception {
+	public static void testfacultyEditProfile(String student, String faculty, String url, WebDriver driver, Logger log)
+			throws Exception {
 		try {
 			System.out.println(" TC-28:   Faculty Starting PersonalDetails Started  case executation");
 			Utils.goBackToHome(driver, url);
@@ -295,7 +293,7 @@ public class Pfs_faculty {
 			Utils.callSendkeys(driver, ActionXpath.facpddob, "02-02-2020", time);
 			Utils.callSendkeys(driver, ActionXpath.facpdnationality, "INDIA", time);
 			Utils.clickXpath(driver, ActionXpath.facdpsave, time, "facdpsave");
-			////Utils.bigSleepBetweenClicks(1);
+			//// Utils.bigSleepBetweenClicks(1);
 			log.info("  TC-28: Faculty Starting PersonalDetails Completed test case PASSED  \n");
 		} catch (Exception e) {
 			Utils.printException(e);
@@ -306,7 +304,8 @@ public class Pfs_faculty {
 	}
 
 	@Test(priority = 29)
-	public static void testfacultyEditAddress(String student, String faculty, String url, WebDriver driver, Logger log) throws Exception {
+	public static void testfacultyEditAddress(String student, String faculty, String url, WebDriver driver, Logger log)
+			throws Exception {
 		try {
 			System.out.println(" TC-29 :   Faculty Address Details Started  case executation");
 			Utils.goBackToHome(driver, url);
@@ -320,16 +319,18 @@ public class Pfs_faculty {
 			Utils.callSendkeys(driver, ActionXpath.faccPincode, "600001", time);
 			Utils.clickXpath(driver, ActionXpath.facccountry, time, "facdpcountry");
 			Utils.clickXpath(driver, ActionXpath.faccSelectCountry, time, "facdpcountrysselect");
-			//Automate.clickXpath(driver, ActionXpath.faccState, time, "facdpstate");
-			//Utils.smallSleepBetweenClicks(1);
-			//Automate.clickXpath(driver, ActionXpath.faccSelectState, time, "facdpstateselect");
-			//Utils.smallSleepBetweenClicks(1);
-			//Automate.clickXpath(driver, ActionXpath.faccCity, time, "facdpdist");
-			//Utils.smallSleepBetweenClicks(1);
-			//Automate.clickXpath(driver, ActionXpath.faccSelectCity, time, "facdpdistselect");
-			////Utils.bigSleepBetweenClicks(1);
+			// Automate.clickXpath(driver, ActionXpath.faccState, time, "facdpstate");
+			// Utils.smallSleepBetweenClicks(1);
+			// Automate.clickXpath(driver, ActionXpath.faccSelectState, time,
+			// "facdpstateselect");
+			// Utils.smallSleepBetweenClicks(1);
+			// Automate.clickXpath(driver, ActionXpath.faccCity, time, "facdpdist");
+			// Utils.smallSleepBetweenClicks(1);
+			// Automate.clickXpath(driver, ActionXpath.faccSelectCity, time,
+			// "facdpdistselect");
+			//// Utils.bigSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.faccSaveaddress, time, "facdpaddsave");
-			////Utils.bigSleepBetweenClicks(1);
+			//// Utils.bigSleepBetweenClicks(1);
 			log.info(" TC-29: Faculty edit Address Details Completed test case PASSED  \n");
 		} catch (Exception e) {
 			Utils.printException(e);
@@ -339,7 +340,8 @@ public class Pfs_faculty {
 	}
 
 	@Test(priority = 30)
-	public static void testfacultyEditAcademicDetails(String student, String faculty, String url, WebDriver driver, Logger log) throws Exception {
+	public static void testfacultyEditAcademicDetails(String student, String faculty, String url, WebDriver driver,
+			Logger log) throws Exception {
 		try {
 
 			System.out.println(" TC-30:   Academic Details Started  case executation");
@@ -366,13 +368,14 @@ public class Pfs_faculty {
 	}
 
 	@Test(priority = 31)
-	public static void testfacultyEditReaserchSupervision(String student, String faculty, String url, WebDriver driver, Logger log) throws Exception {
+	public static void testfacultyEditReaserchSupervision(String student, String faculty, String url, WebDriver driver,
+			Logger log) throws Exception {
 		try {
 
 			System.out.println(" TC:31 :   RESEARCH SUPERVISION Started  case executation");
 			Utils.goBackToHome(driver, url);
 			Utils.clickXpath(driver, ActionXpath.FCCportal, time, "facclickonT");
-			////Utils.bigSleepBetweenClicks(1);
+			//// Utils.bigSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.facclickonprofile, time, "facclickonprofile");
 			Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.facclickonRESEARCHSUPERVISION, time,
@@ -393,7 +396,8 @@ public class Pfs_faculty {
 	}
 
 	@Test(priority = 32)
-	public static void testfacultyEditResearchPublication(String student, String faculty, String url, WebDriver driver, Logger log) throws Exception {
+	public static void testfacultyEditResearchPublication(String student, String faculty, String url, WebDriver driver,
+			Logger log) throws Exception {
 		try {
 
 			System.out.println(" TC-32 :   RESEARCH PUBLICATION Started  case executation");
@@ -417,14 +421,15 @@ public class Pfs_faculty {
 	}
 
 	@Test(priority = 33)
-	public static void testfacultyEditConference(String student, String faculty, String url, WebDriver driver, Logger log) throws Exception {
+	public static void testfacultyEditConference(String student, String faculty, String url, WebDriver driver,
+			Logger log) throws Exception {
 		try {
 
 			System.out.println(" TC-33 :   Faculty edit Conference Started  case executation");
 			Utils.goBackToHome(driver, url);
 			Utils.clickXpath(driver, ActionXpath.FCCportal, time, "facSelectPrtoSignout");
 			Utils.clickXpath(driver, ActionXpath.faccProfile, time, "facprofile");
-			
+
 			Utils.clickXpath(driver, ActionXpath.facclickonRESEARCHSUPERVISIONconfernece, time,
 					"facclickonRESEARCHSUPERVISIONconfernece");
 			Utils.clickXpath(driver, ActionXpath.facdpreeditconfernece, time, "facdpreeditconfernece");
@@ -444,7 +449,8 @@ public class Pfs_faculty {
 	}
 
 	@Test(priority = 34)
-	public static void testfacultyEditBook(String student, String faculty, String url, WebDriver driver, Logger log) throws Exception {
+	public static void testfacultyEditBook(String student, String faculty, String url, WebDriver driver, Logger log)
+			throws Exception {
 		try {
 			System.out.println(" TC:34 :   Book Started  case executation");
 			Utils.goBackToHome(driver, url);
@@ -471,7 +477,8 @@ public class Pfs_faculty {
 	}
 
 	@Test(priority = 35)
-	public static void testfacultyEditProfessionalAssociation(String student, String faculty, String url, WebDriver driver, Logger log) throws Exception {
+	public static void testfacultyEditProfessionalAssociation(String student, String faculty, String url,
+			WebDriver driver, Logger log) throws Exception {
 		try {
 			Utils.goBackToHome(driver, url);
 			System.out.println(" TC-35 :   Professional Association Started  case executation");
@@ -494,7 +501,8 @@ public class Pfs_faculty {
 	}
 
 	@Test(priority = 36)
-	public static void testfacultyOthers(String student, String faculty, String url, WebDriver driver, Logger log) throws Exception {
+	public static void testfacultyOthers(String student, String faculty, String url, WebDriver driver, Logger log)
+			throws Exception {
 		try {
 			System.out.println(" TC-36 :   Faculty edit Others Started  case executation");
 			Utils.goBackToHome(driver, url);
@@ -508,7 +516,7 @@ public class Pfs_faculty {
 			Utils.callSendkeys(driver, ActionXpath.facdpotherdesc, "Sample Desc", time);
 			Utils.clickXpath(driver, ActionXpath.facdpothersave, time, "facdpothersave");
 			Utils.smallSleepBetweenClicks(1);
-      		log.info(" TC-36: Faculty edit Others Completed test case PASSED \n\n");
+			log.info(" TC-36: Faculty edit Others Completed test case PASSED \n\n");
 		} catch (Exception e) {
 			Utils.printException(e);
 			Utils.goBackToHome(driver, url);
@@ -517,24 +525,23 @@ public class Pfs_faculty {
 	}
 
 	@Test(priority = 37)
-	public static void testFacultyDashboard(String student, String faculty, String url, WebDriver driver, Logger log) throws Exception {
+	public static void testFacultyDashboard(String student, String faculty, String url, WebDriver driver, Logger log)
+			throws Exception {
 		try {
 			System.out.println("TC-37 Faculty DASHBOARD test executation \n");
 			Utils.goBackToHome(driver, url);
-			if(Utils.checkLtsta(url))
-            {
-                Utils.clickXpath(driver, ActionXpath.facClickacademicsltsta, time, "open academics sapn on the ltsta");    
-            }
-            else {
-            	Utils.clickXpath(driver, ActionXpath.openFacltsta, time, "open span on acadmics on the ltsta");    
-            }
+			if (Utils.checkLtsta(url)) {
+				Utils.clickXpath(driver, ActionXpath.facClickacademicsltsta, time, "open academics sapn on the ltsta");
+			} else {
+				Utils.clickXpath(driver, ActionXpath.openFacltsta, time, "open span on acadmics on the ltsta");
+			}
 			Utils.clickXpath(driver, ActionXpath.clickFacDashdevnosbm, time, "Dashboard");
 			Utils.bigSleepBetweenClicks(1);
-			WebElement l= driver.findElement(By.tagName("body"));
-        	String p = l.getText();
-			if (p.contains("Overview") && p.contains("Activities")){
+			WebElement l = driver.findElement(By.tagName("body"));
+			String p = l.getText();
+			if (p.contains("Overview") && p.contains("Activities")) {
 				log.info(" TC-37: Faculty My Student  tab test case PASSED \n\n");
-			}else {
+			} else {
 				log.warning(" TC-37: Faculty My Student  tab test case FAILED it does not contain all the tabs\n\n");
 			}
 		} catch (Exception e) {
@@ -545,26 +552,31 @@ public class Pfs_faculty {
 	}
 
 	@Test(priority = 38)
-	public static void testFacultyQuestionPaper(String student, String faculty, String url, WebDriver driver, Logger log) throws Exception {
+	public static void testFacultyQuestionPaper(String student, String faculty, String url, WebDriver driver,
+			Logger log) throws Exception {
 		try {
 			System.out.println("TC-38 Faculty QUESTION PAPER test executation \n");
 			Utils.goBackToHome(driver, url);
 
-			if(Utils.checkLtsta(url))
-            {
-                Utils.clickXpath(driver, ActionXpath.facClickacademicsltsta, time, "open academics sapn on the ltsta");    
-            }
-            else {
-            	Utils.clickXpath(driver, ActionXpath.openFacltsta, time, "open span on acadmics on the ltsta");    
-            }
+			if (Utils.checkLtsta(url)) {
+				Utils.clickXpath(driver, ActionXpath.facClickacademicsltsta, time, "open academics sapn on the ltsta");
+			} else {
+				Utils.clickXpath(driver, ActionXpath.openFacltsta, time, "open span on acadmics on the ltsta");
+			}
 			Utils.clickXpath(driver, ActionXpath.facqb, time, "Question ");
 			Utils.clickXpath(driver, ActionXpath.facaddmanual, time, "Add anual");
 			Utils.clickXpath(driver, ActionXpath.facquesub, time, "facqueclassselect");
 
 			Utils.clickXpath(driver, ActionXpath.facquesubselect, time, "Question Bank Select SUbject ");
 			Utils.clickXpath(driver, ActionXpath.faccnext, time, "Next");
-			Utils.callSendkeys(driver, ActionXpath.faccquestion,"Question", time);
-			Utils.callSendkeys(driver, ActionXpath.faccquestionname,"Question time", time);
+
+			Utils.clickXpath(driver, ActionXpath.questionlink, time, "Next");
+			Utils.callSendkeys(driver, ActionXpath.questionurl, "Question", time);
+			Utils.clickXpath(driver, ActionXpath.questionsubmitform, time, "Next");
+
+			// Utils.callSendkeys(driver, ActionXpath.faccquestion, "Question", time);
+			// Utils.callSendkeys(driver, ActionXpath.faccquestionname, "Question time",
+			// time);
 			Utils.cleartext(driver, ActionXpath.faccmarks);
 			Utils.smallSleepBetweenClicks(1);
 			Utils.callSendkeys(driver, ActionXpath.faccmarks, "1", time);
@@ -613,5 +625,5 @@ public class Pfs_faculty {
 			log.warning("TC-39: Faculty View Profile and Sign out Test Case FAILED \n");
 		}
 	}
-    
+
 }
