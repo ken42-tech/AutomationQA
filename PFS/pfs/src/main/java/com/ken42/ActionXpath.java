@@ -4,8 +4,12 @@ public class ActionXpath {
    // Login related Xpaths
    public static final String OTP = null;
    static String email2 = "//input[@placeholder='Email Address']";
-   static String SignIn = "//span[. and text()='SIGN IN']";
-   static String mobile = "/html/body/div/div/div/div/main/div[2]/div[2]/div/div[2]/div[2]/div/div[1]/div[2]/div/div[2]/div | //*[@id=\"app\"]/div/div/div/main/div[2]/div[2]/div[3]/div[2]/div[2]/div/div[2]/div[2]/div/div[2]/div";
+   static String SignIn = "//span[. and text()='Request OTP']";
+   // static String mobile =
+   // "/html/body/div/div/div/div/main/div[2]/div[2]/div/div[2]/div[2]/div/div[1]/div[2]/div/div[2]/div
+   // |
+   // //*[@id=\"app\"]/div/div/div/main/div[2]/div[2]/div[3]/div[2]/div[2]/div/div[2]/div[2]/div/div[2]/div";
+   static String mobile = "(//*[@placeholder='Please enter your Mobile Number'])";
    static String mobile2 = "/html/body/div[2]/div[3]/ul/li";
    static String SignIn2 = "//span[. and text()='SIGN IN']";
    static String OtpInput = "//input[@placeholder='Enter Otp']";
@@ -13,7 +17,8 @@ public class ActionXpath {
 
    static String email = "//input[@placeholder='Please enter your Email Id'] |//input[@placeholder='Email Address']";
    static String requestotp = "//span[. ='Request OTP']";
-   static String otprequest2 = "//input[@placeholder='Please enter the OTP sent to your registered Email ID.']";
+   static String otprequest1 = "//input[@placeholder='Please enter the OTP sent to your registered Email ID.']";
+   static String otprequest2 = "//input[@placeholder='Please enter the OTP sent to your registered Mobile No.']";
    static String verifyotp = "//span[. and text()='Verify & Sign in']";
 
    // Login Xpaths ends here
@@ -129,7 +134,9 @@ public class ActionXpath {
    static String stubasicgenderselect = "//li[@data-value='Female']";
    static String stubasicdob = "//*[@name='BirthDate']";
    static String stubasicnation = "//*[@name='CountryOfResidence']";
-   static String stubasicsave = "//*[@id=\"app\"]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div/div/div[1]/div/div[2]/div/div[3]/div/div[9]/div[1]/button";
+   static String stubasicsave = "//*[text()='Save']";
+   // static String stubasicsave =
+   // "//*[@id=\"app\"]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div/div/div[1]/div/div[2]/div/div[3]/div/div[9]/div[1]/button";
    // Student test case 13 edit Profile Xpath ends here
 
    // Student Test case 14 student profile edit education details
@@ -142,6 +149,7 @@ public class ActionXpath {
    static String stued12school = "(//*[@name='hed__Educational_Institution_Name__c'])[1]";
    static String stued12country = "(//*[@name='Country__c'])[1]";
    static String stued12year = "(//*[@name='Year_of_Passing__c'])[1]";
+
    // clg
    static String stuedclg = "(//*[@name='hed__Educational_Institution_Name__c'])[2]";
    static String stuedclgcountry = "(//*[@name='Country__c'])[2]";
@@ -219,7 +227,8 @@ public class ActionXpath {
    static String FaccClickResource = "//span[text()='Resource']";
    static String facrescancel = "//span[text()='Cancel']";
    // TC:20 faculty Examination
-   static String facexam = "(//span[.='Examinations'])[1]";
+   // static String facexam = "(//span[.='Examinations'])[1]";
+   static String facexam = "(//span[.='Examinations'])[2]";
    static String facexamarrow = "//*[@id=\"panel1a-header\"]/div[2]";
    static String facexamdropdown = "//*[@id=\"simple-tabpanel-0\"]/div/p/div/div/div/div[1]/div/div/table/tbody/tr[1]/td[1]/button";
    static String facexamexam = "//*[@id=\"simple-tabpanel-0\"]/div/p/div/div/div/div[1]/div/div/table/thead/tr/th[1]";
@@ -271,7 +280,7 @@ public class ActionXpath {
    static String faccEvent = "(//span[text()='Events'])[2]";
    static String faceventlocation = "//div[@aria-labelledby='Location']";
    static String faceventlocationselect = "//li[@data-value='All' or text()='All']";
-   static String FaccSearch = "//input[@placeholder='Search…']";
+   static String FaccSearch = "//input[@placeholder='Searchâ€¦']";
    static String faccEventltsta = "//span[text()='Events']";
    // TC:28faculty profile faculty
    static String facSeleectpic = "(//span[@class='MuiIconButton-label'])[3]";
@@ -643,9 +652,6 @@ public class ActionXpath {
    static String fasquestionrelative = "//p[.='From question bank']";
    static String facselectrelative = "(//input[@type='checkbox'])[7]/..";
    static String facselectrelative2 = "(//input[@type='checkbox'])[8]/..";
-   static String questionlink = "//button[@title='Insert/edit link']";
-   static String questionurl = "//input[@type='url']";
-   static String questionsubmitform = "//*[.='Save']";
 
    static String facaddselectrelative = "//span[.='Add Selected']";
    static String facprevirelative = "//p[.='Preview']";
@@ -840,7 +846,8 @@ public class ActionXpath {
 
    // 57,58,59
    static String assignsearch = "(//*[@aria-label='search'])";
-   static String assigngrade = "(//*[text()='Grade'])[1]";
+   // static String assigngrade = "(//*[text()='Grade'])[1]";
+   static String assigngrade = "//*[text()='Test Student']/../../../.././..//button";
    static String faccPDFCheckBox = "//input[@name='Pdf' and @type='checkbox']/..";
    static String faccVideoCheckBox = "//input[@name='Video' and @type='checkbox']/..";
    static String faccLinksCheckBox = "//input[@name='Links' and @type='checkbox']/..";

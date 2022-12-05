@@ -46,7 +46,9 @@ public class Pfs_faculty {
 				Utils.clickXpath(driver, ActionXpath.openFacdevnosbm, time, "open the acadmics for nsom & bmtech");
 			}
 			Utils.clickXpath(driver, ActionXpath.facqb, time, "click  the Question bank");
+			Utils.bigSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.facaddque, time, "clcik on the add Question manualy");
+			Utils.bigSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.facqueback, time, "go back");
 			log.info("TC-18 : Faculty QuestionBank click BACK button Test Case PASSED \n ");
 		} catch (Exception e) {
@@ -569,14 +571,8 @@ public class Pfs_faculty {
 
 			Utils.clickXpath(driver, ActionXpath.facquesubselect, time, "Question Bank Select SUbject ");
 			Utils.clickXpath(driver, ActionXpath.faccnext, time, "Next");
-
-			Utils.clickXpath(driver, ActionXpath.questionlink, time, "Next");
-			Utils.callSendkeys(driver, ActionXpath.questionurl, "Question", time);
-			Utils.clickXpath(driver, ActionXpath.questionsubmitform, time, "Next");
-
-			// Utils.callSendkeys(driver, ActionXpath.faccquestion, "Question", time);
-			// Utils.callSendkeys(driver, ActionXpath.faccquestionname, "Question time",
-			// time);
+			Utils.callSendkeys(driver, ActionXpath.faccquestion, "Question", time);
+			Utils.callSendkeys(driver, ActionXpath.faccquestionname, "Question time", time);
 			Utils.cleartext(driver, ActionXpath.faccmarks);
 			Utils.smallSleepBetweenClicks(1);
 			Utils.callSendkeys(driver, ActionXpath.faccmarks, "1", time);

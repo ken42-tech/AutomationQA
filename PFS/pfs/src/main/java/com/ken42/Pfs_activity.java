@@ -1564,13 +1564,17 @@ public class Pfs_activity {
             String returnAssement[] = new String[3];
             System.out.println("TC-64: Assignment create ,pubish & delete Test excutaion started ");
             Utils.login(driver, faculty, url);
+            Utils.smallSleepBetweenClicks(1);
             returnAssement = assignmentcreate(student, faculty, url, Browser, Role, driver, log);
             returnAssement = assignmentpublish(returnAssement, faculty, url, Browser, Role, driver, log);
+            Utils.smallSleepBetweenClicks(1);
             Utils.logout(driver, url, Role);
             Utils.login(driver, student, url);
+            Utils.smallSleepBetweenClicks(1);
             assignmentviewstudent(returnAssement, student, url, Browser, Role, driver, log);
             Utils.logout(driver, url, Role);
             Utils.login(driver, faculty, url);
+            Utils.smallSleepBetweenClicks(1);
             returnAssement = assignmentdelete(returnAssement, faculty, url, Browser, Role, driver, log);
             Utils.logout(driver, url, Role);
             log.info("TC-64 Assignment Create,Publish,View,Delete PASSED  ");
@@ -1615,18 +1619,21 @@ public class Pfs_activity {
             System.out.println(
                     "TC-66 Assignment   Create ,publish,gradecheck &submission Test Excecuation Started  ");
             Utils.login(driver, faculty, url);
+            Utils.smallSleepBetweenClicks(1);
             returnAssement = assignmentcreate(student, faculty, url, Browser, Role, driver, log);
             returnAssement = assignmentpublish(returnAssement, faculty, url, Browser, Role, driver, log);
             Utils.logout(driver, url, Role);
 
             Utils.login(driver, student, url);
+            Utils.smallSleepBetweenClicks(1);
             assignmentsubmission(returnAssement, faculty, url, Browser, Role, driver, log);
             Utils.logout(driver, url, Role);
             Utils.login(driver, faculty, url);
-
+            Utils.smallSleepBetweenClicks(1);
             assignmentreview(returnAssement, faculty, url, Browser, Role, driver, studentName, log);
             Utils.logout(driver, url, Role);
             Utils.login(driver, faculty, url);
+            Utils.smallSleepBetweenClicks(1);
             returnAssement = assignmentdelete(returnAssement, faculty, url, Browser, Role, driver, log);
             Utils.logout(driver, url, Role);
             log.info("TC-66 Assignment Create,Publish,Submission,Review,Delete PASSED  ");

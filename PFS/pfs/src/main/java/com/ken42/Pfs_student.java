@@ -1,6 +1,5 @@
 package com.ken42;
 
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -12,22 +11,21 @@ import org.testng.annotations.Test;
 
 public class Pfs_student {
 	public static Logger log = Logger.getLogger("Pfs_portal");
-    static int time = 2000;
+	static int time = 2000;
 
-
-    @Test(priority = 1)
+	@Test(priority = 1)
 	public static void testStudent(String url, WebDriver driver, Logger log) throws Exception {
 		try {
 			System.out.println(" TC-1:  Student Starting Home tab  case execution");
 			Utils.bigSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.Stu_prName, time, "Click on Login initial");
-			//Check if Attendance, Assessments, Schedule are present in home tab.
-			WebElement l= driver.findElement(By.tagName("body"));
-        	String p = l.getText();
-			if (p.contains("Attendance") && p.contains("Assessments") 
-			&& p.contains("Timetable") && p.contains("Schedule") && p.contains("MY SUBJECTS")){
+			// Check if Attendance, Assessments, Schedule are present in home tab.
+			WebElement l = driver.findElement(By.tagName("body"));
+			String p = l.getText();
+			if (p.contains("Attendance") && p.contains("Assessments")
+					&& p.contains("Timetable") && p.contains("Schedule") && p.contains("MY SUBJECTS")) {
 				log.info(" TC-1: Student Home tab test case PASSED \n\n");
-			}else {
+			} else {
 				log.warning(" TC-1: Student Home tab test case FAILED it does not contain all the tabs\n\n");
 			}
 		} catch (Exception e) {
@@ -41,11 +39,11 @@ public class Pfs_student {
 	public static void testStudentEnrollment(String url, WebDriver driver, Logger log) throws Exception {
 		try {
 			System.out.println(" TC-2:  Starting Student Enrollment  case execution");
-			if (Utils.checkUrlToSkipTest(url)){
+			if (Utils.checkUrlToSkipTest(url)) {
 				log.info("TC-2 Student Enrollement Skipping this test as this is not applicable for this portal\n\n");
 				return;
 			}
-			Utils.goBackToHome(driver, url); 
+			Utils.goBackToHome(driver, url);
 			Utils.bigSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.ClickEnroll, time, "Expand Enrollment");
 			Utils.clickXpath(driver, ActionXpath.clickCompletedEnroll, time, "select the Completes Enrollment");
@@ -64,14 +62,14 @@ public class Pfs_student {
 	public static void testStudentAcademic(String url, WebDriver driver, Logger log) throws Exception {
 		try {
 			System.out.println("TC-3: Starting Student Academic  test case execution\n");
-			Utils.goBackToHome(driver, url); 
-			if (Utils.checkLtsta(url)){
+			Utils.goBackToHome(driver, url);
+			if (Utils.checkLtsta(url)) {
 				Utils.clickXpath(driver, ActionXpath.ltstaAcademic, time, "Exapand Academic ");
 				Utils.clickXpath(driver, ActionXpath.ClickDashboard, time, "Click on dashboard");
 				Utils.scrollUpOrDown(driver, 2000);
 				Utils.clickXpath(driver, ActionXpath.ClickLearn, time, "Click learn ");
 				Utils.clickXpath(driver, ActionXpath.ltstaAcademic, time, "Close Academic Expand");
-			}else {
+			} else {
 				Utils.clickXpath(driver, ActionXpath.ExpandAcademic, time, "Exapand Academic ");
 				Utils.clickXpath(driver, ActionXpath.ClickDashboard, time, "Click on dashboard");
 				Utils.clickXpath(driver, ActionXpath.ClickLearn, time, "Click learn ");
@@ -90,13 +88,13 @@ public class Pfs_student {
 		try {
 			System.out.println("TC-4:   Starting Student Examination test case execution");
 			Utils.goBackToHome(driver, url);
-			if (Utils.checkUrlToSkipTest(url)){
+			if (Utils.checkUrlToSkipTest(url)) {
 				log.info("TC-4: Exam tab Skipping as this is not applicable for this portal\n");
 				return;
 			}
-			if(Utils.checkLtsta(url)){
-				//Do nothing
-			}else {
+			if (Utils.checkLtsta(url)) {
+				// Do nothing
+			} else {
 				Utils.clickXpath(driver, ActionXpath.ClickExam, time, "Click Exams");
 			}
 			Utils.clickXpath(driver, ActionXpath.examAnnouncements, time, "Click on Announcement");
@@ -113,9 +111,9 @@ public class Pfs_student {
 		try {
 			System.out.println("TC-5: Starting Student Attendance test case execution");
 			Utils.goBackToHome(driver, url);
-			if (Utils.checkLtsta(url)){
+			if (Utils.checkLtsta(url)) {
 				Utils.clickXpath(driver, ActionXpath.ltstaAttendance, time, "Select the Attendance");
-			}else {
+			} else {
 				Utils.clickXpath(driver, ActionXpath.ClickAttendance, time, "Select the Attendance");
 			}
 			Utils.clickXpath(driver, ActionXpath.clickattendanceHistory, time, "Select the Attendance History");
@@ -132,9 +130,9 @@ public class Pfs_student {
 		try {
 			System.out.println("TC-6: Starting Student Timetable test case execution ");
 			Utils.goBackToHome(driver, url);
-			if (Utils.checkLtsta(url)){
+			if (Utils.checkLtsta(url)) {
 				Utils.clickXpath(driver, ActionXpath.ltstaTimetable, time, "Select time table");
-			}else {
+			} else {
 				Utils.clickXpath(driver, ActionXpath.ClickTimetable, time, "Select time table");
 			}
 			Utils.clickXpath(driver, ActionXpath.TimeTableMonth, time, "Select Month view");
@@ -153,15 +151,15 @@ public class Pfs_student {
 		try {
 			System.out.println("TC-7:  Starting Student FEES test case execution");
 			Utils.goBackToHome(driver, url);
-			if (Utils.checkUrlToSkipTest(url)){
+			if (Utils.checkUrlToSkipTest(url)) {
 				log.info("TC-7: Skipping this test as this is not applicable for this portal\n\n");
 				return;
 			}
-			if (Utils.checkLtsta(url)){
+			if (Utils.checkLtsta(url)) {
 				Utils.clickXpath(driver, ActionXpath.ltstaFees, time, "Expand the Fees");
 				Utils.clickXpath(driver, ActionXpath.clickFeeSchedule, time, " Click Fee Schedule");
 				Utils.clickXpath(driver, ActionXpath.ltstaFees, time, "Expand the Fees");
-			}else {
+			} else {
 				Utils.clickXpath(driver, ActionXpath.ExpandFees, time, "Expand the Fees");
 				Utils.clickXpath(driver, ActionXpath.clickFeeSchedule, time, " Click Fee Schedule");
 				Utils.clickXpath(driver, ActionXpath.ExpandFees, time, "Expand the Fees");
@@ -179,9 +177,9 @@ public class Pfs_student {
 		try {
 			System.out.println("TC-8:   Starting Student FEEDBACK test case execution");
 			Utils.goBackToHome(driver, url);
-			if (Utils.checkLtsta(url)){
+			if (Utils.checkLtsta(url)) {
 				Utils.clickXpath(driver, ActionXpath.ltstafeedBack, time, "FeedBack");
-			}else {
+			} else {
 				Utils.clickXpath(driver, ActionXpath.feedBack, time, "FeedBack");
 			}
 			Utils.smallSleepBetweenClicks(1);
@@ -199,9 +197,9 @@ public class Pfs_student {
 		try {
 			System.out.println("TC-9:  Starting  Student Services check cancel button test case execution ");
 			Utils.goBackToHome(driver, url);
-			if (Utils.checkLtsta(url)){
+			if (Utils.checkLtsta(url)) {
 				Utils.clickXpath(driver, ActionXpath.ltstaService, time, "Student Status");
-			}else {
+			} else {
 				Utils.clickXpath(driver, ActionXpath.StudentService, time, "Student Status");
 			}
 			Utils.clickXpath(driver, ActionXpath.MakeRaise, time, "Make Raise");
@@ -217,16 +215,17 @@ public class Pfs_student {
 	}
 
 	@Test(priority = 10)
-	public static void testStudentRaiseCase(String student, String faculty, String url, WebDriver driver, Logger log) throws InterruptedException {
+	public static void testStudentRaiseCase(String student, String faculty, String url, WebDriver driver, Logger log)
+			throws InterruptedException {
 		try {
 			System.out.println("TC-10: Starting Student Services Raise test case execution \n");
 			Utils.goBackToHome(driver, url);
-			if (Utils.checkLtsta(url)){
+			if (Utils.checkLtsta(url)) {
 				Utils.clickXpath(driver, ActionXpath.ltstaService, time, "Student Status");
-			}else {
+			} else {
 				Utils.clickXpath(driver, ActionXpath.StudentService, time, "Student Status");
 			}
-			
+
 			Utils.clickXpath(driver, ActionXpath.Raisecase, time, "Raise case");
 			Utils.clickXpath(driver, ActionXpath.buttonRaisecase, time, "Button Raise");
 			Utils.callSendkeys(driver, ActionXpath.inputraise, "WIfi not working ", time);
@@ -243,13 +242,14 @@ public class Pfs_student {
 	}
 
 	@Test(priority = 11)
-	public static void testStudentMakeRequest(String student, String faculty, String url, WebDriver driver, Logger log) throws InterruptedException {
+	public static void testStudentMakeRequest(String student, String faculty, String url, WebDriver driver, Logger log)
+			throws InterruptedException {
 		try {
 			System.out.println("TC-11 Starting Student Services make request test case execution ");
 			Utils.goBackToHome(driver, url);
-			if (Utils.checkLtsta(url)){
+			if (Utils.checkLtsta(url)) {
 				Utils.clickXpath(driver, ActionXpath.ltstaService, time, "Student Status");
-			}else {
+			} else {
 				Utils.clickXpath(driver, ActionXpath.StudentService, time, "Student Status");
 			}
 			Utils.clickXpath(driver, ActionXpath.MakeRaise, time, "Click the button Make raise");
@@ -269,13 +269,14 @@ public class Pfs_student {
 	}
 
 	@Test(priority = 12)
-	public static void testStudentEvent(String student, String faculty, String url, WebDriver driver, Logger log) throws Exception {
+	public static void testStudentEvent(String student, String faculty, String url, WebDriver driver, Logger log)
+			throws Exception {
 		try {
 			System.out.println("TC-12:  Starting Student Event case Execution ");
 			Utils.goBackToHome(driver, url);
-			if (Utils.checkLtsta(url)){
+			if (Utils.checkLtsta(url)) {
 				Utils.clickXpath(driver, ActionXpath.ltstaEvent, time, "Event");
-			}else {
+			} else {
 				Utils.clickXpath(driver, ActionXpath.Event, time, "Event");
 			}
 			Utils.clickXpath(driver, ActionXpath.clcikEvent, time, "Open Event");
@@ -289,7 +290,7 @@ public class Pfs_student {
 	}
 
 	@Test(priority = 13)
-	public static void testStudentEditProfile(String url, WebDriver driver, Logger log) throws Exception{
+	public static void testStudentEditProfile(String url, WebDriver driver, Logger log) throws Exception {
 		try {
 			System.out.println("TC-13: Starting execution of edit basic details of student profile");
 			Utils.goBackToHome(driver, url);
@@ -297,13 +298,14 @@ public class Pfs_student {
 			Utils.clickXpath(driver, ActionXpath.Stu_prName, time, "Click on Initial icon");
 			Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.stuprofile, time, "Click on profile button");
-			if(Utils.checkLtsta(url)){
+			if (Utils.checkLtsta(url)) {
 				driver.findElement(By.xpath(ActionXpath.stuprofile)).sendKeys(Keys.TAB);
 			}
 			Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.stubasicedit, time, "Click on edit SVG");
 			Utils.clickXpath(driver, ActionXpath.Stubasicgender, time, "Stubasicgender");
-			// Automate.clickXpath(driver, ActionXpath.stubasicgenderselect, time, "stubasicgenderselect");
+			// Automate.clickXpath(driver, ActionXpath.stubasicgenderselect, time,
+			// "stubasicgenderselect");
 			String gender = "Female";
 			driver.findElement(By.xpath("//li[@data-value='" + gender + "']")).click();
 			Utils.callSendkeys(driver, ActionXpath.stubasicdob, "02-02-2022", time);
@@ -321,33 +323,40 @@ public class Pfs_student {
 	@Test(priority = 14)
 	public static void testStudentEditEducationDetails(String url, WebDriver driver, Logger log) throws Exception {
 		try {
-			System.out.println(" TC-14 :   Starting student edit profile education Details case execution");
-			Utils.goBackToHome(driver, url);
-			Utils.bigSleepBetweenClicks(1);
-			Utils.clickXpath(driver, ActionXpath.Stu_prName, time, "Click on profile Icon");
-			Utils.clickXpath(driver, ActionXpath.stuprofile, time, "Click on profile button");
-			//Utils.smallSleepBetweenClicks(1);
-			if(Utils.checkLtsta(url)){
-				driver.findElement(By.xpath(ActionXpath.stuprofile)).sendKeys(Keys.TAB);
+			if (Utils.skipforedudeatils(url)) {
+				log.info(
+						"TC-14 Student Education Deatil Skipping this test as this is not applicable for this portal\n\n");
+				return;
+			} else {
+				System.out.println(" TC-14 :   Starting student edit profile education Details case execution");
+				Utils.goBackToHome(driver, url);
+				Utils.bigSleepBetweenClicks(1);
+				Utils.clickXpath(driver, ActionXpath.Stu_prName, time, "Click on profile Icon");
+				Utils.clickXpath(driver, ActionXpath.stuprofile, time, "Click on profile button");
+				// Utils.smallSleepBetweenClicks(1);
+				if (Utils.checkLtsta(url)) {
+					driver.findElement(By.xpath(ActionXpath.stuprofile)).sendKeys(Keys.TAB);
+
+				}
+				JavascriptExecutor js14 = (JavascriptExecutor) driver;
+				js14.executeScript("window.scrollBy(0,2000)");
+				Utils.clickXpath(driver, ActionXpath.stueddrop, time, "Click on education");
+				Utils.clickXpath(driver, ActionXpath.stued, time, "CLick on edit SVG");
+				Utils.callSendkeys(driver, ActionXpath.stued12school, "stpaul", time);
+				Utils.callSendkeys(driver, ActionXpath.stued12country, "India", time);
+				Utils.callSendkeys(driver, ActionXpath.stued12year, "2017", time);
+				Utils.callSendkeys(driver, ActionXpath.stuedclg, "SRKV", time);
+				Utils.callSendkeys(driver, ActionXpath.stuedclgcountry, "India", time);
+				Utils.callSendkeys(driver, ActionXpath.stuedclgyear, "2020", time);
+				Utils.callSendkeys(driver, ActionXpath.stuedpgclg, "SRKV", time);
+				Utils.callSendkeys(driver, ActionXpath.stuedpgcountry, "India", time);
+				Utils.callSendkeys(driver, ActionXpath.stuedpgyear, "2022", time);
+				Utils.smallSleepBetweenClicks(1);
+				Utils.clickXpath(driver, ActionXpath.stuedsave, time, "Click on save");
+				Utils.smallSleepBetweenClicks(1);
+				Utils.bigSleepBetweenClicks(1);
+				log.info("  TC-14: Student profile edit Education Details test case PASSED \n");
 			}
-			JavascriptExecutor js14 = (JavascriptExecutor) driver;
-			js14.executeScript("window.scrollBy(0,2000)");
-			Utils.clickXpath(driver, ActionXpath.stueddrop, time, "Click on education");
-			Utils.clickXpath(driver, ActionXpath.stued, time, "CLick on edit SVG");
-			Utils.callSendkeys(driver, ActionXpath.stued12school, "stpaul", time);
-			Utils.callSendkeys(driver, ActionXpath.stued12country, "India", time);
-			Utils.callSendkeys(driver, ActionXpath.stued12year, "2017", time);
-			Utils.callSendkeys(driver, ActionXpath.stuedclg, "SRKV", time);
-			Utils.callSendkeys(driver, ActionXpath.stuedclgcountry, "India", time);
-			Utils.callSendkeys(driver, ActionXpath.stuedclgyear, "2020", time);
-			Utils.callSendkeys(driver, ActionXpath.stuedpgclg, "SRKV", time);
-			Utils.callSendkeys(driver, ActionXpath.stuedpgcountry, "India", time);
-			Utils.callSendkeys(driver, ActionXpath.stuedpgyear, "2022", time);
-			Utils.smallSleepBetweenClicks(1);
-			Utils.clickXpath(driver, ActionXpath.stuedsave, time, "Click on save");
-			Utils.smallSleepBetweenClicks(1);
-			Utils.bigSleepBetweenClicks(1);
-			log.info("  TC-14: Student profile edit Education Details test case PASSED \n");
 		} catch (Exception e) {
 			Utils.printException(e);
 			Utils.goBackToHome(driver, url);
@@ -358,37 +367,44 @@ public class Pfs_student {
 	@Test(priority = 15)
 	public static void testStudentEditAddress(String url, WebDriver driver, Logger log) throws Exception {
 		try {
-			if (Utils.checkltpct(url)){
-				log.info("TC-15: Student Address Edit is not supported on this portal");
+			if (Utils.stueditprofil(url)) {
+				log.info(
+						"TC-15 Student Education Deatil Skipping this test as this is not applicable for this portal\n\n");
 				return;
-			}
-			System.out.println(" TC-15:   Starting student prfofile edit Address test case execution");
-			
-			Utils.goBackToHome(driver, url);
-			Utils.bigSleepBetweenClicks(1);
-			Utils.clickXpath(driver, ActionXpath.Stu_prName, time, "profile");
-			Utils.clickXpath(driver, ActionXpath.stuprofile, time, "stuprofile");
-			//Utils.smallSleepBetweenClicks(1);
-            if(Utils.checkLtsta(url)){
-                driver.findElement(By.xpath(ActionXpath.stuprofile)).sendKeys(Keys.TAB);
-          	}
-			JavascriptExecutor js14 = (JavascriptExecutor) driver;
-			js14.executeScript("window.scrollBy(0,3500)");
-			Utils.clickXpath(driver, ActionXpath.stuadddrop, time, "stuadddrop");
-			////Utils.bigSleepBetweenClicks(1);
+			} else {
+				if (Utils.checkltpct(url)) {
+					log.info("TC-15: Student Address Edit is not supported on this portal");
+					return;
 
-			Utils.clickXpath(driver, ActionXpath.stuedit, time, "stuedit");
-			Utils.clickXpath(driver, ActionXpath.stuaddadd, time, "stuaddadd");
-			Utils.callSendkeys(driver, ActionXpath.stuhouse, "SAMPLE", time);
-			Utils.callSendkeys(driver, ActionXpath.sturoad, "SAMPLE", time);
-			Utils.callSendkeys(driver, ActionXpath.stusuburb, "SAMPLE", time);
-			Utils.callSendkeys(driver, ActionXpath.stucountry, "India", time);
-			Utils.callSendkeys(driver, ActionXpath.stupincode, "600001", time);
-			Utils.smallSleepBetweenClicks(1);
-			Utils.clickXpath(driver, ActionXpath.stusave, time, "stusave");
-			Utils.smallSleepBetweenClicks(1);
-			Utils.bigSleepBetweenClicks(1);
-			log.info("  TC-15: Student profile edit address detail test case PASSED \n");
+				}
+				System.out.println(" TC-15:   Starting student prfofile edit Address test case execution");
+
+				Utils.goBackToHome(driver, url);
+				Utils.bigSleepBetweenClicks(1);
+				Utils.clickXpath(driver, ActionXpath.Stu_prName, time, "profile");
+				Utils.clickXpath(driver, ActionXpath.stuprofile, time, "stuprofile");
+				// Utils.smallSleepBetweenClicks(1);
+				if (Utils.checkLtsta(url)) {
+					driver.findElement(By.xpath(ActionXpath.stuprofile)).sendKeys(Keys.TAB);
+				}
+				JavascriptExecutor js14 = (JavascriptExecutor) driver;
+				js14.executeScript("window.scrollBy(0,3500)");
+				Utils.clickXpath(driver, ActionXpath.stuadddrop, time, "stuadddrop");
+				//// Utils.bigSleepBetweenClicks(1);
+
+				Utils.clickXpath(driver, ActionXpath.stuedit, time, "stuedit");
+				Utils.clickXpath(driver, ActionXpath.stuaddadd, time, "stuaddadd");
+				Utils.callSendkeys(driver, ActionXpath.stuhouse, "SAMPLE", time);
+				Utils.callSendkeys(driver, ActionXpath.sturoad, "SAMPLE", time);
+				Utils.callSendkeys(driver, ActionXpath.stusuburb, "SAMPLE", time);
+				Utils.callSendkeys(driver, ActionXpath.stucountry, "India", time);
+				Utils.callSendkeys(driver, ActionXpath.stupincode, "600001", time);
+				Utils.smallSleepBetweenClicks(1);
+				Utils.clickXpath(driver, ActionXpath.stusave, time, "stusave");
+				Utils.smallSleepBetweenClicks(1);
+				Utils.bigSleepBetweenClicks(1);
+				log.info("  TC-15: Student profile edit address detail test case PASSED \n");
+			}
 		} catch (Exception e) {
 			Utils.printException(e);
 			Utils.goBackToHome(driver, url);

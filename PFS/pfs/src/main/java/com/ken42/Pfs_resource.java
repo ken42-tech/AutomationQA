@@ -107,10 +107,12 @@ public class Pfs_resource {
 
 			System.out.println("TC-40:  SpreadSheet resource Create View delete Test case Started");
 
+			Utils.smallSleepBetweenClicks(1);
 			resourceFacultyInitialSteps(faculty, url, driver);
 			String program, subject;
 			Utils.clickXpath(driver, ActionXpath.program, time, "click on program");
 			Utils.clickXpath(driver, ActionXpath.programselect, time, "click on program select");
+			Utils.smallSleepBetweenClicks(1);
 			program = Utils.getTEXT(driver, "(//*[. and @aria-haspopup='listbox'])[1]");
 			Utils.clickXpath(driver, ActionXpath.course, time, "click on subject");
 			Utils.clickXpath(driver, ActionXpath.courseselect, time, "click on select subject");
@@ -134,6 +136,7 @@ public class Pfs_resource {
 			driver.findElement(By.xpath("//li[@data-value='" + program + "']")).click();
 			Utils.clickXpath(driver, ActionXpath.subject, time, "click on subject");
 			Utils.smallSleepBetweenClicks(2);
+			Utils.smallSleepBetweenClicks(1);
 			driver.findElement(By.xpath("//li[text()='" + subject + "']")).click();
 			Utils.clickXpath(driver, ActionXpath.facssopen, time, "Click on SS SVG");
 

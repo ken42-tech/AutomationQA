@@ -184,13 +184,30 @@ public class Utils {
 			if (checkoldlogin(url)) {
 				int time = 2000;
 				String regex = "Null";
-				Utils.callSendkeys(driver, ActionXpath.email2, Email, time);
-				Utils.clickXpath(driver, ActionXpath.SignIn, time, "Sign in");
-				Utils.clickXpath(driver, ActionXpath.mobile, time, "Enter mobile Number");
-				Utils.clickXpath(driver, ActionXpath.mobile2, time, "Click Mobile ");
-				Utils.clickXpath(driver, ActionXpath.SignIn, time, "Sign in for otp");
-				Alert alert = driver.switchTo().alert(); // switch to alert
-				String alertMessage = driver.switchTo().alert().getText(); // capture alert message
+				// Utils.callSendkeys(driver, ActionXpath.email2, Email, time);
+				// Utils.clickXpath(driver, ActionXpath.SignIn, time, "Sign in");
+
+				Utils.callSendkeys(driver, ActionXpath.mobile, Email, time);
+				Utils.smallSleepBetweenClicks(2);
+				Utils.clickXpath(driver, ActionXpath.requestotp, time, "Sign in for otp");
+				Utils.smallSleepBetweenClicks(2);
+				int count = 0;
+				int maxTries = 7;
+				String alertMessage = "";
+				while (true) {
+					try {
+						Alert alert = driver.switchTo().alert(); // switch to alert
+						alertMessage = driver.switchTo().alert().getText(); // capture alert message
+						alert.accept();
+						break;
+					} catch (Exception e) {
+						Utils.smallSleepBetweenClicks(1);
+						if (++count > maxTries) {
+							throw (e);
+						}
+					}
+
+				}
 				System.out.println(alertMessage); // Print Alert Message
 				Pattern pt = Pattern.compile("-?\\d+");
 				Matcher m = pt.matcher(alertMessage);
@@ -198,12 +215,12 @@ public class Utils {
 					regex = m.group();
 				}
 				// smallSleepBetweenClicks();
-				alert.accept();
-				Utils.callSendkeys(driver, ActionXpath.OtpInput, regex, time);
-				Utils.clickXpath(driver, ActionXpath.submit, time, "Submit");
+				Utils.callSendkeys(driver, ActionXpath.otprequest2, regex, time);
+				Utils.clickXpath(driver, ActionXpath.verifyotp, time, "Verify otp");
 				System.out.println(
 						"Sleeping after login for 7 seconds so that goBacktoHome function does not automatically logout user");
 				bigSleepBetweenClicks(1);
+
 			} else {
 				int time = 2000;
 				smallSleepBetweenClicks(1);
@@ -234,18 +251,21 @@ public class Utils {
 					regex = m.group();
 				}
 				// smallSleepBetweenClicks();
-				Utils.callSendkeys(driver, ActionXpath.otprequest2, regex, time);
+				Utils.callSendkeys(driver, ActionXpath.otprequest1, regex, time);
 				Utils.clickXpath(driver, ActionXpath.verifyotp, time, "Verify otp");
 				System.out.println(
 						"Sleeping after login for 7 seconds so that goBacktoHome function does not automatically logout user");
 				bigSleepBetweenClicks(1);
 			}
-		} catch (Exception e) {
+		} catch (
+
+		Exception e) {
 			log.warning("Login to portal failed \n\n\n");
 			printException(e);
 			driver.quit();
 			// System.exit(01);
 		}
+
 	}
 
 	public int getDecimalRandomNumber() {
@@ -315,7 +335,7 @@ public class Utils {
 
 	@Test
 	public static Boolean checkoldlogin(String url) {
-		String urlToMatch = "aaahealthcare";
+		String urlToMatch = "ltpct|sbmppsjal";
 		Pattern pt = Pattern.compile(urlToMatch);
 		Matcher m = pt.matcher(url);
 		while (m.find()) {
@@ -348,12 +368,35 @@ public class Utils {
 	@Test
 	public static void scrollUpOrDown(WebDriver driver, int pixel) {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("window.scrollBy(0,-300)");
+		js.executeScript("window.scrollBy(0,-100)");
 	}
 
 	@Test
 	public static Boolean checkUrlToSkipTest(String url) {
-		String urlToMatch = "jdinstitutedelhi|nsom|ltsta|ltpct|esscisamsung|jdinstitutedelhi|sbmppsjal|bimtech";
+		String urlToMatch = "dev|portal-demo|jdinstitutedelhi|nsom|ltsta|ltpct|esscisamsung|jdinstitutedelhi|sbmppsjal|bimtech";
+		Pattern pt = Pattern.compile(urlToMatch);
+		Matcher m = pt.matcher(url);
+		while (m.find()) {
+			// regex = m.group();
+			return true;
+		}
+		return false;
+	}
+
+	@Test
+	public static Boolean skipforedudeatils(String url) {
+		String urlToMatch = "dev|ltsta";
+		Pattern pt = Pattern.compile(urlToMatch);
+		Matcher m = pt.matcher(url);
+		while (m.find()) {
+			// regex = m.group();
+			return true;
+		}
+		return false;
+	}
+
+	public static Boolean stueditprofil(String url) {
+		String urlToMatch = "dev|ltsta";
 		Pattern pt = Pattern.compile(urlToMatch);
 		Matcher m = pt.matcher(url);
 		while (m.find()) {
@@ -365,7 +408,7 @@ public class Utils {
 
 	@Test
 	public static Boolean checknewlogin(String url) {
-		String urlToMatch = "dev|jdinstitutedelhi|nsom|bimtech|ltpct|ltsta";
+		String urlToMatch = "dev|jdinstitutedelhi|nsom|bimtech|ltsta";
 		Pattern pt = Pattern.compile(urlToMatch);
 		Matcher m = pt.matcher(url);
 		while (m.find()) {
@@ -410,7 +453,7 @@ public class Utils {
 
 	@Test
 	public static Boolean publishlink(String url) {
-		String urlToMatch = "ltsta|nsom|ltpct|dev|demo|ecampus|bimtech";
+		String urlToMatch = "ltsta|nsom|ltpct|dev|demo|ecampus";
 		Pattern pt = Pattern.compile(urlToMatch);
 		Matcher m = pt.matcher(url);
 		while (m.find()) {
