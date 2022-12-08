@@ -93,7 +93,7 @@ public class Pfs_portal extends Thread {
 		// SendMail.sendEmail(logFileName);
 	}
 
-	public static void checkStudentIsLoggedIn(WebDriver driver, String studentEmail, String PFSurl)throws Exception{
+	public static void checkStudentIsLoggedIn(WebDriver driver, String studentEmail, String PFSurl) throws Exception {
 		if (!student_login_set) {
 			Utils.smallSleepBetweenClicks(1);
 			Utils.login(driver, studentEmail, PFSurl);
@@ -101,13 +101,14 @@ public class Pfs_portal extends Thread {
 		}
 	}
 
-	public static void checkFacultyIsLoggedIn(WebDriver driver, String facultyEmail, String PFSurl) throws Exception{
+	public static void checkFacultyIsLoggedIn(WebDriver driver, String facultyEmail, String PFSurl) throws Exception {
 		if (!faculty_login_set) {
 			Utils.smallSleepBetweenClicks(1);
 			Utils.login(driver, facultyEmail, PFSurl);
 			faculty_login_set = true;
 		}
 	}
+
 	// Created a function so this can be threaded
 	public static void testPFSPortal(String[] csvCell, int count) throws Exception {
 		Logger log = Logger.getLogger("Pfs_portal" + count);
@@ -182,6 +183,7 @@ public class Pfs_portal extends Thread {
 					Pfs_student.testStudentAttendance(PFSurl, driver, log); // TC-5
 					break;
 				case 6:
+					checkStudentIsLoggedIn(driver, studentEmail, PFSurl);
 					Pfs_student.testStudentTimeTable(PFSurl, driver, log); // TC-6
 					break;
 				case 7:
@@ -189,6 +191,7 @@ public class Pfs_portal extends Thread {
 					Pfs_student.testStudentFees(PFSurl, driver, log); // TC-7
 					break;
 				case 8:
+					checkStudentIsLoggedIn(driver, studentEmail, PFSurl);
 					Pfs_student.testStudentFeedback(PFSurl, driver, log); // TC-8
 					break;
 				case 9:
@@ -224,77 +227,96 @@ public class Pfs_portal extends Thread {
 					Pfs_student.testStudentSignout(PFSurl, driver, log); // TC-16
 					break;
 				case 17:
-					if (!faculty_login_set) {
-						// Utils.logout(driver, PFSurl, Role);
-						Utils.smallSleepBetweenClicks(1);
-						Utils.login(driver, facultyEmail, PFSurl);
-					}
+					checkFacultyIsLoggedIn(driver, facultyEmail, PFSurl);
+					Utils.login(driver, facultyEmail, PFSurl);
 					Pfs_faculty.testFaculty(PFSurl, driver, log); // TC-17
 					break;
 				case 18:
+					checkFacultyIsLoggedIn(driver, studentEmail, PFSurl);
 					Pfs_faculty.testFacultyQuestionBank(PFSurl, driver, log); // TC-18
 					break;
 				case 19:
+					checkFacultyIsLoggedIn(driver, studentEmail, PFSurl);
 					Pfs_faculty.testFacultyCourseContent(PFSurl, driver, log); // TC-19
 					break;
 				case 20:
+					checkFacultyIsLoggedIn(driver, studentEmail, PFSurl);
 					Pfs_faculty.testFacultyExamination(PFSurl, driver, log); // TC-20
 					break;
 				case 21:
+					checkFacultyIsLoggedIn(driver, studentEmail, PFSurl);
 					Pfs_faculty.testFacultyMYStudent(PFSurl, driver, log); // TC-21
 					break;
 				case 22:
+					checkFacultyIsLoggedIn(driver, studentEmail, PFSurl);
 					Pfs_faculty.testFacultyAttendance(PFSurl, driver, log); // TC-22
 					break;
 				case 23:
+					checkFacultyIsLoggedIn(driver, studentEmail, PFSurl);
 					Pfs_faculty.testFaculityTimetable(PFSurl, driver, log); // TC-23
 					break;
 				case 24:
+					checkFacultyIsLoggedIn(driver, studentEmail, PFSurl);
 					Pfs_faculty.testFacultyService(PFSurl, driver, log); // TC-24
 					break;
 				case 25:
+					checkFacultyIsLoggedIn(driver, studentEmail, PFSurl);
 					Pfs_faculty.testFacultyRaiseCase(studentEmail, facultyEmail, PFSurl, driver, log); // TC-25
 					break;
 				case 26:
+					checkFacultyIsLoggedIn(driver, studentEmail, PFSurl);
 					Pfs_faculty.testFacultyMakeRequest(studentEmail, facultyEmail, PFSurl, driver, log); // TC-26
 					break;
 				case 27:
+					checkFacultyIsLoggedIn(driver, studentEmail, PFSurl);
 					Pfs_faculty.testFacultyEvent(PFSurl, driver, log); // TC-27
 					break;
 				case 28:
+					checkFacultyIsLoggedIn(driver, studentEmail, PFSurl);
 					Pfs_faculty.testfacultyEditProfile(studentEmail, facultyEmail, PFSurl, driver, log); // TC-28
 					break;
 				case 29:
+					checkFacultyIsLoggedIn(driver, studentEmail, PFSurl);
 					Pfs_faculty.testfacultyEditAddress(studentEmail, facultyEmail, PFSurl, driver, log); // TC-29
 					break;
 				case 30:
+					checkFacultyIsLoggedIn(driver, studentEmail, PFSurl);
 					Pfs_faculty.testfacultyEditAcademicDetails(studentEmail, facultyEmail, PFSurl, driver, log); // TC-30
 					break;
 				case 31:
+					checkFacultyIsLoggedIn(driver, studentEmail, PFSurl);
 					Pfs_faculty.testfacultyEditReaserchSupervision(studentEmail, facultyEmail, PFSurl, driver, log); // TC-31
 					break;
 				case 32:
+					checkFacultyIsLoggedIn(driver, studentEmail, PFSurl);
 					Pfs_faculty.testfacultyEditResearchPublication(studentEmail, facultyEmail, PFSurl, driver, log); // TC-32
 					break;
 				case 33:
+					checkFacultyIsLoggedIn(driver, studentEmail, PFSurl);
 					Pfs_faculty.testfacultyEditConference(studentEmail, facultyEmail, PFSurl, driver, log); // TC-33
 					break;
 				case 34:
+					checkFacultyIsLoggedIn(driver, studentEmail, PFSurl);
 					Pfs_faculty.testfacultyEditBook(studentEmail, facultyEmail, PFSurl, driver, log); // TC-34
 					break;
 				case 35:
+					checkFacultyIsLoggedIn(driver, studentEmail, PFSurl);
 					Pfs_faculty.testfacultyEditProfessionalAssociation(studentEmail, facultyEmail, PFSurl, driver, log); // TC-35
 					break;
 				case 36:
+					checkFacultyIsLoggedIn(driver, studentEmail, PFSurl);
 					Pfs_faculty.testfacultyOthers(studentEmail, facultyEmail, PFSurl, driver, log); // TC-36
 					break;
 				case 37:
+					checkFacultyIsLoggedIn(driver, studentEmail, PFSurl);
 					Pfs_faculty.testFacultyDashboard(studentEmail, facultyEmail, PFSurl, driver, log); // TC-37
 					break;
 				case 38:
+					checkFacultyIsLoggedIn(driver, studentEmail, PFSurl);
 					Pfs_faculty.testFacultyQuestionPaper(studentEmail, facultyEmail, PFSurl, driver, log); // TC-38
 					break;
 				case 39:
+					checkFacultyIsLoggedIn(driver, studentEmail, PFSurl);
 					Pfs_faculty.testFacultySignout(PFSurl, driver, log); // TC-39
 					break;
 				case 40:
@@ -439,6 +461,7 @@ public class Pfs_portal extends Thread {
 					throw Exception;
 			}
 		}
+
 		quitDriver(driver, PFSurl);
 		log.info("***************** COMPLETED TESTTING OF PORTAL" + PFSurl);
 		SendMail.sendEmail(logFileName);

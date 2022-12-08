@@ -186,16 +186,17 @@ public class Utils {
 				if (usernameloginltpct(url)) {
 					String studentuname = "test.student123";
 					String facultyuname = "test.faculty123";
-					String password = "test.student";
+					String studentpassword = "dGVzdC5mYWN1bHR5MTIz";
+					String facultypassword = " test.faculty123";
 
 					if (Email.contains("Student")) {
 						Utils.callSendkeys(driver, ActionXpath.username, studentuname, time);
-						Utils.callSendkeys(driver, ActionXpath.password, password, time);
+						Utils.callSendkeys(driver, ActionXpath.password, studentpassword, time);
 						Utils.clickXpath(driver, ActionXpath.singnin, time, "Verify");
 
 					} else if (Email.contains("faculty")) {
 						Utils.callSendkeys(driver, ActionXpath.username, facultyuname, time);
-						Utils.callSendkeys(driver, ActionXpath.password, password, time);
+						Utils.callSendkeys(driver, ActionXpath.password, facultypassword, time);
 						Utils.clickXpath(driver, ActionXpath.singnin, time, "Verify");
 
 					}
@@ -204,16 +205,17 @@ public class Utils {
 				if (usernameloginsbmppsjal(url)) {
 					String studentuname = "TestStudent0610";
 					String facultyuname = "test.faculty123";
-					String password = "a2VuNDJ0ZXN0";
+					String studentpassword = "TestStudent0610";
+					String facultypassword = "a2VuNDJ0ZXN0";
 
 					if (Email.contains("Student")) {
 						Utils.callSendkeys(driver, ActionXpath.username, studentuname, time);
-						Utils.callSendkeys(driver, ActionXpath.password, studentuname, time);
+						Utils.callSendkeys(driver, ActionXpath.password, studentpassword, time);
 						Utils.clickXpath(driver, ActionXpath.singnin, time, "Verify");
 
 					} else if (Email.contains("faculty")) {
 						Utils.callSendkeys(driver, ActionXpath.username, facultyuname, time);
-						Utils.callSendkeys(driver, ActionXpath.password, password, time);
+						Utils.callSendkeys(driver, ActionXpath.password, facultypassword, time);
 						Utils.clickXpath(driver, ActionXpath.singnin, time, "Verify");
 
 					}
