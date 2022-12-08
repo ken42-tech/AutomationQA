@@ -870,4 +870,8 @@ public class ActionXpath {
    // 66
    static String assesmentdashboard = "//*[text()=' to Dashboard']";
 
+   static String username = "(// *[@placeholder='Please Enter Username'])";
+   static String password = "(//*[@placeholder='Please Enter Password'])";
+   static String singnin = "(//*[text()='Verify & Sign in'])";
+
 }

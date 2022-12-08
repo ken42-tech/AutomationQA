@@ -180,47 +180,44 @@ public class Utils {
 	@Test
 	public static void login(WebDriver driver, String Email, String url) throws Exception {
 		try {
-
+			System.out.println("**^#*:" + url);
 			if (checkoldlogin(url)) {
-				int time = 2000;
-				String regex = "Null";
-				// Utils.callSendkeys(driver, ActionXpath.email2, Email, time);
-				// Utils.clickXpath(driver, ActionXpath.SignIn, time, "Sign in");
 
-				Utils.callSendkeys(driver, ActionXpath.mobile, Email, time);
-				Utils.smallSleepBetweenClicks(2);
-				Utils.clickXpath(driver, ActionXpath.requestotp, time, "Sign in for otp");
-				Utils.smallSleepBetweenClicks(2);
-				int count = 0;
-				int maxTries = 7;
-				String alertMessage = "";
-				while (true) {
-					try {
-						Alert alert = driver.switchTo().alert(); // switch to alert
-						alertMessage = driver.switchTo().alert().getText(); // capture alert message
-						alert.accept();
-						break;
-					} catch (Exception e) {
-						Utils.smallSleepBetweenClicks(1);
-						if (++count > maxTries) {
-							throw (e);
-						}
+				if (usernameloginltpct(url)) {
+					String studentuname = "test.student123";
+					String facultyuname = "test.faculty123";
+					String password = "test.student";
+
+					if (Email.contains("Student")) {
+						Utils.callSendkeys(driver, ActionXpath.username, studentuname, time);
+						Utils.callSendkeys(driver, ActionXpath.password, password, time);
+						Utils.clickXpath(driver, ActionXpath.singnin, time, "Verify");
+
+					} else if (Email.contains("faculty")) {
+						Utils.callSendkeys(driver, ActionXpath.username, facultyuname, time);
+						Utils.callSendkeys(driver, ActionXpath.password, password, time);
+						Utils.clickXpath(driver, ActionXpath.singnin, time, "Verify");
+
 					}
 
 				}
-				System.out.println(alertMessage); // Print Alert Message
-				Pattern pt = Pattern.compile("-?\\d+");
-				Matcher m = pt.matcher(alertMessage);
-				while (m.find()) {
-					regex = m.group();
-				}
-				// smallSleepBetweenClicks();
-				Utils.callSendkeys(driver, ActionXpath.otprequest2, regex, time);
-				Utils.clickXpath(driver, ActionXpath.verifyotp, time, "Verify otp");
-				System.out.println(
-						"Sleeping after login for 7 seconds so that goBacktoHome function does not automatically logout user");
-				bigSleepBetweenClicks(1);
+				if (usernameloginsbmppsjal(url)) {
+					String studentuname = "TestStudent0610";
+					String facultyuname = "test.faculty123";
+					String password = "a2VuNDJ0ZXN0";
 
+					if (Email.contains("Student")) {
+						Utils.callSendkeys(driver, ActionXpath.username, studentuname, time);
+						Utils.callSendkeys(driver, ActionXpath.password, studentuname, time);
+						Utils.clickXpath(driver, ActionXpath.singnin, time, "Verify");
+
+					} else if (Email.contains("faculty")) {
+						Utils.callSendkeys(driver, ActionXpath.username, facultyuname, time);
+						Utils.callSendkeys(driver, ActionXpath.password, password, time);
+						Utils.clickXpath(driver, ActionXpath.singnin, time, "Verify");
+
+					}
+				}
 			} else {
 				int time = 2000;
 				smallSleepBetweenClicks(1);
@@ -257,6 +254,7 @@ public class Utils {
 						"Sleeping after login for 7 seconds so that goBacktoHome function does not automatically logout user");
 				bigSleepBetweenClicks(1);
 			}
+
 		} catch (
 
 		Exception e) {
@@ -443,6 +441,26 @@ public class Utils {
 	@Test
 	public static Boolean checkLtsta(String url) {
 		String urlToMatch = "ltsta";
+		Pattern pt = Pattern.compile(urlToMatch);
+		Matcher m = pt.matcher(url);
+		while (m.find()) {
+			return true;
+		}
+		return false;
+	}
+
+	public static Boolean usernameloginltpct(String url) {
+		String urlToMatch = "ltpct";
+		Pattern pt = Pattern.compile(urlToMatch);
+		Matcher m = pt.matcher(url);
+		while (m.find()) {
+			return true;
+		}
+		return false;
+	}
+
+	public static Boolean usernameloginsbmppsjal(String url) {
+		String urlToMatch = "sbmppsjal";
 		Pattern pt = Pattern.compile(urlToMatch);
 		Matcher m = pt.matcher(url);
 		while (m.find()) {
