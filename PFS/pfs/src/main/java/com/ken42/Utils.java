@@ -227,7 +227,7 @@ public class Utils {
 				Utils.callSendkeys(driver, ActionXpath.email, Email, time);
 				Utils.clickXpath(driver, ActionXpath.requestotp, time, "Request OTP");
 				int count = 0;
-				int maxTries = 7;
+				int maxTries = 8;
 				String alertMessage = "";
 				while (true) {
 					try {
@@ -238,7 +238,8 @@ public class Utils {
 					} catch (Exception e) {
 						Utils.smallSleepBetweenClicks(1);
 						if (++count > maxTries) {
-							throw (e);
+							log.warning("Unable to Login hence quitting automation test suite");
+							Utils.printException(e);
 						}
 					}
 
