@@ -182,7 +182,7 @@ public class Utils {
 		try {
 			System.out.println("**^#*:" + url);
 			if (checkoldlogin(url)) {
-				System.out.println("in old login");
+
 				if (usernameloginltpct(url)) {
 					String studentuname = "test.student123";
 					String facultyuname = "test.faculty123";
@@ -208,7 +208,7 @@ public class Utils {
 					String studentpassword = "TestStudent0610";
 					String facultypassword = "a2VuNDJ0ZXN0";
 
-					if (Email.contains("student")) {
+					if (Email.contains("Student")) {
 						Utils.callSendkeys(driver, ActionXpath.username, studentuname, time);
 						Utils.callSendkeys(driver, ActionXpath.password, studentpassword, time);
 						Utils.clickXpath(driver, ActionXpath.singnin, time, "Verify");
@@ -227,7 +227,7 @@ public class Utils {
 				Utils.callSendkeys(driver, ActionXpath.email, Email, time);
 				Utils.clickXpath(driver, ActionXpath.requestotp, time, "Request OTP");
 				int count = 0;
-				int maxTries = 8;
+				int maxTries = 7;
 				String alertMessage = "";
 				while (true) {
 					try {
@@ -238,8 +238,7 @@ public class Utils {
 					} catch (Exception e) {
 						Utils.smallSleepBetweenClicks(1);
 						if (++count > maxTries) {
-							log.warning("Unable to Login hence quitting automation test suite");
-							Utils.printException(e);
+							throw (e);
 						}
 					}
 
@@ -474,7 +473,7 @@ public class Utils {
 
 	@Test
 	public static Boolean publishlink(String url) {
-		String urlToMatch = "ltsta|nsom|ltpct|dev|demo|ecampus|bimtech|sbmppsjal";
+		String urlToMatch = "ltsta|nsom|ltpct|dev|demo|ecampus";
 		Pattern pt = Pattern.compile(urlToMatch);
 		Matcher m = pt.matcher(url);
 		while (m.find()) {
