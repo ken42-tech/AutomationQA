@@ -52,6 +52,7 @@ public class Pfs_resource {
 					"Select PPT file name");
 			Utils.clickXpath(driver, ActionXpath.facsspublish, time, "Click on publish button1");
 			Utils.clickXpath(driver, ActionXpath.facsspublishyes, time, "Click on publish button2");
+			Utils.bigSleepBetweenClicks(1);
 			Utils.logout(driver, url, Role);
 
 			// log.info(fileName + " Publish passed ");

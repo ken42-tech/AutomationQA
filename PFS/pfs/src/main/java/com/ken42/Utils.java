@@ -182,14 +182,14 @@ public class Utils {
 		try {
 			System.out.println("**^#*:" + url);
 			if (checkoldlogin(url)) {
-
+				System.out.println("in old login");
 				if (usernameloginltpct(url)) {
 					String studentuname = "test.student123";
 					String facultyuname = "test.faculty123";
 					String studentpassword = "dGVzdC5mYWN1bHR5MTIz";
 					String facultypassword = " test.faculty123";
 
-					if (Email.contains("Student")) {
+					if (Email.contains("student")) {
 						Utils.callSendkeys(driver, ActionXpath.username, studentuname, time);
 						Utils.callSendkeys(driver, ActionXpath.password, studentpassword, time);
 						Utils.clickXpath(driver, ActionXpath.singnin, time, "Verify");
@@ -208,7 +208,7 @@ public class Utils {
 					String studentpassword = "TestStudent0610";
 					String facultypassword = "a2VuNDJ0ZXN0";
 
-					if (Email.contains("Student")) {
+					if (Email.contains("student")) {
 						Utils.callSendkeys(driver, ActionXpath.username, studentuname, time);
 						Utils.callSendkeys(driver, ActionXpath.password, studentpassword, time);
 						Utils.clickXpath(driver, ActionXpath.singnin, time, "Verify");
