@@ -156,7 +156,7 @@ public class Utils {
 	public static void clickXpathWithScroll(WebDriver driver, String xpath, int time, String msg) throws Exception {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		int count = 0;
-		int maxTries = 7;
+		int maxTries = 8;
 		while (true) {
 			try {
 				Thread.sleep(1000);
@@ -171,7 +171,8 @@ public class Utils {
 				log.warning("Failed to Click on the :" + msg);
 				if (++count == maxTries) {
 					Utils.printException(e);
-					throw e;
+					log.warning("Unable to login quitting this portal testing");
+					Utils.printException(e);
 				}
 			}
 		}
