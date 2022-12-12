@@ -185,10 +185,10 @@ public class Utils {
 			if (checkoldlogin(url)) {
 
 				if (usernameloginltpct(url)) {
-					String studentuname = "test.student123";
-					String facultyuname = "test.faculty123";
-					String studentpassword = "dGVzdC5mYWN1bHR5MTIz";
-					String facultypassword = " test.faculty123";
+					String studentuname = "TestStudent6300";
+					String facultyuname = "Test.Faculty7635";
+					String studentpassword = "TestStudent6300";
+					String facultypassword = "Ltpct@student";
 
 					if (Email.contains("student")) {
 						Utils.callSendkeys(driver, ActionXpath.username, studentuname, time);
