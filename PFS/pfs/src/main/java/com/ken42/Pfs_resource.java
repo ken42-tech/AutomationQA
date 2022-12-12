@@ -17,24 +17,24 @@ public class Pfs_resource {
 	@Test
 	public static void resourceFacultyInitialSteps(String faculty, String url, WebDriver driver) throws Exception {
 
-		Utils.login(driver, faculty, url);
+		Utils.login(driver, faculty, url, log);
 		Utils.checkAcadAndClick(driver, url);
-		Utils.clickXpath(driver, ActionXpath.faccc, time, "Click on course content");
+		Utils.clickXpath(driver, ActionXpath.faccc, time, "Click on course content", log);
 	}
 
 	public static void resourceSubmitForm(String faculty, String url, WebDriver driver, Logger log) throws Exception {
 		try {
-			Utils.clickXpath(driver, ActionXpath.facssadd, time, "Click of add resource");
+			Utils.clickXpath(driver, ActionXpath.facssadd, time, "Click of add resource", log);
 			Utils.smallSleepBetweenClicks(2);
-			Utils.clickXpath(driver, ActionXpath.facccresdescclick, time, "Click on URL resource link");
+			Utils.clickXpath(driver, ActionXpath.facccresdescclick, time, "Click on URL resource link", log);
 			// Utils.smallSleepBetweenClicks(1);
 			// Utils.clickXpath(driver, ActionXpath.facssadd, time, "facssadd");
 			Utils.smallSleepBetweenClicks(1);
 			// Utils.clickXpath(driver, ActionXpath.facccresdescclick, time,
 			// "facccresdescclick");
-			Utils.callSendkeys(driver, ActionXpath.facccresurl, "Hello", time);
+			Utils.callSendkeys(driver, ActionXpath.facccresurl, "Hello", time, log);
 			// Utils.callSendkeys(driver, "//*[@id='tinymce']//p", "Testing", time);
-			Utils.clickXpath(driver, ActionXpath.facccressubmitform, time, "Save URL link button");
+			Utils.clickXpath(driver, ActionXpath.facccressubmitform, time, "Save URL link button", log);
 			// log.info("resource create passed ");
 		} catch (Exception e) {
 			Utils.printException(e);
@@ -49,11 +49,11 @@ public class Pfs_resource {
 		try {
 
 			Utils.clickXpath(driver, "//p[. ='" + fileName + "']/../../.././..//*[local-name()='svg']", time,
-					"Select PPT file name");
-			Utils.clickXpath(driver, ActionXpath.facsspublish, time, "Click on publish button1");
-			Utils.clickXpath(driver, ActionXpath.facsspublishyes, time, "Click on publish button2");
+					"Select PPT file name", log);
+			Utils.clickXpath(driver, ActionXpath.facsspublish, time, "Click on publish button1", log);
+			Utils.clickXpath(driver, ActionXpath.facsspublishyes, time, "Click on publish button2", log);
 			Utils.bigSleepBetweenClicks(1);
-			Utils.logout(driver, url, Role);
+			Utils.logout(driver, url, Role, log);
 
 			// log.info(fileName + " Publish passed ");
 		} catch (Exception e) {
@@ -68,10 +68,10 @@ public class Pfs_resource {
 			WebDriver driver, String fileName, String Role, Logger log) throws Exception {
 		try {
 			Utils.clickXpath(driver, "//p[.='" + fileName + "']/../../.././..//*[local-name()='svg']", time,
-					"Select PPT file name");
-			Utils.clickXpath(driver, ActionXpath.viewpdf2, time, "Click on View Spreadsheet");
-			Utils.clickXpath(driver, ActionXpath.learn, time, "click learn");
-			Utils.logout(driver, url, Role);
+					"Select PPT file name", log);
+			Utils.clickXpath(driver, ActionXpath.viewpdf2, time, "Click on View Spreadsheet", log);
+			Utils.clickXpath(driver, ActionXpath.learn, time, "click learn", log);
+			Utils.logout(driver, url, Role, log);
 			// log.info(fileName + "Studentview passed ");
 		} catch (Exception e) {
 			Utils.printException(e);
@@ -84,10 +84,10 @@ public class Pfs_resource {
 			WebDriver driver, String fileName, String Role, Logger log) throws Exception {
 		try {
 			Utils.clickXpath(driver, "//p[.='" + fileName + "']/../../.././..//*[local-name()='svg']", time,
-					"Select PPT file name");
-			Utils.clickXpath(driver, ActionXpath.facpdfdelete, time, "Click on Delete button1");
-			Utils.clickXpath(driver, ActionXpath.facpdfdelete2, time, "Click on delete button2");
-			Utils.logout(driver, url, Role);
+					"Select PPT file name", log);
+			Utils.clickXpath(driver, ActionXpath.facpdfdelete, time, "Click on Delete button1", log);
+			Utils.clickXpath(driver, ActionXpath.facpdfdelete2, time, "Click on delete button2", log);
+			Utils.logout(driver, url, Role, log);
 			// log.info(fileName + "Delete passed ");
 		} catch (Exception e) {
 			Utils.printException(e);
@@ -111,12 +111,12 @@ public class Pfs_resource {
 			Utils.smallSleepBetweenClicks(1);
 			resourceFacultyInitialSteps(faculty, url, driver);
 			String program, subject;
-			Utils.clickXpath(driver, ActionXpath.program, time, "click on program");
-			Utils.clickXpath(driver, ActionXpath.programselect, time, "click on program select");
+			Utils.clickXpath(driver, ActionXpath.program, time, "click on program", log);
+			Utils.clickXpath(driver, ActionXpath.programselect, time, "click on program select", log);
 			Utils.smallSleepBetweenClicks(1);
 			program = Utils.getTEXT(driver, "(//*[. and @aria-haspopup='listbox'])[1]");
-			Utils.clickXpath(driver, ActionXpath.course, time, "click on subject");
-			Utils.clickXpath(driver, ActionXpath.courseselect, time, "click on select subject");
+			Utils.clickXpath(driver, ActionXpath.course, time, "click on subject", log);
+			Utils.clickXpath(driver, ActionXpath.courseselect, time, "click on select subject", log);
 			subject = Utils.getTEXT(driver, "(//*[. and @aria-haspopup='listbox'])[2]");
 
 			// String returnArray[] = new String[2];
@@ -124,50 +124,50 @@ public class Pfs_resource {
 			// String programconverted = returnArray[0];
 			// String subject = returnArray[1];
 
-			Utils.clickXpath(driver, ActionXpath.facccres, time, "facccres");
-			Utils.clickXpath(driver, ActionXpath.facssclick, time, "facssclick");
+			Utils.clickXpath(driver, ActionXpath.facccres, time, "facccres", log);
+			Utils.clickXpath(driver, ActionXpath.facssclick, time, "facssclick", log);
 			resourceSubmitForm(faculty, url, driver, log);
 
 			String fileName = "Excel_" + Utils.generateRandom();
-			Utils.callSendkeys(driver, ActionXpath.facpptname, fileName, time);
+			Utils.callSendkeys(driver, ActionXpath.facpptname, fileName, time, log);
 			driver.findElement(By.xpath("//input[@accept='.xlsx,.xls']")).sendKeys(SpreadSheetFile);
-			Utils.clickXpath(driver, ActionXpath.facccressubmit, time, "facccressubmit");
-			Utils.clickXpath(driver, ActionXpath.facccressubmityes, time, "facccressubmityes");
-			Utils.clickXpath(driver, ActionXpath.program, time, "click on program");
+			Utils.clickXpath(driver, ActionXpath.facccressubmit, time, "facccressubmit", log);
+			Utils.clickXpath(driver, ActionXpath.facccressubmityes, time, "facccressubmityes", log);
+			Utils.clickXpath(driver, ActionXpath.program, time, "click on program", log);
 			driver.findElement(By.xpath("//li[@data-value='" + program + "']")).click();
-			Utils.clickXpath(driver, ActionXpath.subject, time, "click on subject");
+			Utils.clickXpath(driver, ActionXpath.subject, time, "click on subject", log);
 			Utils.smallSleepBetweenClicks(2);
 			Utils.smallSleepBetweenClicks(1);
 			driver.findElement(By.xpath("//li[text()='" + subject + "']")).click();
-			Utils.clickXpath(driver, ActionXpath.facssopen, time, "Click on SS SVG");
+			Utils.clickXpath(driver, ActionXpath.facssopen, time, "Click on SS SVG", log);
 
 			resourcePublishAndLogout(faculty, url, driver, fileName, Role, log);
 
 			// Student part starts
-			Utils.login(driver, student, url);
+			Utils.login(driver, student, url, log);
 			Utils.checkAcadAndClick(driver, url);
-			Utils.clickXpath(driver, ActionXpath.learn, time, "learn");
+			Utils.clickXpath(driver, ActionXpath.learn, time, "learn", log);
 			Utils.smallSleepBetweenClicks(1);
-			Utils.clickXpath(driver, ActionXpath.program, time, "click on program");
+			Utils.clickXpath(driver, ActionXpath.program, time, "click on program", log);
 			driver.findElement(By.xpath("//li[@data-value='" + program + "']")).click();
-			Utils.clickXpath(driver, ActionXpath.subject, time, "click on subject");
+			Utils.clickXpath(driver, ActionXpath.subject, time, "click on subject", log);
 			Utils.smallSleepBetweenClicks(2);
 			driver.findElement(By.xpath("//li[text()='" + subject + "']")).click();
 
 			Utils.smallSleepBetweenClicks(1);
 
-			Utils.clickXpath(driver, ActionXpath.viewss, time, "viewss");
+			Utils.clickXpath(driver, ActionXpath.viewss, time, "viewss", log);
 			resourceStudentViewAndLogout(faculty, url, driver, fileName, Role, log);
 			// Student part ends
 
 			resourceFacultyInitialSteps(faculty, url, driver);
-			Utils.clickXpath(driver, ActionXpath.facssopen, time, "facspreadsheetopen");
+			Utils.clickXpath(driver, ActionXpath.facssopen, time, "facspreadsheetopen", log);
 			resourceDeleteAndLogout(faculty, url, driver, fileName, Role, log);
 			log.info("TC-40: SpreadSheet resource Create View delete Test Case PASSED \n");
 		} catch (Exception e) {
 			Utils.printException(e);
 			log.warning("TC-40: SpreadSheet resource Create View delete Test Case FAILED \n");
-			Utils.logout(driver, url, Role);
+			Utils.logout(driver, url, Role, log);
 		}
 	}
 
@@ -184,52 +184,52 @@ public class Pfs_resource {
 			System.out.println("TC-41:  PPT resource Create View delete Test case Started");
 			resourceFacultyInitialSteps(faculty, url, driver);
 			String program, subject;
-			Utils.clickXpath(driver, ActionXpath.program, time, "click on program");
-			Utils.clickXpath(driver, ActionXpath.programselect, time, "click on program select");
+			Utils.clickXpath(driver, ActionXpath.program, time, "click on program", log);
+			Utils.clickXpath(driver, ActionXpath.programselect, time, "click on program select", log);
 			program = Utils.getTEXT(driver, "(//*[. and @aria-haspopup='listbox'])[1]");
-			Utils.clickXpath(driver, ActionXpath.course, time, "click on subject");
-			Utils.clickXpath(driver, ActionXpath.courseselect, time, "click on select subject");
+			Utils.clickXpath(driver, ActionXpath.course, time, "click on subject", log);
+			Utils.clickXpath(driver, ActionXpath.courseselect, time, "click on select subject", log);
 			subject = Utils.getTEXT(driver, "(//*[. and @aria-haspopup='listbox'])[2]");
 
-			Utils.clickXpath(driver, ActionXpath.facccres, time, "facccres");
-			Utils.clickXpath(driver, ActionXpath.facpptclick, time, "facpptclick");
+			Utils.clickXpath(driver, ActionXpath.facccres, time, "facccres", log);
+			Utils.clickXpath(driver, ActionXpath.facpptclick, time, "facpptclick", log);
 			resourceSubmitForm(faculty, url, driver, log);
 			String fileName = "PPT_" + Utils.generateRandom();
-			Utils.callSendkeys(driver, ActionXpath.facpptname, fileName, time);
+			Utils.callSendkeys(driver, ActionXpath.facpptname, fileName, time, log);
 			driver.findElement(By.xpath("//input[@accept='.ppt,.pptx']")).sendKeys(PPT_file);
 			Utils.smallSleepBetweenClicks(1);
-			Utils.clickXpath(driver, ActionXpath.facccressubmit, time, "facccressubmit");
-			Utils.clickXpath(driver, ActionXpath.facccressubmityes, time, "facccressubmityes");
-			Utils.clickXpath(driver, ActionXpath.program, time, "click on program");
+			Utils.clickXpath(driver, ActionXpath.facccressubmit, time, "facccressubmit", log);
+			Utils.clickXpath(driver, ActionXpath.facccressubmityes, time, "facccressubmityes", log);
+			Utils.clickXpath(driver, ActionXpath.program, time, "click on program", log);
 			driver.findElement(By.xpath("//li[@data-value='" + program + "']")).click();
-			Utils.clickXpath(driver, ActionXpath.subject, time, "click on subject");
+			Utils.clickXpath(driver, ActionXpath.subject, time, "click on subject", log);
 			Utils.smallSleepBetweenClicks(2);
 			driver.findElement(By.xpath("//li[text()='" + subject + "']")).click();
-			Utils.clickXpath(driver, ActionXpath.facpptfopen, time, "facpptfopen");
+			Utils.clickXpath(driver, ActionXpath.facpptfopen, time, "facpptfopen", log);
 			resourcePublishAndLogout(faculty, url, driver, fileName, Role, log);
 
-			Utils.login(driver, student, url);
+			Utils.login(driver, student, url, log);
 			Utils.checkAcadAndClick(driver, url);
-			Utils.clickXpath(driver, ActionXpath.learn, time, "learn");
+			Utils.clickXpath(driver, ActionXpath.learn, time, "learn", log);
 
-			Utils.clickXpath(driver, ActionXpath.program, time, "click on program");
+			Utils.clickXpath(driver, ActionXpath.program, time, "click on program", log);
 			driver.findElement(By.xpath("//li[@data-value='" + program + "']")).click();
-			Utils.clickXpath(driver, ActionXpath.subject, time, "click on subject");
+			Utils.clickXpath(driver, ActionXpath.subject, time, "click on subject", log);
 			Utils.smallSleepBetweenClicks(2);
 			driver.findElement(By.xpath("//li[text()='" + subject + "']")).click();
 
-			Utils.clickXpath(driver, ActionXpath.viewppt, time, "viewppt");
+			Utils.clickXpath(driver, ActionXpath.viewppt, time, "viewppt", log);
 			resourceStudentViewAndLogout(faculty, url, driver, fileName, Role, log);
 
 			resourceFacultyInitialSteps(faculty, url, driver);
-			Utils.clickXpath(driver, ActionXpath.facpptfopen, time, "facpptfopen");
+			Utils.clickXpath(driver, ActionXpath.facpptfopen, time, "facpptfopen", log);
 			resourceDeleteAndLogout(faculty, url, driver, fileName, Role, log);
 			log.info("TC-41: PPT resource Create View delete Test Case PASSED \n");
 
 		} catch (Exception e) {
 			Utils.printException(e);
 			log.warning("TC-41: PPT resource Create View delete Test Case FAILED \n");
-			Utils.logout(driver, url, Role);
+			Utils.logout(driver, url, Role, log);
 		}
 	}
 
@@ -245,53 +245,53 @@ public class Pfs_resource {
 			System.out.println("TC-42:  Create PDF resource publish and delete PDF");
 			resourceFacultyInitialSteps(faculty, url, driver);
 			String program, subject;
-			Utils.clickXpath(driver, ActionXpath.program, time, "click on program");
-			Utils.clickXpath(driver, ActionXpath.programselect, time, "click on program select");
+			Utils.clickXpath(driver, ActionXpath.program, time, "click on program", log);
+			Utils.clickXpath(driver, ActionXpath.programselect, time, "click on program select", log);
 			program = Utils.getTEXT(driver, "(//*[. and @aria-haspopup='listbox'])[1]");
-			Utils.clickXpath(driver, ActionXpath.course, time, "click on subject");
-			Utils.clickXpath(driver, ActionXpath.courseselect, time, "click on select subject");
+			Utils.clickXpath(driver, ActionXpath.course, time, "click on subject", log);
+			Utils.clickXpath(driver, ActionXpath.courseselect, time, "click on select subject", log);
 			subject = Utils.getTEXT(driver, "(//*[. and @aria-haspopup='listbox'])[2]");
 
-			Utils.clickXpath(driver, ActionXpath.facccres, time, "facccres");
-			Utils.clickXpath(driver, ActionXpath.facccrespdf, time, "facccrespdf");
+			Utils.clickXpath(driver, ActionXpath.facccres, time, "facccres", log);
+			Utils.clickXpath(driver, ActionXpath.facccrespdf, time, "facccrespdf", log);
 			resourceSubmitForm(faculty, url, driver, log);
 
 			String fileName = "PDF_" + Utils.generateRandom();
-			Utils.callSendkeys(driver, ActionXpath.facpptname, fileName, time);
+			Utils.callSendkeys(driver, ActionXpath.facpptname, fileName, time, log);
 			driver.findElement(By.xpath("//input[@accept='.pdf']"))
 					.sendKeys(PDF_file);
-			Utils.clickXpath(driver, ActionXpath.facccressubmit, time, "facccressubmit");
-			Utils.clickXpath(driver, ActionXpath.facccressubmityes, time, "facccressubmityes");
-			Utils.clickXpath(driver, ActionXpath.program, time, "click on program");
+			Utils.clickXpath(driver, ActionXpath.facccressubmit, time, "facccressubmit", log);
+			Utils.clickXpath(driver, ActionXpath.facccressubmityes, time, "facccressubmityes", log);
+			Utils.clickXpath(driver, ActionXpath.program, time, "click on program", log);
 			driver.findElement(By.xpath("//li[@data-value='" + program + "']")).click();
-			Utils.clickXpath(driver, ActionXpath.subject, time, "click on subject");
+			Utils.clickXpath(driver, ActionXpath.subject, time, "click on subject", log);
 			Utils.smallSleepBetweenClicks(2);
 			driver.findElement(By.xpath("//li[text()='" + subject + "']")).click();
-			Utils.clickXpath(driver, ActionXpath.facpdfopen, time, "facpdfopen");
+			Utils.clickXpath(driver, ActionXpath.facpdfopen, time, "facpdfopen", log);
 			resourcePublishAndLogout(faculty, url, driver, fileName, Role, log);
 
 			// Now verify in student
-			Utils.login(driver, student, url);
+			Utils.login(driver, student, url, log);
 			Utils.checkAcadAndClick(driver, url);
-			Utils.clickXpath(driver, ActionXpath.learn, time, "learn");
+			Utils.clickXpath(driver, ActionXpath.learn, time, "learn", log);
 
-			Utils.clickXpath(driver, ActionXpath.program, time, "click on program");
+			Utils.clickXpath(driver, ActionXpath.program, time, "click on program", log);
 			driver.findElement(By.xpath("//li[@data-value='" + program + "']")).click();
-			Utils.clickXpath(driver, ActionXpath.subject, time, "click on subject");
+			Utils.clickXpath(driver, ActionXpath.subject, time, "click on subject", log);
 			Utils.smallSleepBetweenClicks(2);
 			driver.findElement(By.xpath("//li[text()='" + subject + "']")).click();
 
-			Utils.clickXpath(driver, ActionXpath.viewpdf, time, "viewpdf");
+			Utils.clickXpath(driver, ActionXpath.viewpdf, time, "viewpdf", log);
 			resourceStudentViewAndLogout(faculty, url, driver, fileName, Role, log);
 
 			resourceFacultyInitialSteps(faculty, url, driver);
-			Utils.clickXpath(driver, ActionXpath.facpdfopen, time, "facpdfopen");
+			Utils.clickXpath(driver, ActionXpath.facpdfopen, time, "facpdfopen", log);
 			resourceDeleteAndLogout(faculty, url, driver, fileName, Role, log);
 			log.info("TC-42: Create PDF resource publish and delete PDF PASSED \n");
 		} catch (Exception e) {
 			Utils.printException(e);
 			log.warning("TC-42: Create PDF resource publish and delete PDF FAILED \n");
-			Utils.logout(driver, url, Role);
+			Utils.logout(driver, url, Role, log);
 		}
 	}
 
@@ -307,54 +307,54 @@ public class Pfs_resource {
 			System.out.println("TC-43:  Create Video resource create view  and delete");
 			resourceFacultyInitialSteps(faculty, url, driver);
 			String program, subject;
-			Utils.clickXpath(driver, ActionXpath.program, time, "click on program");
-			Utils.clickXpath(driver, ActionXpath.programselect, time, "click on program select");
+			Utils.clickXpath(driver, ActionXpath.program, time, "click on program", log);
+			Utils.clickXpath(driver, ActionXpath.programselect, time, "click on program select", log);
 			program = Utils.getTEXT(driver, "(//*[. and @aria-haspopup='listbox'])[1]");
-			Utils.clickXpath(driver, ActionXpath.course, time, "click on subject");
-			Utils.clickXpath(driver, ActionXpath.courseselect, time, "click on select subject");
+			Utils.clickXpath(driver, ActionXpath.course, time, "click on subject", log);
+			Utils.clickXpath(driver, ActionXpath.courseselect, time, "click on select subject", log);
 			subject = Utils.getTEXT(driver, "(//*[. and @aria-haspopup='listbox'])[2]");
 
-			Utils.clickXpath(driver, ActionXpath.facccres, time, "facccres");
-			Utils.clickXpath(driver, ActionXpath.facvideoclick, time, "facvideoclick");
+			Utils.clickXpath(driver, ActionXpath.facccres, time, "facccres", log);
+			Utils.clickXpath(driver, ActionXpath.facvideoclick, time, "facvideoclick", log);
 			resourceSubmitForm(faculty, url, driver, log);
 			String fileName = "Video_" + Utils.generateRandom();
-			Utils.callSendkeys(driver, ActionXpath.facpptname, fileName, time);
+			Utils.callSendkeys(driver, ActionXpath.facpptname, fileName, time, log);
 			driver.findElement(By.xpath("//input[@accept='.mp4']"))
 					.sendKeys(Video_file);
-			Utils.clickXpath(driver, ActionXpath.facccressubmit, time, "facccressubmit");
-			Utils.clickXpath(driver, ActionXpath.facccressubmityes, time, "facccressubmityes");
-			Utils.clickXpath(driver, ActionXpath.program, time, "click on program");
+			Utils.clickXpath(driver, ActionXpath.facccressubmit, time, "facccressubmit", log);
+			Utils.clickXpath(driver, ActionXpath.facccressubmityes, time, "facccressubmityes", log);
+			Utils.clickXpath(driver, ActionXpath.program, time, "click on program", log);
 			driver.findElement(By.xpath("//li[@data-value='" + program + "']")).click();
-			Utils.clickXpath(driver, ActionXpath.subject, time, "click on subject");
+			Utils.clickXpath(driver, ActionXpath.subject, time, "click on subject", log);
 			Utils.smallSleepBetweenClicks(2);
 			driver.findElement(By.xpath("//li[text()='" + subject + "']")).click();
-			Utils.clickXpath(driver, ActionXpath.facvideoopen, time, "facvideoopen");
+			Utils.clickXpath(driver, ActionXpath.facvideoopen, time, "facvideoopen", log);
 			resourcePublishAndLogout(faculty, url, driver, fileName, Role, log);
 
 			// Student to verify
-			Utils.login(driver, student, url);
+			Utils.login(driver, student, url, log);
 			Utils.smallSleepBetweenClicks(1);
 			Utils.checkAcadAndClick(driver, url);
-			Utils.clickXpath(driver, ActionXpath.learn, time, "Click on learnlearn");
+			Utils.clickXpath(driver, ActionXpath.learn, time, "Click on learnlearn", log);
 
-			Utils.clickXpath(driver, ActionXpath.program, time, "click on program");
+			Utils.clickXpath(driver, ActionXpath.program, time, "click on program", log);
 			driver.findElement(By.xpath("//li[@data-value='" + program + "']")).click();
-			Utils.clickXpath(driver, ActionXpath.subject, time, "click on subject");
+			Utils.clickXpath(driver, ActionXpath.subject, time, "click on subject", log);
 			Utils.smallSleepBetweenClicks(2);
 			driver.findElement(By.xpath("//li[text()='" + subject + "']")).click();
 
-			Utils.clickXpath(driver, ActionXpath.viewvideo, time, "Click on video");
+			Utils.clickXpath(driver, ActionXpath.viewvideo, time, "Click on video", log);
 			resourceStudentViewAndLogout(faculty, url, driver, fileName, Role, log);
 
 			// Faculty to delete
 			resourceFacultyInitialSteps(faculty, url, driver);
-			Utils.clickXpath(driver, ActionXpath.facvideoopen, time, "facvideoopen");
+			Utils.clickXpath(driver, ActionXpath.facvideoopen, time, "facvideoopen", log);
 			resourceDeleteAndLogout(faculty, url, driver, fileName, Role, log);
 			log.info("TC-43: Create Video resource create view  and delete PASSED");
 		} catch (Exception e) {
 			Utils.printException(e);
 			log.warning("TC-43: Create Video resource create view  and delete FAILED");
-			Utils.logout(driver, url, Role);
+			Utils.logout(driver, url, Role, log);
 		}
 	}
 
@@ -365,57 +365,57 @@ public class Pfs_resource {
 			System.out.println("TC-44:  Link resource Create View delete Test case Started");
 			resourceFacultyInitialSteps(faculty, url, driver);
 			String program, subject;
-			Utils.clickXpath(driver, ActionXpath.program, time, "click on program");
-			Utils.clickXpath(driver, ActionXpath.programselect, time, "click on program select");
+			Utils.clickXpath(driver, ActionXpath.program, time, "click on program", log);
+			Utils.clickXpath(driver, ActionXpath.programselect, time, "click on program select", log);
 			program = Utils.getTEXT(driver, "(//*[. and @aria-haspopup='listbox'])[1]");
-			Utils.clickXpath(driver, ActionXpath.course, time, "click on subject");
-			Utils.clickXpath(driver, ActionXpath.courseselect, time, "click on select subject");
+			Utils.clickXpath(driver, ActionXpath.course, time, "click on subject", log);
+			Utils.clickXpath(driver, ActionXpath.courseselect, time, "click on select subject", log);
 			subject = Utils.getTEXT(driver, "(//*[. and @aria-haspopup='listbox'])[2]");
 
-			Utils.clickXpath(driver, ActionXpath.facccres, time, "facccres");
-			Utils.clickXpath(driver, ActionXpath.faclinkclick, time, "faclinkclick");
+			Utils.clickXpath(driver, ActionXpath.facccres, time, "facccres", log);
+			Utils.clickXpath(driver, ActionXpath.faclinkclick, time, "faclinkclick", log);
 			resourceSubmitForm(faculty, url, driver, log);
 			String fileName = "Link_" + Utils.generateRandom();
-			Utils.callSendkeys(driver, ActionXpath.facpptname, fileName, time);
-			Utils.callSendkeys(driver, ActionXpath.faclinkexternal, url, time);
+			Utils.callSendkeys(driver, ActionXpath.facpptname, fileName, time, log);
+			Utils.callSendkeys(driver, ActionXpath.faclinkexternal, url, time, log);
 			Utils.scrollUpOrDown(driver, time);
 			Utils.scrollUpOrDown(driver, time);
-			Utils.clickXpath(driver, ActionXpath.facccressubmit, time, "facccressubmit");
-			Utils.clickXpath(driver, ActionXpath.facccressubmityes, time, "facccressubmityes");
+			Utils.clickXpath(driver, ActionXpath.facccressubmit, time, "facccressubmit", log);
+			Utils.clickXpath(driver, ActionXpath.facccressubmityes, time, "facccressubmityes", log);
 
 			if (Utils.publishlink(url)) {
-				Utils.clickXpath(driver, ActionXpath.program, time, "click on program");
+				Utils.clickXpath(driver, ActionXpath.program, time, "click on program", log);
 				driver.findElement(By.xpath("//li[@data-value='" + program + "']")).click();
-				Utils.clickXpath(driver, ActionXpath.subject, time, "click on subject");
+				Utils.clickXpath(driver, ActionXpath.subject, time, "click on subject", log);
 				Utils.smallSleepBetweenClicks(2);
 				driver.findElement(By.xpath("//li[text()='" + subject + "']")).click();
-				Utils.clickXpath(driver, ActionXpath.viewlink, time, "faclinkopen");
+				Utils.clickXpath(driver, ActionXpath.viewlink, time, "faclinkopen", log);
 				resourcePublishAndLogout(faculty, url, driver, fileName, Role, log);
 			} else {
-				Utils.logout(driver, url, Role);
+				Utils.logout(driver, url, Role, log);
 			}
 
-			Utils.login(driver, student, url);
+			Utils.login(driver, student, url, log);
 			Utils.checkAcadAndClick(driver, url);
-			Utils.clickXpath(driver, ActionXpath.learn, time, "learn");
+			Utils.clickXpath(driver, ActionXpath.learn, time, "learn", log);
 
-			Utils.clickXpath(driver, ActionXpath.program, time, "click on program");
+			Utils.clickXpath(driver, ActionXpath.program, time, "click on program", log);
 			driver.findElement(By.xpath("//li[@data-value='" + program + "']")).click();
-			Utils.clickXpath(driver, ActionXpath.subject, time, "click on subject");
+			Utils.clickXpath(driver, ActionXpath.subject, time, "click on subject", log);
 			Utils.smallSleepBetweenClicks(2);
 			driver.findElement(By.xpath("//li[text()='" + subject + "']")).click();
 
-			Utils.clickXpath(driver, ActionXpath.viewlink, time, "viewlink");
+			Utils.clickXpath(driver, ActionXpath.viewlink, time, "viewlink", log);
 			resourceStudentViewAndLogout(faculty, url, driver, fileName, Role, log);
 
 			resourceFacultyInitialSteps(faculty, url, driver);
-			Utils.clickXpath(driver, ActionXpath.faclinkopen, time, "faclinkopen");
+			Utils.clickXpath(driver, ActionXpath.faclinkopen, time, "faclinkopen", log);
 			resourceDeleteAndLogout(faculty, url, driver, fileName, Role, log);
 			log.info("TC-44 Link resource Create View delete Test Case PASSED");
 		} catch (Exception e) {
 			Utils.printException(e);
 			log.warning("TC-44: Link resource Create View delete Test Case FAILED");
-			Utils.logout(driver, url, Role);
+			Utils.logout(driver, url, Role, log);
 		}
 	}
 
@@ -429,10 +429,10 @@ public class Pfs_resource {
 			// return;
 			// }
 			resourceFacultyInitialSteps(faculty, url, driver);
-			Utils.clickXpath(driver, ActionXpath.facccres, time, "facccres");
-			Utils.clickXpath(driver, ActionXpath.facssclick, time, "facssclick");
+			Utils.clickXpath(driver, ActionXpath.facccres, time, "facccres", log);
+			Utils.clickXpath(driver, ActionXpath.facssclick, time, "facssclick", log);
 
-			Utils.clickXpath(driver, ActionXpath.facssadd, time, "Click of add resource");
+			Utils.clickXpath(driver, ActionXpath.facssadd, time, "Click of add resource", log);
 			Utils.smallSleepBetweenClicks(2);
 			driver.findElement(By.xpath("//input[@accept='.xlsx,.xls']"))
 					.sendKeys("C:\\Users\\Public\\Documents\\demo.pdf");
@@ -450,13 +450,13 @@ public class Pfs_resource {
 			}
 
 			driver.findElement(By.xpath("/html/body/div[5]/div[3]/div/div[2]/button/span[1]")).click();
-			Utils.logout(driver, url, faculty);
+			Utils.logout(driver, url, faculty, log);
 			log.info("TC-45: Test Spreadsheet File type Test Case PASSED");
 
 		} catch (Exception e) {
 			Utils.printException(e);
 			log.warning("TC-45 Test Spreadsheet File type test case FAILED");
-			Utils.logout(driver, url, Role);
+			Utils.logout(driver, url, Role, log);
 		}
 	}
 
@@ -466,10 +466,10 @@ public class Pfs_resource {
 		try {
 			System.out.println("TC-51:  Test PPT File type");
 			resourceFacultyInitialSteps(faculty, url, driver);
-			Utils.clickXpath(driver, ActionXpath.facccres, time, "facccres");
-			Utils.clickXpath(driver, ActionXpath.facpptclick, time, "facpptclick");
+			Utils.clickXpath(driver, ActionXpath.facccres, time, "facccres", log);
+			Utils.clickXpath(driver, ActionXpath.facpptclick, time, "facpptclick", log);
 			Utils.smallSleepBetweenClicks(1);
-			Utils.clickXpath(driver, ActionXpath.facssadd, time, "Click of add resource");
+			Utils.clickXpath(driver, ActionXpath.facssadd, time, "Click of add resource", log);
 			Utils.smallSleepBetweenClicks(2);
 			driver.findElement(By.xpath("//input[@accept='.ppt,.pptx']"))
 					.sendKeys("C:\\Users\\Public\\Documents\\demo.pdf");
@@ -485,12 +485,12 @@ public class Pfs_resource {
 				System.out.println("File uploaded");
 			}
 			driver.findElement(By.xpath("/html/body/div[5]/div[3]/div/div[2]/button/span[1]")).click();
-			Utils.logout(driver, url, faculty);
+			Utils.logout(driver, url, faculty, log);
 			log.info("TC-46: Test PPT File type Test Case PASSED");
 		} catch (Exception e) {
 			Utils.printException(e);
 			log.warning("TC-46: Test PPT File type Test Case FAILED");
-			Utils.logout(driver, url, Role);
+			Utils.logout(driver, url, Role, log);
 		}
 	}
 
@@ -500,9 +500,9 @@ public class Pfs_resource {
 		try {
 			System.out.println("TC-47:  Test PDF File type Test Case");
 			resourceFacultyInitialSteps(faculty, url, driver);
-			Utils.clickXpath(driver, ActionXpath.facccres, time, "facccres");
-			Utils.clickXpath(driver, ActionXpath.facccrespdf, time, "facccrespdf");
-			Utils.clickXpath(driver, ActionXpath.facssadd, time, "Click of add resource");
+			Utils.clickXpath(driver, ActionXpath.facccres, time, "facccres", log);
+			Utils.clickXpath(driver, ActionXpath.facccrespdf, time, "facccrespdf", log);
+			Utils.clickXpath(driver, ActionXpath.facssadd, time, "Click of add resource", log);
 			Utils.smallSleepBetweenClicks(2);
 
 			driver.findElement(By.xpath("//input[@accept='.pdf']")).sendKeys("C:\\Users\\Public\\Documents\\demo.pptx");
@@ -517,12 +517,12 @@ public class Pfs_resource {
 				System.out.println("File uploaded");
 			}
 			driver.findElement(By.xpath("/html/body/div[5]/div[3]/div/div[2]/button/span[1]")).click();
-			Utils.logout(driver, url, faculty);
+			Utils.logout(driver, url, faculty, log);
 			log.info("TC-47: Test PDF File type Test Case PASSED");
 		} catch (Exception e) {
 			Utils.printException(e);
 			log.warning("TC-47:Test PDF File type Test Case FAILED");
-			Utils.logout(driver, url, Role);
+			Utils.logout(driver, url, Role, log);
 		}
 	}
 
@@ -532,9 +532,9 @@ public class Pfs_resource {
 		try {
 			System.out.println("TC-48: Test Video File type Test Case");
 			resourceFacultyInitialSteps(faculty, url, driver);
-			Utils.clickXpath(driver, ActionXpath.facccres, time, "facccres");
-			Utils.clickXpath(driver, ActionXpath.facvideoclick, time, "facvideoclick");
-			Utils.clickXpath(driver, ActionXpath.facssadd, time, "Click of add resource");
+			Utils.clickXpath(driver, ActionXpath.facccres, time, "facccres", log);
+			Utils.clickXpath(driver, ActionXpath.facvideoclick, time, "facvideoclick", log);
+			Utils.clickXpath(driver, ActionXpath.facssadd, time, "Click of add resource", log);
 
 			Utils.smallSleepBetweenClicks(2);
 			driver.findElement(By.xpath("//input[@accept='.mp4']")).sendKeys("C:\\Users\\Public\\Documents\\demo.pdf");
@@ -550,12 +550,12 @@ public class Pfs_resource {
 				System.out.println("File uploaded");
 			}
 			driver.findElement(By.xpath("/html/body/div[5]/div[3]/div/div[2]/button/span[1]")).click();
-			Utils.logout(driver, url, faculty);
+			Utils.logout(driver, url, faculty, log);
 			log.info("TC-48: Test Video File type Test Case PASSED \n");
 		} catch (Exception e) {
 			Utils.printException(e);
 			log.warning("TC-48:Test Video File type Test Case FAILED \n");
-			Utils.logout(driver, url, Role);
+			Utils.logout(driver, url, Role, log);
 		}
 	}
 
@@ -575,13 +575,14 @@ public class Pfs_resource {
 			} else {
 				System.out.println(" All resource are not Presnet Quiting the Test. ");
 				log.warning("TC-49 PPt resource Filter Option View Test Case FAILED \n");
-				Utils.logout(driver, url, Role);
+				Utils.logout(driver, url, Role, log);
 			}
-			Utils.clickXpath(driver, ActionXpath.faccFilter, time, "Clik ont he Filter button");
-			Utils.clickXpath(driver, ActionXpath.faccFilterClear, time, "Clear all the filter ");
-			Utils.clickXpath(driver, ActionXpath.faccFilter, time, "Appling the Filter to click the filter button");
-			Utils.clickXpath(driver, ActionXpath.faccPPTOPen, time, "CLick on the filter Resource type span");
-			Utils.clickXpath(driver, ActionXpath.faccPPTCheckBox, time, "select the PPT Check box ");
+			Utils.clickXpath(driver, ActionXpath.faccFilter, time, "Clik ont he Filter button", log);
+			Utils.clickXpath(driver, ActionXpath.faccFilterClear, time, "Clear all the filter ", log);
+			Utils.clickXpath(driver, ActionXpath.faccFilter, time, "Appling the Filter to click the filter button",
+					log);
+			Utils.clickXpath(driver, ActionXpath.faccPPTOPen, time, "CLick on the filter Resource type span", log);
+			Utils.clickXpath(driver, ActionXpath.faccPPTCheckBox, time, "select the PPT Check box ", log);
 			Actions qwe = new Actions(driver);
 			qwe.moveByOffset(40, 40).click().perform();
 
@@ -595,13 +596,13 @@ public class Pfs_resource {
 				log.warning(" TC-50: PPT resource Filter Option View FAILED it does not contain all the tabs\n\n");
 			}
 			Utils.executeLongWait(url);
-			Utils.logout(driver, url, Role);
+			Utils.logout(driver, url, Role, log);
 			Utils.smallSleepBetweenClicks(1);
 			log.info("TC-49: PPT resource Filter Option View Test Case PASSED");
 		} catch (Exception e) {
 			Utils.printException(e);
 			log.warning("TC-49: PPT resource Filter Option View Test Case FAILED");
-			Utils.logout(driver, url, Role);
+			Utils.logout(driver, url, Role, log);
 		}
 	}
 
@@ -620,15 +621,16 @@ public class Pfs_resource {
 
 			} else {
 				System.out.println(" All resource are not Presnet Quiting the Test. ");
-				Utils.logout(driver, url, Role);
+				Utils.logout(driver, url, Role, log);
 				log.warning("TC-50: PDF resource Filter Option View Test Case FAILED");
 			}
-			Utils.clickXpath(driver, ActionXpath.faccFilter, time, "click on the filter button");
+			Utils.clickXpath(driver, ActionXpath.faccFilter, time, "click on the filter button", log);
 
-			Utils.clickXpath(driver, ActionXpath.faccFilterClear, time, "click the clear all on the filter ");
-			Utils.clickXpath(driver, ActionXpath.faccFilter, time, "click on the filter to open to apply the filter ");
-			Utils.clickXpath(driver, ActionXpath.faccPPTOPen, time, "Open the reosurce Filter  span opnen");
-			Utils.clickXpath(driver, ActionXpath.faccPDFCheckBox, time, "click the PDF checkbox");
+			Utils.clickXpath(driver, ActionXpath.faccFilterClear, time, "click the clear all on the filter ", log);
+			Utils.clickXpath(driver, ActionXpath.faccFilter, time, "click on the filter to open to apply the filter ",
+					log);
+			Utils.clickXpath(driver, ActionXpath.faccPPTOPen, time, "Open the reosurce Filter  span opnen", log);
+			Utils.clickXpath(driver, ActionXpath.faccPDFCheckBox, time, "click the PDF checkbox", log);
 			Actions qwe = new Actions(driver);
 			qwe.moveByOffset(40, 40).click().perform();
 
@@ -642,13 +644,13 @@ public class Pfs_resource {
 				log.warning(" TC-50: PDF resource Filter Option View FAILED it does not contain all the tabs\n\n");
 			}
 			Utils.executeLongWait(url);
-			Utils.logout(driver, url, Role);
+			Utils.logout(driver, url, Role, log);
 			Utils.smallSleepBetweenClicks(1);
 			log.info("TC-50: PDF resource Filter Option View Test Case PASSED");
 		} catch (Exception e) {
 			Utils.printException(e);
 			log.warning("TC-50: PDF resource Filter Option View Test Case FAILED");
-			Utils.logout(driver, Role, url);
+			Utils.logout(driver, Role, url, log);
 		}
 	}
 
@@ -668,13 +670,14 @@ public class Pfs_resource {
 			} else {
 				System.out.println(" All resource are not Presnet Quiting the Test. ");
 				log.warning("TC-51 Video resource Filter Option View Test Case FAILED \n");
-				Utils.logout(driver, url, Role);
+				Utils.logout(driver, url, Role, log);
 			}
-			Utils.clickXpath(driver, ActionXpath.faccFilter, time, "Clik ont he Filter button");
-			Utils.clickXpath(driver, ActionXpath.faccFilterClear, time, "Clear all the filter");
-			Utils.clickXpath(driver, ActionXpath.faccFilter, time, "Appling the Filter to click the filter button");
-			Utils.clickXpath(driver, ActionXpath.faccPPTOPen, time, "CLick on the filter Resource type span");
-			Utils.clickXpath(driver, ActionXpath.faccVideoCheckBox, time, "select the Viedo Check box");
+			Utils.clickXpath(driver, ActionXpath.faccFilter, time, "Clik ont he Filter button", log);
+			Utils.clickXpath(driver, ActionXpath.faccFilterClear, time, "Clear all the filter", log);
+			Utils.clickXpath(driver, ActionXpath.faccFilter, time, "Appling the Filter to click the filter button",
+					log);
+			Utils.clickXpath(driver, ActionXpath.faccPPTOPen, time, "CLick on the filter Resource type span", log);
+			Utils.clickXpath(driver, ActionXpath.faccVideoCheckBox, time, "select the Viedo Check box", log);
 			Actions qwe = new Actions(driver);
 			qwe.moveByOffset(40, 40).click().perform();
 
@@ -687,13 +690,13 @@ public class Pfs_resource {
 			} else {
 				log.warning(" TC-51: Video resource Filter Option View FAILED it does not contain all the tabs\n\n");
 			}
-			Utils.logout(driver, url, Role);
+			Utils.logout(driver, url, Role, log);
 			Utils.smallSleepBetweenClicks(1);
 			log.info("TC-51: Video resource Filter Option View Test Case PASSED");
 		} catch (Exception e) {
 			Utils.printException(e);
 			log.warning("TC-51: Video resource Filter Option View Test Case FAILED");
-			Utils.logout(driver, url, Role);
+			Utils.logout(driver, url, Role, log);
 		}
 	}
 
@@ -713,15 +716,16 @@ public class Pfs_resource {
 			} else {
 				System.out.println(" All resource are not Presnet Quiting the Test. ");
 				log.warning("TC-52 Links resource Filter Option View Test Case FAILED \n");
-				Utils.logout(driver, url, Role);
+				Utils.logout(driver, url, Role, log);
 			}
-			Utils.clickXpath(driver, ActionXpath.faccFilter, time, "Clik ont he Filter button");
-			Utils.clickXpath(driver, ActionXpath.faccFilterClear, time, "Clear all the filter");
-			Utils.clickXpath(driver, ActionXpath.faccFilter, time, "Appling the Filter to click the filter button");
-			Utils.clickXpath(driver, ActionXpath.faccPPTOPen, time, "CLick on the filter Resource type span");
+			Utils.clickXpath(driver, ActionXpath.faccFilter, time, "Clik ont he Filter button", log);
+			Utils.clickXpath(driver, ActionXpath.faccFilterClear, time, "Clear all the filter", log);
+			Utils.clickXpath(driver, ActionXpath.faccFilter, time, "Appling the Filter to click the filter button",
+					log);
+			Utils.clickXpath(driver, ActionXpath.faccPPTOPen, time, "CLick on the filter Resource type span", log);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("window.scrollBy(5,5)");
-			Utils.clickXpath(driver, ActionXpath.faccLinksCheckBox, time, "Selec the Link Check Box filter");
+			Utils.clickXpath(driver, ActionXpath.faccLinksCheckBox, time, "Selec the Link Check Box filter", log);
 			Actions qwe = new Actions(driver);
 			qwe.moveByOffset(40, 40).click().perform();
 
@@ -735,13 +739,13 @@ public class Pfs_resource {
 				log.warning(" TC-52: Links resource Filter Option View FAILED it does not contain all the tabs\n\n");
 			}
 			Utils.executeLongWait(url);
-			Utils.logout(driver, url, Role);
+			Utils.logout(driver, url, Role, log);
 			Utils.smallSleepBetweenClicks(1);
 			log.info("TC-52: Links resource Filter Option View Test Case PASSED");
 		} catch (Exception e) {
 			Utils.printException(e);
 			log.warning("TC-52: Links resource Filter Option View Test Case FAILED");
-			Utils.logout(driver, url, Role);
+			Utils.logout(driver, url, Role, log);
 		}
 	}
 

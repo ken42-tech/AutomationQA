@@ -65,7 +65,8 @@ public class Utils {
 		}
 	}
 
-	public static void callSendkeys(WebDriver driver, String Xpath, String Value, int time1, Logger log) throws Exception {
+	public static void callSendkeys(WebDriver driver, String Xpath, String Value, int time1, Logger log)
+			throws Exception {
 		int count = 0;
 		int maxTries = 7;
 		final String XPATH = Xpath;
@@ -262,7 +263,7 @@ public class Utils {
 		} catch (
 
 		Exception e) {
-			log.warning("Login to portal failed "+url);
+			log.warning("Login to portal failed " + url);
 			printException(e);
 			driver.quit();
 			// System.exit(01);
