@@ -17,8 +17,8 @@ public class Pfs_student {
 	public static void testStudent(String url, WebDriver driver, Logger log) throws Exception {
 		try {
 			System.out.println(" TC-1:  Student Starting Home tab  case execution");
-			Utils.bigSleepBetweenClicks(1);
-			Utils.clickXpath(driver, ActionXpath.Stu_prName, time, "Click on Login initial", log);
+			// Utils.bigSleepBetweenClicks(1);
+			// Utils.clickXpath(driver, ActionXpath.Stu_prName, time, "Click on Login initial", log);
 			// Check if Attendance, Assessments, Schedule are present in home tab.
 			WebElement l = driver.findElement(By.tagName("body"));
 			String p = l.getText();
