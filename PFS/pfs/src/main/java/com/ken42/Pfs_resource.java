@@ -424,10 +424,10 @@ public class Pfs_resource {
 			String url, String Browser, String Role, WebDriver driver, Logger log) throws Exception {
 		try {
 			System.out.println("TC-45:  Test SpreadSheet resource Create View delete Test case Started");
-			if (Utils.checkBimtech(url)) {
-				log.info("TC-45 Test Spreadsheet is not supported on Bimtech");
-				return;
-			}
+			// if (Utils.checkBimtech(url)) {
+			// log.info("TC-45 Test Spreadsheet is not supported on Bimtech");
+			// return;
+			// }
 			resourceFacultyInitialSteps(faculty, url, driver);
 			Utils.clickXpath(driver, ActionXpath.facccres, time, "facccres");
 			Utils.clickXpath(driver, ActionXpath.facssclick, time, "facssclick");

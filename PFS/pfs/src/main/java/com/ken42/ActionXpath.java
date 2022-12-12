@@ -669,7 +669,7 @@ public class ActionXpath {
    static String Studentassessmenstrelativelearn = "//span[.='Learn']";
    // static String Studentassessmenstrelativelexpand =
    // "(//span[@class='MuiIconButton-label'])[5]";
-   static String Studentassessmenstrelativelexpand = "//span[. and contains(text(), 'Assessments')]/../../../..//*[local-name()='svg']";
+   static String Studentassessmenstrelativelexpand = "(//*[. and contains(text(), 'Assessments')]/../../../../..//*[local-name()='svg'])[1]";
    static String assesmentattemptnow = "(//span[.='Attempt Now'])[1]";
 
    static String assesmentinstruction = "//*[@type='checkbox']/../../..";
@@ -695,7 +695,7 @@ public class ActionXpath {
    //// xpath................................//
    static String facClickacademicsrelativedelete = "//span[.='Academics']";
    static String facclickcouserelativedelete = "//span[.='Course Content']";
-   static String facultyassessmenstrelativelexpandtodelete = "//span[. and contains(text(), 'Assessments')]/../../../..//*[local-name()='svg']";
+   static String facultyassessmenstrelativelexpandtodelete = "(//*[. and contains(text(), 'Assessments')]/../../../../..//*[local-name()='svg'])[1]";
    static String fclickondotltstarelativedelete = "//p[.='sachinautoengineer']/ancestor::div[@class='MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-justify-content-xs-space-around']/descendant::h5";
    static String fsubltstadeleterelativedelete = "(//span[.='Delete'])[1]";
    static String fsubltstadelete1relativedelete2 = "//span[.='Delete']";
@@ -731,7 +731,7 @@ public class ActionXpath {
    static String assignfacselectattemtrelative = "//li[.='2 Attempts']";
    static String assignfacsaveandproceedrelative = "//span[.='Save and Proceed']";
    static String assignfacokrelative = "//span[.='OK']";
-   static String assignexapnd1relative = "//*[. and contains(text(), 'Assignments')]/../../../..//*[local-name()='svg']";
+   static String assignexapnd1relative = "(//*[. and contains(text(), 'Assignments')]/../../../../..//*[local-name()='svg'])[1]";
    static String assignfacdot1relative = "";
    static String assignfacpublish = "(//span[.='Publish'])[1]";
    static String assignfacDiscussions = "(//span[.='Discussions'])[1]";
@@ -746,7 +746,7 @@ public class ActionXpath {
    //// xpath................................////
    static String assignacadmicsltstastudentrelative = "//span[.='Academics']";
    static String assignlearnltstastudentrelative = "//span[.='Learn']";
-   static String assignexpandltstastudentrelative = "//*[. and contains(text(), 'Assignments')]/../../../..//*[local-name()='svg']";
+   static String assignexpandltstastudentrelative = "(//*[. and contains(text(), 'Assignments')]/../../../../..//*[local-name()='svg'])[1]";
    static String assignltstasignstudentrelative = "(//span[@class='MuiIconButton-label'])[3]";
    static String assignltstasignoutstudentrelative = "(//li[@role='menuitem'])[2]";
    //// ........... assignment delete faculty Relative
@@ -779,7 +779,7 @@ public class ActionXpath {
    static String relativefacforumsave1 = "//span[.='Save and Proceed to Forum Settings']";
    static String relativefaforumsave1 = "//span[.='Save and Proceed']";
    static String relativefaforumok1 = "//span[.='OK']";
-   static String relativeformexpand1 = "(//*[. and contains(text(), 'Forum')]/../../../..//*[local-name()='svg'])[1]";
+   static String relativeformexpand1 = "(//*[. and contains(text(), 'Forum')]/../../../../..//*[local-name()='svg'])[1]";
    static String relativefaccformedot1 = "//p[.='spruthirajautomation']/ancestor::div[@class='MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-justify-content-xs-space-around']/descendant::h5";
    static String relativefacformepublish11 = "//span[.='Publish']";
    static String relativefacformepublish12 = "//span[.='Publish']";
@@ -789,7 +789,7 @@ public class ActionXpath {
    //// xpath.................////
    static String relativestudentacadamicsltsta1 = "//span[.='Academics']";
    static String relativeforumlearnltsta1 = "//span[.='Learn']";
-   static String relativeforumaexpandltsta1 = "//span[. and contains(text(), 'Forum')]/../../../..//*[local-name()='svg']";
+   static String relativeforumaexpandltsta1 = "(//*[. and contains(text(), 'Forum')]/../../../../..//*[local-name()='svg'])[1]";
    static String relativeforumsubltstasign1 = "(//span[@class='MuiIconButton-label'])[3]";
    static String relativeforumsubltstasignout1 = "(//li[@role='menuitem'])[2]";
    //// ................................... faculty delete forum Relative
