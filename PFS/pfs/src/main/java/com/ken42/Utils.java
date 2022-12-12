@@ -192,14 +192,14 @@ public class Utils {
 					String facultypassword = "Ltpct@student";
 
 					if (Email.contains("student")) {
-						Utils.callSendkeys(driver, ActionXpath.username, studentuname, time);
-						Utils.callSendkeys(driver, ActionXpath.password, studentpassword, time);
-						Utils.clickXpath(driver, ActionXpath.singnin, time, "Verify");
+						Utils.callSendkeys(driver, ActionXpath.username, studentuname, time, log);
+						Utils.callSendkeys(driver, ActionXpath.password, studentpassword, time, log);
+						Utils.clickXpath(driver, ActionXpath.singnin, time, "Verify", log);
 
 					} else if (Email.contains("faculty")) {
-						Utils.callSendkeys(driver, ActionXpath.username, facultyuname, time);
-						Utils.callSendkeys(driver, ActionXpath.password, facultypassword, time);
-						Utils.clickXpath(driver, ActionXpath.singnin, time, "Verify");
+						Utils.callSendkeys(driver, ActionXpath.username, facultyuname, time, log);
+						Utils.callSendkeys(driver, ActionXpath.password, facultypassword, time, log);
+						Utils.clickXpath(driver, ActionXpath.singnin, time, "Verify", log);
 
 					}
 
@@ -211,14 +211,14 @@ public class Utils {
 					String facultypassword = "a2VuNDJ0ZXN0";
 
 					if (Email.contains("student")) {
-						Utils.callSendkeys(driver, ActionXpath.username, studentuname, time);
-						Utils.callSendkeys(driver, ActionXpath.password, studentpassword, time);
-						Utils.clickXpath(driver, ActionXpath.singnin, time, "Verify");
+						Utils.callSendkeys(driver, ActionXpath.username, studentuname, time, log);
+						Utils.callSendkeys(driver, ActionXpath.password, studentpassword, time, log);
+						Utils.clickXpath(driver, ActionXpath.singnin, time, "Verify", log);
 
 					} else if (Email.contains("faculty")) {
-						Utils.callSendkeys(driver, ActionXpath.username, facultyuname, time);
-						Utils.callSendkeys(driver, ActionXpath.password, facultypassword, time);
-						Utils.clickXpath(driver, ActionXpath.singnin, time, "Verify");
+						Utils.callSendkeys(driver, ActionXpath.username, facultyuname, time, log);
+						Utils.callSendkeys(driver, ActionXpath.password, facultypassword, time, log);
+						Utils.clickXpath(driver, ActionXpath.singnin, time, "Verify", log);
 
 					}
 				}
@@ -226,8 +226,8 @@ public class Utils {
 				int time = 2000;
 				smallSleepBetweenClicks(1);
 				String regex = "Null";
-				Utils.callSendkeys(driver, ActionXpath.email, Email, time);
-				Utils.clickXpath(driver, ActionXpath.requestotp, time, "Request OTP");
+				Utils.callSendkeys(driver, ActionXpath.email, Email, time, log);
+				Utils.clickXpath(driver, ActionXpath.requestotp, time, "Request OTP", log);
 				int count = 0;
 				int maxTries = 7;
 				String alertMessage = "";
@@ -253,8 +253,8 @@ public class Utils {
 					regex = m.group();
 				}
 				// smallSleepBetweenClicks();
-				Utils.callSendkeys(driver, ActionXpath.otprequest1, regex, time);
-				Utils.clickXpath(driver, ActionXpath.verifyotp, time, "Verify otp");
+				Utils.callSendkeys(driver, ActionXpath.otprequest1, regex, time, log);
+				Utils.clickXpath(driver, ActionXpath.verifyotp, time, "Verify otp", log);
 				System.out.println(
 						"Sleeping after login for 7 seconds so that goBacktoHome function does not automatically logout user");
 				bigSleepBetweenClicks(1);
@@ -288,8 +288,8 @@ public class Utils {
 			smallSleepBetweenClicks(1);
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("window.scrollBy(0,0)");
-			Utils.clickXpath(driver, ActionXpath.FCCportal, time, "Click on  initial");
-			Utils.clickXpath(driver, ActionXpath.facsignOut, time, "click on signout");
+			Utils.clickXpath(driver, ActionXpath.FCCportal, time, "Click on  initial", log);
+			Utils.clickXpath(driver, ActionXpath.facsignOut, time, "click on signout", log);
 
 		} catch (Exception e) {
 			Utils.printException(e);
@@ -305,9 +305,9 @@ public class Utils {
 			checkAcadAndClick(WebDriver driver, String url) throws Exception {
 		try {
 			if (checkAcad(url)) {
-				Utils.clickXpath(driver, ActionXpath.ltstaaccademics, time, "Click on LTSTA ACad");
+				Utils.clickXpath(driver, ActionXpath.ltstaaccademics, time, "Click on LTSTA ACad", log);
 			} else {
-				Utils.clickXpath(driver, ActionXpath.accademics, time, "Click on non-ltsta Acad");
+				Utils.clickXpath(driver, ActionXpath.accademics, time, "Click on non-ltsta Acad", log);
 			}
 		} catch (Exception e) {
 			Utils.printException(e);
@@ -320,13 +320,14 @@ public class Utils {
 	public static void clickOnFacultyService(WebDriver driver, String url, Logger Log) throws Exception {
 		try {
 			if (checkLtsta(url)) {
-				Utils.clickXpath(driver, ActionXpath.facServicesltsta, time, "click on faculty services");
+				Utils.clickXpath(driver, ActionXpath.facServicesltsta, time, "click on faculty services", log);
 			} else {
 				if (checkServiceTab(url)) {
-					Utils.clickXpath(driver, ActionXpath.facServicespfsbmtnsom, time, "click on faculty services");
-					Utils.clickXpath(driver, ActionXpath.facRaiseCaseleftNavbar, time, "Left nav bar FacRaisebutton");
+					Utils.clickXpath(driver, ActionXpath.facServicespfsbmtnsom, time, "click on faculty services", log);
+					Utils.clickXpath(driver, ActionXpath.facRaiseCaseleftNavbar, time, "Left nav bar FacRaisebutton",
+							log);
 				} else {
-					Utils.clickXpath(driver, ActionXpath.facServicespfsbmtnsom, time, "click on faculty services");
+					Utils.clickXpath(driver, ActionXpath.facServicespfsbmtnsom, time, "click on faculty services", log);
 				}
 			}
 		} catch (Exception e) {
@@ -666,11 +667,11 @@ public class Utils {
 			String program1, program2;
 			String[] programconverted;
 			String[] ProgSubj = new String[4];
-			Utils.clickXpath(driver, ActionXpath.program, time, "click on program");
-			Utils.clickXpath(driver, ActionXpath.programselect, time, "click on program select");
+			Utils.clickXpath(driver, ActionXpath.program, time, "click on program", log);
+			Utils.clickXpath(driver, ActionXpath.programselect, time, "click on program select", log);
 			program = Utils.getTEXT(driver, "(//*[. and @aria-haspopup='listbox'])[1]");
-			Utils.clickXpath(driver, ActionXpath.course, time, "click on subject");
-			Utils.clickXpath(driver, ActionXpath.courseselect, time, "click on select subject");
+			Utils.clickXpath(driver, ActionXpath.course, time, "click on subject", log);
+			Utils.clickXpath(driver, ActionXpath.courseselect, time, "click on select subject", log);
 			subject = Utils.getTEXT(driver, "(//*[. and @aria-haspopup='listbox'])[2]");
 
 			System.out.println("program string is: " + program);
@@ -684,12 +685,12 @@ public class Utils {
 				System.out.println("Text program2 is : " + program2);
 
 				if (Utils.checkifcourseissubject(url)) {
-					Utils.clickXpath(driver, ActionXpath.course, time, "click on subject");
+					Utils.clickXpath(driver, ActionXpath.course, time, "click on subject", log);
 					subject = Utils.getTEXT(driver, "(//li[@data-value])[1]");
-					Utils.clickXpath(driver, ActionXpath.courseselect, time, "click on select subject");
+					Utils.clickXpath(driver, ActionXpath.courseselect, time, "click on select subject", log);
 				} else {
 
-					Utils.clickXpath(driver, ActionXpath.subjectclick, time, "click on subject");
+					Utils.clickXpath(driver, ActionXpath.subjectclick, time, "click on subject", log);
 					subject = Utils.getTEXT(driver, "(//*[@class='MuiTab-wrapper']//p)[1]");
 				}
 				String[] Subjectconvented = convertContent(subject);
