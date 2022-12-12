@@ -78,7 +78,7 @@ public class Pfs_student {
 			log.info("TC-3: Student Academic Test Case PASSED \n");
 		} catch (Exception e) {
 			Utils.printException(e);
-			driver.navigate().to(url);
+			Utils.goBackToHome(driver, url);
 			log.warning("TC-3: Student Academic Test Case FAILED \n");
 		}
 	}

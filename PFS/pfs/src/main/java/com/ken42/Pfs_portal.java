@@ -44,8 +44,10 @@ public class Pfs_portal extends Thread {
 			Thread.sleep(1000);
 			testPFSPortal(this.csvLineData, this.count);
 		} catch (InterruptedException e) {
+			System.out.println("Thread- Exception " + Thread.currentThread().getName());
 			e.printStackTrace();
 		} catch (java.lang.Exception e) {
+			System.out.println("Thread- Exception " + Thread.currentThread().getName());
 			e.printStackTrace();
 		}
 		System.out.println("Thread- END " + Thread.currentThread().getName());

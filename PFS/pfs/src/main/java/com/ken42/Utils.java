@@ -239,6 +239,7 @@ public class Utils {
 					} catch (Exception e) {
 						Utils.smallSleepBetweenClicks(1);
 						if (++count > maxTries) {
+							log.warning("Max retry of OTP reached");
 							throw (e);
 						}
 					}
@@ -261,7 +262,7 @@ public class Utils {
 		} catch (
 
 		Exception e) {
-			log.warning("Login to portal failed \n\n\n");
+			log.warning("Login to portal failed "+url);
 			printException(e);
 			driver.quit();
 			// System.exit(01);
@@ -293,6 +294,7 @@ public class Utils {
 			Utils.printException(e);
 			System.out.println("Failure in logout function");
 			log.info("Failure in Logout function");
+			driver.quit();
 			throw (e);
 		}
 	}
@@ -540,6 +542,7 @@ public class Utils {
 
 	@Test
 	public static void goBackToHome(WebDriver driver, String url) throws InterruptedException {
+		smallSleepBetweenClicks(1);
 		driver.navigate().to(url);
 		smallSleepBetweenClicks(1);
 	}
