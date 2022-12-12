@@ -209,7 +209,7 @@ public class Utils {
 					String studentpassword = "TestStudent0610";
 					String facultypassword = "a2VuNDJ0ZXN0";
 
-					if (Email.contains("Student")) {
+					if (Email.contains("student")) {
 						Utils.callSendkeys(driver, ActionXpath.username, studentuname, time);
 						Utils.callSendkeys(driver, ActionXpath.password, studentpassword, time);
 						Utils.clickXpath(driver, ActionXpath.singnin, time, "Verify");
