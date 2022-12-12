@@ -271,40 +271,49 @@ public class Pfs_portal extends Thread {
 					Pfs_faculty.testFacultyEvent(PFSurl, driver, log); // TC-27
 					break;
 				case 28:
-					checkFacultyIsLoggedIn(driver, facultyEmail, PFSurl);
-					Pfs_faculty.testfacultyEditProfile(studentEmail, facultyEmail, PFSurl, driver, log); // TC-28
+					// checkFacultyIsLoggedIn(driver, facultyEmail, PFSurl);
+					// Pfs_faculty.testfacultyEditProfile(studentEmail, facultyEmail, PFSurl,
+					// driver, log); // TC-28
 					break;
 				case 29:
-					checkFacultyIsLoggedIn(driver, facultyEmail, PFSurl);
-					Pfs_faculty.testfacultyEditAddress(studentEmail, facultyEmail, PFSurl, driver, log); // TC-29
+					// checkFacultyIsLoggedIn(driver, facultyEmail, PFSurl);
+					// Pfs_faculty.testfacultyEditAddress(studentEmail, facultyEmail, PFSurl,
+					// driver, log); // TC-29
 					break;
 				case 30:
-					checkFacultyIsLoggedIn(driver, facultyEmail, PFSurl);
-					Pfs_faculty.testfacultyEditAcademicDetails(studentEmail, facultyEmail, PFSurl, driver, log); // TC-30
+					// checkFacultyIsLoggedIn(driver, facultyEmail, PFSurl);
+					// Pfs_faculty.testfacultyEditAcademicDetails(studentEmail, facultyEmail,
+					// PFSurl, driver, log); // TC-30
 					break;
 				case 31:
-					checkFacultyIsLoggedIn(driver, facultyEmail, PFSurl);
-					Pfs_faculty.testfacultyEditReaserchSupervision(studentEmail, facultyEmail, PFSurl, driver, log); // TC-31
+					// checkFacultyIsLoggedIn(driver, facultyEmail, PFSurl);
+					// Pfs_faculty.testfacultyEditReaserchSupervision(studentEmail, facultyEmail,
+					// PFSurl, driver, log); // TC-31
 					break;
 				case 32:
-					checkFacultyIsLoggedIn(driver, facultyEmail, PFSurl);
-					Pfs_faculty.testfacultyEditResearchPublication(studentEmail, facultyEmail, PFSurl, driver, log); // TC-32
+					// checkFacultyIsLoggedIn(driver, facultyEmail, PFSurl);
+					// Pfs_faculty.testfacultyEditResearchPublication(studentEmail, facultyEmail,
+					// PFSurl, driver, log); // TC-32
 					break;
 				case 33:
-					checkFacultyIsLoggedIn(driver, facultyEmail, PFSurl);
-					Pfs_faculty.testfacultyEditConference(studentEmail, facultyEmail, PFSurl, driver, log); // TC-33
+					// checkFacultyIsLoggedIn(driver, facultyEmail, PFSurl);
+					// Pfs_faculty.testfacultyEditConference(studentEmail, facultyEmail, PFSurl,
+					// driver, log); // TC-33
 					break;
 				case 34:
-					checkFacultyIsLoggedIn(driver, facultyEmail, PFSurl);
-					Pfs_faculty.testfacultyEditBook(studentEmail, facultyEmail, PFSurl, driver, log); // TC-34
+					// checkFacultyIsLoggedIn(driver, facultyEmail, PFSurl);
+					// Pfs_faculty.testfacultyEditBook(studentEmail, facultyEmail, PFSurl, driver,
+					// log); // TC-34
 					break;
 				case 35:
-					checkFacultyIsLoggedIn(driver, facultyEmail, PFSurl);
-					Pfs_faculty.testfacultyEditProfessionalAssociation(studentEmail, facultyEmail, PFSurl, driver, log); // TC-35
+					// checkFacultyIsLoggedIn(driver, facultyEmail, PFSurl);
+					// Pfs_faculty.testfacultyEditProfessionalAssociation(studentEmail,
+					// facultyEmail, PFSurl, driver, log); // TC-35
 					break;
 				case 36:
-					checkFacultyIsLoggedIn(driver, facultyEmail, PFSurl);
-					Pfs_faculty.testfacultyOthers(studentEmail, facultyEmail, PFSurl, driver, log); // TC-36
+					// checkFacultyIsLoggedIn(driver, facultyEmail, PFSurl);
+					// Pfs_faculty.testfacultyOthers(studentEmail, facultyEmail, PFSurl, driver,
+					// log); // TC-36
 					break;
 				case 37:
 					checkFacultyIsLoggedIn(driver, facultyEmail, PFSurl);
