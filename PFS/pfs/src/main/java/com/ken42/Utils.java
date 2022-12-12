@@ -32,7 +32,7 @@ public class Utils {
 	static int time = 1000;
 	// public static Logger log = Logger.getLogger("Pfs_portal");
 
-	public static void clickXpath(WebDriver driver, String xpath, int time, String msg) throws Exception {
+	public static void clickXpath(WebDriver driver, String xpath, int time, String msg, Logger log) throws Exception {
 		JavascriptExecutor js3 = (JavascriptExecutor) driver;
 		int count = 0;
 		int maxTries = 10;
@@ -65,7 +65,7 @@ public class Utils {
 		}
 	}
 
-	public static void callSendkeys(WebDriver driver, String Xpath, String Value, int time1) throws Exception {
+	public static void callSendkeys(WebDriver driver, String Xpath, String Value, int time1, Logger log) throws Exception {
 		int count = 0;
 		int maxTries = 7;
 		final String XPATH = Xpath;
@@ -179,7 +179,7 @@ public class Utils {
 	}
 
 	@Test
-	public static void login(WebDriver driver, String Email, String url) throws Exception {
+	public static void login(WebDriver driver, String Email, String url, Logger log) throws Exception {
 		try {
 			System.out.println("**^#*:" + url);
 			if (checkoldlogin(url)) {
@@ -281,7 +281,7 @@ public class Utils {
 	}
 
 	@Test
-	public static void logout(WebDriver driver, String url, String Role) throws Exception {
+	public static void logout(WebDriver driver, String url, String Role, Logger Log) throws Exception {
 		try {
 			driver.navigate().to(url);
 			smallSleepBetweenClicks(1);
@@ -316,7 +316,7 @@ public class Utils {
 		}
 	}
 
-	public static void clickOnFacultyService(WebDriver driver, String url) throws Exception {
+	public static void clickOnFacultyService(WebDriver driver, String url, Logger Log) throws Exception {
 		try {
 			if (checkLtsta(url)) {
 				Utils.clickXpath(driver, ActionXpath.facServicesltsta, time, "click on faculty services");
