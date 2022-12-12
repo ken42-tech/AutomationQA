@@ -1378,16 +1378,17 @@ public class Pfs_activity {
             String Filenameassesment = returnAssement[0];
             System.out.println("TC-57 Faculty Fourm create,publish Delete,Discussion test case Staerted  ");
             Utils.login(driver, faculty, url);
-            // String Filenameassesment= forumcreate(student, faculty, url, Browser, Role,
-            // driver);
+
             returnAssement = forumcreate(student, faculty, url, Browser, Role, driver, log);
             returnAssement = forumpublish(returnAssement, faculty, url, Browser, Role, driver, log);
 
-            // forumpublish(faculty, url, Browser, Role, driver,Filenameassesment);
+            Utils.logout(driver, url, Role);
+            Utils.login(driver, student, url);
+            forumviewstudent(returnAssement, student, url, Browser, Role, driver, log);
             returnAssement = forumdiscussion(returnAssement, faculty, url, Browser, Role, driver, log);
 
-            // forumdiscussion(faculty, url, Browser, Role, driver, Filenameassesment);
             Utils.logout(driver, url, Role);
+
             Utils.login(driver, faculty, url);
             returnAssement = forumdelete(returnAssement, faculty, url, Browser, Role, driver, log);
             Utils.logout(driver, url, Role);
