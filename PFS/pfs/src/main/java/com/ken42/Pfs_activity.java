@@ -62,12 +62,15 @@ public class Pfs_activity {
                 System.out.println("Subject1 is:" + subject1);
             }
 
-            if (Pfs_portal.headless) {
+            Boolean appPresent = false;
+            String dot3 = "//*[@class='tox-tbtn' and @title='More...']";
+            appPresent = driver.findElements(By.xpath(dot3)).size() > 0;
+            if (appPresent) {
+                Utils.clickXpath(driver, ActionXpath.facinstruction3dot, time, "facinstruction3dot");
+                Utils.smallSleepBetweenClicks(1);
                 Utils.clickXpath(driver, ActionXpath.facclinkrelative, time, "facclink");
                 Utils.smallSleepBetweenClicks(1);
             } else {
-                Utils.clickXpath(driver, ActionXpath.facinstruction3dot, time, "facinstruction3dot");
-                Utils.smallSleepBetweenClicks(1);
                 Utils.clickXpath(driver, ActionXpath.facclinkrelative, time, "facclink");
                 Utils.smallSleepBetweenClicks(1);
             }
@@ -583,15 +586,19 @@ public class Pfs_activity {
             System.out.println("program1 is:" + program1);
             System.out.println("Subject1 is:" + subject1);
 
-            if (Pfs_portal.headless) {
-                Utils.clickXpath(driver, ActionXpath.facclinkrelative, time, "facclink");
-                Utils.smallSleepBetweenClicks(1);
-            } else {
+            Boolean appPresent = false;
+            String dot3 = "//*[@class='tox-tbtn' and @title='More...']";
+            appPresent = driver.findElements(By.xpath(dot3)).size() > 0;
+            if (appPresent) {
                 Utils.clickXpath(driver, ActionXpath.facinstruction3dot, time, "facinstruction3dot");
                 Utils.smallSleepBetweenClicks(1);
                 Utils.clickXpath(driver, ActionXpath.facclinkrelative, time, "facclink");
                 Utils.smallSleepBetweenClicks(1);
+            } else {
+                Utils.clickXpath(driver, ActionXpath.facclinkrelative, time, "facclink");
+                Utils.smallSleepBetweenClicks(1);
             }
+
             Utils.callSendkeys(driver, ActionXpath.assignfacurlrelative, "https://portal-dev.ken42.com/", time);
             Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.assignfacsavlinrelative, time, "facsavlink");
@@ -979,12 +986,15 @@ public class Pfs_activity {
                 // driver.findElement(By.xpath("//li[@data-value='" + section + "']")).click();
             }
             // new Forum creation
-            if (Pfs_portal.headless) {
+            Boolean appPresent = false;
+            String dot3 = "//*[@class='tox-tbtn' and @title='More...']";
+            appPresent = driver.findElements(By.xpath(dot3)).size() > 0;
+            if (appPresent) {
+                Utils.clickXpath(driver, ActionXpath.facinstruction3dot, time, "facinstruction3dot");
+                Utils.smallSleepBetweenClicks(1);
                 Utils.clickXpath(driver, ActionXpath.facclinkrelative, time, "facclink");
                 Utils.smallSleepBetweenClicks(1);
             } else {
-                Utils.clickXpath(driver, ActionXpath.facinstruction3dot, time, "facinstruction3dot");
-                Utils.smallSleepBetweenClicks(1);
                 Utils.clickXpath(driver, ActionXpath.facclinkrelative, time, "facclink");
                 Utils.smallSleepBetweenClicks(1);
             }
