@@ -98,7 +98,7 @@ public class Pfs_portal extends Thread {
 	public static void checkStudentIsLoggedIn(WebDriver driver, String studentEmail, String PFSurl) throws Exception {
 		if (!student_login_set) {
 			Utils.smallSleepBetweenClicks(1);
-			Utils.login(driver, studentEmail, PFSurl);
+			Utils.login(driver, studentEmail, PFSurl, log);
 			student_login_set = true;
 		}
 	}
@@ -106,7 +106,7 @@ public class Pfs_portal extends Thread {
 	public static void checkFacultyIsLoggedIn(WebDriver driver, String facultyEmail, String PFSurl) throws Exception {
 		if (!faculty_login_set) {
 			Utils.smallSleepBetweenClicks(1);
-			Utils.login(driver, facultyEmail, PFSurl);
+			Utils.login(driver, facultyEmail, PFSurl, log);
 			faculty_login_set = true;
 		}
 	}
@@ -148,11 +148,11 @@ public class Pfs_portal extends Thread {
 		driver = initDriver(Browser, PFSurl);
 
 		if ((from >= 1 && to <= 16)) {
-			Utils.login(driver, studentEmail, PFSurl);
+			Utils.login(driver, studentEmail, PFSurl, log);
 			Role = "student";
 			student_login_set = true;
 		} else if ((from >= 17 && to <= 39)) {
-			Utils.login(driver, facultyEmail, PFSurl);
+			Utils.login(driver, facultyEmail, PFSurl, log);
 			Role = "faculty";
 			faculty_login_set = true;
 		} else if ((from >= 1 && to <= 69) && (to >= 1 && to <= 69)) {
