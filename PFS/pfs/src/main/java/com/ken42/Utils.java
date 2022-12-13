@@ -439,7 +439,7 @@ public class Utils {
 
 	@Test
 	public static Boolean checkServiceTab(String url) {
-		String urlToMatch = "bimtech|jdinstitutedelhi|nsom|portal-dev";
+		String urlToMatch = "bimtech|jdinstitutedelhi|nsom|portal-dev|portal-demo|ltpct";
 		Pattern pt = Pattern.compile(urlToMatch);
 		Matcher m = pt.matcher(url);
 		while (m.find()) {
@@ -557,7 +557,7 @@ public class Utils {
 			log.info("Failure in go back to home page");
 			driver.quit();
 		}
-		
+
 	}
 
 	@Test
