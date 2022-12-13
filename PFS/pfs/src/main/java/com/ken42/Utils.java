@@ -184,7 +184,7 @@ public class Utils {
 		try {
 			System.out.println("**^#*:" + url);
 			if (checkoldlogin(url)) {
-
+				Utils.smallSleepBetweenClicks(1);
 				if (usernameloginltpct(url)) {
 					String studentuname = "TestStudent6300";
 					String facultyuname = "Test.Faculty7635";

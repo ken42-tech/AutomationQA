@@ -448,7 +448,7 @@ public class ActionXpath {
    // spreadsheet publish
    // static String facssopen="//*[. and contains(text(),
    //// 'Spreadsheet')]/../../../..//*[local-name()='svg']";
-   static String facssopen = "(//*[. and contains(text(), 'Spreadsheet')]/../../../../..//*[local-name()='svg'])[1]";
+   static String facssopen = "//*[contains(text(), 'Spreadsheet')]";
    // static String facss3dot="(//div[@class='MuiCardContent-root'])[12]";
    // static String facss3dot="(//p[.='Sample
    // Excel']/ancestor::div[@class='MuiPaper-root MuiCard-root jss152
@@ -466,7 +466,9 @@ public class ActionXpath {
    //// static String learn="//span[text()='Learn']";
    // static String viewss="//*[. and contains(text(),
    //// 'Spreadsheet')]/../../../..//*[local-name()='svg']";
-   static String viewss = "(//*[. and contains(text(), 'Spreadsheet')]/../../../../..//*[local-name()='svg'])[1]";
+   static String viewss = "//*[contains(text(), 'Spreadsheet')]";
+   
+   // static String viewss = "(//*[. and contains(text(), 'Spreadsheet')]/../../../../..//*[local-name()='svg'])[1]";
    //// static String viewpdf2="//span[text()='View']";
    //// static String
    //// SelectPrtoSignout="/html/body/div[1]/div/div/div/main/div[2]/div[2]/header/div/header/div[1]/div[2]/div/div";
