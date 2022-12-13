@@ -216,7 +216,7 @@ public class Pfs_student {
 
 	@Test(priority = 10)
 	public static void testStudentRaiseCase(String student, String faculty, String url, WebDriver driver, Logger log)
-			throws InterruptedException {
+			throws Exception {
 		try {
 			System.out.println("TC-10: Starting Student Services Raise test case execution \n");
 			Utils.goBackToHome(driver, url);
