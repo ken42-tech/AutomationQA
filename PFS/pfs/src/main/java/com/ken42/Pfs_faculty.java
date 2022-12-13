@@ -213,7 +213,8 @@ public class Pfs_faculty {
 			Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.FacRaisebutton, time, "Raise a case button", log);
 			Utils.smallSleepBetweenClicks(1);
-			Utils.clickXpath(driver, ActionXpath.Raisebutton, time, "Raise case button", log);
+			// Utils.clickXpath(driver, ActionXpath.Raisebutton, time, "Raise case button",
+			// log);
 			Utils.callSendkeys(driver, ActionXpath.inputSub, "Regd Error on Inviligation Secation", time, log);
 			Utils.callSendkeys(driver, ActionXpath.FacDesc,
 					"while i need to regd on the inviligation section m unable to do bcz its showing the system admin Error Sever not availbale 404 error.",
