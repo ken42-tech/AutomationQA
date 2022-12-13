@@ -280,7 +280,7 @@ public class ActionXpath {
    static String faccEvent = "(//span[text()='Events'])[2]";
    static String faceventlocation = "//div[@aria-labelledby='Location']";
    static String faceventlocationselect = "//li[@data-value='All' or text()='All']";
-   static String FaccSearch = "//input[@placeholder='Searchâ€¦']";
+   static String FaccSearch = "//input[@placeholder='Search…']";
    static String faccEventltsta = "//span[text()='Events']";
    // TC:28faculty profile faculty
    static String facSeleectpic = "(//span[@class='MuiIconButton-label'])[3]";
@@ -467,8 +467,6 @@ public class ActionXpath {
    // static String viewss="//*[. and contains(text(),
    //// 'Spreadsheet')]/../../../..//*[local-name()='svg']";
    static String viewss = "//*[contains(text(), 'Spreadsheet')]";
-   
-   // static String viewss = "(//*[. and contains(text(), 'Spreadsheet')]/../../../../..//*[local-name()='svg'])[1]";
    //// static String viewpdf2="//span[text()='View']";
    //// static String
    //// SelectPrtoSignout="/html/body/div[1]/div/div/div/main/div[2]/div[2]/header/div/header/div[1]/div[2]/div/div";
@@ -497,7 +495,7 @@ public class ActionXpath {
    //// static String facClickacademicsltsta="//span[text()='Academics']";
    // ppt publish
    // static String facpptfopen="(//div[@id='panel1a-header'])[4]";
-   static String facpptfopen = "//*[. and contains(text(), 'Presentation')]/../../../..//*[local-name()='svg']";
+   static String facpptfopen = "//*[contains(text(), 'Presentations')]";
    static String facppt3dot = "(//b[.='Sample PPT']/ancestor::div[@class='MuiGrid-root']/descendant::h5/../../..//*[local-name()='svg'])[1]";
    static String facpptpublish = "//span[text()='Publish']";
    static String facpptpublishyes = "//span[text()='Publish']";
@@ -508,7 +506,7 @@ public class ActionXpath {
    static String ltstaaccademics = "//span[text()='Academics']";
    static String accademics = "(//span[text()='Academics'])[2]";
    static String learn = "//span[text()='Learn']";
-   static String viewppt = "(//*[. and contains(text(), 'Presentation')]/../../../..//*[local-name()='svg'])[1]";
+   static String viewppt = "//*[contains(text(), 'Presentations')]";
    static String viewpdf2 = "//span[text()='View']";
    //// static String
    //// SelectPrtoSignout="/html/body/div[1]/div/div/div/main/div[2]/div[2]/header/div/header/div[1]/div[2]/div/div";
@@ -538,7 +536,7 @@ public class ActionXpath {
    //// static String facClickacademicsltsta="//span[text()='Academics']";
    // pdf publish
    // static String facpdfopen="(//div[@id='panel1a-header'])[6]";
-   static String facpdfopen = "//*[. and contains(text(), 'Pdf')]/../../../..//*[local-name()='svg']";
+   static String facpdfopen = "//*[contains(text(), 'Pdf')]";
    // static String fac3dot="(//div[@class='MuiCardContent-root'])[16]";
    static String fac3dot = "(//p[.='Sample PDF']/ancestor::div[@class='MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1 MuiGrid-item MuiGrid-grid-xs-12']/descendant::h5/../../..//*[local-name()='svg'])[1]";
    static String facpublishpdf = "//span[text()='Publish']";
@@ -550,7 +548,7 @@ public class ActionXpath {
    //// static String ltstaaccademics="//span[text()='Academics']";
    //// static String accademics="(//span[text()='Academics'])[2]";
    //// static String learn="//span[text()='Learn']";
-   static String viewpdf = "(//*[. and contains(text(), 'Pdf')]/../../../..//*[local-name()='svg'])[1]";
+   static String viewpdf = "//*[contains(text(), 'Pdf')]";
    //// static String viewpdf2="//span[text()='View']";
    //// static String
    //// SelectPrtoSignout="/html/body/div[1]/div/div/div/main/div[2]/div[2]/header/div/header/div[1]/div[2]/div/div";
@@ -576,7 +574,7 @@ public class ActionXpath {
    // ltsta xpath
    //// static String facClickacademicsltsta="//span[text()='Academics']";
    // video publish
-   static String facvideoopen = "//*[. and contains(text(), 'Video')]/../../../..//*[local-name()='svg']";
+   static String facvideoopen = "//*[contains(text(), 'Videos')]";
    static String facvideo3dot = "(//p[.='Sample Video']/ancestor::div[@class='MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1 MuiGrid-item MuiGrid-grid-xs-12']/descendant::h5/../../..//*[local-name()='svg'])[1]";
    static String facvideopublish = "//span[text()='Publish']";
    static String facvideopublishyes = "//span[text()='Publish']";
@@ -587,7 +585,7 @@ public class ActionXpath {
    //// static String ltstaaccademics="//span[text()='Academics']";
    //// static String accademics="(//span[text()='Academics'])[2]";
    //// static String learn="//span[text()='Learn']";
-   static String viewvideo = "(//*[. and contains(text(), 'Video')]/../../../..//*[local-name()='svg'])[1]";
+   static String viewvideo = "//*[contains(text(), 'Videos')]";
    //// static String viewpdf2="//span[text()='View']";
    //// static String
    //// SelectPrtoSignout="/html/body/div[1]/div/div/div/main/div[2]/div[2]/header/div/header/div[1]/div[2]/div/div";
@@ -620,7 +618,7 @@ public class ActionXpath {
    //// static String ltstaaccademics="//span[text()='Academics']";
    //// static String accademics="(//span[text()='Academics'])[2]";
    //// static String learn="//span[text()='Learn']";
-   static String viewlink = "(//*[. and contains(text(), 'Link')]/../../../..//*[local-name()='svg'])[1]";
+   static String viewlink = "//*[contains(text(), 'Link')]";
    //// static String viewpdf2="//span[text()='View']";
    //// static String
    //// SelectPrtoSignout="/html/body/div[1]/div/div/div/main/div[2]/div[2]/header/div/header/div[1]/div[2]/div/div";
@@ -629,7 +627,7 @@ public class ActionXpath {
    //// static String facpdfdelete="//span[text()='Delete']";
    //// static String facpdfdelete2="//span[text()='Delete']";
    static String faclink3dot = "(//p[.='Sample Link']/ancestor::div[@class='MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1 MuiGrid-item MuiGrid-grid-xs-12']/descendant::h5/../../..//*[local-name()='svg'])[1]";
-   static String faclinkopen = "//*[. and contains(text(), 'Link')]/../../../..//*[local-name()='svg']";
+   static String faclinkopen = "//*[contains(text(), 'Link')]";
    // TC-44 Link Xpath Completed
 
    //// ................Test case no 45
