@@ -218,7 +218,7 @@ public class ActionXpath {
    // TC:19 faculty COurse
    static String faccc = "//span[text()='Course Content']";
    static String facccactivity = "//span[text()='Activity']";
-   static String facassessmentrelative = "(//div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2'])[1]";
+   static String facassessmentrelative = "(//div[@id='responsive-dialog-title']//ancestor::div[@aria-labelledby='responsive-dialog-title']//descendant::div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-xs-2'])[1]";
    static String facassessmentrelativeltsta = "/html/body/div[4]/div[3]/div/div[2]/div/div/div[1]/div/img";
    static String facaddactivityrelative = "//span[.='Add Activity']";
    static String facccAsscancel = "//span[text()='Cancel']";
