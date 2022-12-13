@@ -216,11 +216,13 @@ public class Utils {
 						Utils.callSendkeys(driver, ActionXpath.username, studentuname, time, log);
 						Utils.callSendkeys(driver, ActionXpath.password, studentpassword, time, log);
 						Utils.clickXpath(driver, ActionXpath.singnin, time, "Verify", log);
+						Utils.bigSleepBetweenClicks(2);
 
 					} else if (Email.contains("faculty")) {
 						Utils.callSendkeys(driver, ActionXpath.username, facultyuname, time, log);
 						Utils.callSendkeys(driver, ActionXpath.password, facultypassword, time, log);
 						Utils.clickXpath(driver, ActionXpath.singnin, time, "Verify", log);
+						Utils.bigSleepBetweenClicks(2);
 
 					}
 				}
