@@ -548,9 +548,16 @@ public class Utils {
 
 	@Test
 	public static void goBackToHome(WebDriver driver, String url) throws InterruptedException {
-		smallSleepBetweenClicks(1);
-		driver.navigate().to(url);
-		smallSleepBetweenClicks(1);
+		try {
+			bigSleepBetweenClicks(1);
+			driver.navigate().to(url);
+		} catch (Exception e) {
+			Utils.printException(e);
+			System.out.println("Failure in go back to");
+			log.info("Failure in go back to home page");
+			driver.quit();
+		}
+		
 	}
 
 	@Test

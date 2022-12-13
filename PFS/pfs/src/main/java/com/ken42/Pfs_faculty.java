@@ -17,8 +17,7 @@ public class Pfs_faculty {
 		try {
 			System.out.println("TC-17:  Starting FACULTY PORTAL Academic tab test case executation\n");
 			Utils.goBackToHome(driver, url);
-			Utils.bigSleepBetweenClicks(2);
-			Utils.bigSleepBetweenClicks(2);
+			Utils.bigSleepBetweenClicks(1);
 			WebElement l = driver.findElement(By.tagName("body"));
 			String p = l.getText();
 			if (p.contains("Students") && p.contains("Classes Conducted")
@@ -29,7 +28,7 @@ public class Pfs_faculty {
 			}
 		} catch (Exception e) {
 			Utils.printException(e);
-			driver.get(url);
+			Utils.goBackToHome(driver, url);
 			Thread.sleep(time);
 			log.warning("TC-17: Faculty ACADEMIC Test case FAILED \n");
 		}
@@ -205,7 +204,7 @@ public class Pfs_faculty {
 
 	@Test(priority = 25)
 	public static void testFacultyRaiseCase(String student, String faculty, String url, WebDriver driver, Logger log)
-			throws InterruptedException {
+			throws Exception {
 		try {
 			System.out.println("TC-25 Faculty Service Raise A Case ");
 			Utils.goBackToHome(driver, url);
