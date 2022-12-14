@@ -28,6 +28,7 @@ import com.opencsv.exceptions.CsvValidationException;
 import org.openqa.selenium.Alert;
 
 public class Utils {
+
 	static Logger log = Logger.getLogger(Utils.class.getName());
 	static int time = 1000;
 	// public static Logger log = Logger.getLogger("Pfs_portal");
@@ -210,7 +211,7 @@ public class Utils {
 					String studentuname = "TestStudent0610";
 					String facultyuname = "test.faculty123";
 					String studentpassword = "TestStudent0610";
-					String facultypassword = "a2VuNDJ0ZXN0";
+					String facultypassword = "Password";
 
 					if (Email.contains("student")) {
 						Utils.callSendkeys(driver, ActionXpath.username, studentuname, time, log);
@@ -365,7 +366,7 @@ public class Utils {
 	}
 
 	public static Boolean skipsubject(String url) {
-		String urlToMatch = "ecampus|bimtech|esscisamsung|nsom|portal-demo|portal-dev|sbmppsjal|jdinstitutedelhi|ltpct|ltsta";
+		String urlToMatch = "ecampus|bimtech|esscisamsung|nsom|portal-demo|portal-dev|sbmppsjal|jdinstitutedelhi|ltpct";
 		Pattern pt = Pattern.compile(urlToMatch);
 		Matcher m = pt.matcher(url);
 		while (m.find()) {
