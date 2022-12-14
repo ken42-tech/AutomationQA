@@ -343,7 +343,10 @@ public class Pfs_activity {
 
             driver.navigate().refresh();
             Utils.bigSleepBetweenClicks(2);
-            Utils.clickXpath(driver, ActionXpath.ExpandAcademic, time, "Exapand Academic ", log);
+            Utils.checkAcadAndClick(driver, url);
+
+            // Utils.clickXpath(driver, ActionXpath.ExpandAcademic, time, "Exapand Academic
+            // ", log);
             Utils.clickXpath(driver, ActionXpath.ClickLearn, time, "Click learn ", log);
             Utils.bigSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.program, time, "click on program", log);
