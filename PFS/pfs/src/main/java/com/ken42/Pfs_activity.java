@@ -55,12 +55,12 @@ public class Pfs_activity {
                 Utils.clickXpath(driver, ActionXpath.program, time, "click on program", log);
                 driver.findElement(By.xpath("//li[@data-value='" + program1 + "']")).click();
 
-                Utils.clickXpath(driver, ActionXpath.subject, time, "click on subject", log);
-                Utils.smallSleepBetweenClicks(2);
-                driver.findElement(By.xpath("//li[@data-value='" + subject1 + "']")).click();
-                Utils.smallSleepBetweenClicks(1);
+                // Utils.clickXpath(driver, ActionXpath.subject, time, "click on subject", log);
+                // Utils.smallSleepBetweenClicks(2);
+                // driver.findElement(By.xpath("//li[@data-value='" + subject1 + "']")).click();
+                // Utils.smallSleepBetweenClicks(1);
                 System.out.println("program1 is:" + program1);
-                System.out.println("Subject1 is:" + subject1);
+                // System.out.println("Subject1 is:" + subject1);
             }
 
             Boolean appPresent = false;
