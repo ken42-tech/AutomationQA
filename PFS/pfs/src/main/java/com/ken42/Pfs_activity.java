@@ -557,7 +557,7 @@ public class Pfs_activity {
             Utils.clickXpath(driver, ActionXpath.assignfacclickcouse1relative, time, "Click on course content", log);
             String returnAssement[] = new String[5];
             String returnArray[] = new String[4];
-            returnArray = Utils.getClassSubjectAndSection(driver, url, "activity");
+            // returnArray = Utils.getClassSubjectAndSection(driver, url, "activity");
             String program1 = returnArray[0];
             String program2 = returnArray[1];
             String subject1 = returnArray[2];
@@ -584,6 +584,7 @@ public class Pfs_activity {
                 System.out.println("Subject is not avilable in essci");
             } else {
                 Utils.clickXpath(driver, ActionXpath.program, time, "click on program", log);
+                Utils.smallSleepBetweenClicks(2);
                 driver.findElement(By.xpath("//li[@data-value='" + program1 + "']")).click();
 
                 Utils.clickXpath(driver, ActionXpath.subject, time, "click on subject", log);

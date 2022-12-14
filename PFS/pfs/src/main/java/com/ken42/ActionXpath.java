@@ -677,7 +677,8 @@ public class ActionXpath {
    static String attemptquestion = "(//*[. and @type='radio'])[1]/../../..";
    static String clickquestiontype = "//*[. and text()='Question Type']";
    static String selectmcq = "(//*[. and text()='Multiple choice'])[1]";
-   static String selectmcq1 = "(//*[. and text()='Multiple choice'])[3]";
+   // static String selectmcq1 = "(//*[. and text()='Multiple choice'])[3]";
+   static String selectmcq1 = "//input[@name='multichoice']";
    static String selectmcq2 = "(//*[. and text()='Multiple choice'])[2]";
    static String submitattempt = "//*[. and text()='Submit Attempt']";
    static String submitagainattempt = "//*[. and text()='Submit']";

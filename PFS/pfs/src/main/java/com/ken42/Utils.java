@@ -190,7 +190,7 @@ public class Utils {
 					String studentuname = "TestStudent6300";
 					String facultyuname = "Test.Faculty7635";
 					String studentpassword = "TestStudent6300";
-					String facultypassword = "Ltpct@student";
+					String facultypassword = "test";
 
 					if (Email.contains("student")) {
 						Utils.callSendkeys(driver, ActionXpath.username, studentuname, time, log);
@@ -211,7 +211,7 @@ public class Utils {
 					String studentuname = "TestStudent0610";
 					String facultyuname = "test.faculty123";
 					String studentpassword = "TestStudent0610";
-					String facultypassword = "Password";
+					String facultypassword = "test";
 
 					if (Email.contains("student")) {
 						Utils.callSendkeys(driver, ActionXpath.username, studentuname, time, log);
