@@ -557,17 +557,17 @@ public class Pfs_activity {
             Utils.clickXpath(driver, ActionXpath.assignfacclickcouse1relative, time, "Click on course content", log);
             String returnAssement[] = new String[5];
             String returnArray[] = new String[4];
-            // returnArray = Utils.getClassSubjectAndSection(driver, url, "activity");
+            returnArray = Utils.getClassSubjectAndSection(driver, url, "activity");
             String program1 = returnArray[0];
             String program2 = returnArray[1];
             String subject1 = returnArray[2];
             String subject2 = returnArray[3];
 
             Utils.smallSleepBetweenClicks(1);
-            if (Utils.skipsubject(url)) {
-            } else {
-                returnArray = Utils.getClassSubjectAndSection(driver, url, "activity");
-            }
+            // if (Utils.skipsubject(url)) {
+            // } else {
+            // returnArray = Utils.getClassSubjectAndSection(driver, url, "activity");
+            // }
             String program = returnArray[0];
             String converted = returnArray[1];
 
@@ -587,13 +587,13 @@ public class Pfs_activity {
                 Utils.smallSleepBetweenClicks(2);
                 driver.findElement(By.xpath("//li[@data-value='" + program1 + "']")).click();
 
-                Utils.clickXpath(driver, ActionXpath.subject, time, "click on subject", log);
-                Utils.smallSleepBetweenClicks(2);
-                driver.findElement(By.xpath("//li[@data-value='" + subject1 + "']")).click();
+                // Utils.clickXpath(driver, ActionXpath.subject, time, "click on subject", log);
+                // Utils.smallSleepBetweenClicks(2);
+                // driver.findElement(By.xpath("//li[@data-value='" + subject1 + "']")).click();
             }
             Utils.smallSleepBetweenClicks(1);
             System.out.println("program1 is:" + program1);
-            System.out.println("Subject1 is:" + subject1);
+            // System.out.println("Subject1 is:" + subject1);
 
             Boolean appPresent = false;
             String dot3 = "//*[@class='tox-tbtn' and @title='More...']";
