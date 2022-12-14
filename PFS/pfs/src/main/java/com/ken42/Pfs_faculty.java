@@ -212,7 +212,9 @@ public class Pfs_faculty {
 			Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.FacRaisebutton, time, "Raise a case button", log);
 			Utils.smallSleepBetweenClicks(1);
-			Utils.clickXpath(driver, ActionXpath.Raisebutton, time, "Raise case button", log);
+			if (Utils.raisecase(url)) {
+				Utils.clickXpath(driver, ActionXpath.Raisebutton, time, "Raise case button", log);
+			}
 			Utils.callSendkeys(driver, ActionXpath.inputSub, "Regd Error on Inviligation Secation", time, log);
 			Utils.callSendkeys(driver, ActionXpath.FacDesc,
 					"while i need to regd on the inviligation section m unable to do bcz its showing the system admin Error Sever not availbale 404 error.",
@@ -574,8 +576,16 @@ public class Pfs_faculty {
 
 			Utils.clickXpath(driver, ActionXpath.facquesubselect, time, "Question Bank Select SUbject ", log);
 			Utils.clickXpath(driver, ActionXpath.faccnext, time, "Next", log);
-			Utils.callSendkeys(driver, ActionXpath.faccquestion, "Question", time, log);
-			Utils.callSendkeys(driver, ActionXpath.faccquestionname, "Question time", time, log);
+			if (Utils.questionbank(url)) {
+				Utils.clickXpath(driver, ActionXpath.facccresdescclick, time, "Click on URL resource link", log);
+				Utils.smallSleepBetweenClicks(1);
+				Utils.callSendkeys(driver, ActionXpath.facccresurl, "Hello", time, log);
+				Utils.clickXpath(driver, ActionXpath.facccressubmitform, time, "Save URL link button", log);
+
+			} else {
+				Utils.callSendkeys(driver, ActionXpath.faccquestion, "Question", time, log);
+				Utils.callSendkeys(driver, ActionXpath.faccquestionname, "Question time", time, log);
+			}
 			Utils.cleartext(driver, ActionXpath.faccmarks);
 			Utils.smallSleepBetweenClicks(1);
 			Utils.callSendkeys(driver, ActionXpath.faccmarks, "1", time, log);

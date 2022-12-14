@@ -355,6 +355,28 @@ public class Utils {
 	}
 
 	@Test
+	public static Boolean questionbank(String url) {
+		String urlToMatch = "portal-demo";
+		Pattern pt = Pattern.compile(urlToMatch);
+		Matcher m = pt.matcher(url);
+		while (m.find()) {
+			return true;
+		}
+		return false;
+	}
+
+	@Test
+	public static Boolean raisecase(String url) {
+		String urlToMatch = "portal-demo";
+		Pattern pt = Pattern.compile(urlToMatch);
+		Matcher m = pt.matcher(url);
+		while (m.find()) {
+			return true;
+		}
+		return false;
+	}
+
+	@Test
 	public static Boolean checkattempt(String url) {
 		String urlToMatch = "ecampus|nsom|esscisamsung|sbmppsjal|ltpct|ltsta|jdinstitutedelhi|bimtech|demo|portal-dev";
 		Pattern pt = Pattern.compile(urlToMatch);
