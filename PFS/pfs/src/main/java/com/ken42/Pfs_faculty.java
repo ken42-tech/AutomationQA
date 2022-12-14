@@ -579,7 +579,7 @@ public class Pfs_faculty {
 			if (Utils.questionbank(url)) {
 				Utils.clickXpath(driver, ActionXpath.facccresdescclick, time, "Click on URL resource link", log);
 				Utils.smallSleepBetweenClicks(1);
-				Utils.callSendkeys(driver, ActionXpath.facccresurl, "Hello", time, log);
+				Utils.callSendkeys(driver, ActionXpath.facccresurl, "Question", time, log);
 				Utils.clickXpath(driver, ActionXpath.facccressubmitform, time, "Save URL link button", log);
 
 			} else {

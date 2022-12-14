@@ -449,11 +449,19 @@ public class Pfs_activity {
                     .click();
             Utils.bigSleepBetweenClicks(2);
 
-            WebDriverWait ele12 = new WebDriverWait(driver, 20);
-            WebElement elem12 = ele12
-                    .until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[.='Result'])[1]")));
-            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", elem12);
-            Utils.bigSleepBetweenClicks(1);
+            if (Utils.viewresult(url)) {
+                WebDriverWait ele12 = new WebDriverWait(driver, 20);
+                WebElement elem12 = ele12
+                        .until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[.='Result'])[2]/../..")));
+                ((JavascriptExecutor) driver).executeScript("arguments[0].click();", elem12);
+                Utils.bigSleepBetweenClicks(1);
+            } else {
+                WebDriverWait ele12 = new WebDriverWait(driver, 20);
+                WebElement elem12 = ele12
+                        .until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[.='Result'])[1]")));
+                ((JavascriptExecutor) driver).executeScript("arguments[0].click();", elem12);
+                Utils.bigSleepBetweenClicks(1);
+            }
 
             Utils.clickXpath(driver, ActionXpath.viewattempt, time, "Click on view attempt", log);
             Utils.bigSleepBetweenClicks(1);
