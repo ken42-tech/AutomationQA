@@ -738,6 +738,7 @@ public class Pfs_activity {
             String filename = returnAssement[0];
             String program = returnAssement[3];
             String Subject = returnAssement[4];
+            Utils.checkAcadAndClick(driver, url);
 
             String PDF_file = "";
             if (Utils.checkWindowsOs()) {
@@ -745,14 +746,9 @@ public class Pfs_activity {
             } else {
                 PDF_file = "/Users/shared/demo.pdf";
             }
-            if (Utils.skipsubject(url)) {
 
-            } else {
-                String returnArray[] = new String[2];
-                returnArray = Utils.getClassSubjectAndSection(driver, url, "activity");
-            }
             Utils.bigSleepBetweenClicks(1);
-            Utils.checkAcadAndClick(driver, url);
+            // Utils.checkAcadAndClick(driver, url);
             Utils.clickXpath(driver, ActionXpath.assignlearnltstastudentrelative, time, "Select learn", log);
             Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.program, time, "click on program", log);

@@ -356,7 +356,7 @@ public class Utils {
 
 	@Test
 	public static Boolean questionbank(String url) {
-		String urlToMatch = "portal-demo";
+		String urlToMatch = "portal-demo|sbmppsjal";
 		Pattern pt = Pattern.compile(urlToMatch);
 		Matcher m = pt.matcher(url);
 		while (m.find()) {
@@ -367,7 +367,7 @@ public class Utils {
 
 	@Test
 	public static Boolean raisecase(String url) {
-		String urlToMatch = "portal-demo";
+		String urlToMatch = "portal-demo|sbmppsjal";
 		Pattern pt = Pattern.compile(urlToMatch);
 		Matcher m = pt.matcher(url);
 		while (m.find()) {
@@ -516,7 +516,7 @@ public class Utils {
 
 	@Test
 	public static Boolean publishlink(String url) {
-		String urlToMatch = "ltsta|nsom|ltpct|dev|demo|ecampus";
+		String urlToMatch = "ltsta|nsom|ltpct|dev|demo|ecampus|sbmppsjal";
 		Pattern pt = Pattern.compile(urlToMatch);
 		Matcher m = pt.matcher(url);
 		while (m.find()) {
