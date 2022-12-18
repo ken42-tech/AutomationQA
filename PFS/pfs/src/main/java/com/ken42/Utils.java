@@ -44,6 +44,7 @@ public class Utils {
 				Thread.sleep(1000);
 				if(debug)
 				log.info("Click on the:" + msg);
+				System.out.print("Click on the:" + msg);
 				Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
 						.withTimeout(Duration.ofSeconds(30))
 						.pollingEvery(Duration.ofSeconds(6))
@@ -77,6 +78,7 @@ public class Utils {
 			try {
 				if(debug)
 				log.info("***********************Entering value   " + Value);
+				System.out.print("***********************Entering value   " + Value);
 				Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
 						.withTimeout(Duration.ofSeconds(20))
 						.pollingEvery(Duration.ofSeconds(4))
