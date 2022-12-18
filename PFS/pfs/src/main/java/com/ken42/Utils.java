@@ -32,6 +32,7 @@ public class Utils {
 	static Logger log = Logger.getLogger(Utils.class.getName());
 	static int time = 1000;
 	// public static Logger log = Logger.getLogger("Pfs_portal");
+	static boolean debug = false;
 
 	public static void clickXpath(WebDriver driver, String xpath, int time, String msg, Logger log) throws Exception {
 		JavascriptExecutor js3 = (JavascriptExecutor) driver;
@@ -41,6 +42,7 @@ public class Utils {
 		while (true) {
 			try {
 				Thread.sleep(1000);
+				if(debug)
 				log.info("Click on the:" + msg);
 				Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
 						.withTimeout(Duration.ofSeconds(30))
@@ -73,6 +75,7 @@ public class Utils {
 		final String XPATH = Xpath;
 		while (true) {
 			try {
+				if(debug)
 				log.info("***********************Entering value   " + Value);
 				Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
 						.withTimeout(Duration.ofSeconds(20))
@@ -135,7 +138,6 @@ public class Utils {
 				Utils.smallSleepBetweenClicks(1);
 				log.warning("Failed to Clear the input text on the");
 				if (++count > maxTries) {
-					log.info("Exception" + e);
 					throw (e);
 				}
 			}
