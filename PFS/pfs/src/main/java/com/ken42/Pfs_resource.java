@@ -16,9 +16,7 @@ public class Pfs_resource {
 
 	@Test
 	public static void resourceFacultyInitialSteps(String faculty, String url, WebDriver driver, Logger log) throws Exception {
-		log.info("Before login function ");
 		Utils.login(driver, faculty, url, log);
-		log.info("After login function ");
 		Utils.checkAcadAndClick(driver, url);
 		Utils.clickXpath(driver, ActionXpath.faccc, time, "Click on course content", log);
 	}

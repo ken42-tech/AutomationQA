@@ -60,7 +60,9 @@ public class Utils {
 				break;
 			} catch (Exception e) {
 				Thread.sleep(3000);
+				if(debug)
 				log.warning("Failed to Click on the :" + msg);
+				System.out.println("Failed to Click on the :" + msg);
 				if (++count == maxTries) {
 					Utils.printException(e);
 					throw e;
