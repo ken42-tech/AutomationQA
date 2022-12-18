@@ -10,7 +10,7 @@ import java.util.logging.LogRecord;
 public class MyHtmlFormatter extends Formatter {
 
 	public String format(LogRecord rec) {
-		StringBuffer buf = new StringBuffer(1000);
+		StringBuffer buf = new StringBuffer(10000);
 		buf.append("<tr>\n");
 
 		// colorize any levels >= WARNING in red

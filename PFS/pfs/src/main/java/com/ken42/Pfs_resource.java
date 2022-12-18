@@ -15,9 +15,10 @@ public class Pfs_resource {
 	private static String PFSurl;
 
 	@Test
-	public static void resourceFacultyInitialSteps(String faculty, String url, WebDriver driver) throws Exception {
-
+	public static void resourceFacultyInitialSteps(String faculty, String url, WebDriver driver, Logger log) throws Exception {
+		log.info("Before login function ");
 		Utils.login(driver, faculty, url, log);
+		log.info("After login function ");
 		Utils.checkAcadAndClick(driver, url);
 		Utils.clickXpath(driver, ActionXpath.faccc, time, "Click on course content", log);
 	}
@@ -109,7 +110,7 @@ public class Pfs_resource {
 			System.out.println("TC-40:  SpreadSheet resource Create View delete Test case Started");
 
 			Utils.smallSleepBetweenClicks(1);
-			resourceFacultyInitialSteps(faculty, url, driver);
+			resourceFacultyInitialSteps(faculty, url, driver, log);
 			String program, subject;
 			Utils.clickXpath(driver, ActionXpath.program, time, "click on program", log);
 			Utils.clickXpath(driver, ActionXpath.programselect, time, "click on program select", log);
@@ -160,7 +161,7 @@ public class Pfs_resource {
 			resourceStudentViewAndLogout(faculty, url, driver, fileName, Role, log);
 			// Student part ends
 
-			resourceFacultyInitialSteps(faculty, url, driver);
+			resourceFacultyInitialSteps(faculty, url, driver, log);
 			Utils.clickXpath(driver, ActionXpath.facssopen, time, "facspreadsheetopen", log);
 			resourceDeleteAndLogout(faculty, url, driver, fileName, Role, log);
 			log.info("TC-40: SpreadSheet resource Create View delete Test Case PASSED \n");
@@ -182,7 +183,7 @@ public class Pfs_resource {
 			PPT_file = folder + "\\demo.pptx";
 
 			System.out.println("TC-41:  PPT resource Create View delete Test case Started");
-			resourceFacultyInitialSteps(faculty, url, driver);
+			resourceFacultyInitialSteps(faculty, url, driver,log);
 			String program, subject;
 			Utils.clickXpath(driver, ActionXpath.program, time, "click on program", log);
 			Utils.clickXpath(driver, ActionXpath.programselect, time, "click on program select", log);
@@ -221,7 +222,7 @@ public class Pfs_resource {
 			Utils.clickXpath(driver, ActionXpath.viewppt, time, "viewppt", log);
 			resourceStudentViewAndLogout(faculty, url, driver, fileName, Role, log);
 
-			resourceFacultyInitialSteps(faculty, url, driver);
+			resourceFacultyInitialSteps(faculty, url, driver, log);
 			Utils.clickXpath(driver, ActionXpath.facpptfopen, time, "facpptfopen", log);
 			resourceDeleteAndLogout(faculty, url, driver, fileName, Role, log);
 			log.info("TC-41: PPT resource Create View delete Test Case PASSED \n");
@@ -243,7 +244,7 @@ public class Pfs_resource {
 			PDF_file = folder + "\\demo.pdf";
 
 			System.out.println("TC-42:  Create PDF resource publish and delete PDF");
-			resourceFacultyInitialSteps(faculty, url, driver);
+			resourceFacultyInitialSteps(faculty, url, driver, log);
 			String program, subject;
 			Utils.clickXpath(driver, ActionXpath.program, time, "click on program", log);
 			Utils.clickXpath(driver, ActionXpath.programselect, time, "click on program select", log);
@@ -284,7 +285,7 @@ public class Pfs_resource {
 			Utils.clickXpath(driver, ActionXpath.viewpdf, time, "viewpdf", log);
 			resourceStudentViewAndLogout(faculty, url, driver, fileName, Role, log);
 
-			resourceFacultyInitialSteps(faculty, url, driver);
+			resourceFacultyInitialSteps(faculty, url, driver, log);
 			Utils.clickXpath(driver, ActionXpath.facpdfopen, time, "facpdfopen", log);
 			resourceDeleteAndLogout(faculty, url, driver, fileName, Role, log);
 			log.info("TC-42: Create PDF resource publish and delete PDF PASSED \n");
@@ -305,7 +306,8 @@ public class Pfs_resource {
 			Video_file = folder + "\\demo.mp4";
 
 			System.out.println("TC-43:  Create Video resource create view  and delete");
-			resourceFacultyInitialSteps(faculty, url, driver);
+			log.info("TC-43:  Create Video resource create view  and delete Started");
+			resourceFacultyInitialSteps(faculty, url, driver, log);
 			String program, subject;
 			Utils.clickXpath(driver, ActionXpath.program, time, "click on program", log);
 			Utils.clickXpath(driver, ActionXpath.programselect, time, "click on program select", log);
@@ -347,7 +349,7 @@ public class Pfs_resource {
 			resourceStudentViewAndLogout(faculty, url, driver, fileName, Role, log);
 
 			// Faculty to delete
-			resourceFacultyInitialSteps(faculty, url, driver);
+			resourceFacultyInitialSteps(faculty, url, driver, log);
 			Utils.clickXpath(driver, ActionXpath.facvideoopen, time, "facvideoopen", log);
 			resourceDeleteAndLogout(faculty, url, driver, fileName, Role, log);
 			log.info("TC-43: Create Video resource create view  and delete PASSED");
@@ -363,7 +365,7 @@ public class Pfs_resource {
 			String url, String Browser, String Role, WebDriver driver, Logger log) throws Exception {
 		try {
 			System.out.println("TC-44:  Link resource Create View delete Test case Started");
-			resourceFacultyInitialSteps(faculty, url, driver);
+			resourceFacultyInitialSteps(faculty, url, driver, log);
 			String program, subject;
 			Utils.clickXpath(driver, ActionXpath.program, time, "click on program", log);
 			Utils.clickXpath(driver, ActionXpath.programselect, time, "click on program select", log);
@@ -408,7 +410,7 @@ public class Pfs_resource {
 			Utils.clickXpath(driver, ActionXpath.viewlink, time, "viewlink", log);
 			resourceStudentViewAndLogout(faculty, url, driver, fileName, Role, log);
 
-			resourceFacultyInitialSteps(faculty, url, driver);
+			resourceFacultyInitialSteps(faculty, url, driver, log);
 			Utils.clickXpath(driver, ActionXpath.faclinkopen, time, "faclinkopen", log);
 			resourceDeleteAndLogout(faculty, url, driver, fileName, Role, log);
 			log.info("TC-44 Link resource Create View delete Test Case PASSED");
@@ -428,7 +430,7 @@ public class Pfs_resource {
 			// log.info("TC-45 Test Spreadsheet is not supported on Bimtech");
 			// return;
 			// }
-			resourceFacultyInitialSteps(faculty, url, driver);
+			resourceFacultyInitialSteps(faculty, url, driver, log);
 			Utils.clickXpath(driver, ActionXpath.facccres, time, "facccres", log);
 			Utils.clickXpath(driver, ActionXpath.facssclick, time, "facssclick", log);
 
@@ -465,7 +467,7 @@ public class Pfs_resource {
 			String url, String Browser, String Role, WebDriver driver, Logger log) throws Exception {
 		try {
 			System.out.println("TC-51:  Test PPT File type");
-			resourceFacultyInitialSteps(faculty, url, driver);
+			resourceFacultyInitialSteps(faculty, url, driver, log);
 			Utils.clickXpath(driver, ActionXpath.facccres, time, "facccres", log);
 			Utils.clickXpath(driver, ActionXpath.facpptclick, time, "facpptclick", log);
 			Utils.smallSleepBetweenClicks(1);
@@ -499,7 +501,7 @@ public class Pfs_resource {
 			String url, String Browser, String Role, WebDriver driver, Logger log) throws Exception {
 		try {
 			System.out.println("TC-47:  Test PDF File type Test Case");
-			resourceFacultyInitialSteps(faculty, url, driver);
+			resourceFacultyInitialSteps(faculty, url, driver, log);
 			Utils.clickXpath(driver, ActionXpath.facccres, time, "facccres", log);
 			Utils.clickXpath(driver, ActionXpath.facccrespdf, time, "facccrespdf", log);
 			Utils.clickXpath(driver, ActionXpath.facssadd, time, "Click of add resource", log);
@@ -531,7 +533,7 @@ public class Pfs_resource {
 			String url, String Browser, String Role, WebDriver driver, Logger log) throws Exception {
 		try {
 			System.out.println("TC-48: Test Video File type Test Case");
-			resourceFacultyInitialSteps(faculty, url, driver);
+			resourceFacultyInitialSteps(faculty, url, driver, log);
 			Utils.clickXpath(driver, ActionXpath.facccres, time, "facccres", log);
 			Utils.clickXpath(driver, ActionXpath.facvideoclick, time, "facvideoclick", log);
 			Utils.clickXpath(driver, ActionXpath.facssadd, time, "Click of add resource", log);
@@ -564,7 +566,7 @@ public class Pfs_resource {
 			String url, String Browser, String Role, WebDriver driver, Logger log) throws Exception {
 		try {
 			System.out.println("TC-49:  PPT resource Filter Option View Test case Started");
-			resourceFacultyInitialSteps(faculty, url, driver);
+			resourceFacultyInitialSteps(faculty, url, driver, log);
 			Utils.bigSleepBetweenClicks(1);
 			WebElement l = driver.findElement(By.xpath(
 					"/html/body/div[1]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[3]/div/div/div/div[5]/div[1]/div/div/../../../.."));
@@ -611,7 +613,7 @@ public class Pfs_resource {
 			String Role, WebDriver driver, Logger log) throws Exception {
 		try {
 			System.out.println("TC-50:  PDF resource Filter Option View Test case Started");
-			resourceFacultyInitialSteps(faculty, url, driver);
+			resourceFacultyInitialSteps(faculty, url, driver, log);
 			Utils.bigSleepBetweenClicks(1);
 			WebElement l = driver.findElement(By.xpath(
 					"/html/body/div[1]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[3]/div/div/div/div[5]/div[1]/div/div/../../../.."));
@@ -659,7 +661,7 @@ public class Pfs_resource {
 			String Role, WebDriver driver, Logger log) throws Exception {
 		try {
 			System.out.println("TC-51:  Video resource Filter Option View Test case Started");
-			resourceFacultyInitialSteps(faculty, url, driver);
+			resourceFacultyInitialSteps(faculty, url, driver, log);
 			Utils.bigSleepBetweenClicks(1);
 			WebElement l = driver.findElement(By.xpath(
 					"/html/body/div[1]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[3]/div/div/div/div[5]/div[1]/div/div/../../../.."));
@@ -705,7 +707,7 @@ public class Pfs_resource {
 			String Role, WebDriver driver, Logger log) throws Exception {
 		try {
 			System.out.println("TC-52:  Links resource Filter Option View Test case Started");
-			resourceFacultyInitialSteps(faculty, url, driver);
+			resourceFacultyInitialSteps(faculty, url, driver, log);
 			Utils.bigSleepBetweenClicks(1);
 			WebElement l = driver.findElement(By.xpath(
 					"/html/body/div[1]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[3]/div/div/div/div[5]/div[1]/div/div/../../../.."));
