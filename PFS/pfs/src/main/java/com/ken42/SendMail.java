@@ -28,16 +28,16 @@ public class SendMail {
         CSVReader csvReader;
         String[] csvCell;
         int count = 0;
-        String emailTo="";
+        String emailTo = "";
         csvReader = new CSVReader(new FileReader(CSV_PATH));
         while ((csvCell = csvReader.readNext()) != null) {
-            if (count == 0){
+            if (count == 0) {
                 count = count + 1;
                 continue;
             }
             emailTo = csvCell[0];
         }
-        System.out.println("EMail list is ***********"+emailTo);
+        System.out.println("EMail list is ***********" + emailTo);
         // Sender's email ID needs to be mentioned
         String from = "anandTest2002@gmail.com";
         // Assuming you are sending email from through gmails smtp
@@ -53,7 +53,6 @@ public class SendMail {
         properties.put("mail.smtp.user", "anandTest2002@gmail.com");
         properties.put("mail.smtp.password", "ydqctevuvkrmmslu");
 
-
         // Get the Session object.// and pass username and password
         Session session = Session.getInstance(properties, new javax.mail.Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
@@ -65,12 +64,12 @@ public class SendMail {
         try {
             // Create a default MimeMessage object.
             Message message = new MimeMessage(session);
-   
+
             // Set From: header field of the header.
             message.setFrom(new InternetAddress(from));
             // Set To: header field of the header.
             // message.setRecipients(Message.RecipientType.TO,
-            //    InternetAddress.parse(to));
+            // InternetAddress.parse(to));
             String[] recipientList = emailTo.split(",");
             InternetAddress[] recipientAddress = new InternetAddress[recipientList.length];
             int counter = 0;
@@ -98,9 +97,9 @@ public class SendMail {
             message.setContent(multipart);
             Transport.send(message);
             System.out.println("Sent message successfully....");
-         } catch (MessagingException e) {
+        } catch (MessagingException e) {
             throw new RuntimeException(e);
-         }
+        }
 
     }
 

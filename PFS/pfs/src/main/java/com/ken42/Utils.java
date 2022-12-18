@@ -28,6 +28,7 @@ import com.opencsv.exceptions.CsvValidationException;
 import org.openqa.selenium.Alert;
 
 public class Utils {
+
 	static Logger log = Logger.getLogger(Utils.class.getName());
 	static int time = 1000;
 	// public static Logger log = Logger.getLogger("Pfs_portal");
@@ -189,7 +190,7 @@ public class Utils {
 					String studentuname = "TestStudent6300";
 					String facultyuname = "Test.Faculty7635";
 					String studentpassword = "TestStudent6300";
-					String facultypassword = "Ltpct@student";
+					String facultypassword = "test";
 
 					if (Email.contains("student")) {
 						Utils.callSendkeys(driver, ActionXpath.username, studentuname, time, log);
@@ -210,7 +211,7 @@ public class Utils {
 					String studentuname = "TestStudent0610";
 					String facultyuname = "test.faculty123";
 					String studentpassword = "TestStudent0610";
-					String facultypassword = "a2VuNDJ0ZXN0";
+					String facultypassword = "test";
 
 					if (Email.contains("student")) {
 						Utils.callSendkeys(driver, ActionXpath.username, studentuname, time, log);
@@ -354,6 +355,39 @@ public class Utils {
 	}
 
 	@Test
+	public static Boolean questionbank(String url) {
+		String urlToMatch = "portal-demo|sbmppsjal";
+		Pattern pt = Pattern.compile(urlToMatch);
+		Matcher m = pt.matcher(url);
+		while (m.find()) {
+			return true;
+		}
+		return false;
+	}
+
+	@Test
+	public static Boolean raisecase(String url) {
+		String urlToMatch = "portal-demo|sbmppsjal";
+		Pattern pt = Pattern.compile(urlToMatch);
+		Matcher m = pt.matcher(url);
+		while (m.find()) {
+			return true;
+		}
+		return false;
+	}
+
+	@Test
+	public static Boolean viewresult(String url) {
+		String urlToMatch = "portal-demo";
+		Pattern pt = Pattern.compile(urlToMatch);
+		Matcher m = pt.matcher(url);
+		while (m.find()) {
+			return true;
+		}
+		return false;
+	}
+
+	@Test
 	public static Boolean checkattempt(String url) {
 		String urlToMatch = "ecampus|nsom|esscisamsung|sbmppsjal|ltpct|ltsta|jdinstitutedelhi|bimtech|demo|portal-dev";
 		Pattern pt = Pattern.compile(urlToMatch);
@@ -365,7 +399,7 @@ public class Utils {
 	}
 
 	public static Boolean skipsubject(String url) {
-		String urlToMatch = "ecampus|bimtech|esscisamsung|nsom|portal-demo|portal-dev|sbmppsjal|jdinstitutedelhi|ltpct|ltsta";
+		String urlToMatch = "ecampus|bimtech|esscisamsung|nsom|portal-demo|portal-dev|sbmppsjal|jdinstitutedelhi|ltpct";
 		Pattern pt = Pattern.compile(urlToMatch);
 		Matcher m = pt.matcher(url);
 		while (m.find()) {
@@ -439,7 +473,7 @@ public class Utils {
 
 	@Test
 	public static Boolean checkServiceTab(String url) {
-		String urlToMatch = "bimtech|jdinstitutedelhi|nsom|portal-dev";
+		String urlToMatch = "bimtech|jdinstitutedelhi|nsom|portal-dev|portal-demo|ltpct";
 		Pattern pt = Pattern.compile(urlToMatch);
 		Matcher m = pt.matcher(url);
 		while (m.find()) {
@@ -482,7 +516,7 @@ public class Utils {
 
 	@Test
 	public static Boolean publishlink(String url) {
-		String urlToMatch = "ltsta|nsom|ltpct|dev|demo|ecampus";
+		String urlToMatch = "ltsta|nsom|ltpct|dev|demo|ecampus|sbmppsjal";
 		Pattern pt = Pattern.compile(urlToMatch);
 		Matcher m = pt.matcher(url);
 		while (m.find()) {
@@ -557,7 +591,7 @@ public class Utils {
 			log.info("Failure in go back to home page");
 			driver.quit();
 		}
-		
+
 	}
 
 	@Test

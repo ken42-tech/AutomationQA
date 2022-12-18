@@ -55,12 +55,12 @@ public class Pfs_activity {
                 Utils.clickXpath(driver, ActionXpath.program, time, "click on program", log);
                 driver.findElement(By.xpath("//li[@data-value='" + program1 + "']")).click();
 
-                Utils.clickXpath(driver, ActionXpath.subject, time, "click on subject", log);
-                Utils.smallSleepBetweenClicks(2);
-                driver.findElement(By.xpath("//li[@data-value='" + subject1 + "']")).click();
-                Utils.smallSleepBetweenClicks(1);
+                // Utils.clickXpath(driver, ActionXpath.subject, time, "click on subject", log);
+                // Utils.smallSleepBetweenClicks(2);
+                // driver.findElement(By.xpath("//li[@data-value='" + subject1 + "']")).click();
+                // Utils.smallSleepBetweenClicks(1);
                 System.out.println("program1 is:" + program1);
-                System.out.println("Subject1 is:" + subject1);
+                // System.out.println("Subject1 is:" + subject1);
             }
 
             Boolean appPresent = false;
@@ -343,7 +343,10 @@ public class Pfs_activity {
 
             driver.navigate().refresh();
             Utils.bigSleepBetweenClicks(2);
-            Utils.clickXpath(driver, ActionXpath.ExpandAcademic, time, "Exapand Academic ", log);
+            Utils.checkAcadAndClick(driver, url);
+
+            // Utils.clickXpath(driver, ActionXpath.ExpandAcademic, time, "Exapand Academic
+            // ", log);
             Utils.clickXpath(driver, ActionXpath.ClickLearn, time, "Click learn ", log);
             Utils.bigSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.program, time, "click on program", log);
@@ -359,12 +362,19 @@ public class Pfs_activity {
                     .elementToBeClickable(By.xpath("//p[.='" + filename + "']/../../.././..//*[local-name()='svg']")))
                     .click();
             Utils.bigSleepBetweenClicks(2);
-
-            WebDriverWait ele12 = new WebDriverWait(driver, 20);
-            WebElement elem12 = ele12
-                    .until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[.='Result'])[1]")));
-            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", elem12);
-            Utils.bigSleepBetweenClicks(1);
+            if (Utils.viewresult(url)) {
+                WebDriverWait ele12 = new WebDriverWait(driver, 20);
+                WebElement elem12 = ele12
+                        .until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[.='Result'])[2]")));
+                ((JavascriptExecutor) driver).executeScript("arguments[0].click();", elem12);
+                Utils.bigSleepBetweenClicks(1);
+            } else {
+                WebDriverWait ele12 = new WebDriverWait(driver, 20);
+                WebElement elem12 = ele12
+                        .until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[.='Result'])[1]")));
+                ((JavascriptExecutor) driver).executeScript("arguments[0].click();", elem12);
+                Utils.bigSleepBetweenClicks(1);
+            }
 
             Utils.clickXpath(driver, ActionXpath.viewattempt, time, "Click on view attempt", log);
             Utils.bigSleepBetweenClicks(1);
@@ -446,11 +456,19 @@ public class Pfs_activity {
                     .click();
             Utils.bigSleepBetweenClicks(2);
 
-            WebDriverWait ele12 = new WebDriverWait(driver, 20);
-            WebElement elem12 = ele12
-                    .until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[.='Result'])[1]")));
-            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", elem12);
-            Utils.bigSleepBetweenClicks(1);
+            if (Utils.viewresult(url)) {
+                WebDriverWait ele12 = new WebDriverWait(driver, 20);
+                WebElement elem12 = ele12
+                        .until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[.='Result'])[2]/../..")));
+                ((JavascriptExecutor) driver).executeScript("arguments[0].click();", elem12);
+                Utils.bigSleepBetweenClicks(1);
+            } else {
+                WebDriverWait ele12 = new WebDriverWait(driver, 20);
+                WebElement elem12 = ele12
+                        .until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[.='Result'])[1]")));
+                ((JavascriptExecutor) driver).executeScript("arguments[0].click();", elem12);
+                Utils.bigSleepBetweenClicks(1);
+            }
 
             Utils.clickXpath(driver, ActionXpath.viewattempt, time, "Click on view attempt", log);
             Utils.bigSleepBetweenClicks(1);
@@ -561,10 +579,10 @@ public class Pfs_activity {
             String subject2 = returnArray[3];
 
             Utils.smallSleepBetweenClicks(1);
-            if (Utils.skipsubject(url)) {
-            } else {
-                returnArray = Utils.getClassSubjectAndSection(driver, url, "activity");
-            }
+            // if (Utils.skipsubject(url)) {
+            // } else {
+            // returnArray = Utils.getClassSubjectAndSection(driver, url, "activity");
+            // }
             String program = returnArray[0];
             String converted = returnArray[1];
 
@@ -581,15 +599,16 @@ public class Pfs_activity {
                 System.out.println("Subject is not avilable in essci");
             } else {
                 Utils.clickXpath(driver, ActionXpath.program, time, "click on program", log);
+                Utils.smallSleepBetweenClicks(2);
                 driver.findElement(By.xpath("//li[@data-value='" + program1 + "']")).click();
 
-                Utils.clickXpath(driver, ActionXpath.subject, time, "click on subject", log);
-                Utils.smallSleepBetweenClicks(2);
-                driver.findElement(By.xpath("//li[@data-value='" + subject1 + "']")).click();
+                // Utils.clickXpath(driver, ActionXpath.subject, time, "click on subject", log);
+                // Utils.smallSleepBetweenClicks(2);
+                // driver.findElement(By.xpath("//li[@data-value='" + subject1 + "']")).click();
             }
             Utils.smallSleepBetweenClicks(1);
             System.out.println("program1 is:" + program1);
-            System.out.println("Subject1 is:" + subject1);
+            // System.out.println("Subject1 is:" + subject1);
 
             Boolean appPresent = false;
             String dot3 = "//*[@class='tox-tbtn' and @title='More...']";
@@ -719,6 +738,7 @@ public class Pfs_activity {
             String filename = returnAssement[0];
             String program = returnAssement[3];
             String Subject = returnAssement[4];
+            Utils.checkAcadAndClick(driver, url);
 
             String PDF_file = "";
             if (Utils.checkWindowsOs()) {
@@ -726,14 +746,9 @@ public class Pfs_activity {
             } else {
                 PDF_file = "/Users/shared/demo.pdf";
             }
-            if (Utils.skipsubject(url)) {
 
-            } else {
-                String returnArray[] = new String[2];
-                returnArray = Utils.getClassSubjectAndSection(driver, url, "activity");
-            }
             Utils.bigSleepBetweenClicks(1);
-            Utils.checkAcadAndClick(driver, url);
+            // Utils.checkAcadAndClick(driver, url);
             Utils.clickXpath(driver, ActionXpath.assignlearnltstastudentrelative, time, "Select learn", log);
             Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.program, time, "click on program", log);
