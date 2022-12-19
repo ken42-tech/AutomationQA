@@ -321,13 +321,8 @@ public class Utils {
 		} catch (Exception e) {
 			Utils.printException(e);
 			System.out.println("Failure in checkAcadAndClick function");
-<<<<<<< HEAD
 			log.info("Failure in checkAcadAndClick function for login id "+Email);
 			checkIfStillInLoginScreenAndLogin(driver,url, Email, log);
-=======
-			log.info("Failure in checkAcadAndClick function");
-			checkIfStillInLoginScreenAndLogin(driver, url, Email, log);
->>>>>>> 8c49941a11f5c623ce8850c73d766641ffb848eb
 			// throw (e);
 		}
 	}
@@ -338,13 +333,8 @@ public class Utils {
 			log.info("#########################CheckIfStillInLOginScreen function called");
 			boolean signInPresent = false;
 			signInPresent = driver.findElements(By.xpath("//*[text()='Sign in']")).size() > 0;
-<<<<<<< HEAD
 			if (signInPresent){
 				log.info("Hey Sign In is present, loggin in with id +++++"+Email);
-=======
-			if (signInPresent) {
-				log.info("Hey Sign In is present");
->>>>>>> 8c49941a11f5c623ce8850c73d766641ffb848eb
 				driver.navigate().to(url);
 				Utils.login(driver, Email, url, log);
 				Utils.smallSleepBetweenClicks(2);
