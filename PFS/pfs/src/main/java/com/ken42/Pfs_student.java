@@ -18,7 +18,8 @@ public class Pfs_student {
 		try {
 			System.out.println(" TC-1:  Student Starting Home tab  case execution");
 			// Utils.bigSleepBetweenClicks(1);
-			// Utils.clickXpath(driver, ActionXpath.Stu_prName, time, "Click on Login initial", log);
+			// Utils.clickXpath(driver, ActionXpath.Stu_prName, time, "Click on Login
+			// initial", log);
 			// Check if Attendance, Assessments, Schedule are present in home tab.
 			WebElement l = driver.findElement(By.tagName("body"));
 			String p = l.getText();
@@ -292,27 +293,35 @@ public class Pfs_student {
 	@Test(priority = 13)
 	public static void testStudentEditProfile(String url, WebDriver driver, Logger log) throws Exception {
 		try {
-			System.out.println("TC-13: Starting execution of edit basic details of student profile");
-			Utils.goBackToHome(driver, url);
-			Utils.bigSleepBetweenClicks(1);
-			Utils.clickXpath(driver, ActionXpath.Stu_prName, time, "Click on Initial icon", log);
-			Utils.smallSleepBetweenClicks(1);
-			Utils.clickXpath(driver, ActionXpath.stuprofile, time, "Click on profile button", log);
-			if (Utils.checkLtsta(url)) {
-				driver.findElement(By.xpath(ActionXpath.stuprofile)).sendKeys(Keys.TAB);
+
+			if (Utils.skipforedudeatils1(url)) {
+				log.info(
+						"TC-13 Student Education Deatil Skipping this test as this is not applicable for this portal\n\n");
+				return;
+			} else {
+				System.out.println("TC-13: Starting execution of edit basic details of student profile");
+				Utils.goBackToHome(driver, url);
+				Utils.bigSleepBetweenClicks(1);
+				Utils.clickXpath(driver, ActionXpath.Stu_prName, time, "Click on Initial icon", log);
+				Utils.smallSleepBetweenClicks(1);
+				Utils.clickXpath(driver, ActionXpath.stuprofile, time, "Click on profile button", log);
+				// if (Utils.checkLtsta(url)) {
+				// driver.findElement(By.xpath(ActionXpath.stuprofile)).sendKeys(Keys.TAB);
+				// }
+				Utils.smallSleepBetweenClicks(1);
+				Utils.clickXpath(driver, ActionXpath.stubasicedit, time, "Click on edit SVG", log);
+				Utils.clickXpath(driver, ActionXpath.Stubasicgender, time, "Stubasicgender", log);
+				// Automate.clickXpath(driver, ActionXpath.stubasicgenderselect, time,
+				// "stubasicgenderselect");
+				String gender = "Female";
+				driver.findElement(By.xpath("//li[@data-value='" + gender + "']")).click();
+				Utils.callSendkeys(driver, ActionXpath.stubasicdob, "02-02-2022", time, log);
+				// Utils.cleartext(driver, ActionXpath.stubasicnation);
+				Utils.callSendkeys(driver, ActionXpath.stubasicnation, "India", time, log);
+				Utils.clickXpath(driver, ActionXpath.stubasicsave, time, "Click on Save", log);
+				Utils.bigSleepBetweenClicks(1);
+				log.info("  TC-13: Student edit profile test case PASSED \n");
 			}
-			Utils.smallSleepBetweenClicks(1);
-			Utils.clickXpath(driver, ActionXpath.stubasicedit, time, "Click on edit SVG", log);
-			Utils.clickXpath(driver, ActionXpath.Stubasicgender, time, "Stubasicgender", log);
-			// Automate.clickXpath(driver, ActionXpath.stubasicgenderselect, time,
-			// "stubasicgenderselect");
-			String gender = "Female";
-			driver.findElement(By.xpath("//li[@data-value='" + gender + "']")).click();
-			Utils.callSendkeys(driver, ActionXpath.stubasicdob, "02-02-2022", time, log);
-			Utils.callSendkeys(driver, ActionXpath.stubasicnation, "India", time, log);
-			Utils.clickXpath(driver, ActionXpath.stubasicsave, time, "Click on Save", log);
-			Utils.bigSleepBetweenClicks(1);
-			log.info("  TC-13: Student edit profile test case PASSED \n");
 		} catch (Exception e) {
 			Utils.printException(e);
 			Utils.goBackToHome(driver, url);
@@ -333,15 +342,19 @@ public class Pfs_student {
 				Utils.bigSleepBetweenClicks(1);
 				Utils.clickXpath(driver, ActionXpath.Stu_prName, time, "Click on profile Icon", log);
 				Utils.clickXpath(driver, ActionXpath.stuprofile, time, "Click on profile button", log);
-				// Utils.smallSleepBetweenClicks(1);
-				if (Utils.checkLtsta(url)) {
-					driver.findElement(By.xpath(ActionXpath.stuprofile)).sendKeys(Keys.TAB);
+				Utils.smallSleepBetweenClicks(1);
+				// if (Utils.checkLtsta(url)) {
+				// driver.findElement(By.xpath(ActionXpath.stuprofile)).sendKeys(Keys.TAB);
 
-				}
+				// }
 				JavascriptExecutor js14 = (JavascriptExecutor) driver;
 				js14.executeScript("window.scrollBy(0,2000)");
+				Utils.smallSleepBetweenClicks(1);
 				Utils.clickXpath(driver, ActionXpath.stueddrop, time, "Click on education", log);
 				Utils.clickXpath(driver, ActionXpath.stued, time, "CLick on edit SVG", log);
+				// Utils.smallSleepBetweenClicks(time);
+				js14.executeScript("window.scrollBy(0,60)");
+				// Utils.smallSleepBetweenClicks(time);
 				Utils.callSendkeys(driver, ActionXpath.stued12school, "stpaul", time, log);
 				Utils.callSendkeys(driver, ActionXpath.stued12country, "India", time, log);
 				Utils.callSendkeys(driver, ActionXpath.stued12year, "2017", time, log);
@@ -383,15 +396,15 @@ public class Pfs_student {
 				Utils.bigSleepBetweenClicks(1);
 				Utils.clickXpath(driver, ActionXpath.Stu_prName, time, "profile", log);
 				Utils.clickXpath(driver, ActionXpath.stuprofile, time, "stuprofile", log);
-				// Utils.smallSleepBetweenClicks(1);
-				if (Utils.checkLtsta(url)) {
-					driver.findElement(By.xpath(ActionXpath.stuprofile)).sendKeys(Keys.TAB);
-				}
+				Utils.smallSleepBetweenClicks(1);
+				// if (Utils.checkLtsta(url)) {
+				// driver.findElement(By.xpath(ActionXpath.stuprofile)).sendKeys(Keys.TAB);
+				// }
 				JavascriptExecutor js14 = (JavascriptExecutor) driver;
-				js14.executeScript("window.scrollBy(0,3500)");
+				js14.executeScript("window.scrollBy(0,2500)");
+				Utils.bigSleepBetweenClicks(1);
 				Utils.clickXpath(driver, ActionXpath.stuadddrop, time, "stuadddrop", log);
-				//// Utils.bigSleepBetweenClicks(1);
-
+				Utils.vsmallSleepBetweenClicks(1);
 				Utils.clickXpath(driver, ActionXpath.stuedit, time, "stuedit", log);
 				Utils.clickXpath(driver, ActionXpath.stuaddadd, time, "stuaddadd", log);
 				Utils.callSendkeys(driver, ActionXpath.stuhouse, "SAMPLE", time, log);

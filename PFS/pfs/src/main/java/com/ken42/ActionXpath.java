@@ -33,7 +33,7 @@ public class ActionXpath {
    // static String Home = "(//span[@class='MuiTypography-root jss124
    // MuiTypography-body1 MuiTypography-displayBlock' and text()='Home'])[1]/..";
    // static String Stu_prName = "(//span[@class='MuiIconButton-label'])[3]";
-   static String Stu_prName = "//*[. and text()='T']/..";
+   static String Stu_prName = "//button[@aria-controls='menu-appbar']";
    // Student test case 1 ends here
 
    // Student Test case 2 Enrollments

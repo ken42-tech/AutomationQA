@@ -74,7 +74,7 @@ public class Utils {
 	public static void callSendkeys(WebDriver driver, String Xpath, String Value, int time1, Logger log)
 			throws Exception {
 		int count = 0;
-		int maxTries = 7;
+		int maxTries = 10;
 		final String XPATH = Xpath;
 		while (true) {
 			try {
@@ -85,6 +85,7 @@ public class Utils {
 						.withTimeout(Duration.ofSeconds(20))
 						.pollingEvery(Duration.ofSeconds(4))
 						.ignoring(NoSuchElementException.class);
+
 				WebElement WE = wait.until(new Function<WebDriver, WebElement>() {
 					public WebElement apply(WebDriver driver) {
 						return driver.findElement(By.xpath(XPATH));
@@ -111,7 +112,7 @@ public class Utils {
 		final String XPATH = xpath;
 		while (true) {
 			try {
-				// Thread.sleep(1000);
+				// Thread.sleep(2000);
 				log.info("Click on the:" + msg);
 				WebElement webElement = driver.findElement(By.xpath(xpath));
 				JavascriptExecutor javaScriptExecutor = (JavascriptExecutor) driver;
@@ -321,8 +322,13 @@ public class Utils {
 		} catch (Exception e) {
 			Utils.printException(e);
 			System.out.println("Failure in checkAcadAndClick function");
+<<<<<<< HEAD
 			log.info("Failure in checkAcadAndClick function");
 			checkIfStillInLoginScreenAndLogin(driver, url, Email, log);
+=======
+			log.info("Failure in checkAcadAndClick function for login id "+Email);
+			checkIfStillInLoginScreenAndLogin(driver,url, Email, log);
+>>>>>>> f8c5c9ce3942ed9b9165d903347d257388054c77
 			// throw (e);
 		}
 	}
@@ -333,8 +339,13 @@ public class Utils {
 			log.info("#########################CheckIfStillInLOginScreen function called");
 			boolean signInPresent = false;
 			signInPresent = driver.findElements(By.xpath("//*[text()='Sign in']")).size() > 0;
+<<<<<<< HEAD
 			if (signInPresent) {
 				log.info("Hey Sign In is present");
+=======
+			if (signInPresent){
+				log.info("Hey Sign In is present, loggin in with id +++++"+Email);
+>>>>>>> f8c5c9ce3942ed9b9165d903347d257388054c77
 				driver.navigate().to(url);
 				Utils.login(driver, Email, url, log);
 				Utils.smallSleepBetweenClicks(2);
@@ -458,7 +469,19 @@ public class Utils {
 
 	@Test
 	public static Boolean skipforedudeatils(String url) {
-		String urlToMatch = "dev|ltsta";
+		String urlToMatch = "dev|demo|nsom|esscisamsung";
+		Pattern pt = Pattern.compile(urlToMatch);
+		Matcher m = pt.matcher(url);
+		while (m.find()) {
+			// regex = m.group();
+			return true;
+		}
+		return false;
+	}
+
+	@Test
+	public static Boolean skipforedudeatils1(String url) {
+		String urlToMatch = "nsom|esscisamsung";
 		Pattern pt = Pattern.compile(urlToMatch);
 		Matcher m = pt.matcher(url);
 		while (m.find()) {
@@ -469,7 +492,7 @@ public class Utils {
 	}
 
 	public static Boolean stueditprofil(String url) {
-		String urlToMatch = "dev|ltsta";
+		String urlToMatch = "dev|demo|nsom|esscisamsung";
 		Pattern pt = Pattern.compile(urlToMatch);
 		Matcher m = pt.matcher(url);
 		while (m.find()) {
@@ -478,6 +501,8 @@ public class Utils {
 		}
 		return false;
 	}
+
+
 
 	@Test
 	public static Boolean checknewlogin(String url) {
@@ -629,6 +654,13 @@ public class Utils {
 		int total_time = 2000 * loop;
 		System.out.println("Sleeping for " + total_time);
 		Thread.sleep(2000 * loop);
+	}
+
+	@Test
+	public static void vsmallSleepBetweenClicks(int loop) throws InterruptedException {
+		int total_time = 1000 * loop;
+		System.out.println("Sleeping for " + total_time);
+		Thread.sleep(1000 * loop);
 	}
 
 	@Test
