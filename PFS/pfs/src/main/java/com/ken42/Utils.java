@@ -328,13 +328,15 @@ public class Utils {
 		}
 	}
 
-	public static void checkIfStillInLoginScreenAndLogin(WebDriver driver, String url, String Email, Logger Log) throws Exception {
+	public static void checkIfStillInLoginScreenAndLogin(WebDriver driver, String url, String Email, Logger log) throws Exception {
 		try {
 			log.info("#########################CheckIfStillInLOginScreen function called");
 			boolean signInPresent = false;
 			signInPresent = driver.findElements(By.xpath("//*[text()='Sign in']")).size() > 0;
 			if (signInPresent){
-				Utils.login(driver, Email, url, Log);
+				log.info("Hey Sign In is present");
+				driver.navigate().to(url);
+				Utils.login(driver, Email, url, log);
 			}else {
 				log.warning("For this url failed to click on Acad and it's not on Login Page");
 			}
