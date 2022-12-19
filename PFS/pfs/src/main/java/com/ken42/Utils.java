@@ -32,7 +32,7 @@ public class Utils {
 	static Logger log = Logger.getLogger(Utils.class.getName());
 	static int time = 1000;
 	// public static Logger log = Logger.getLogger("Pfs_portal");
-	static boolean debug = false;
+	static boolean debug = true;
 
 	public static void clickXpath(WebDriver driver, String xpath, int time, String msg, Logger log) throws Exception {
 		JavascriptExecutor js3 = (JavascriptExecutor) driver;
@@ -42,8 +42,8 @@ public class Utils {
 		while (true) {
 			try {
 				Thread.sleep(1000);
-				if(debug)
-				log.info("Click on the:" + msg);
+				if (debug)
+					log.info("Click on the:" + msg);
 				System.out.print("Click on the:" + msg);
 				Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
 						.withTimeout(Duration.ofSeconds(30))
@@ -60,8 +60,8 @@ public class Utils {
 				break;
 			} catch (Exception e) {
 				Thread.sleep(3000);
-				if(debug)
-				log.warning("Failed to Click on the :" + msg);
+				if (debug)
+					log.warning("Failed to Click on the :" + msg);
 				System.out.println("Failed to Click on the :" + msg);
 				if (++count == maxTries) {
 					Utils.printException(e);
@@ -74,17 +74,18 @@ public class Utils {
 	public static void callSendkeys(WebDriver driver, String Xpath, String Value, int time1, Logger log)
 			throws Exception {
 		int count = 0;
-		int maxTries = 7;
+		int maxTries = 10;
 		final String XPATH = Xpath;
 		while (true) {
 			try {
-				if(debug)
-				log.info("***********************Entering value   " + Value);
+				if (debug)
+					log.info("***********************Entering value   " + Value);
 				System.out.print("***********************Entering value   " + Value);
 				Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
 						.withTimeout(Duration.ofSeconds(20))
 						.pollingEvery(Duration.ofSeconds(4))
 						.ignoring(NoSuchElementException.class);
+
 				WebElement WE = wait.until(new Function<WebDriver, WebElement>() {
 					public WebElement apply(WebDriver driver) {
 						return driver.findElement(By.xpath(XPATH));
@@ -111,7 +112,7 @@ public class Utils {
 		final String XPATH = xpath;
 		while (true) {
 			try {
-				// Thread.sleep(1000);
+				// Thread.sleep(2000);
 				log.info("Click on the:" + msg);
 				WebElement webElement = driver.findElement(By.xpath(xpath));
 				JavascriptExecutor javaScriptExecutor = (JavascriptExecutor) driver;
@@ -434,7 +435,19 @@ public class Utils {
 
 	@Test
 	public static Boolean skipforedudeatils(String url) {
-		String urlToMatch = "dev|ltsta";
+		String urlToMatch = "dev|demo|nsom|esscisamsung";
+		Pattern pt = Pattern.compile(urlToMatch);
+		Matcher m = pt.matcher(url);
+		while (m.find()) {
+			// regex = m.group();
+			return true;
+		}
+		return false;
+	}
+
+	@Test
+	public static Boolean skipforedudeatils1(String url) {
+		String urlToMatch = "nsom|esscisamsung";
 		Pattern pt = Pattern.compile(urlToMatch);
 		Matcher m = pt.matcher(url);
 		while (m.find()) {
@@ -445,7 +458,7 @@ public class Utils {
 	}
 
 	public static Boolean stueditprofil(String url) {
-		String urlToMatch = "dev|ltsta";
+		String urlToMatch = "dev|demo|nsom|esscisamsung";
 		Pattern pt = Pattern.compile(urlToMatch);
 		Matcher m = pt.matcher(url);
 		while (m.find()) {
@@ -454,6 +467,8 @@ public class Utils {
 		}
 		return false;
 	}
+
+
 
 	@Test
 	public static Boolean checknewlogin(String url) {
@@ -605,6 +620,13 @@ public class Utils {
 		int total_time = 2000 * loop;
 		System.out.println("Sleeping for " + total_time);
 		Thread.sleep(2000 * loop);
+	}
+
+	@Test
+	public static void vsmallSleepBetweenClicks(int loop) throws InterruptedException {
+		int total_time = 1000 * loop;
+		System.out.println("Sleeping for " + total_time);
+		Thread.sleep(1000 * loop);
 	}
 
 	@Test
