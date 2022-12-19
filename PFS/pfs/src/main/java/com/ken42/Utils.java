@@ -42,8 +42,8 @@ public class Utils {
 		while (true) {
 			try {
 				Thread.sleep(1000);
-				if(debug)
-				log.info("Click on the:" + msg);
+				if (debug)
+					log.info("Click on the:" + msg);
 				System.out.print("Click on the:" + msg);
 				Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
 						.withTimeout(Duration.ofSeconds(30))
@@ -60,8 +60,8 @@ public class Utils {
 				break;
 			} catch (Exception e) {
 				Thread.sleep(3000);
-				if(debug)
-				log.warning("Failed to Click on the :" + msg);
+				if (debug)
+					log.warning("Failed to Click on the :" + msg);
 				System.out.println("Failed to Click on the :" + msg);
 				if (++count == maxTries) {
 					Utils.printException(e);
@@ -78,8 +78,8 @@ public class Utils {
 		final String XPATH = Xpath;
 		while (true) {
 			try {
-				if(debug)
-				log.info("***********************Entering value   " + Value);
+				if (debug)
+					log.info("***********************Entering value   " + Value);
 				System.out.print("***********************Entering value   " + Value);
 				Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
 						.withTimeout(Duration.ofSeconds(20))
@@ -311,8 +311,7 @@ public class Utils {
 		}
 	}
 
-	public static void
-	checkAcadAndClick(WebDriver driver, String Email, String url, Logger log) throws Exception {
+	public static void checkAcadAndClick(WebDriver driver, String Email, String url, Logger log) throws Exception {
 		try {
 			if (checkAcad(url)) {
 				Utils.clickXpath(driver, ActionXpath.ltstaaccademics, time, "Click on LTSTA ACad", log);
@@ -323,24 +322,28 @@ public class Utils {
 			Utils.printException(e);
 			System.out.println("Failure in checkAcadAndClick function");
 			log.info("Failure in checkAcadAndClick function");
-			checkIfStillInLoginScreenAndLogin(driver,url, Email, log);
+			checkIfStillInLoginScreenAndLogin(driver, url, Email, log);
 			// throw (e);
 		}
 	}
 
-	public static void checkIfStillInLoginScreenAndLogin(WebDriver driver, String url, String Email, Logger log) throws Exception {
+	public static void checkIfStillInLoginScreenAndLogin(WebDriver driver, String url, String Email, Logger log)
+			throws Exception {
 		try {
 			log.info("#########################CheckIfStillInLOginScreen function called");
 			boolean signInPresent = false;
 			signInPresent = driver.findElements(By.xpath("//*[text()='Sign in']")).size() > 0;
-			if (signInPresent){
+			if (signInPresent) {
 				log.info("Hey Sign In is present");
 				driver.navigate().to(url);
 				Utils.login(driver, Email, url, log);
-			}else {
+				Utils.smallSleepBetweenClicks(2);
+				Utils.checkAcadAndClick(driver, Email, url, log);
+
+			} else {
 				log.warning("For this url failed to click on Acad and it's not on Login Page");
 			}
-			
+
 		} catch (Exception e) {
 			Utils.printException(e);
 			System.out.println("Failied to login again");
