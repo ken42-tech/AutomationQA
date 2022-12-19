@@ -323,13 +323,14 @@ public class Utils {
 			Utils.printException(e);
 			System.out.println("Failure in checkAcadAndClick function");
 			log.info("Failure in checkAcadAndClick function");
-			checkIfStillInLoginScreenAndLogin(driver, Email, url, log);
+			checkIfStillInLoginScreenAndLogin(driver,url, Email, log);
 			// throw (e);
 		}
 	}
 
 	public static void checkIfStillInLoginScreenAndLogin(WebDriver driver, String url, String Email, Logger Log) throws Exception {
 		try {
+			log.info("#########################CheckIfStillInLOginScreen function called");
 			boolean signInPresent = false;
 			signInPresent = driver.findElements(By.xpath("//*[text()='Sign in']")).size() > 0;
 			if (signInPresent){
