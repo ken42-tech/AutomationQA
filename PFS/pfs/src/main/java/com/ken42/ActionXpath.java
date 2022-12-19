@@ -882,4 +882,50 @@ public class ActionXpath {
    static String password = "(//*[@placeholder='Please Enter Password'])";
    static String singnin = "(//*[text()='Verify & Sign in'])";
 
+   // new profile fac edit
+   static String singinintial = "(//*[text()='T'])";
+   static String faccprofile = "(//*[text()='Profile'])";
+   static String testfaculty = "//*[text()='Test Faculty']//*[local-name()='svg']";
+   static String faccgender = "//*[@id='mui-component-select-Gender']";
+   static String faccselgender = "//li[@data-value='Male']";
+   static String faccph = "(//*[@name='Phone'])";
+   static String faccadd = "(//*[text()='ADDRESS'])";
+   static String faccadd2 = "//*[text()='ADDRESS DETAILS']/..//*[local-name()='svg']";
+   static String faccstate = "//*[@id='mui-component-select-state']";
+   static String faccacadmics = "(//*[text()='ACADEMIC'])";
+   static String faccaddrow = "(//*[text()='Add Row'])";
+   static String faccsave = "(//*[text()='Save'])[1]";
+
+   static String faccexpe = "(//*[text()='EXPERIENCE '])";
+   static String faccinst = "(//*[@name='Institute'])[1]";
+   static String faccposition = "(//*[@name='Position'])";
+   static String faccrole = "(//*[@name='Role'])";
+   static String faccduration = "(//*[@name='Duration'])";
+   static String faccdecs = "//*[text()='Description']/../../../..//*[@aria-label='maximum height']";
+   static String faccsave1 = "(//*[text()='Save'])[1]";
+
+   static String faccinstindu = "(//*[@name='Institute'])[2]";
+   static String faccpositionindu = "(//*[@name='Position'])[2]";
+   static String faccroleindu = "(//*[@name='Role'])[2]";
+   static String faccdurationindu = "(//*[@name='Duration'])[2]";
+   static String faccsave2indu = "(//*[text()='Save'])[2]";
+
+   static String faccpacco = "//*[text()='PROFESSIONAL ASSOCIATION']/..//*[local-name()='svg']";
+   static String proname = "(//*[@name='name'])[3]";
+   static String prolink = "(//*[@name='linkURL'])[3]";
+   static String prodec = "(//*[@name='description'])[3]";
+   static String prosave = "(//*[text()='Save'])[3]";
+
+   static String resecher = "(//*[text()='RESEARCH'])";
+   static String resechersvg = "//*[text()='RESEARCH SUPERVISION']/..//*[local-name()='svg']";
+   static String resname = "(//*[@name='name'])[1]";
+   static String rechelink = "(//*[@name='linkURL'])[1]";
+   static String recherdec = "(//*[@name='description'])[1]";
+
+   static String others = "(//*[text()='OTHERS '])";
+   static String otherssvg = " //*[text()='OTHERS']/..//*[local-name()='svg']";
+   static String othername = "(//*[@name='name'])[1]";
+   static String otherlink = "(//*[@name='linkURL'])[1]";
+   static String othersdes = "(//*[@name='description'])[1]";
+   static String othersave = "(//*[text()='Save'])";
 }
