@@ -312,8 +312,7 @@ public class Utils {
 	}
 
 	public static void
-
-			checkAcadAndClick(WebDriver driver, String url) throws Exception {
+	checkAcadAndClick(WebDriver driver, String Email, String url, Logger log) throws Exception {
 		try {
 			if (checkAcad(url)) {
 				Utils.clickXpath(driver, ActionXpath.ltstaaccademics, time, "Click on LTSTA ACad", log);
@@ -323,7 +322,26 @@ public class Utils {
 		} catch (Exception e) {
 			Utils.printException(e);
 			System.out.println("Failure in checkAcadAndClick function");
-			log.info("Failure in Logout function");
+			log.info("Failure in checkAcadAndClick function");
+			checkIfStillInLoginScreenAndLogin(driver, Email, url, log);
+			// throw (e);
+		}
+	}
+
+	public static void checkIfStillInLoginScreenAndLogin(WebDriver driver, String url, String Email, Logger Log) throws Exception {
+		try {
+			boolean signInPresent = false;
+			signInPresent = driver.findElements(By.xpath("//*[text()='Sign in']")).size() > 0;
+			if (signInPresent){
+				Utils.login(driver, Email, url, Log);
+			}else {
+				log.warning("For this url failed to click on Acad and it's not on Login Page");
+			}
+			
+		} catch (Exception e) {
+			Utils.printException(e);
+			System.out.println("Failied to login again");
+			log.info("Failed to login again");
 			throw (e);
 		}
 	}
