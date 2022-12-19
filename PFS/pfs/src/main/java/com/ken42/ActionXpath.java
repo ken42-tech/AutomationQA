@@ -404,6 +404,12 @@ public class ActionXpath {
    static String faccnext = "//button[@label='Next']";
    static String faccquestion = "//input[@name='questionText']";
    static String faccquestionname = "//input[@name='questionName']";
+
+   static String facquestionpurpose = "//input[@name='questionPurpose']";
+   static String facquestionlevel = "//*[text()='Difficulty Level']/../../../../..//*[@role='button']";
+   static String faclevelselect = "(//*[text()='Easy'])[1]";
+   static String facquestionmark = "//*[text()='Marks for this question']/../../../../..//*[@name='marks']";
+
    static String faccmarks = "//input[@name='marks']";
    static String faccoption1 = "(//input[@placeholder='Enter option'])[1]";
    static String feedback1 = "(//input[@placeholder='Type your feedback here'])[1]";

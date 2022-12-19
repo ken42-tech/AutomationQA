@@ -581,6 +581,12 @@ public class Pfs_faculty {
 				Utils.smallSleepBetweenClicks(1);
 				Utils.callSendkeys(driver, ActionXpath.facccresurl, "Question", time, log);
 				Utils.clickXpath(driver, ActionXpath.facccressubmitform, time, "Save URL link button", log);
+				// Utils.callSendkeys(driver, ActionXpath.faccquestion, "Question", time, log);
+				Utils.callSendkeys(driver, ActionXpath.faccquestionname, "Question time", time, log);
+				Utils.callSendkeys(driver, ActionXpath.facquestionpurpose, "Question time", time, log);
+				Utils.clickXpath(driver, ActionXpath.facquestionlevel, time, "facquestionlevel", log);
+				Utils.clickXpath(driver, ActionXpath.faclevelselect, time, "faclevelselect", log);
+				Utils.callSendkeys(driver, ActionXpath.facquestionmark, "90", time, log);
 
 			} else {
 				Utils.callSendkeys(driver, ActionXpath.faccquestion, "Question", time, log);
