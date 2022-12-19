@@ -17,7 +17,7 @@ public class Pfs_resource {
 	@Test
 	public static void resourceFacultyInitialSteps(String faculty, String url, WebDriver driver, Logger log) throws Exception {
 		Utils.login(driver, faculty, url, log);
-		Utils.checkAcadAndClick(driver, url, log);
+		Utils.checkAcadAndClick(driver, faculty, url, log);
 		Utils.clickXpath(driver, ActionXpath.faccc, time, "Click on course content", log);
 	}
 
@@ -144,7 +144,7 @@ public class Pfs_resource {
 
 			// Student part starts
 			Utils.login(driver, student, url, log);
-			Utils.checkAcadAndClick(driver, url, log);
+			Utils.checkAcadAndClick(driver, faculty, url, log);
 			Utils.clickXpath(driver, ActionXpath.learn, time, "learn", log);
 			Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.program, time, "click on program", log);
@@ -208,7 +208,7 @@ public class Pfs_resource {
 			resourcePublishAndLogout(faculty, url, driver, fileName, Role, log);
 
 			Utils.login(driver, student, url, log);
-			Utils.checkAcadAndClick(driver, url, log);
+			Utils.checkAcadAndClick(driver, faculty, url, log);
 			Utils.clickXpath(driver, ActionXpath.learn, time, "learn", log);
 
 			Utils.clickXpath(driver, ActionXpath.program, time, "click on program", log);
@@ -271,7 +271,7 @@ public class Pfs_resource {
 
 			// Now verify in student
 			Utils.login(driver, student, url, log);
-			Utils.checkAcadAndClick(driver, url, log);
+			Utils.checkAcadAndClick(driver, faculty, url, log);
 			Utils.clickXpath(driver, ActionXpath.learn, time, "learn", log);
 
 			Utils.clickXpath(driver, ActionXpath.program, time, "click on program", log);
@@ -334,7 +334,7 @@ public class Pfs_resource {
 			// Student to verify
 			Utils.login(driver, student, url, log);
 			Utils.smallSleepBetweenClicks(1);
-			Utils.checkAcadAndClick(driver, url, log);
+			Utils.checkAcadAndClick(driver, faculty, url, log);
 			Utils.clickXpath(driver, ActionXpath.learn, time, "Click on learnlearn", log);
 
 			Utils.clickXpath(driver, ActionXpath.program, time, "click on program", log);
@@ -396,7 +396,7 @@ public class Pfs_resource {
 			}
 
 			Utils.login(driver, student, url, log);
-			Utils.checkAcadAndClick(driver, url, log);
+			Utils.checkAcadAndClick(driver, faculty, url, log);
 			Utils.clickXpath(driver, ActionXpath.learn, time, "learn", log);
 
 			Utils.clickXpath(driver, ActionXpath.program, time, "click on program", log);
