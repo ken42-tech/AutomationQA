@@ -32,7 +32,7 @@ public class Utils {
 	static Logger log = Logger.getLogger(Utils.class.getName());
 	static int time = 1000;
 	// public static Logger log = Logger.getLogger("Pfs_portal");
-	static boolean debug = false;
+	static boolean debug = true;
 
 	public static void clickXpath(WebDriver driver, String xpath, int time, String msg, Logger log) throws Exception {
 		JavascriptExecutor js3 = (JavascriptExecutor) driver;
