@@ -312,9 +312,7 @@ public class Utils {
 		}
 	}
 
-	public static void
-
-			checkAcadAndClick(WebDriver driver, String url) throws Exception {
+	public static void checkAcadAndClick(WebDriver driver, String Email, String url, Logger log) throws Exception {
 		try {
 			if (checkAcad(url)) {
 				Utils.clickXpath(driver, ActionXpath.ltstaaccademics, time, "Click on LTSTA ACad", log);
@@ -324,7 +322,43 @@ public class Utils {
 		} catch (Exception e) {
 			Utils.printException(e);
 			System.out.println("Failure in checkAcadAndClick function");
-			log.info("Failure in Logout function");
+<<<<<<< HEAD
+			log.info("Failure in checkAcadAndClick function for login id "+Email);
+			checkIfStillInLoginScreenAndLogin(driver,url, Email, log);
+=======
+			log.info("Failure in checkAcadAndClick function");
+			checkIfStillInLoginScreenAndLogin(driver, url, Email, log);
+>>>>>>> 8c49941a11f5c623ce8850c73d766641ffb848eb
+			// throw (e);
+		}
+	}
+
+	public static void checkIfStillInLoginScreenAndLogin(WebDriver driver, String url, String Email, Logger log)
+			throws Exception {
+		try {
+			log.info("#########################CheckIfStillInLOginScreen function called");
+			boolean signInPresent = false;
+			signInPresent = driver.findElements(By.xpath("//*[text()='Sign in']")).size() > 0;
+<<<<<<< HEAD
+			if (signInPresent){
+				log.info("Hey Sign In is present, loggin in with id +++++"+Email);
+=======
+			if (signInPresent) {
+				log.info("Hey Sign In is present");
+>>>>>>> 8c49941a11f5c623ce8850c73d766641ffb848eb
+				driver.navigate().to(url);
+				Utils.login(driver, Email, url, log);
+				Utils.smallSleepBetweenClicks(2);
+				Utils.checkAcadAndClick(driver, Email, url, log);
+
+			} else {
+				log.warning("For this url failed to click on Acad and it's not on Login Page");
+			}
+
+		} catch (Exception e) {
+			Utils.printException(e);
+			System.out.println("Failied to login again");
+			log.info("Failed to login again");
 			throw (e);
 		}
 	}
