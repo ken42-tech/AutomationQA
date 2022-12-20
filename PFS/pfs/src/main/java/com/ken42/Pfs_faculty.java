@@ -389,19 +389,6 @@ public class Pfs_faculty {
 			}
 			Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.faccsave, time, "faccsave", log);
-			// Utils.clickXpath(driver, ActionXpath.facdpacdeails, time, "facdpacdeails",
-			// log);
-			// Utils.smallSleepBetweenClicks(2);
-			// Utils.clickXpath(driver, ActionXpath.facdpacadd, time, "facdpacadd", log);
-			// Utils.clickXpath(driver, ActionXpath.facdplevel, time, "facdplevel", log);
-			// Utils.clickXpath(driver, ActionXpath.facdplevelselect, time,
-			// "facdplevelselect", log);
-			// Utils.clickXpath(driver, ActionXpath.facdpadcountry, time, "facdpadcountry",
-			// log);
-			// Utils.clickXpath(driver, ActionXpath.facdpadcountryselect, time,
-			// "facdpadcountryselect", log);
-			// Utils.callSendkeys(driver, ActionXpath.facdpaduniversity, "ANNA", time, log);
-			// Utils.callSendkeys(driver, ActionXpath.facdpadyear, "2020", time, log);
 
 			Utils.smallSleepBetweenClicks(1);
 			log.info(" TC-30 : Academic Details Completed test case PASSED  \n");
@@ -413,7 +400,7 @@ public class Pfs_faculty {
 	}
 
 	@Test(priority = 31)
-	public static void testfacultyEditReaserchSupervision(String student, String faculty, String url, WebDriver driver,
+	public static void testfacultyEditEXPERIENCE(String student, String faculty, String url, WebDriver driver,
 			Logger log) throws Exception {
 		try {
 
@@ -458,7 +445,7 @@ public class Pfs_faculty {
 	}
 
 	@Test(priority = 32)
-	public static void testfacultyEditResearchPublication(String student, String faculty, String url, WebDriver driver,
+	public static void testfacultyEditRESEARCHPublication(String student, String faculty, String url, WebDriver driver,
 			Logger log) throws Exception {
 		try {
 
@@ -468,13 +455,57 @@ public class Pfs_faculty {
 			Utils.clickXpath(driver, ActionXpath.faccProfile, time, "facprofile", log);
 			// Utils.clickXpath(driver, ActionXpath.resechersvg,
 			// time,"facclickonRESEARCHSUPERVISIONpublish", log);
-
+			Utils.scrollUpOrDown(driver, 300);
 			Utils.clickXpath(driver, ActionXpath.resecher, time, "resecher", log);
 			Utils.clickXpath(driver, ActionXpath.resechersvg, time, "resechersvg", log);
 			Utils.callSendkeys(driver, ActionXpath.resname, "Surya", time, log);
 			Utils.callSendkeys(driver, ActionXpath.rechelink, "https://portal-dev.ken42.com", time, log);
 			Utils.callSendkeys(driver, ActionXpath.recherdec, "Sample Desc", time, log);
 			Utils.smallSleepBetweenClicks(1);
+			Utils.clickXpath(driver, ActionXpath.rechpub, time, "rechpub", log);
+			Utils.smallSleepBetweenClicks(1);
+			boolean addrow1 = false;
+			addrow1 = driver.findElements(By.xpath("(//*[text()='Add Row'])")).size() > 0;
+			if (addrow1) {
+				Utils.clickXpath(driver, ActionXpath.recshadd, time, "recshadd", log);
+				Utils.callSendkeys(driver, ActionXpath.rechnam, "name", time, log);
+				Utils.callSendkeys(driver, ActionXpath.rechlink, "https://portal-dev.ken42.com", time, log);
+				Utils.callSendkeys(driver, ActionXpath.rechdecs, "sample", time, log);
+				Utils.clickXpath(driver, ActionXpath.rechsave, time, "rechsave", log);
+
+			} else {
+				Utils.callSendkeys(driver, ActionXpath.rechnam, "publication", time, log);
+				Utils.callSendkeys(driver, ActionXpath.rechlink, "https://portal-dev.ken42.com", time, log);
+				Utils.callSendkeys(driver, ActionXpath.rechdecs, "sample", time, log);
+				Utils.clickXpath(driver, ActionXpath.rechsave, time, "rechsave", log);
+
+			}
+			Utils.smallSleepBetweenClicks(1);
+			boolean addrow2 = false;
+			addrow2 = driver.findElements(By.xpath("(//*[text()='Add Row'])")).size() > 0;
+			if (addrow1) {
+				Utils.callSendkeys(driver, ActionXpath.rechnam, "publication", time, log);
+				Utils.callSendkeys(driver, ActionXpath.rechlink, "https://portal-dev.ken42.com", time, log);
+				Utils.callSendkeys(driver, ActionXpath.rechdecs, "sample", time, log);
+				Utils.clickXpath(driver, ActionXpath.rechsave, time, "rechsave", log);
+
+			} else {
+				Utils.callSendkeys(driver, ActionXpath.rechnam, "publication", time, log);
+				Utils.callSendkeys(driver, ActionXpath.rechlink, "https://portal-dev.ken42.com", time, log);
+				Utils.callSendkeys(driver, ActionXpath.rechdecs, "sample", time, log);
+				Utils.clickXpath(driver, ActionXpath.rechsave, time, "rechsave", log);
+			}
+			Utils.clickXpath(driver, ActionXpath.reschconfrence, time, "reschbook", log);
+			Utils.callSendkeys(driver, ActionXpath.nameconfrence, "bookname", time, log);
+			Utils.clickXpath(driver, ActionXpath.confrencelink, time, "booklink", log);
+			Utils.clickXpath(driver, ActionXpath.confrencedecsti, time, "bookdecsti", log);
+			Utils.clickXpath(driver, ActionXpath.confrencesave, time, "booksave", log);
+
+			Utils.clickXpath(driver, ActionXpath.reschbook, time, "reschbook", log);
+			Utils.callSendkeys(driver, ActionXpath.bookname, "bookname", time, log);
+			Utils.clickXpath(driver, ActionXpath.booklink, time, "booklink", log);
+			Utils.clickXpath(driver, ActionXpath.bookdecsti, time, "bookdecsti", log);
+			Utils.clickXpath(driver, ActionXpath.booksave, time, "booksave", log);
 			log.info("  TC-32: Faculty edit RESEARCH PUBLICATION  test case PASSED  \n");
 		} catch (Exception e) {
 			Utils.printException(e);
@@ -484,7 +515,7 @@ public class Pfs_faculty {
 	}
 
 	@Test(priority = 33)
-	public static void testfacultyEditConference(String student, String faculty, String url, WebDriver driver,
+	public static void testfacultyEditOTHERS(String student, String faculty, String url, WebDriver driver,
 			Logger log) throws Exception {
 		try {
 
@@ -492,7 +523,7 @@ public class Pfs_faculty {
 			Utils.goBackToHome(driver, url);
 			Utils.clickXpath(driver, ActionXpath.FCCportal, time, "facSelectPrtoSignout", log);
 			Utils.clickXpath(driver, ActionXpath.faccProfile, time, "facprofile", log);
-
+			Utils.scrollUpOrDown(driver, 300);
 			Utils.clickXpath(driver, ActionXpath.others, time, "others", log);
 			Utils.clickXpath(driver, ActionXpath.otherssvg, time, "otherssvg", log);
 			// Utils.clickXpath(driver, ActionXpath.facdpreaddconfernece, time,

@@ -881,7 +881,6 @@ public class ActionXpath {
    static String username = "(// *[@placeholder='Please Enter Username'])";
    static String password = "(//*[@placeholder='Please Enter Password'])";
    static String singnin = "(//*[text()='Verify & Sign in'])";
-
    // new profile fac edit
    static String singinintial = "(//*[text()='T'])";
    static String faccprofile = "(//*[text()='Profile'])";
@@ -918,9 +917,25 @@ public class ActionXpath {
 
    static String resecher = "(//*[text()='RESEARCH'])";
    static String resechersvg = "//*[text()='RESEARCH SUPERVISION']/..//*[local-name()='svg']";
+   static String recshadd = "(//*[text()='Add Row'])";
    static String resname = "(//*[@name='name'])[1]";
    static String rechelink = "(//*[@name='linkURL'])[1]";
    static String recherdec = "(//*[@name='description'])[1]";
+   static String rechpub = "//*[text()='RESEARCH & PUBLICATIONS']/..//*[local-name()='svg']";
+   static String rechnam = "(//*[@name='name'])[2]";
+   static String rechlink = "(//*[@name='linkURL'])[2]";
+   static String rechdecs = "(//*[@name='description'])[2]";
+   static String rechsave = "(//*[text()='Save'])[2]";
+   static String reschconfrence = "//*[text()='CONFERENCES']/..//*[local-name()='svg']";
+   static String nameconfrence = "(//*[@name='name'])[3]";
+   static String confrencelink = "(//*[@name='linkURL'])[3]";
+   static String confrencedecsti = "(//*[@name='description'])[3]";
+   static String confrencesave = "(//*[text()='Save'])[3]";
+   static String reschbook = "//*[text()='BOOK']/..//*[local-name()='svg']";
+   static String bookname = "(//*[@name='name'])[4]";
+   static String booklink = "(//*[@name='linkURL'])[4]";
+   static String bookdecsti = "(//*[@name='description'])[4]";
+   static String booksave = "(//*[text()='Save'])[4]";
 
    static String others = "(//*[text()='OTHERS '])";
    static String otherssvg = " //*[text()='OTHERS']/..//*[local-name()='svg']";
