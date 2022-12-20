@@ -84,12 +84,12 @@ public class Pfs_portal extends Thread {
 			// count = count + 1;
 			// continue;
 			// }
-			testPFSPortal(csvCell, count);
-			// Thread t = new Pfs_portal(csvCell, count);
-			// threads[count] = t;
-			// threads[count].setName("T" + String.valueOf(count + 1));
-			// t.start();
-			// Utils.smallSleepBetweenClicks(8);
+			// testPFSPortal(csvCell);
+			Thread t = new Pfs_portal(csvCell, count);
+			threads[count] = t;
+			threads[count].setName("T" + String.valueOf(count + 1));
+			t.start();
+			Utils.smallSleepBetweenClicks(8);
 			count++;
 		}
 		// SendMail.sendEmail(logFileName);
