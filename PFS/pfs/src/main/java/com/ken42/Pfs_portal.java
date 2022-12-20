@@ -119,10 +119,10 @@ public class Pfs_portal extends Thread {
 		String logFileName = "";
 		boolean append = false;
 		String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new java.util.Date());
-		logFileName = String.format(folder + "\\Testresult_%s.html", timeStamp);
+		logFileName = String.format(folder + "\\Testresult_%s.HTML", timeStamp);
 		FileHandler logFile = new FileHandler(logFileName, append);
-		// logFile.setFormatter(new MyHtmlFormatter());
-		// log.addHandler(logFile);
+		logFile.setFormatter(new MyHtmlFormatter());
+		log.addHandler(logFile);
 		WebDriver driver = null;
 
 		// boolean faculty_login_set = false;
