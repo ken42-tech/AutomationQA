@@ -302,6 +302,7 @@ public class Utils {
 			js.executeScript("window.scrollBy(0,0)");
 			Utils.clickXpath(driver, ActionXpath.FCCportal, time, "Click on  initial", log);
 			Utils.clickXpath(driver, ActionXpath.facsignOut, time, "click on signout", log);
+			Utils.smallSleepBetweenClicks(1);
 
 		} catch (Exception e) {
 			Utils.printException(e);
