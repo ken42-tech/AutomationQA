@@ -13,6 +13,7 @@ import javax.mail.Quota.Resource;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -282,6 +283,14 @@ public class Utils {
 		}
 
 	}
+	public static boolean isAlertPresent(WebDriver driver){
+		try{
+			driver.switchTo().alert();
+			return true;
+		}catch(NoAlertPresentException ex){
+			return false;
+		}
+  }
 
 	public int getDecimalRandomNumber() {
 
@@ -627,8 +636,13 @@ public class Utils {
 	@Test
 	public static void goBackToHome(WebDriver driver, String url, Logger log) throws Exception {
 		try {
+			boolean alertPresent = false;
 			bigSleepBetweenClicks(1);
 			driver.navigate().to(url);
+			alertPresent = isAlertPresent(driver);
+			if(alertPresent){
+				driver.switchTo().alert().accept();
+			}
 		} catch (Exception e) {
 			Utils.printException(e);
 			System.out.println("Failure in go back to");

@@ -671,8 +671,8 @@ public class Pfs_faculty {
 				Utils.callSendkeys(driver, ActionXpath.facccresurl, "Question", time, log);
 				Utils.clickXpath(driver, ActionXpath.facccressubmitform, time, "Save URL link button", log);
 				// Utils.callSendkeys(driver, ActionXpath.faccquestion, "Question", time, log);
-				Utils.callSendkeys(driver, ActionXpath.faccquestionname, "Question time", time, log);
-				Utils.callSendkeys(driver, ActionXpath.facquestionpurpose, "Question time", time, log);
+				Utils.callSendkeys(driver, ActionXpath.faccquestionname, "Question Name", time, log);
+				Utils.callSendkeys(driver, ActionXpath.facquestionpurpose, "Question Purpose", time, log);
 				Utils.clickXpath(driver, ActionXpath.facquestionlevel, time, "facquestionlevel", log);
 				Utils.clickXpath(driver, ActionXpath.faclevelselect, time, "faclevelselect", log);
 				Utils.callSendkeys(driver, ActionXpath.facquestionmark, "90", time, log);
@@ -722,6 +722,7 @@ public class Pfs_faculty {
 
 			Utils.clickXpath(driver, ActionXpath.FCCportal, time, "Click of faculty pic", log);
 			Utils.clickXpath(driver, ActionXpath.facsignOut, time, "facsignOut", log);
+			Utils.smallSleepBetweenClicks(1);
 			log.info(" TC-39: Faculty View Profile and Sign out Test Case PASSED \n ");
 		} catch (Exception e) {
 			Utils.printException(e);

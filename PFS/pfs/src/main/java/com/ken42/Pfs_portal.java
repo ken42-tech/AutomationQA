@@ -45,18 +45,22 @@ public class Pfs_portal extends Thread {
 			Thread.sleep(1000);
 			testPFSPortal(this.csvLineData, this.count);
 		} catch (InterruptedException e) {
+			log.info("Thread- Exception " + Thread.currentThread().getName());
 			System.out.println("Thread- Exception " + Thread.currentThread().getName());
 			e.printStackTrace();
 		} catch (java.lang.Exception e) {
+			log.info("Thread- Exception " + Thread.currentThread().getName());
 			System.out.println("Thread- Exception " + Thread.currentThread().getName());
 			e.printStackTrace();
 		}
+		log.info("Thread- END " + Thread.currentThread().getName());
 		System.out.println("Thread- END " + Thread.currentThread().getName());
 	}
 
-	public Pfs_portal(String[] csvCell, int count) {
+	public Pfs_portal(String[] csvCell, int count, Logger log) {
 		this.csvLineData = csvCell;
 		this.count = count;
+		this.log = log;
 	}
 
 	public static void main(String[] args) throws Exception {
@@ -86,7 +90,7 @@ public class Pfs_portal extends Thread {
 			// continue;
 			// }
 			// testPFSPortal(csvCell);
-			Thread t = new Pfs_portal(csvCell, count);
+			Thread t = new Pfs_portal(csvCell, count, log);
 			threads[count] = t;
 			threads[count].setName("T" + String.valueOf(count + 1));
 			t.start();
@@ -126,7 +130,7 @@ public class Pfs_portal extends Thread {
 			Utils.login(driver, facultyEmail, PFSurl, log);
 			Utils.smallSleepBetweenClicks(2);
 		} else {
-			log.warning("Faculty login for test case 17-38 failed somewhere");
+			// log.warning("Faculty login for test case 17-38 failed somewhere");
 		}
 	}
 
