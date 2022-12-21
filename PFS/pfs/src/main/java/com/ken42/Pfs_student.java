@@ -244,7 +244,7 @@ public class Pfs_student {
 
 	@Test(priority = 11)
 	public static void testStudentMakeRequest(String student, String faculty, String url, WebDriver driver, Logger log)
-			throws InterruptedException {
+			throws Exception {
 		try {
 			System.out.println("TC-11 Starting Student Services make request test case execution ");
 			Utils.goBackToHome(driver, url, log);
