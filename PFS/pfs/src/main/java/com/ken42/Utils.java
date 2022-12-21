@@ -275,7 +275,7 @@ public class Utils {
 		} catch (
 
 		Exception e) {
-			log.warning("Login to portal failed " + url);
+			log.warning("Login to portal failed Quitting the driver" + url);
 			printException(e);
 			driver.quit();
 			// System.exit(01);
