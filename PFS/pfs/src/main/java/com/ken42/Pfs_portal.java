@@ -8,6 +8,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.lang.ObjectUtils.Null;
 import org.jaxen.function.TrueFunction;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -104,10 +105,19 @@ public class Pfs_portal extends Thread {
 	}
 
 	public static void checkFacultyIsLoggedIn(WebDriver driver, String facultyEmail, String PFSurl) throws Exception {
-		if (!faculty_login_set) {
-			Utils.smallSleepBetweenClicks(1);
+		// if (!faculty_login_set) {
+		// 	Utils.smallSleepBetweenClicks(1);
+		// 	Utils.login(driver, facultyEmail, PFSurl, log);
+		// 	faculty_login_set = true;
+		// }
+		boolean signInPresent = false;
+		signInPresent = driver.findElements(By.xpath("//*[text()='Sign in']")).size() > 0;
+		if (signInPresent) {
+			log.info("Hey Faculty not logged in let's login with ID " + facultyEmail);
 			Utils.login(driver, facultyEmail, PFSurl, log);
-			faculty_login_set = true;
+			Utils.smallSleepBetweenClicks(2);
+		} else {
+			log.warning("Faculty login for test case 17-38 failed somewhere");
 		}
 	}
 

@@ -31,7 +31,7 @@ public class Pfs_student {
 			}
 		} catch (Exception e) {
 			Utils.printException(e);
-			Utils.goBackToHome(driver, url);
+			Utils.goBackToHome(driver, url, log);
 			log.warning(" TC-1: Student Home tab test case FAILED \n");
 		}
 	}
@@ -44,7 +44,7 @@ public class Pfs_student {
 				log.info("TC-2 Student Enrollement Skipping this test as this is not applicable for this portal\n\n");
 				return;
 			}
-			Utils.goBackToHome(driver, url);
+			Utils.goBackToHome(driver, url, log);
 			Utils.bigSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.ClickEnroll, time, "Expand Enrollment", log);
 			Utils.clickXpath(driver, ActionXpath.clickCompletedEnroll, time, "select the Completes Enrollment", log);
@@ -54,7 +54,7 @@ public class Pfs_student {
 			log.info("TC-2: Enrollment of the Student Test Case PASSED \n");
 		} catch (Exception e) {
 			Utils.printException(e);
-			Utils.goBackToHome(driver, url);
+			Utils.goBackToHome(driver, url, log);
 			log.warning("TC-2: Enrollment of the Student Test Case FAILED \n");
 		}
 	}
@@ -63,7 +63,7 @@ public class Pfs_student {
 	public static void testStudentAcademic(String url, WebDriver driver, Logger log) throws Exception {
 		try {
 			System.out.println("TC-3: Starting Student Academic  test case execution\n");
-			Utils.goBackToHome(driver, url);
+			Utils.goBackToHome(driver, url, log);
 			if (Utils.checkLtsta(url)) {
 				Utils.clickXpath(driver, ActionXpath.ltstaAcademic, time, "Exapand Academic", log);
 				Utils.clickXpath(driver, ActionXpath.ClickDashboard, time, "Click on dashboard", log);
@@ -88,7 +88,7 @@ public class Pfs_student {
 	public static void testStudentExamination(String url, WebDriver driver, Logger log) throws Exception {
 		try {
 			System.out.println("TC-4:   Starting Student Examination test case execution");
-			Utils.goBackToHome(driver, url);
+			Utils.goBackToHome(driver, url, log);
 			if (Utils.checkUrlToSkipTest(url)) {
 				log.info("TC-4: Exam tab Skipping as this is not applicable for this portal\n");
 				return;
@@ -102,7 +102,7 @@ public class Pfs_student {
 			log.info("TC-4: Student Examination Test Case PASSED \n");
 		} catch (Exception e) {
 			Utils.printException(e);
-			Utils.goBackToHome(driver, url);
+			Utils.goBackToHome(driver, url, log);
 			log.warning("TC-4: Student Examination Test Case FAILED \n");
 		}
 	}
@@ -111,7 +111,7 @@ public class Pfs_student {
 	public static void testStudentAttendance(String url, WebDriver driver, Logger log) throws Exception {
 		try {
 			System.out.println("TC-5: Starting Student Attendance test case execution");
-			Utils.goBackToHome(driver, url);
+			Utils.goBackToHome(driver, url, log);
 			if (Utils.checkLtsta(url)) {
 				Utils.clickXpath(driver, ActionXpath.ltstaAttendance, time, "Select the Attendance", log);
 			} else {
@@ -121,7 +121,7 @@ public class Pfs_student {
 			log.info("TC-5: Student Attendance Test Case PASSED \n");
 		} catch (Exception e) {
 			Utils.printException(e);
-			Utils.goBackToHome(driver, url);
+			Utils.goBackToHome(driver, url, log);
 			log.warning("TC-5: 	Student Attendance  Test Case FAILED \n");
 		}
 	}
@@ -130,7 +130,7 @@ public class Pfs_student {
 	public static void testStudentTimeTable(String url, WebDriver driver, Logger log) throws Exception {
 		try {
 			System.out.println("TC-6: Starting Student Timetable test case execution ");
-			Utils.goBackToHome(driver, url);
+			Utils.goBackToHome(driver, url, log);
 			if (Utils.checkLtsta(url)) {
 				Utils.clickXpath(driver, ActionXpath.ltstaTimetable, time, "Select time table", log);
 			} else {
@@ -142,7 +142,7 @@ public class Pfs_student {
 			log.info("TC-6:   Student Timetable Test Case PASSED \n");
 		} catch (Exception e) {
 			Utils.printException(e);
-			Utils.goBackToHome(driver, url);
+			Utils.goBackToHome(driver, url, log);
 			log.warning("TC-6:  Student Timetable Test Case Case FAILED \n");
 		}
 	}
@@ -151,7 +151,7 @@ public class Pfs_student {
 	public static void testStudentFees(String url, WebDriver driver, Logger log) throws Exception {
 		try {
 			System.out.println("TC-7:  Starting Student FEES test case execution");
-			Utils.goBackToHome(driver, url);
+			Utils.goBackToHome(driver, url, log);
 			if (Utils.checkUrlToSkipTest(url)) {
 				log.info("TC-7: Skipping this test as this is not applicable for this portal\n\n");
 				return;
@@ -168,7 +168,7 @@ public class Pfs_student {
 			log.info("TC-7: Student Fees Test Case PASSED \n");
 		} catch (Exception e) {
 			Utils.printException(e);
-			Utils.goBackToHome(driver, url);
+			Utils.goBackToHome(driver, url, log);
 			log.warning("TC-7: Student Fees Test Case FAILED \n");
 		}
 	}
@@ -177,7 +177,7 @@ public class Pfs_student {
 	public static void testStudentFeedback(String url, WebDriver driver, Logger log) throws Exception {
 		try {
 			System.out.println("TC-8:   Starting Student FEEDBACK test case execution");
-			Utils.goBackToHome(driver, url);
+			Utils.goBackToHome(driver, url, log);
 			if (Utils.checkLtsta(url)) {
 				Utils.clickXpath(driver, ActionXpath.ltstafeedBack, time, "FeedBack", log);
 			} else {
@@ -188,7 +188,7 @@ public class Pfs_student {
 			log.info("TC-8: Student FEEDBACK tab Test Case PASSED \n");
 		} catch (Exception e) {
 			Utils.printException(e);
-			Utils.goBackToHome(driver, url);
+			Utils.goBackToHome(driver, url, log);
 			log.warning("TC-8: Student FEEDBACK tab Test Case FAILED \n");
 		}
 	}
@@ -197,7 +197,7 @@ public class Pfs_student {
 	public static void testStudentStudentStatus(String url, WebDriver driver, Logger log) throws Exception {
 		try {
 			System.out.println("TC-9:  Starting  Student Services check cancel button test case execution ");
-			Utils.goBackToHome(driver, url);
+			Utils.goBackToHome(driver, url, log);
 			if (Utils.checkLtsta(url)) {
 				Utils.clickXpath(driver, ActionXpath.ltstaService, time, "Student Status", log);
 			} else {
@@ -210,7 +210,7 @@ public class Pfs_student {
 			log.info("TC-9: Student Services check cancel button Test Case PASSED \n");
 		} catch (Exception e) {
 			Utils.printException(e);
-			Utils.goBackToHome(driver, url);
+			Utils.goBackToHome(driver, url, log);
 			log.warning(" TC-9: Student Services check cancel button Test Case FAILED \n ");
 		}
 	}
@@ -220,7 +220,7 @@ public class Pfs_student {
 			throws Exception {
 		try {
 			System.out.println("TC-10: Starting Student Services Raise test case execution \n");
-			Utils.goBackToHome(driver, url);
+			Utils.goBackToHome(driver, url, log);
 			if (Utils.checkLtsta(url)) {
 				Utils.clickXpath(driver, ActionXpath.ltstaService, time, "Student Status", log);
 			} else {
@@ -237,7 +237,7 @@ public class Pfs_student {
 			log.info(" TC-10: Student Service Raise case Test Case PASSED \n");
 		} catch (Exception e) {
 			Utils.printException(e);
-			Utils.goBackToHome(driver, url);
+			Utils.goBackToHome(driver, url, log);
 			log.warning(" TC-10: Student Service Raise case Test Case FAILED \n");
 		}
 	}
@@ -247,7 +247,7 @@ public class Pfs_student {
 			throws InterruptedException {
 		try {
 			System.out.println("TC-11 Starting Student Services make request test case execution ");
-			Utils.goBackToHome(driver, url);
+			Utils.goBackToHome(driver, url, log);
 			if (Utils.checkLtsta(url)) {
 				Utils.clickXpath(driver, ActionXpath.ltstaService, time, "Student Status", log);
 			} else {
@@ -264,7 +264,7 @@ public class Pfs_student {
 
 		} catch (Exception e) {
 			Utils.printException(e);
-			Utils.goBackToHome(driver, url);
+			Utils.goBackToHome(driver, url, log);
 			log.warning("TC-11: Student services make request test Case FAILED \n");
 		}
 	}
@@ -274,7 +274,7 @@ public class Pfs_student {
 			throws Exception {
 		try {
 			System.out.println("TC-12:  Starting Student Event case Execution ");
-			Utils.goBackToHome(driver, url);
+			Utils.goBackToHome(driver, url, log);
 			if (Utils.checkLtsta(url)) {
 				Utils.clickXpath(driver, ActionXpath.ltstaEvent, time, "Event", log);
 			} else {
@@ -285,7 +285,7 @@ public class Pfs_student {
 			log.info("TC-12: Student EVENT Test Case PASSED \n");
 		} catch (Exception e) {
 			Utils.printException(e);
-			Utils.goBackToHome(driver, url);
+			Utils.goBackToHome(driver, url, log);
 			log.warning("TC-12: Student EVENT Test Case  FAILED \n");
 		}
 	}
@@ -300,7 +300,7 @@ public class Pfs_student {
 				return;
 			} else {
 				System.out.println("TC-13: Starting execution of edit basic details of student profile");
-				Utils.goBackToHome(driver, url);
+				Utils.goBackToHome(driver, url, log);
 				Utils.bigSleepBetweenClicks(1);
 				Utils.clickXpath(driver, ActionXpath.Stu_prName, time, "Click on Initial icon", log);
 				Utils.smallSleepBetweenClicks(1);
@@ -324,7 +324,7 @@ public class Pfs_student {
 			}
 		} catch (Exception e) {
 			Utils.printException(e);
-			Utils.goBackToHome(driver, url);
+			Utils.goBackToHome(driver, url, log);
 			log.warning("TC-13: Student edit profile test case FAILED \n");
 		}
 	}
@@ -338,7 +338,7 @@ public class Pfs_student {
 				return;
 			} else {
 				System.out.println(" TC-14 :   Starting student edit profile education Details case execution");
-				Utils.goBackToHome(driver, url);
+				Utils.goBackToHome(driver, url, log);
 				Utils.bigSleepBetweenClicks(1);
 				Utils.clickXpath(driver, ActionXpath.Stu_prName, time, "Click on profile Icon", log);
 				Utils.clickXpath(driver, ActionXpath.stuprofile, time, "Click on profile button", log);
@@ -372,7 +372,7 @@ public class Pfs_student {
 			}
 		} catch (Exception e) {
 			Utils.printException(e);
-			Utils.goBackToHome(driver, url);
+			Utils.goBackToHome(driver, url, log);
 			log.warning("TC-14: Student profile edit Education Details test case FAILED \n");
 		}
 	}
@@ -392,7 +392,7 @@ public class Pfs_student {
 				}
 				System.out.println(" TC-15:   Starting student prfofile edit Address test case execution");
 
-				Utils.goBackToHome(driver, url);
+				Utils.goBackToHome(driver, url, log);
 				Utils.bigSleepBetweenClicks(1);
 				Utils.clickXpath(driver, ActionXpath.Stu_prName, time, "profile", log);
 				Utils.clickXpath(driver, ActionXpath.stuprofile, time, "stuprofile", log);
@@ -420,7 +420,7 @@ public class Pfs_student {
 			}
 		} catch (Exception e) {
 			Utils.printException(e);
-			Utils.goBackToHome(driver, url);
+			Utils.goBackToHome(driver, url, log);
 			log.warning("TC-15: Student profile edit address detail test case FAILED \n");
 		}
 	}
@@ -429,13 +429,13 @@ public class Pfs_student {
 	public static void testStudentSignout(String url, WebDriver driver, Logger log) throws Exception {
 		try {
 			System.out.println("TC-16 :     Starting Student SIGNOUT  case execution ");
-			Utils.goBackToHome(driver, url);
+			Utils.goBackToHome(driver, url, log);
 			Utils.clickXpath(driver, ActionXpath.FCCportal, time, " on the Profile on the student portal", log);
 			Utils.clickXpath(driver, ActionXpath.signOut, time, "Signout the student portal", log);
 			log.info(" TC-16: Student SIGNOUT Test Case PASSED \n");
 		} catch (Exception e) {
 			Utils.printException(e);
-			Utils.goBackToHome(driver, url);
+			Utils.goBackToHome(driver, url, log);
 			log.warning("TC-16: Student SIGNOUT Test Case FAILED \n");
 		}
 	}
