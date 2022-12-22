@@ -195,10 +195,10 @@ public class Utils {
 			if (checkoldlogin(url)) {
 				Utils.smallSleepBetweenClicks(1);
 				if (usernameloginltpct(url)) {
-					String studentuname = "TestStudent6300";
-					String facultyuname = "Test.Faculty7635";
-					String studentpassword = "demo12345";
-					String facultypassword = "test12345";
+					String studentuname = "Automation.Student8459";
+					String facultyuname = "Automation.Faculty2568";
+					String studentpassword = "Boom";
+					String facultypassword = "Automate";
 
 					if (Email.contains("student")) {
 						Utils.callSendkeys(driver, ActionXpath.username, studentuname, time, log);
