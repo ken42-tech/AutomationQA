@@ -87,14 +87,14 @@ public class Utils {
 						.withTimeout(Duration.ofSeconds(20))
 						.pollingEvery(Duration.ofSeconds(4))
 						.ignoring(NoSuchElementException.class);
-
 				WebElement WE = wait.until(new Function<WebDriver, WebElement>() {
 					public WebElement apply(WebDriver driver) {
 						return driver.findElement(By.xpath(XPATH));
 					}
 				});
+				Thread.sleep(500);
 				WE.sendKeys(Value);
-				Thread.sleep(1000);
+				Thread.sleep(500);
 				break;
 			} catch (Exception e) {
 				Thread.sleep(1000);
