@@ -38,7 +38,7 @@ public class Utils {
 	public static void clickXpath(WebDriver driver, String xpath, int time, String msg, Logger log) throws Exception {
 		JavascriptExecutor js3 = (JavascriptExecutor) driver;
 		int count = 0;
-		int maxTries = 10;
+		int maxTries = 15;
 		final String XPATH = xpath;
 		while (true) {
 			try {
@@ -46,21 +46,22 @@ public class Utils {
 				if (debug)
 					log.info("Click on the:" + msg);
 				System.out.print("Click on the:" + msg);
-				Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
-						.withTimeout(Duration.ofSeconds(30))
-						.pollingEvery(Duration.ofSeconds(6))
-						.ignoring(NoSuchElementException.class);
-				WebElement WE = wait.until(new Function<WebDriver, WebElement>() {
-					public WebElement apply(WebDriver driver) {
-						return driver.findElement(By.xpath(XPATH));
-					}
-				});
-				WE.click();
-				// new WebDriverWait(driver,
-				// 10).until(ExpectedConditions.elementToBeClickable(By.xpath(xpath))).click();
+				// Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
+				// 		.withTimeout(Duration.ofSeconds(30))
+				// 		.pollingEvery(Duration.ofSeconds(6))
+				// 		.ignoring(NoSuchElementException.class);
+				// WebElement WE = wait.until(new Function<WebDriver, WebElement>() {
+				// 	public WebElement apply(WebDriver driver) {
+				// 		return driver.findElement(By.xpath(XPATH));
+				// 	}
+				// });
+				// WE.click();
+				WebDriverWait wait = new WebDriverWait(driver, 5, 500); 
+				WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
+				element.click();
 				break;
 			} catch (Exception e) {
-				Thread.sleep(3000);
+				Thread.sleep(2000);
 				if (debug)
 					log.warning("Failed to Click on the :" + msg);
 				System.out.println("Failed to Click on the :" + msg);
@@ -317,7 +318,7 @@ public class Utils {
 			Utils.printException(e);
 			System.out.println("Failure in logout function");
 			log.info("Failure in Logout function");
-			driver.quit();
+			Pfs_portal.quitDriver(driver, url);
 			throw (e);
 		}
 	}
@@ -666,9 +667,9 @@ public class Utils {
 
 	@Test
 	public static void smallSleepBetweenClicks(int loop) throws InterruptedException {
-		int total_time = 2000 * loop;
+		int total_time = 1000 * loop;
 		System.out.println("Sleeping for " + total_time);
-		Thread.sleep(2000 * loop);
+		Thread.sleep(1000 * loop);
 	}
 
 	@Test
@@ -680,9 +681,9 @@ public class Utils {
 
 	@Test
 	public static void bigSleepBetweenClicks(int loop) throws InterruptedException {
-		int total_time = 7000 * loop;
+		int total_time = 1000 * loop;
 		System.out.println("Sleeping for " + total_time);
-		Thread.sleep(7000 * loop);
+		Thread.sleep(1000 * loop);
 	}
 
 	@Test
@@ -736,29 +737,6 @@ public class Utils {
 
 		}
 		return (null);
-
-		// StringBuffer sb = new StringBuffer(input);
-		// // sb.deleteCharAt(sb.length() - 1);
-
-		// String tri = sb.toString();
-		// String tr = tri.trim();
-		// String msg = tr.toLowerCase();
-		// // System.out.println(msg);
-
-		// char[] charArray = msg.toCharArray();
-		// boolean foundSpace = true;
-		// for (int i = 0; i < charArray.length; i++) {
-		// if (Character.isLetter(charArray[i])) {
-		// if (foundSpace) {
-		// charArray[i] = Character.toUpperCase(charArray[i]);
-		// foundSpace = false;
-		// }
-		// } else {
-		// foundSpace = true;
-		// }
-		// }
-		// return tr = String.valueOf(charArray);
-
 	}
 
 	@Test
