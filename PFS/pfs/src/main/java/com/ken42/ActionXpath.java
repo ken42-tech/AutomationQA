@@ -862,7 +862,7 @@ public class ActionXpath {
    // 60,61,62
    static String filterassessment = "//*[@id=\"app\"]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[2]/div/div/div";
    static String filterforum = "//*[@id=\"app\"]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[2]/div/div/div";
-   static String filterassignment = "//*[@id=\"app\"]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[2]/div/div/div";
+   static String filterassignment = "//*[@id=\"app\"]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[2]/div/div/div | //*[@id='app']/div/div/div/main/div[2]/div[2]/div[3]/div[2]/div[2]/div/div/div/..";
    static String faccFilterassignment = "(//span[text()='Filters'])[1]";
    static String faccFilterassignmnetClear = "//p[text()='Clear all']";
    static String FaccFilterOpen = "(//*[. and contains(text(), 'Activity Type')]/../../../..//*[local-name()='svg'])[1]";
