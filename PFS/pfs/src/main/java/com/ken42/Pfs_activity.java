@@ -685,7 +685,7 @@ public class Pfs_activity {
             Utils.clickXpathWithJavascript(driver, ActionXpath.assignfacpublish, time, "Publish assignment");
             Utils.smallSleepBetweenClicks(1);
             Utils.clickXpathWithJavascript(driver, ActionXpath.assignfacpublishrelative, time, "Publish");
-            Utils.bigSleepBetweenClicks(2);
+            Utils.bigSleepBetweenClicks(1);
 
             return returnAssement;
 
@@ -991,7 +991,7 @@ public class Pfs_activity {
             Utils.smallSleepBetweenClicks(1);
 
             String fileName = "Forum_" + Utils.generateRandom();
-            Utils.bigSleepBetweenClicks(2);
+            Utils.bigSleepBetweenClicks(1);
             Utils.callSendkeys(driver, ActionXpath.relativefacforumname1, fileName, time, log);
             Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.program, time, "click on program", log);
@@ -1062,7 +1062,7 @@ public class Pfs_activity {
             Utils.smallSleepBetweenClicks(1);
             Utils.clickXpathWithJavascript(driver, ActionXpath.assignfacpublish, time, "Publish");
             System.out.println("click on dot and  publish 2nd forum");
-            Utils.bigSleepBetweenClicks(2);
+            Utils.bigSleepBetweenClicks(1);
 
         } catch (Exception e) {
             Utils.printException(e);
@@ -1171,7 +1171,7 @@ public class Pfs_activity {
             Utils.smallSleepBetweenClicks(1);
 
             Utils.clickXpath(driver, ActionXpath.relativefacforumclink1, time, "facforumclink", log);
-            Utils.bigSleepBetweenClicks(2);
+            Utils.bigSleepBetweenClicks(1);
             Utils.callSendkeys(driver, ActionXpath.relativefacforumurl1, filename, time, log);
             Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.relativefacforumsavlin1, time, "facforumsavlin", log);
@@ -1221,7 +1221,7 @@ public class Pfs_activity {
             // ((JavascriptExecutor) driver).executeScript("arguments[0].click();", elem);
             Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.assignfacdelerelative, time, "Delete button 2", log);
-            Utils.bigSleepBetweenClicks(2);
+            Utils.bigSleepBetweenClicks(1);
 
         } catch (Exception e) {
             Utils.printException(e);
@@ -1239,7 +1239,7 @@ public class Pfs_activity {
             Utils.login(driver, faculty, url, log);
             Utils.checkAcadAndClick(driver, faculty, url, log);
             Utils.clickXpath(driver, ActionXpath.relativefacforumclickcouse1, time, "facforumclickcouse", log);
-            Utils.bigSleepBetweenClicks(2);
+            Utils.bigSleepBetweenClicks(1);
             String p = Utils.getTEXT(driver, ActionXpath.filterassignment, log);
             System.out.println("p" + p);
             if (p.contains("Assignments") && (p.contains("Assessments")) && (p.contains("Forum"))) {
@@ -1268,7 +1268,7 @@ public class Pfs_activity {
                 log.warning(
                         " TC-53: Assignments Activity Filter Option View FAILED it does not contain all the tabs  ");
             }
-            Utils.bigSleepBetweenClicks(2);
+            Utils.bigSleepBetweenClicks(1);
             Utils.logout(driver, url, Role, log);
             Utils.smallSleepBetweenClicks(1);
             log.info("TC-53 Assignment Filter test case PASSED  ");
@@ -1287,7 +1287,7 @@ public class Pfs_activity {
             Utils.login(driver, faculty, url, log);
             Utils.checkAcadAndClick(driver, faculty, url, log);
             Utils.clickXpath(driver, ActionXpath.relativefacforumclickcouse1, time, "facforumclickcouse", log);
-            Utils.bigSleepBetweenClicks(2);
+            Utils.bigSleepBetweenClicks(1);
             String p = Utils.getTEXT(driver, ActionXpath.filterassessment, log);
 
             System.out.println("p" + p);
@@ -1314,7 +1314,7 @@ public class Pfs_activity {
             } else {
                 log.warning(" TC-54: Assement Activity Filter Option View FAILED it does not contain all the tabs  ");
             }
-            Utils.bigSleepBetweenClicks(2);
+            Utils.bigSleepBetweenClicks(1);
             Utils.logout(driver, url, Role, log);
             Utils.smallSleepBetweenClicks(1);
             log.info("TC-54 Assement Filter test case PASSED ");
@@ -1333,7 +1333,7 @@ public class Pfs_activity {
             Utils.login(driver, faculty, url, log);
             Utils.checkAcadAndClick(driver, faculty, url, log);
             Utils.clickXpath(driver, ActionXpath.relativefacforumclickcouse1, time, "facforumclickcouse", log);
-            Utils.bigSleepBetweenClicks(2);
+            Utils.bigSleepBetweenClicks(1);
             WebElement l = driver.findElement(
                     By.xpath("//*[@id=\"app\"]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[2]/div/div/div"));
             String p = l.getText();
@@ -1362,7 +1362,7 @@ public class Pfs_activity {
             } else {
                 log.warning(" TC-55: Forum Activity Filter Option View FAILED it does not contain all the tabs  ");
             }
-            Utils.bigSleepBetweenClicks(2);
+            Utils.bigSleepBetweenClicks(1);
             Utils.logout(driver, url, Role, log);
             Utils.smallSleepBetweenClicks(1);
             log.info("TC-55 Forum Filter test case PASSED ");
