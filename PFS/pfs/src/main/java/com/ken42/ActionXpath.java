@@ -507,7 +507,7 @@ public class ActionXpath {
    static String facpptpublishyes = "//span[text()='Publish']";
    //// static String
    //// facSelectPrtoSignout="/html/body/div[1]/div/div/div/main/div[2]/div[2]/header/div/header/div[1]/div[2]/div/div";
-   static String facsignOut = "//div[.='Sign Out']/..";
+   static String facsignOut = "//div[text()='Sign Out']/..";
    // student portal start
    static String ltstaaccademics = "//span[text()='Academics']";
    static String accademics = "(//span[text()='Academics'])[2]";

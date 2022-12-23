@@ -131,6 +131,7 @@ public class Pfs_portal extends Thread {
 			Utils.smallSleepBetweenClicks(2);
 		} else {
 			// log.warning("Faculty login for test case 17-38 failed somewhere");
+			System.out.println("$$$$$$$$$$$$$ No Sign in page");
 		}
 	}
 

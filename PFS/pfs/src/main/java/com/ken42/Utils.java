@@ -491,6 +491,17 @@ public class Utils {
 		return false;
 	}
 
+	@Test
+	public static Boolean skipthefacultyprofile(String url) {
+		String urlToMatch = "nsom";
+		Pattern pt = Pattern.compile(urlToMatch);
+		Matcher m = pt.matcher(url);
+		while (m.find()) {
+			// regex = m.group();
+			return true;
+		}
+		return false;
+	}
 	public static Boolean stueditprofil(String url) {
 		String urlToMatch = "dev|demo|nsom|esscisamsung";
 		Pattern pt = Pattern.compile(urlToMatch);

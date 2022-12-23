@@ -281,11 +281,20 @@ public class Pfs_faculty {
 	}
 
 	@Test(priority = 28)
-	public static void testfacultyEditProfile(String student, String faculty, String url, WebDriver driver, Logger log)
+	public static void testfacultyProfile(String student, String faculty, String url, WebDriver driver, Logger log)
 			throws Exception {
 		try {
+
 			System.out.println(" TC-28:   Faculty Starting PersonalDetails Started  case executation");
+
+			if (Utils.skipthefacultyprofile(url)) {
+				log.info(
+						"TC-28 Skip Faculty Profile \n\n");
+				return;
+
+			}
 			Utils.goBackToHome(driver, url, log);
+
 			Utils.clickXpath(driver, ActionXpath.singinintial, time, "Select faculty initial icon", log);
 			Utils.clickXpath(driver, ActionXpath.faccprofile, time, "click on profile", log);
 			Utils.smallSleepBetweenClicks(1);
@@ -306,6 +315,7 @@ public class Pfs_faculty {
 			Utils.clickXpath(driver, ActionXpath.facdpsave, time, "facdpsave", log);
 			//// Utils.bigSleepBetweenClicks(1);
 			log.info("  TC-28: Faculty Starting PersonalDetails Completed test case PASSED  \n");
+
 		} catch (Exception e) {
 			Utils.printException(e);
 			Utils.goBackToHome(driver, url, log);
@@ -318,8 +328,19 @@ public class Pfs_faculty {
 	public static void testfacultyEditAddress(String student, String faculty, String url, WebDriver driver, Logger log)
 			throws Exception {
 		try {
-			System.out.println(" TC-29 :   Faculty Address Details Started  case executation");
+			System.out.println(" TC-29 :   Faculty Faculty Edit Address Started  case executation");
+
+			System.out.println(" TC-29:   Faculty Starting PersonalDetails Started  case executation");
+
+			if (Utils.skipthefacultyprofile(url)) {
+				log.info(
+						"TC-29 Skip Faculty Edit Address Faculty Profile \n\n");
+				return;
+
+			}
 			Utils.goBackToHome(driver, url, log);
+
+			// Utils.goBackToHome(driver, url, log);
 			Utils.clickXpath(driver, ActionXpath.FCCportal, time, "facSelectPrtoSignout", log);
 			Utils.clickXpath(driver, ActionXpath.faccProfile, time, "facprofile", log);
 			Utils.clickXpath(driver, ActionXpath.address, time, "addressdetais", log);
@@ -360,8 +381,17 @@ public class Pfs_faculty {
 			Logger log) throws Exception {
 		try {
 
-			System.out.println(" TC-30:   Academic Details Started  case executation");
+			System.out.println(" TC-30:   Faculty Starting Edit Academic Details Started  case executation");
+
+			if (Utils.skipthefacultyprofile(url)) {
+				log.info(
+						"TC-30 Skip Edit Details Faculty Profile \n\n");
+				return;
+
+			}
 			Utils.goBackToHome(driver, url, log);
+
+			// Utils.goBackToHome(driver, url, log);
 			Utils.smallSleepBetweenClicks(2);
 			Utils.clickXpath(driver, ActionXpath.FCCportal, time, "facSelectPrtoSignout", log);
 			Utils.clickXpath(driver, ActionXpath.faccProfile, time, "facprofile", log);
@@ -403,6 +433,16 @@ public class Pfs_faculty {
 	public static void testfacultyEditEXPERIENCE(String student, String faculty, String url, WebDriver driver,
 			Logger log) throws Exception {
 		try {
+
+			System.out.println(" TC-31: Faculty Starting Edit Experience Started  case executation");
+
+			if (Utils.skipthefacultyprofile(url)) {
+				log.info(
+						"TC-31 Skip Edit Experience Faculty Profile \n\n");
+				return;
+
+			}
+			Utils.goBackToHome(driver, url, log);
 
 			System.out.println(" TC:31 :   RESEARCH SUPERVISION Started  case executation");
 			Utils.goBackToHome(driver, url, log);
@@ -449,7 +489,17 @@ public class Pfs_faculty {
 			Logger log) throws Exception {
 		try {
 
-			System.out.println(" TC-32 :   RESEARCH PUBLICATION Started  case executation");
+			System.out.println(" TC-32:   Faculty Starting Edit Research Started  case executation");
+
+			if (Utils.skipthefacultyprofile(url)) {
+				log.info(
+						"TC-32 Edit Research Skip Faculty Profile \n\n");
+				return;
+
+			}
+			Utils.goBackToHome(driver, url, log);
+
+			System.out.println(" TC-32 : RESEARCH PUBLICATION Started  case executation");
 			Utils.goBackToHome(driver, url, log);
 			Utils.clickXpath(driver, ActionXpath.FCCportal, time, "facSelectPrtoSignout", log);
 			Utils.clickXpath(driver, ActionXpath.faccProfile, time, "facprofile", log);
@@ -519,6 +569,15 @@ public class Pfs_faculty {
 			Logger log) throws Exception {
 		try {
 
+			System.out.println(" TC-33: Faculty Starting Faculty Edid Others Started  case executation");
+
+			if (Utils.skipthefacultyprofile(url)) {
+				log.info(
+						"TC-33 Faculty Edid Others Skip Faculty Profile \n\n");
+				return;
+
+			}
+			Utils.goBackToHome(driver, url, log);
 			System.out.println(" TC-33 :   Faculty edit Conference Started  case executation");
 			Utils.goBackToHome(driver, url, log);
 			Utils.clickXpath(driver, ActionXpath.FCCportal, time, "facSelectPrtoSignout", log);
