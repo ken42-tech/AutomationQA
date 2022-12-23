@@ -794,10 +794,10 @@ public class Utils {
 			String[] ProgSubj = new String[4];
 			Utils.clickXpath(driver, ActionXpath.program, time, "click on program", log);
 			Utils.clickXpath(driver, ActionXpath.programselect, time, "click on program select", log);
-			program = Utils.getTEXT(driver, "(//*[. and @aria-haspopup='listbox'])[1]");
+			program = Utils.getTEXT(driver, "(//*[. and @aria-haspopup='listbox'])[1]", log);
 			Utils.clickXpath(driver, ActionXpath.course, time, "click on subject", log);
 			Utils.clickXpath(driver, ActionXpath.courseselect, time, "click on select subject", log);
-			subject = Utils.getTEXT(driver, "(//*[. and @aria-haspopup='listbox'])[2]");
+			subject = Utils.getTEXT(driver, "(//*[. and @aria-haspopup='listbox'])[2]", log);
 
 			System.out.println("program string is: " + program);
 			System.out.println("subject string is: " + subject);
@@ -811,12 +811,12 @@ public class Utils {
 
 				if (Utils.checkifcourseissubject(url)) {
 					Utils.clickXpath(driver, ActionXpath.course, time, "click on subject", log);
-					subject = Utils.getTEXT(driver, "(//li[@data-value])[1]");
+					subject = Utils.getTEXT(driver, "(//li[@data-value])[1]", log);
 					Utils.clickXpath(driver, ActionXpath.courseselect, time, "click on select subject", log);
 				} else {
 
 					Utils.clickXpath(driver, ActionXpath.subjectclick, time, "click on subject", log);
-					subject = Utils.getTEXT(driver, "(//*[@class='MuiTab-wrapper']//p)[1]");
+					subject = Utils.getTEXT(driver, "(//*[@class='MuiTab-wrapper']//p)[1]", log);
 				}
 				String[] Subjectconvented = convertContent(subject);
 				subject1 = Subjectconvented[0];
