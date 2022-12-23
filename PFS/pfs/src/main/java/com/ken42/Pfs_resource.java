@@ -637,6 +637,7 @@ public class Pfs_resource {
 			WebElement l2 = driver.findElement(By.xpath(
 					"/html/body/div[1]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[3]/div/div/div/div[5]/div[1]/div/div/../../../.."));
 			String p2 = l2.getText();
+			Utils.getTEXT(driver, p);
 			if (p2.contains("Pdf") && (!p2.contains("Presentations")) && (!p2.contains("Spreadsheet"))
 					&& (!p2.contains("Videos")) && (!p2.contains("Links"))) {
 

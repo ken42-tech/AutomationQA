@@ -762,18 +762,21 @@ public class Utils {
 	}
 
 	@Test
-	public static String getTEXT(WebDriver driver, String xpath) throws Exception {
+	public static String getTEXT(WebDriver driver, String xpath, Logger log) throws Exception {
 		int count = 0;
 		int maxTries = 7;
 		String HtmlText = "";
 		while (true) {
 			try {
+				if(debug)
+				log.info("Get text for xpath element " +xpath);
 				WebElement p = driver.findElement(By.xpath(xpath));
 				HtmlText = p.getText();
 				return HtmlText;
 			} catch (Exception e) {
 				Utils.smallSleepBetweenClicks(1);
 				if (++count > maxTries) {
+					log.warning("Unable to get text for xPath "+xpath);
 					throw (e);
 				}
 			}

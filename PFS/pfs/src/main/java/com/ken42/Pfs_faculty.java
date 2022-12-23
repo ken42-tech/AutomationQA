@@ -281,7 +281,7 @@ public class Pfs_faculty {
 	}
 
 	@Test(priority = 28)
-	public static void testfacultyProfile(String student, String faculty, String url, WebDriver driver, Logger log)
+	public static void testfacultyEditProfile(String student, String faculty, String url, WebDriver driver, Logger log)
 			throws Exception {
 		try {
 

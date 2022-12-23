@@ -869,6 +869,7 @@ public class ActionXpath {
    static String faccAssignmentCheckBox = "//input[@name='Assignments' and @type='checkbox']/..";
    static String faccAssementCheckBox = "//input[@name='Assessment' and @type='checkbox']/..";
    static String faccForumCheckBox = "//input[@name='Forum' and @type='checkbox']/..";
+   static String facResourceFilterDiv = "//*[@id='app']/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[3]/div/div/div/.. | //*[@id='app']/div/div/div/main/div[2]/div[2]/div[3]/div[2]/div[3]/div/div/div/..";
 
    // 63
    static String facfourmeditattachements = "(//*[@role='button' and @aria-haspopup='listbox'])[2]";

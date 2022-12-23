@@ -378,12 +378,11 @@ public class Pfs_activity {
 
             Utils.clickXpath(driver, ActionXpath.viewattempt, time, "Click on view attempt", log);
             Utils.bigSleepBetweenClicks(1);
-            WebElement result = driver.findElement(By.xpath(
-                    "/html/body/div[1]/div/div/div/main/div[2]/div[2]/div[2]/div[3]/div[1]/div/div[1]/div[2]/div/div[2]/p[1]"));
-            String getresult = result.getText();
+            String getresult = Utils.getTEXT(driver, 
+            "/html/body/div[1]/div/div/div/main/div[2]/div[2]/div[2]/div[3]/div[1]/div/div[1]/div[2]/div/div[2]/p[1]", 
+            log);
             System.out.println(getresult);
             return (getresult);
-
         } catch (Exception e) {
             Utils.printException(e);
             log.warning("\t\tCreate assesmentattempt FAILED  ");
@@ -1241,7 +1240,7 @@ public class Pfs_activity {
             Utils.checkAcadAndClick(driver, faculty, url, log);
             Utils.clickXpath(driver, ActionXpath.relativefacforumclickcouse1, time, "facforumclickcouse", log);
             Utils.bigSleepBetweenClicks(2);
-            String p = Utils.getTEXT(driver, ActionXpath.filterassignment);
+            String p = Utils.getTEXT(driver, ActionXpath.filterassignment, log);
             System.out.println("p" + p);
             if (p.contains("Assignments") && (p.contains("Assessments")) && (p.contains("Forum"))) {
             } else {
@@ -1289,7 +1288,7 @@ public class Pfs_activity {
             Utils.checkAcadAndClick(driver, faculty, url, log);
             Utils.clickXpath(driver, ActionXpath.relativefacforumclickcouse1, time, "facforumclickcouse", log);
             Utils.bigSleepBetweenClicks(2);
-            String p = Utils.getTEXT(driver, ActionXpath.filterassessment);
+            String p = Utils.getTEXT(driver, ActionXpath.filterassessment, log);
 
             System.out.println("p" + p);
             if (p.contains("Assignments") && (p.contains("Assessments")) && (p.contains("Forum"))) {
@@ -1307,7 +1306,7 @@ public class Pfs_activity {
             Utils.clickXpath(driver, ActionXpath.faccAssementCheckBox, time, "Select the Assessments Check box", log);
             Actions qwe = new Actions(driver);
             qwe.moveByOffset(40, 40).click().perform();
-            String p2 = Utils.getTEXT(driver, ActionXpath.filterforum);
+            String p2 = Utils.getTEXT(driver, ActionXpath.filterforum, log);
 
             if (p2.contains("Assessments") && (!p2.contains("Assignments")) && (!p2.contains("Forum"))) {
                 System.out.println(
