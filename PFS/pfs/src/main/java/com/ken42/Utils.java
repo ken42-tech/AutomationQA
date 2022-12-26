@@ -344,6 +344,7 @@ public class Utils {
 			boolean signInPresent = false;
 			signInPresent = driver.findElements(By.xpath("//*[text()='Sign in']")).size() > 0;
 			if (signInPresent) {
+				Utils.goBackToHome(driver, url, log);
 				log.info("Hey Sign In is present, loggin in with id +++++" + Email);
 				driver.navigate().to(url);
 				Utils.login(driver, Email, url, log);
