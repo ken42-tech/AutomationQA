@@ -109,11 +109,12 @@ public class Pfs_portal extends Thread {
 		boolean signInPresent = false;
 		signInPresent = driver.findElements(By.xpath("//*[text()='Sign in']")).size() > 0;
 		if (signInPresent) {
+			Utils.goBackToHome(driver, PFSurl, log);
 			log.info("Hey Student not logged in let's login with ID " + studentEmail);
 			Utils.login(driver, studentEmail, PFSurl, log);
 			Utils.smallSleepBetweenClicks(2);
 		} else {
-			log.warning("Stident login for test case 1-17 failed somewhere");
+			log.warning("Student login for test case 1-17 failed somewhere");
 		}
 	}
 
@@ -127,6 +128,7 @@ public class Pfs_portal extends Thread {
 		boolean signInPresent = false;
 		signInPresent = driver.findElements(By.xpath("//*[text()='Sign in']")).size() > 0;
 		if (signInPresent) {
+			Utils.goBackToHome(driver, PFSurl, log);
 			log.info("Hey Faculty not logged in let's login with ID " + facultyEmail);
 			Utils.login(driver, facultyEmail, PFSurl, log);
 			Utils.smallSleepBetweenClicks(2);
