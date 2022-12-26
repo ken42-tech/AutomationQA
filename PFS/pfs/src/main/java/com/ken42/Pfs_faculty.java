@@ -826,11 +826,14 @@ public class Pfs_faculty {
 		try {
 			System.out.println(" TC-39:  Faculty  View Profile test Executation Started");
 			Utils.goBackToHome(driver, url, log);
-			Utils.clickXpath(driver, ActionXpath.FCCportal, time, "facselectpro", log);
-			Utils.clickXpath(driver, ActionXpath.facprofile, time, "facprofile", log);
+			Utils.logout(driver, url, "faculty", log);
 
-			Utils.clickXpath(driver, ActionXpath.FCCportal, time, "Click of faculty pic", log);
-			Utils.clickXpath(driver, ActionXpath.facsignOut, time, "facsignOut", log);
+			// Utils.clickXpath(driver, ActionXpath.FCCportal, time, "facselectpro", log);
+			// Utils.clickXpath(driver, ActionXpath.facprofile, time, "facprofile", log);
+
+			// Utils.clickXpath(driver, ActionXpath.FCCportal, time, "Click of faculty pic",
+			// log);
+			// Utils.clickXpath(driver, ActionXpath.facsignOut, time, "facsignOut", log);
 			Utils.smallSleepBetweenClicks(1);
 			log.info(" TC-39: Faculty View Profile and Sign out Test Case PASSED \n ");
 		} catch (Exception e) {
