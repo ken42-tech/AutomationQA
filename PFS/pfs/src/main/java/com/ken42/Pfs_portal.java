@@ -102,9 +102,9 @@ public class Pfs_portal extends Thread {
 
 	public static void checkStudentIsLoggedIn(WebDriver driver, String studentEmail, String PFSurl) throws Exception {
 		// if (!student_login_set) {
-		// 	Utils.smallSleepBetweenClicks(1);
-		// 	Utils.login(driver, studentEmail, PFSurl, log);
-		// 	student_login_set = true;
+		// Utils.smallSleepBetweenClicks(1);
+		// Utils.login(driver, studentEmail, PFSurl, log);
+		// student_login_set = true;
 		// }
 		boolean signInPresent = false;
 		signInPresent = driver.findElements(By.xpath("//*[text()='Sign in']")).size() > 0;
@@ -117,11 +117,12 @@ public class Pfs_portal extends Thread {
 		}
 	}
 
-	public static void checkFacultyIsLoggedIn(WebDriver driver, String facultyEmail, String PFSurl, Logger log) throws Exception {
+	public static void checkFacultyIsLoggedIn(WebDriver driver, String facultyEmail, String PFSurl, Logger log)
+			throws Exception {
 		// if (!faculty_login_set) {
-		// 	Utils.smallSleepBetweenClicks(1);
-		// 	Utils.login(driver, facultyEmail, PFSurl, log);
-		// 	faculty_login_set = true;
+		// Utils.smallSleepBetweenClicks(1);
+		// Utils.login(driver, facultyEmail, PFSurl, log);
+		// faculty_login_set = true;
 		// }
 		boolean signInPresent = false;
 		signInPresent = driver.findElements(By.xpath("//*[text()='Sign in']")).size() > 0;

@@ -378,9 +378,9 @@ public class Pfs_activity {
 
             Utils.clickXpath(driver, ActionXpath.viewattempt, time, "Click on view attempt", log);
             Utils.bigSleepBetweenClicks(1);
-            String getresult = Utils.getTEXT(driver, 
-            "/html/body/div[1]/div/div/div/main/div[2]/div[2]/div[2]/div[3]/div[1]/div/div[1]/div[2]/div/div[2]/p[1]", 
-            log);
+            String getresult = Utils.getTEXT(driver,
+                    "/html/body/div[1]/div/div/div/main/div[2]/div[2]/div[2]/div[3]/div[1]/div/div[1]/div[2]/div/div[2]/p[1]",
+                    log, "getresult");
             System.out.println(getresult);
             return (getresult);
         } catch (Exception e) {
@@ -1240,7 +1240,7 @@ public class Pfs_activity {
             Utils.checkAcadAndClick(driver, faculty, url, log);
             Utils.clickXpath(driver, ActionXpath.relativefacforumclickcouse1, time, "facforumclickcouse", log);
             Utils.bigSleepBetweenClicks(1);
-            String p = Utils.getTEXT(driver, ActionXpath.filterassignment, log);
+            String p = Utils.getTEXT(driver, ActionXpath.filterassignment, log, "filterassigment");
             System.out.println("p" + p);
             if (p.contains("Assignments") && (p.contains("Assessments")) && (p.contains("Forum"))) {
             } else {
@@ -1258,9 +1258,8 @@ public class Pfs_activity {
                     log);
             Actions qwe = new Actions(driver);
             qwe.moveByOffset(40, 40).click().perform();
-            WebElement l2 = driver.findElement(
-                    By.xpath("//*[@id=\"app\"]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[2]/div/div/div"));
-            String p2 = l2.getText();
+            String p2 = Utils.getTEXT(driver, ActionXpath.filterassignment, log, "filter assignment");
+
             if (p2.contains("Assignments") && (!p2.contains("Assessments")) && (!p2.contains("Forum"))) {
                 System.out.println(
                         " TC-53: Assignments Activity Filter Option Contains Assignments View test case PASSED   ");
@@ -1288,7 +1287,7 @@ public class Pfs_activity {
             Utils.checkAcadAndClick(driver, faculty, url, log);
             Utils.clickXpath(driver, ActionXpath.relativefacforumclickcouse1, time, "facforumclickcouse", log);
             Utils.bigSleepBetweenClicks(1);
-            String p = Utils.getTEXT(driver, ActionXpath.filterassessment, log);
+            String p = Utils.getTEXT(driver, ActionXpath.filterassessment, log, "filter assesment");
 
             System.out.println("p" + p);
             if (p.contains("Assignments") && (p.contains("Assessments")) && (p.contains("Forum"))) {
@@ -1306,11 +1305,11 @@ public class Pfs_activity {
             Utils.clickXpath(driver, ActionXpath.faccAssementCheckBox, time, "Select the Assessments Check box", log);
             Actions qwe = new Actions(driver);
             qwe.moveByOffset(40, 40).click().perform();
-            String p2 = Utils.getTEXT(driver, ActionXpath.filterforum, log);
+            String p2 = Utils.getTEXT(driver, ActionXpath.filterforum, log, "filter assessment");
 
             if (p2.contains("Assessments") && (!p2.contains("Assignments")) && (!p2.contains("Forum"))) {
                 System.out.println(
-                        " TC-61: Assement Activity Filter Option Option Contains Assessments test case PASSED   ");
+                        " TC-54: Assement Activity Filter Option Option Contains Assessments test case PASSED   ");
             } else {
                 log.warning(" TC-54: Assement Activity Filter Option View FAILED it does not contain all the tabs  ");
             }
@@ -1334,9 +1333,7 @@ public class Pfs_activity {
             Utils.checkAcadAndClick(driver, faculty, url, log);
             Utils.clickXpath(driver, ActionXpath.relativefacforumclickcouse1, time, "facforumclickcouse", log);
             Utils.bigSleepBetweenClicks(1);
-            WebElement l = driver.findElement(
-                    By.xpath("//*[@id=\"app\"]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[2]/div/div/div"));
-            String p = l.getText();
+            String p = Utils.getTEXT(driver, ActionXpath.filterforum, log, "filter foroum");
             System.out.println("p" + p);
             if (p.contains("Assignments") && (p.contains("Assessments")) && (p.contains("Forum"))) {
             } else {
@@ -1354,9 +1351,8 @@ public class Pfs_activity {
             Actions qwe = new Actions(driver);
             qwe.moveByOffset(40, 40).click().perform();
 
-            WebElement l2 = driver.findElement(
-                    By.xpath("//*[@id=\"app\"]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[2]/div/div/div"));
-            String p2 = l2.getText();
+            String p2 = Utils.getTEXT(driver, ActionXpath.filterassessment, log, "filter forum");
+
             if (p2.contains("Forum") && (!p2.contains("Assignments")) && (!p2.contains("Assessments"))) {
                 System.out.println(" TC-55: Forum Activity Filter Option Contains Forum filter  test case PASSED   ");
             } else {

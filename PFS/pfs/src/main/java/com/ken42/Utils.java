@@ -47,16 +47,16 @@ public class Utils {
 					log.info("Click on the:" + msg);
 				System.out.print("Click on the:" + msg);
 				// Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
-				// 		.withTimeout(Duration.ofSeconds(30))
-				// 		.pollingEvery(Duration.ofSeconds(6))
-				// 		.ignoring(NoSuchElementException.class);
+				// .withTimeout(Duration.ofSeconds(30))
+				// .pollingEvery(Duration.ofSeconds(6))
+				// .ignoring(NoSuchElementException.class);
 				// WebElement WE = wait.until(new Function<WebDriver, WebElement>() {
-				// 	public WebElement apply(WebDriver driver) {
-				// 		return driver.findElement(By.xpath(XPATH));
-				// 	}
+				// public WebElement apply(WebDriver driver) {
+				// return driver.findElement(By.xpath(XPATH));
+				// }
 				// });
 				// WE.click();
-				WebDriverWait wait = new WebDriverWait(driver, 5, 500); 
+				WebDriverWait wait = new WebDriverWait(driver, 5, 500);
 				WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
 				element.click();
 				break;
@@ -284,14 +284,15 @@ public class Utils {
 		}
 
 	}
-	public static boolean isAlertPresent(WebDriver driver){
-		try{
+
+	public static boolean isAlertPresent(WebDriver driver) {
+		try {
 			driver.switchTo().alert();
 			return true;
-		}catch(NoAlertPresentException ex){
+		} catch (NoAlertPresentException ex) {
 			return false;
 		}
-  }
+	}
 
 	public int getDecimalRandomNumber() {
 
@@ -503,6 +504,7 @@ public class Utils {
 		}
 		return false;
 	}
+
 	public static Boolean stueditprofil(String url) {
 		String urlToMatch = "dev|demo|nsom|esscisamsung";
 		Pattern pt = Pattern.compile(urlToMatch);
@@ -581,7 +583,7 @@ public class Utils {
 
 	@Test
 	public static Boolean publishlink(String url) {
-		String urlToMatch = "ltsta|nsom|ltpct|dev|demo|ecampus|sbmppsjal";
+		String urlToMatch = "ltsta|nsom|ltpct|dev|demo|ecampus|sbmppsjal|jdinstitutedelhi";
 		Pattern pt = Pattern.compile(urlToMatch);
 		Matcher m = pt.matcher(url);
 		while (m.find()) {
@@ -652,7 +654,7 @@ public class Utils {
 			bigSleepBetweenClicks(1);
 			driver.navigate().to(url);
 			alertPresent = isAlertPresent(driver);
-			if(alertPresent){
+			if (alertPresent) {
 				driver.switchTo().alert().accept();
 			}
 		} catch (Exception e) {
@@ -740,21 +742,21 @@ public class Utils {
 	}
 
 	@Test
-	public static String getTEXT(WebDriver driver, String xpath, Logger log) throws Exception {
+	public static String getTEXT(WebDriver driver, String xpath, Logger log, String msg) throws Exception {
 		int count = 0;
 		int maxTries = 7;
 		String HtmlText = "";
 		while (true) {
 			try {
-				if(debug)
-				log.info("Get text for xpath element " +xpath);
+				if (debug)
+					log.info("Get text for xpath element " + msg);
 				WebElement p = driver.findElement(By.xpath(xpath));
 				HtmlText = p.getText();
 				return HtmlText;
 			} catch (Exception e) {
 				Utils.smallSleepBetweenClicks(1);
 				if (++count > maxTries) {
-					log.warning("Unable to get text for xPath "+xpath);
+					log.warning("Unable to get text for xPath " + msg);
 					throw (e);
 				}
 			}
@@ -772,10 +774,10 @@ public class Utils {
 			String[] ProgSubj = new String[4];
 			Utils.clickXpath(driver, ActionXpath.program, time, "click on program", log);
 			Utils.clickXpath(driver, ActionXpath.programselect, time, "click on program select", log);
-			program = Utils.getTEXT(driver, "(//*[. and @aria-haspopup='listbox'])[1]", log);
+			program = Utils.getTEXT(driver, "(//*[. and @aria-haspopup='listbox'])[1]", log, "program");
 			Utils.clickXpath(driver, ActionXpath.course, time, "click on subject", log);
 			Utils.clickXpath(driver, ActionXpath.courseselect, time, "click on select subject", log);
-			subject = Utils.getTEXT(driver, "(//*[. and @aria-haspopup='listbox'])[2]", log);
+			subject = Utils.getTEXT(driver, "(//*[. and @aria-haspopup='listbox'])[2]", log, "subject");
 
 			System.out.println("program string is: " + program);
 			System.out.println("subject string is: " + subject);
@@ -789,12 +791,12 @@ public class Utils {
 
 				if (Utils.checkifcourseissubject(url)) {
 					Utils.clickXpath(driver, ActionXpath.course, time, "click on subject", log);
-					subject = Utils.getTEXT(driver, "(//li[@data-value])[1]", log);
+					subject = Utils.getTEXT(driver, "(//li[@data-value])[1]", log, "subject");
 					Utils.clickXpath(driver, ActionXpath.courseselect, time, "click on select subject", log);
 				} else {
 
 					Utils.clickXpath(driver, ActionXpath.subjectclick, time, "click on subject", log);
-					subject = Utils.getTEXT(driver, "(//*[@class='MuiTab-wrapper']//p)[1]", log);
+					subject = Utils.getTEXT(driver, "(//*[@class='MuiTab-wrapper']//p)[1]", log, "subject");
 				}
 				String[] Subjectconvented = convertContent(subject);
 				subject1 = Subjectconvented[0];

@@ -854,15 +854,15 @@ public class ActionXpath {
    // 57,58,59
    static String assignsearch = "(//*[@aria-label='search'])";
    // static String assigngrade = "(//*[text()='Grade'])[1]";
-   static String assigngrade = "//*[text()='Test Student']/../../../.././..//button";
+   static String assigngrade = "//*[text()='Test student']/../../../../../..//button";
    static String faccPDFCheckBox = "//input[@name='Pdf' and @type='checkbox']/..";
    static String faccVideoCheckBox = "//input[@name='Video' and @type='checkbox']/..";
    static String faccLinksCheckBox = "//input[@name='Links' and @type='checkbox']/..";
 
    // 60,61,62
-   static String filterassessment = "//*[@id=\"app\"]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[2]/div/div/div";
-   static String filterforum = "//*[@id=\"app\"]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[2]/div/div/div";
-   static String filterassignment = "//*[@id=\"app\"]/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[2]/div/div/div | //*[@id='app']/div/div/div/main/div[2]/div[2]/div[3]/div[2]/div[2]/div/div/div/..";
+   static String filterassessment = "//*[@id='app']/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[2]/div/div/div | //*[@id='app']/div/div/div/main/div[2]/div[2]/div[3]/div[2]/div[2]/div/div/div/..";
+   static String filterforum = "//*[@id='app']/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[2]/div/div/div | //*[@id='app']/div/div/div/main/div[2]/div[2]/div[3]/div[2]/div[2]/div/div/div/..";
+   static String filterassignment = "//*[@id='app']/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[2]/div/div/div | //*[@id='app']/div/div/div/main/div[2]/div[2]/div[3]/div[2]/div[2]/div/div/div/..";
    static String faccFilterassignment = "(//span[text()='Filters'])[1]";
    static String faccFilterassignmnetClear = "//p[text()='Clear all']";
    static String FaccFilterOpen = "(//*[. and contains(text(), 'Activity Type')]/../../../..//*[local-name()='svg'])[1]";
