@@ -47,16 +47,16 @@ public class Utils {
 					log.info("Click on the:" + msg);
 				System.out.print("Click on the:" + msg);
 				// Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
-				// 		.withTimeout(Duration.ofSeconds(30))
-				// 		.pollingEvery(Duration.ofSeconds(6))
-				// 		.ignoring(NoSuchElementException.class);
+				// .withTimeout(Duration.ofSeconds(30))
+				// .pollingEvery(Duration.ofSeconds(6))
+				// .ignoring(NoSuchElementException.class);
 				// WebElement WE = wait.until(new Function<WebDriver, WebElement>() {
-				// 	public WebElement apply(WebDriver driver) {
-				// 		return driver.findElement(By.xpath(XPATH));
-				// 	}
+				// public WebElement apply(WebDriver driver) {
+				// return driver.findElement(By.xpath(XPATH));
+				// }
 				// });
 				// WE.click();
-				WebDriverWait wait = new WebDriverWait(driver, 5, 500); 
+				WebDriverWait wait = new WebDriverWait(driver, 5, 500);
 				WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
 				element.click();
 				break;
@@ -284,14 +284,15 @@ public class Utils {
 		}
 
 	}
-	public static boolean isAlertPresent(WebDriver driver){
-		try{
+
+	public static boolean isAlertPresent(WebDriver driver) {
+		try {
 			driver.switchTo().alert();
 			return true;
-		}catch(NoAlertPresentException ex){
+		} catch (NoAlertPresentException ex) {
 			return false;
 		}
-  }
+	}
 
 	public int getDecimalRandomNumber() {
 
@@ -503,6 +504,7 @@ public class Utils {
 		}
 		return false;
 	}
+
 	public static Boolean stueditprofil(String url) {
 		String urlToMatch = "dev|demo|nsom|esscisamsung";
 		Pattern pt = Pattern.compile(urlToMatch);
@@ -652,7 +654,7 @@ public class Utils {
 			bigSleepBetweenClicks(1);
 			driver.navigate().to(url);
 			alertPresent = isAlertPresent(driver);
-			if(alertPresent){
+			if (alertPresent) {
 				driver.switchTo().alert().accept();
 			}
 		} catch (Exception e) {
@@ -746,15 +748,15 @@ public class Utils {
 		String HtmlText = "";
 		while (true) {
 			try {
-				if(debug)
-				log.info("Get text for xpath element " +xpath);
+				if (debug)
+					log.info("Get text for xpath element " + xpath);
 				WebElement p = driver.findElement(By.xpath(xpath));
 				HtmlText = p.getText();
 				return HtmlText;
 			} catch (Exception e) {
 				Utils.smallSleepBetweenClicks(1);
 				if (++count > maxTries) {
-					log.warning("Unable to get text for xPath "+xpath);
+					log.warning("Unable to get text for xPath " + xpath);
 					throw (e);
 				}
 			}
