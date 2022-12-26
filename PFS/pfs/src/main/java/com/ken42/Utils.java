@@ -308,9 +308,6 @@ public class Utils {
 	public static void logout(WebDriver driver, String url, String Role, Logger Log) throws Exception {
 		try {
 			driver.navigate().to(url);
-			smallSleepBetweenClicks(1);
-			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,0)");
 			Utils.clickXpath(driver, ActionXpath.FCCportal, time, "Click on  initial", log);
 			Utils.clickXpath(driver, ActionXpath.facsignOut, time, "click on signout", log);
 			Utils.smallSleepBetweenClicks(1);
