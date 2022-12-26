@@ -318,7 +318,7 @@ public class Utils {
 			Utils.printException(e);
 			System.out.println("Failure in logout function");
 			log.info("Failure in Logout function");
-			Pfs_portal.quitDriver(driver, url);
+			// Pfs_portal.quitDriver(driver, url);
 			throw (e);
 		}
 	}
