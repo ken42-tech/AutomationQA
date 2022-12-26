@@ -742,21 +742,21 @@ public class Utils {
 	}
 
 	@Test
-	public static String getTEXT(WebDriver driver, String xpath, Logger log) throws Exception {
+	public static String getTEXT(WebDriver driver, String xpath, Logger log, String msg) throws Exception {
 		int count = 0;
 		int maxTries = 7;
 		String HtmlText = "";
 		while (true) {
 			try {
 				if (debug)
-					log.info("Get text for xpath element " + xpath);
+					log.info("Get text for xpath element " + msg);
 				WebElement p = driver.findElement(By.xpath(xpath));
 				HtmlText = p.getText();
 				return HtmlText;
 			} catch (Exception e) {
 				Utils.smallSleepBetweenClicks(1);
 				if (++count > maxTries) {
-					log.warning("Unable to get text for xPath " + xpath);
+					log.warning("Unable to get text for xPath " + msg);
 					throw (e);
 				}
 			}
@@ -774,10 +774,10 @@ public class Utils {
 			String[] ProgSubj = new String[4];
 			Utils.clickXpath(driver, ActionXpath.program, time, "click on program", log);
 			Utils.clickXpath(driver, ActionXpath.programselect, time, "click on program select", log);
-			program = Utils.getTEXT(driver, "(//*[. and @aria-haspopup='listbox'])[1]", log);
+			program = Utils.getTEXT(driver, "(//*[. and @aria-haspopup='listbox'])[1]", log, "program");
 			Utils.clickXpath(driver, ActionXpath.course, time, "click on subject", log);
 			Utils.clickXpath(driver, ActionXpath.courseselect, time, "click on select subject", log);
-			subject = Utils.getTEXT(driver, "(//*[. and @aria-haspopup='listbox'])[2]", log);
+			subject = Utils.getTEXT(driver, "(//*[. and @aria-haspopup='listbox'])[2]", log, "subject");
 
 			System.out.println("program string is: " + program);
 			System.out.println("subject string is: " + subject);
@@ -791,12 +791,12 @@ public class Utils {
 
 				if (Utils.checkifcourseissubject(url)) {
 					Utils.clickXpath(driver, ActionXpath.course, time, "click on subject", log);
-					subject = Utils.getTEXT(driver, "(//li[@data-value])[1]", log);
+					subject = Utils.getTEXT(driver, "(//li[@data-value])[1]", log, "subject");
 					Utils.clickXpath(driver, ActionXpath.courseselect, time, "click on select subject", log);
 				} else {
 
 					Utils.clickXpath(driver, ActionXpath.subjectclick, time, "click on subject", log);
-					subject = Utils.getTEXT(driver, "(//*[@class='MuiTab-wrapper']//p)[1]", log);
+					subject = Utils.getTEXT(driver, "(//*[@class='MuiTab-wrapper']//p)[1]", log, "subject");
 				}
 				String[] Subjectconvented = convertContent(subject);
 				subject1 = Subjectconvented[0];

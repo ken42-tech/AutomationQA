@@ -15,7 +15,8 @@ public class Pfs_resource {
 	private static String PFSurl;
 
 	@Test
-	public static void resourceFacultyInitialSteps(String faculty, String url, WebDriver driver, Logger log) throws Exception {
+	public static void resourceFacultyInitialSteps(String faculty, String url, WebDriver driver, Logger log)
+			throws Exception {
 		Utils.login(driver, faculty, url, log);
 		Utils.checkAcadAndClick(driver, faculty, url, log);
 		Utils.clickXpath(driver, ActionXpath.faccc, time, "Click on course content", log);
@@ -113,10 +114,10 @@ public class Pfs_resource {
 			Utils.clickXpath(driver, ActionXpath.program, time, "click on program", log);
 			Utils.clickXpath(driver, ActionXpath.programselect, time, "click on program select", log);
 			Utils.smallSleepBetweenClicks(1);
-			program = Utils.getTEXT(driver, "(//*[. and @aria-haspopup='listbox'])[1]", log);
+			program = Utils.getTEXT(driver, "(//*[. and @aria-haspopup='listbox'])[1]", log, "program");
 			Utils.clickXpath(driver, ActionXpath.course, time, "click on subject", log);
 			Utils.clickXpath(driver, ActionXpath.courseselect, time, "click on select subject", log);
-			subject = Utils.getTEXT(driver, "(//*[. and @aria-haspopup='listbox'])[2]", log);
+			subject = Utils.getTEXT(driver, "(//*[. and @aria-haspopup='listbox'])[2]", log, "subject");
 
 			// String returnArray[] = new String[2];
 			// returnArray = Utils.getClassSubjectAndSection(driver, url,"resource");
@@ -181,14 +182,14 @@ public class Pfs_resource {
 			PPT_file = folder + "\\demo.pptx";
 
 			System.out.println("TC-41:  PPT resource Create View delete Test case Started");
-			resourceFacultyInitialSteps(faculty, url, driver,log);
+			resourceFacultyInitialSteps(faculty, url, driver, log);
 			String program, subject;
 			Utils.clickXpath(driver, ActionXpath.program, time, "click on program", log);
 			Utils.clickXpath(driver, ActionXpath.programselect, time, "click on program select", log);
-			program = Utils.getTEXT(driver, "(//*[. and @aria-haspopup='listbox'])[1]", log);
+			program = Utils.getTEXT(driver, "(//*[. and @aria-haspopup='listbox'])[1]", log, "program");
 			Utils.clickXpath(driver, ActionXpath.course, time, "click on subject", log);
 			Utils.clickXpath(driver, ActionXpath.courseselect, time, "click on select subject", log);
-			subject = Utils.getTEXT(driver, "(//*[. and @aria-haspopup='listbox'])[2]", log);
+			subject = Utils.getTEXT(driver, "(//*[. and @aria-haspopup='listbox'])[2]", log, "subject");
 
 			Utils.clickXpath(driver, ActionXpath.facccres, time, "facccres", log);
 			Utils.clickXpath(driver, ActionXpath.facpptclick, time, "facpptclick", log);
@@ -246,10 +247,10 @@ public class Pfs_resource {
 			String program, subject;
 			Utils.clickXpath(driver, ActionXpath.program, time, "click on program", log);
 			Utils.clickXpath(driver, ActionXpath.programselect, time, "click on program select", log);
-			program = Utils.getTEXT(driver, "(//*[. and @aria-haspopup='listbox'])[1]", log);
+			program = Utils.getTEXT(driver, "(//*[. and @aria-haspopup='listbox'])[1]", log, "program");
 			Utils.clickXpath(driver, ActionXpath.course, time, "click on subject", log);
 			Utils.clickXpath(driver, ActionXpath.courseselect, time, "click on select subject", log);
-			subject = Utils.getTEXT(driver, "(//*[. and @aria-haspopup='listbox'])[2]", log);
+			subject = Utils.getTEXT(driver, "(//*[. and @aria-haspopup='listbox'])[2]", log, "subject");
 
 			Utils.clickXpath(driver, ActionXpath.facccres, time, "facccres", log);
 			Utils.clickXpath(driver, ActionXpath.facccrespdf, time, "facccrespdf", log);
@@ -309,10 +310,10 @@ public class Pfs_resource {
 			String program, subject;
 			Utils.clickXpath(driver, ActionXpath.program, time, "click on program", log);
 			Utils.clickXpath(driver, ActionXpath.programselect, time, "click on program select", log);
-			program = Utils.getTEXT(driver, "(//*[. and @aria-haspopup='listbox'])[1]", log);
+			program = Utils.getTEXT(driver, "(//*[. and @aria-haspopup='listbox'])[1]", log, "program");
 			Utils.clickXpath(driver, ActionXpath.course, time, "click on subject", log);
 			Utils.clickXpath(driver, ActionXpath.courseselect, time, "click on select subject", log);
-			subject = Utils.getTEXT(driver, "(//*[. and @aria-haspopup='listbox'])[2]", log);
+			subject = Utils.getTEXT(driver, "(//*[. and @aria-haspopup='listbox'])[2]", log, "subject");
 
 			Utils.clickXpath(driver, ActionXpath.facccres, time, "facccres", log);
 			Utils.clickXpath(driver, ActionXpath.facvideoclick, time, "facvideoclick", log);
@@ -367,10 +368,10 @@ public class Pfs_resource {
 			String program, subject;
 			Utils.clickXpath(driver, ActionXpath.program, time, "click on program", log);
 			Utils.clickXpath(driver, ActionXpath.programselect, time, "click on program select", log);
-			program = Utils.getTEXT(driver, "(//*[. and @aria-haspopup='listbox'])[1]", log);
+			program = Utils.getTEXT(driver, "(//*[. and @aria-haspopup='listbox'])[1]", log, "program");
 			Utils.clickXpath(driver, ActionXpath.course, time, "click on subject", log);
 			Utils.clickXpath(driver, ActionXpath.courseselect, time, "click on select subject", log);
-			subject = Utils.getTEXT(driver, "(//*[. and @aria-haspopup='listbox'])[2]", log);
+			subject = Utils.getTEXT(driver, "(//*[. and @aria-haspopup='listbox'])[2]", log, "subject");
 
 			Utils.clickXpath(driver, ActionXpath.facccres, time, "facccres", log);
 			Utils.clickXpath(driver, ActionXpath.faclinkclick, time, "faclinkclick", log);
@@ -566,8 +567,8 @@ public class Pfs_resource {
 			System.out.println("TC-49:  PPT resource Filter Option View Test case Started");
 			resourceFacultyInitialSteps(faculty, url, driver, log);
 			Utils.bigSleepBetweenClicks(1);
-			
-			String p = Utils.getTEXT(driver, ActionXpath.facResourceFilterDiv, log);
+
+			String p = Utils.getTEXT(driver, ActionXpath.facResourceFilterDiv, log, "pptfilter");
 			System.out.println("p" + p);
 			if (p.contains("Pdf") && (p.contains("Presentations")) && (p.contains("Videos")) && (p.contains("Links"))) {
 
@@ -585,7 +586,7 @@ public class Pfs_resource {
 			Actions qwe = new Actions(driver);
 			qwe.moveByOffset(40, 40).click().perform();
 
-			String p2 = Utils.getTEXT(driver, ActionXpath.facResourceFilterDiv, log);
+			String p2 = Utils.getTEXT(driver, ActionXpath.facResourceFilterDiv, log, "pptfilter");
 			if (p2.contains("Presentations") && (!p2.contains("pdf")) && (!p2.contains("Spreadsheet"))
 					&& (!p2.contains("Videos")) && (!p2.contains("Links"))) {
 
@@ -610,7 +611,7 @@ public class Pfs_resource {
 			System.out.println("TC-50:  PDF resource Filter Option View Test case Started");
 			resourceFacultyInitialSteps(faculty, url, driver, log);
 			Utils.bigSleepBetweenClicks(1);
-			String p = Utils.getTEXT(driver, ActionXpath.facResourceFilterDiv, log);
+			String p = Utils.getTEXT(driver, ActionXpath.facResourceFilterDiv, log, "pdffilter");
 			System.out.println("p" + p);
 			if (p.contains("Pdf") && (p.contains("Presentations")) && (p.contains("Videos")) && (p.contains("Links"))) {
 
@@ -629,7 +630,7 @@ public class Pfs_resource {
 			Actions qwe = new Actions(driver);
 			qwe.moveByOffset(40, 40).click().perform();
 
-			String p2 = Utils.getTEXT(driver, ActionXpath.facResourceFilterDiv, log);
+			String p2 = Utils.getTEXT(driver, ActionXpath.facResourceFilterDiv, log, "pdffilter");
 			if (p2.contains("Pdf") && (!p2.contains("Presentations")) && (!p2.contains("Spreadsheet"))
 					&& (!p2.contains("Videos")) && (!p2.contains("Links"))) {
 
@@ -654,7 +655,7 @@ public class Pfs_resource {
 			System.out.println("TC-51:  Video resource Filter Option View Test case Started");
 			resourceFacultyInitialSteps(faculty, url, driver, log);
 			Utils.bigSleepBetweenClicks(1);
-			String p = Utils.getTEXT(driver, ActionXpath.facResourceFilterDiv, log);
+			String p = Utils.getTEXT(driver, ActionXpath.facResourceFilterDiv, log, "videofilter");
 			System.out.println("p" + p);
 			if (p.contains("Pdf") && (p.contains("Presentations")) && (p.contains("Videos")) && (p.contains("Links"))) {
 
@@ -672,7 +673,7 @@ public class Pfs_resource {
 			Actions qwe = new Actions(driver);
 			qwe.moveByOffset(40, 40).click().perform();
 
-			String p2 = Utils.getTEXT(driver, ActionXpath.facResourceFilterDiv, log);
+			String p2 = Utils.getTEXT(driver, ActionXpath.facResourceFilterDiv, log, "videofilter");
 			if (p2.contains("Videos") && (!p2.contains("Presentations")) && (!p2.contains("Spreadsheet"))
 					&& (!p2.contains("pdf")) && (!p2.contains("Links"))) {
 				System.out.println(" TC-51: Video resource Filter Option Contains Video test case PASSED \n\n");
@@ -696,7 +697,7 @@ public class Pfs_resource {
 			System.out.println("TC-52:  Links resource Filter Option View Test case Started");
 			resourceFacultyInitialSteps(faculty, url, driver, log);
 			Utils.bigSleepBetweenClicks(1);
-			String p = Utils.getTEXT(driver, ActionXpath.facResourceFilterDiv, log);
+			String p = Utils.getTEXT(driver, ActionXpath.facResourceFilterDiv, log, "linkfilter");
 			System.out.println("p" + p);
 			if (p.contains("Pdf") && (p.contains("Presentations")) && (p.contains("Videos")) && (p.contains("Links"))) {
 
@@ -716,7 +717,7 @@ public class Pfs_resource {
 			Actions qwe = new Actions(driver);
 			qwe.moveByOffset(40, 40).click().perform();
 
-			String p2 = Utils.getTEXT(driver, ActionXpath.facResourceFilterDiv, log);
+			String p2 = Utils.getTEXT(driver, ActionXpath.facResourceFilterDiv, log, "linkfilter");
 			if (p2.contains("Links") && (!p2.contains("Presentations")) && (!p2.contains("Spreadsheet"))
 					&& (!p2.contains("pdf")) && (!p2.contains("Videos"))) {
 				System.out.println(" TC-52: Links resource Filter Option Contains Links test case PASSED \n\n");
