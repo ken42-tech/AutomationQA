@@ -31,7 +31,7 @@ public class Pfs_student {
 			}
 		} catch (Exception e) {
 			Utils.printException(e);
-			Utils.goBackToHome(driver, url, log);
+			Utils.logout(driver, url, "student", log);
 			log.warning(" TC-1: Student Home tab test case FAILED \n");
 		}
 	}
@@ -55,6 +55,7 @@ public class Pfs_student {
 		} catch (Exception e) {
 			Utils.printException(e);
 			Utils.goBackToHome(driver, url, log);
+			Utils.logout(driver, url, "student", log);
 			log.warning("TC-2: Enrollment of the Student Test Case FAILED \n");
 		}
 	}
@@ -79,7 +80,8 @@ public class Pfs_student {
 			log.info("TC-3: Student Academic Test Case PASSED \n");
 		} catch (Exception e) {
 			Utils.printException(e);
-			driver.navigate().to(url);
+			Utils.goBackToHome(driver, url, log);
+			Utils.logout(driver, url, "student", log);
 			log.warning("TC-3: Student Academic Test Case FAILED \n");
 		}
 	}
@@ -103,6 +105,7 @@ public class Pfs_student {
 		} catch (Exception e) {
 			Utils.printException(e);
 			Utils.goBackToHome(driver, url, log);
+			Utils.logout(driver, url, "student", log);
 			log.warning("TC-4: Student Examination Test Case FAILED \n");
 		}
 	}
@@ -122,6 +125,7 @@ public class Pfs_student {
 		} catch (Exception e) {
 			Utils.printException(e);
 			Utils.goBackToHome(driver, url, log);
+			Utils.logout(driver, url, "student", log);
 			log.warning("TC-5: 	Student Attendance  Test Case FAILED \n");
 		}
 	}
@@ -143,6 +147,7 @@ public class Pfs_student {
 		} catch (Exception e) {
 			Utils.printException(e);
 			Utils.goBackToHome(driver, url, log);
+			Utils.logout(driver, url, "student", log);
 			log.warning("TC-6:  Student Timetable Test Case Case FAILED \n");
 		}
 	}
@@ -169,6 +174,7 @@ public class Pfs_student {
 		} catch (Exception e) {
 			Utils.printException(e);
 			Utils.goBackToHome(driver, url, log);
+			Utils.logout(driver, url, "student", log);
 			log.warning("TC-7: Student Fees Test Case FAILED \n");
 		}
 	}
@@ -189,6 +195,7 @@ public class Pfs_student {
 		} catch (Exception e) {
 			Utils.printException(e);
 			Utils.goBackToHome(driver, url, log);
+			Utils.logout(driver, url, "student", log);
 			log.warning("TC-8: Student FEEDBACK tab Test Case FAILED \n");
 		}
 	}
@@ -211,6 +218,7 @@ public class Pfs_student {
 		} catch (Exception e) {
 			Utils.printException(e);
 			Utils.goBackToHome(driver, url, log);
+			Utils.logout(driver, url, "student", log);
 			log.warning(" TC-9: Student Services check cancel button Test Case FAILED \n ");
 		}
 	}
@@ -238,6 +246,7 @@ public class Pfs_student {
 		} catch (Exception e) {
 			Utils.printException(e);
 			Utils.goBackToHome(driver, url, log);
+			Utils.logout(driver, url, "student", log);
 			log.warning(" TC-10: Student Service Raise case Test Case FAILED \n");
 		}
 	}
@@ -265,6 +274,7 @@ public class Pfs_student {
 		} catch (Exception e) {
 			Utils.printException(e);
 			Utils.goBackToHome(driver, url, log);
+			Utils.logout(driver, url, "student", log);
 			log.warning("TC-11: Student services make request test Case FAILED \n");
 		}
 	}
@@ -286,6 +296,7 @@ public class Pfs_student {
 		} catch (Exception e) {
 			Utils.printException(e);
 			Utils.goBackToHome(driver, url, log);
+			Utils.logout(driver, url, "student", log);
 			log.warning("TC-12: Student EVENT Test Case  FAILED \n");
 		}
 	}
@@ -325,6 +336,7 @@ public class Pfs_student {
 		} catch (Exception e) {
 			Utils.printException(e);
 			Utils.goBackToHome(driver, url, log);
+			Utils.logout(driver, url, "student", log);
 			log.warning("TC-13: Student edit profile test case FAILED \n");
 		}
 	}
@@ -373,6 +385,7 @@ public class Pfs_student {
 		} catch (Exception e) {
 			Utils.printException(e);
 			Utils.goBackToHome(driver, url, log);
+			Utils.logout(driver, url, "student", log);
 			log.warning("TC-14: Student profile edit Education Details test case FAILED \n");
 		}
 	}
@@ -421,6 +434,7 @@ public class Pfs_student {
 		} catch (Exception e) {
 			Utils.printException(e);
 			Utils.goBackToHome(driver, url, log);
+			Utils.logout(driver, url, "student", log);
 			log.warning("TC-15: Student profile edit address detail test case FAILED \n");
 		}
 	}
@@ -436,6 +450,7 @@ public class Pfs_student {
 		} catch (Exception e) {
 			Utils.printException(e);
 			Utils.goBackToHome(driver, url, log);
+			Utils.logout(driver, url, "student", log);
 			log.warning("TC-16: Student SIGNOUT Test Case FAILED \n");
 		}
 	}

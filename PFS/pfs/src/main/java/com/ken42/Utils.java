@@ -667,9 +667,9 @@ public class Utils {
 
 	@Test
 	public static void smallSleepBetweenClicks(int loop) throws InterruptedException {
-		int total_time = 1000 * loop;
+		int total_time = 2000 * loop;
 		System.out.println("Sleeping for " + total_time);
-		Thread.sleep(1000 * loop);
+		Thread.sleep(2000 * loop);
 	}
 
 	@Test
@@ -681,9 +681,9 @@ public class Utils {
 
 	@Test
 	public static void bigSleepBetweenClicks(int loop) throws InterruptedException {
-		int total_time = 1000 * loop;
+		int total_time = 7000 * loop;
 		System.out.println("Sleeping for " + total_time);
-		Thread.sleep(1000 * loop);
+		Thread.sleep(7000 * loop);
 	}
 
 	@Test

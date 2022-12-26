@@ -53,6 +53,7 @@ public class Pfs_faculty {
 		} catch (Exception e) {
 			Utils.printException(e);
 			Utils.goBackToHome(driver, url, log);
+			Utils.logout(driver, url, "faculty", log);
 			log.warning("TC-18: Faculty QuestionBank click BACK button Test Case FAILED \n");
 		}
 	}
@@ -82,6 +83,7 @@ public class Pfs_faculty {
 		} catch (Exception e) {
 			Utils.printException(e);
 			Utils.goBackToHome(driver, url, log);
+			Utils.logout(driver, url, "faculty", log);
 			log.warning("TC-19:  Faculty Course Content Test FAILED \n");
 		}
 	}
@@ -106,6 +108,7 @@ public class Pfs_faculty {
 		} catch (Exception e) {
 			Utils.printException(e);
 			Utils.goBackToHome(driver, url, log);
+			Utils.logout(driver, url, "faculty", log);
 			log.warning("TC-20: Faculty Examanation test cases FAILED \n");
 		}
 	}
@@ -134,6 +137,7 @@ public class Pfs_faculty {
 		} catch (Exception e) {
 			Utils.printException(e);
 			Utils.goBackToHome(driver, url, log);
+			Utils.logout(driver, url, "faculty", log);
 			log.warning("TC-21: Faculty My Student  tab test case FAILED \n");
 		}
 	}
@@ -153,6 +157,7 @@ public class Pfs_faculty {
 		} catch (Exception e) {
 			Utils.printException(e);
 			Utils.goBackToHome(driver, url, log);
+			Utils.logout(driver, url, "faculty", log);
 			log.warning("TC-22 : Faculty Attendance Test case FAILED \n");
 		}
 	}
@@ -177,6 +182,7 @@ public class Pfs_faculty {
 		} catch (Exception e) {
 			Utils.printException(e);
 			Utils.goBackToHome(driver, url, log);
+			Utils.logout(driver, url, "faculty", log);
 			log.warning("TC-23 : Faculty Timetable test case FAILED \n");
 		}
 	}
@@ -198,6 +204,7 @@ public class Pfs_faculty {
 		} catch (Exception e) {
 			Utils.printException(e);
 			Utils.goBackToHome(driver, url, log);
+			Utils.logout(driver, url, "faculty", log);
 			log.warning("TC-24: Faculty Service test cancel button Test case FAILED \n");
 		}
 	}
@@ -225,6 +232,7 @@ public class Pfs_faculty {
 		} catch (Exception e) {
 			Utils.printException(e);
 			Utils.goBackToHome(driver, url, log);
+			Utils.logout(driver, url, "faculty", log);
 			log.warning("TC 25: Faculty service Status  Raise Case FAILED \n");
 		}
 	}
@@ -253,6 +261,7 @@ public class Pfs_faculty {
 		} catch (Exception e) {
 			Utils.printException(e);
 			Utils.goBackToHome(driver, url, log);
+			Utils.logout(driver, url, "faculty", log);
 			log.warning("TC-26: Faculty service make a request Case FAILED \n");
 		}
 	}
@@ -276,6 +285,7 @@ public class Pfs_faculty {
 		} catch (Exception e) {
 			Utils.printException(e);
 			Utils.goBackToHome(driver, url, log);
+			Utils.logout(driver, url, "faculty", log);
 			log.warning("TC-27: Faculty Event Test case FAILED \n");
 		}
 	}
@@ -319,7 +329,7 @@ public class Pfs_faculty {
 		} catch (Exception e) {
 			Utils.printException(e);
 			Utils.goBackToHome(driver, url, log);
-			Thread.sleep(time);
+			Utils.logout(driver, url, "faculty", log);
 			log.warning("TC-28: Faculty Starting PersonalDetails test case FAILED \n");
 		}
 	}
@@ -372,6 +382,7 @@ public class Pfs_faculty {
 		} catch (Exception e) {
 			Utils.printException(e);
 			Utils.goBackToHome(driver, url, log);
+			Utils.logout(driver, url, "faculty", log);
 			log.warning("TC-29: Faculty edit Address Details test case FAILED \n");
 		}
 	}
@@ -425,6 +436,7 @@ public class Pfs_faculty {
 		} catch (Exception e) {
 			Utils.printException(e);
 			Utils.goBackToHome(driver, url, log);
+			Utils.logout(driver, url, "faculty", log);
 			log.warning("TC-30 : Academic Details test case FAILED \n");
 		}
 	}
@@ -480,6 +492,7 @@ public class Pfs_faculty {
 		} catch (Exception e) {
 			Utils.printException(e);
 			Utils.goBackToHome(driver, url, log);
+			Utils.logout(driver, url, "faculty", log);
 			log.warning("TC-31 : Faculty edit profile RESEARCH SUPERVISION  test case test case FAILED \n");
 		}
 	}
@@ -560,6 +573,7 @@ public class Pfs_faculty {
 		} catch (Exception e) {
 			Utils.printException(e);
 			Utils.goBackToHome(driver, url, log);
+			Utils.logout(driver, url, "faculty", log);
 			log.warning("TC-32: Faculty edit RESEARCH PUBLICATION test case FAILED \n");
 		}
 	}
@@ -596,6 +610,7 @@ public class Pfs_faculty {
 		} catch (Exception e) {
 			Utils.printException(e);
 			Utils.goBackToHome(driver, url, log);
+			Utils.logout(driver, url, "faculty", log);
 			Thread.sleep(time);
 			log.warning("TC-33 : Conference test case FAILED \n\n");
 		}
@@ -625,6 +640,7 @@ public class Pfs_faculty {
 		} catch (Exception e) {
 			Utils.printException(e);
 			Utils.goBackToHome(driver, url, log);
+			Utils.logout(driver, url, "faculty", log);
 			log.warning("TC-34: Faculty edit Book test case FAILED \n");
 		}
 	}
@@ -649,6 +665,7 @@ public class Pfs_faculty {
 		} catch (Exception e) {
 			Utils.printException(e);
 			Utils.goBackToHome(driver, url, log);
+			Utils.logout(driver, url, "faculty", log);
 			log.warning("TC-35 : Faculty profile edit Professional Association test case FAILED \n\n");
 		}
 	}
@@ -673,6 +690,7 @@ public class Pfs_faculty {
 		} catch (Exception e) {
 			Utils.printException(e);
 			Utils.goBackToHome(driver, url, log);
+			Utils.logout(driver, url, "faculty", log);
 			log.warning("TC-36 : Faculty edit Others test case FAILED \n\n");
 		}
 	}
@@ -701,6 +719,7 @@ public class Pfs_faculty {
 		} catch (Exception e) {
 			Utils.printException(e);
 			Utils.goBackToHome(driver, url, log);
+			Utils.logout(driver, url, "faculty", log);
 			log.warning("TC-37: Faculty DASHBOARD  FAILED \n");
 		}
 	}
@@ -767,6 +786,7 @@ public class Pfs_faculty {
 		} catch (Exception e) {
 			Utils.printException(e);
 			Utils.goBackToHome(driver, url, log);
+			Utils.logout(driver, url, "faculty", log);
 			log.warning("TC-38: Faculty QUESTION PAPER  FAILED \n");
 		}
 	}
@@ -786,6 +806,7 @@ public class Pfs_faculty {
 		} catch (Exception e) {
 			Utils.printException(e);
 			Utils.goBackToHome(driver, url, log);
+			Utils.logout(driver, url, "faculty", log);
 			log.warning("TC-39: Faculty View Profile and Sign out Test Case FAILED \n");
 		}
 	}
