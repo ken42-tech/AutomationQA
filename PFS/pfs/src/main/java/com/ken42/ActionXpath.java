@@ -683,8 +683,8 @@ public class ActionXpath {
    static String attemptquestion = "(//*[. and @type='radio'])[1]/../../..";
    static String clickquestiontype = "//*[. and text()='Question Type']";
    static String selectmcq = "(//*[. and text()='Multiple choice'])[1]";
-   // static String selectmcq1 = "(//*[. and text()='Multiple choice'])[3]";
-   static String selectmcq1 = "//input[@name='multichoice']";
+   static String selectmcq1 = "(//*[. and text()='Multiple choice'])[3]";
+   // static String selectmcq1 = "//input[@name='multichoice']";
    static String selectmcq2 = "(//*[. and text()='Multiple choice'])[2]";
    static String submitattempt = "//*[. and text()='Submit Attempt']";
    static String submitagainattempt = "//*[. and text()='Submit']";
@@ -874,9 +874,11 @@ public class ActionXpath {
    // 63
    static String facfourmeditattachements = "(//*[@role='button' and @aria-haspopup='listbox'])[2]";
    static String facfourmattachementset2 = "//*[text()='2' and @role='option' ]";
+   static String getmark = "/html/body/div[1]/div/div/div/main/div[2]/div[2]/div[2]/div[3]/div[1]/div/div[1]/div[2]/div/div[2]/p[1] | /html/body/div[1]/div/div/div/main/div[2]/div[2]/div[3]/div[3]/div[1]/div/div[1]/div[2]/div/div[2]/p[1]";
 
    // 66
    static String assesmentdashboard = "//*[text()=' to Dashboard']";
+   static String alertmsg = "// div[@role='alert']";
 
    // login using username and password ltpct | spmb
    static String username = "(// *[@placeholder='Please Enter Username'])";

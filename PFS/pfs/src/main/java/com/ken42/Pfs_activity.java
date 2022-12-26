@@ -378,9 +378,9 @@ public class Pfs_activity {
 
             Utils.clickXpath(driver, ActionXpath.viewattempt, time, "Click on view attempt", log);
             Utils.bigSleepBetweenClicks(1);
-            String getresult = Utils.getTEXT(driver,
-                    "/html/body/div[1]/div/div/div/main/div[2]/div[2]/div[2]/div[3]/div[1]/div/div[1]/div[2]/div/div[2]/p[1]",
-                    log, "getresult");
+
+            String getresult = Utils.getTEXT(driver, ActionXpath.getmark, log, "getmark");
+
             System.out.println(getresult);
             return (getresult);
         } catch (Exception e) {
@@ -796,9 +796,7 @@ public class Pfs_activity {
             // driver.findElement(By.xpath("//span[.=' Submit']")).click();
             Utils.clickXpath(driver, ActionXpath.clickonsubmit, time, "clickonsubmit", log);
 
-            Utils.smallSleepBetweenClicks(1);
-            WebElement ty = driver.findElement(By.xpath("//div[@role='alert']"));
-            String tu = ty.getText();
+            String tu = Utils.getTEXT(driver, ActionXpath.alertmsg, log, "alertmsg");
             System.out.println(tu);
 
         } catch (Exception e) {
