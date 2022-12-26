@@ -1,5 +1,6 @@
 package com.ken42;
 
+import org.apache.commons.logging.Log;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -347,38 +348,40 @@ public class Pfs_faculty {
 						"TC-29 Skip Faculty Edit Address Faculty Profile \n\n");
 				return;
 
+			} else {
+
+				Utils.goBackToHome(driver, url, log);
+
+				// Utils.goBackToHome(driver, url, log);
+				Utils.clickXpath(driver, ActionXpath.FCCportal, time, "facSelectPrtoSignout", log);
+				Utils.clickXpath(driver, ActionXpath.faccProfile, time, "facprofile", log);
+				Utils.clickXpath(driver, ActionXpath.address, time, "addressdetais", log);
+				Utils.clickXpath(driver, ActionXpath.facdpaddedit, time, "facdpaddedit", log);
+				Utils.clickXpath(driver, ActionXpath.facdptype, time, "facdptype", log);
+				Utils.clickXpath(driver, ActionXpath.FaccfaccTypeSelect, time, "facdptypeselect", log);
+				Utils.callSendkeys(driver, ActionXpath.faccAddress, "Coimbatore", time, log);
+				Utils.callSendkeys(driver, ActionXpath.faccPincode, "600001", time, log);
+				Utils.clickXpath(driver, ActionXpath.facccountry, time, "facdpcountry", log);
+				Utils.clickXpath(driver, ActionXpath.faccSelectCountry, time, "facdpcountrysselect", log);
+				// Automate.clickXpath(driver, ActionXpath.faccState, time, "facdpstate");
+				// Utils.smallSleepBetweenClicks(1);
+				// Automate.clickXpath(driver, ActionXpath.faccSelectState, time,
+				// "facdpstateselect");
+				// Utils.smallSleepBetweenClicks(1);
+				// Automate.clickXpath(driver, ActionXpath.faccCity, time, "facdpdist");
+				// Utils.smallSleepBetweenClicks(1);
+				// Automate.clickXpath(driver, ActionXpath.faccSelectCity, time,
+				// "facdpdistselect");
+				//// Utils.bigSleepBetweenClicks(1);
+				Utils.clickXpath(driver, ActionXpath.faccstate, time, "faccstate", log);
+				Utils.clickXpath(driver, ActionXpath.faccSelectState, time, "faccSelectState", log);
+				Utils.clickXpath(driver, ActionXpath.faccCity, time, "faccCity", log);
+				Utils.clickXpath(driver, ActionXpath.faccSelectCity, time, "faccSelectCity", log);
+
+				Utils.clickXpath(driver, ActionXpath.faccSaveaddress, time, "facdpaddsave", log);
+				//// Utils.bigSleepBetweenClicks(1);
+				log.info(" TC-29: Faculty edit Address Details Completed test case PASSED  \n");
 			}
-			Utils.goBackToHome(driver, url, log);
-
-			// Utils.goBackToHome(driver, url, log);
-			Utils.clickXpath(driver, ActionXpath.FCCportal, time, "facSelectPrtoSignout", log);
-			Utils.clickXpath(driver, ActionXpath.faccProfile, time, "facprofile", log);
-			Utils.clickXpath(driver, ActionXpath.address, time, "addressdetais", log);
-			Utils.clickXpath(driver, ActionXpath.facdpaddedit, time, "facdpaddedit", log);
-			Utils.clickXpath(driver, ActionXpath.facdptype, time, "facdptype", log);
-			Utils.clickXpath(driver, ActionXpath.FaccfaccTypeSelect, time, "facdptypeselect", log);
-			Utils.callSendkeys(driver, ActionXpath.faccAddress, "Coimbatore", time, log);
-			Utils.callSendkeys(driver, ActionXpath.faccPincode, "600001", time, log);
-			Utils.clickXpath(driver, ActionXpath.facccountry, time, "facdpcountry", log);
-			Utils.clickXpath(driver, ActionXpath.faccSelectCountry, time, "facdpcountrysselect", log);
-			// Automate.clickXpath(driver, ActionXpath.faccState, time, "facdpstate");
-			// Utils.smallSleepBetweenClicks(1);
-			// Automate.clickXpath(driver, ActionXpath.faccSelectState, time,
-			// "facdpstateselect");
-			// Utils.smallSleepBetweenClicks(1);
-			// Automate.clickXpath(driver, ActionXpath.faccCity, time, "facdpdist");
-			// Utils.smallSleepBetweenClicks(1);
-			// Automate.clickXpath(driver, ActionXpath.faccSelectCity, time,
-			// "facdpdistselect");
-			//// Utils.bigSleepBetweenClicks(1);
-			Utils.clickXpath(driver, ActionXpath.faccstate, time, "faccstate", log);
-			Utils.clickXpath(driver, ActionXpath.faccSelectState, time, "faccSelectState", log);
-			Utils.clickXpath(driver, ActionXpath.faccCity, time, "faccCity", log);
-			Utils.clickXpath(driver, ActionXpath.faccSelectCity, time, "faccSelectCity", log);
-
-			Utils.clickXpath(driver, ActionXpath.faccSaveaddress, time, "facdpaddsave", log);
-			//// Utils.bigSleepBetweenClicks(1);
-			log.info(" TC-29: Faculty edit Address Details Completed test case PASSED  \n");
 		} catch (Exception e) {
 			Utils.printException(e);
 			Utils.goBackToHome(driver, url, log);
@@ -399,40 +402,41 @@ public class Pfs_faculty {
 						"TC-30 Skip Edit Details Faculty Profile \n\n");
 				return;
 
-			}
-			Utils.goBackToHome(driver, url, log);
-
-			// Utils.goBackToHome(driver, url, log);
-			Utils.smallSleepBetweenClicks(2);
-			Utils.clickXpath(driver, ActionXpath.FCCportal, time, "facSelectPrtoSignout", log);
-			Utils.clickXpath(driver, ActionXpath.faccProfile, time, "facprofile", log);
-			Utils.clickXpath(driver, ActionXpath.faccacadmics, time, "faccacadmics", log);
-			Utils.smallSleepBetweenClicks(2);
-			boolean addrow = false;
-			addrow = driver.findElements(By.xpath("(//*[text()='Add Row'])")).size() > 0;
-			if (addrow) {
-				Utils.clickXpath(driver, ActionXpath.faccaddrow, time, "faccaddrow", log);
-				Utils.clickXpath(driver, ActionXpath.facdplevel, time, "facdplevel", log);
-				Utils.clickXpath(driver, ActionXpath.facdplevelselect, time, "facdplevelselect", log);
-				Utils.clickXpath(driver, ActionXpath.facdpadcountry, time, "facdpadcountry", log);
-				Utils.clickXpath(driver, ActionXpath.facdpadcountryselect, time, "facdpadcountryselect", log);
-				Utils.callSendkeys(driver, ActionXpath.facdpaduniversity, "ANNA", time, log);
-				Utils.callSendkeys(driver, ActionXpath.facdpadyear, "2020", time, log);
-
 			} else {
-				Utils.clickXpath(driver, ActionXpath.facdplevel, time, "facdplevel", log);
-				Utils.clickXpath(driver, ActionXpath.facdplevelselect, time, "facdplevelselect", log);
-				Utils.clickXpath(driver, ActionXpath.facdpadcountry, time, "facdpadcountry", log);
-				Utils.clickXpath(driver, ActionXpath.facdpadcountryselect, time, "facdpadcountryselect", log);
-				Utils.callSendkeys(driver, ActionXpath.facdpaduniversity, "ANNA", time, log);
-				Utils.callSendkeys(driver, ActionXpath.facdpadyear, "2020", time, log);
+				Utils.goBackToHome(driver, url, log);
 
+				// Utils.goBackToHome(driver, url, log);
+				Utils.smallSleepBetweenClicks(2);
+				Utils.clickXpath(driver, ActionXpath.FCCportal, time, "facSelectPrtoSignout", log);
+				Utils.clickXpath(driver, ActionXpath.faccProfile, time, "facprofile", log);
+				Utils.clickXpath(driver, ActionXpath.faccacadmics, time, "faccacadmics", log);
+				Utils.smallSleepBetweenClicks(2);
+				boolean addrow = false;
+				addrow = driver.findElements(By.xpath("(//*[text()='Add Row'])")).size() > 0;
+				if (addrow) {
+					Utils.clickXpath(driver, ActionXpath.faccaddrow, time, "faccaddrow", log);
+					Utils.clickXpath(driver, ActionXpath.facdplevel, time, "facdplevel", log);
+					Utils.clickXpath(driver, ActionXpath.facdplevelselect, time, "facdplevelselect", log);
+					Utils.clickXpath(driver, ActionXpath.facdpadcountry, time, "facdpadcountry", log);
+					Utils.clickXpath(driver, ActionXpath.facdpadcountryselect, time, "facdpadcountryselect", log);
+					Utils.callSendkeys(driver, ActionXpath.facdpaduniversity, "ANNA", time, log);
+					Utils.callSendkeys(driver, ActionXpath.facdpadyear, "2020", time, log);
+
+				} else {
+					Utils.clickXpath(driver, ActionXpath.facdplevel, time, "facdplevel", log);
+					Utils.clickXpath(driver, ActionXpath.facdplevelselect, time, "facdplevelselect", log);
+					Utils.clickXpath(driver, ActionXpath.facdpadcountry, time, "facdpadcountry", log);
+					Utils.clickXpath(driver, ActionXpath.facdpadcountryselect, time, "facdpadcountryselect", log);
+					Utils.callSendkeys(driver, ActionXpath.facdpaduniversity, "ANNA", time, log);
+					Utils.callSendkeys(driver, ActionXpath.facdpadyear, "2020", time, log);
+
+				}
+				Utils.smallSleepBetweenClicks(1);
+				Utils.clickXpath(driver, ActionXpath.faccsave, time, "faccsave", log);
+
+				Utils.smallSleepBetweenClicks(1);
+				log.info(" TC-30 : Academic Details Completed test case PASSED  \n");
 			}
-			Utils.smallSleepBetweenClicks(1);
-			Utils.clickXpath(driver, ActionXpath.faccsave, time, "faccsave", log);
-
-			Utils.smallSleepBetweenClicks(1);
-			log.info(" TC-30 : Academic Details Completed test case PASSED  \n");
 		} catch (Exception e) {
 			Utils.printException(e);
 			Utils.goBackToHome(driver, url, log);
@@ -453,42 +457,44 @@ public class Pfs_faculty {
 						"TC-31 Skip Edit Experience Faculty Profile \n\n");
 				return;
 
+			} else {
+
+				Utils.goBackToHome(driver, url, log);
+
+				System.out.println(" TC:31 :   RESEARCH SUPERVISION Started  case executation");
+				Utils.goBackToHome(driver, url, log);
+				Utils.clickXpath(driver, ActionXpath.FCCportal, time, "facclickonT", log);
+				//// Utils.bigSleepBetweenClicks(1);
+				Utils.clickXpath(driver, ActionXpath.facclickonprofile, time, "facclickonprofile", log);
+				Utils.smallSleepBetweenClicks(1);
+				Utils.clickXpath(driver, ActionXpath.faccexpe, time, " faccexpe", log);
+				// Utils.clickXpath(driver, ActionXpath.facdpreedit, time, "facdpreedit", log);
+				// Utils.clickXpath(driver, ActionXpath.facdpreadd, time, "facdpreadd", log);
+				Utils.smallSleepBetweenClicks(1);
+				Utils.scrollUpOrDown(driver, 300);
+				Utils.callSendkeys(driver, ActionXpath.faccinst, "IIT", time, log);
+				Utils.callSendkeys(driver, ActionXpath.faccposition, "teching", time, log);
+				Utils.callSendkeys(driver, ActionXpath.faccrole, "techer", time, log);
+				Utils.callSendkeys(driver, ActionXpath.faccduration, "10", time, log);
+				Utils.callSendkeys(driver, ActionXpath.faccdecs, "professor", time, log);
+				Utils.clickXpath(driver, ActionXpath.faccsave1, time, "faccsave2", log);
+				Utils.smallSleepBetweenClicks(2);
+				// Utils.callSendkeys(driver, ActionXpath.faccexpeindu, "IITbangalugru", time,
+				// log);
+				Utils.callSendkeys(driver, ActionXpath.faccinstindu, "IITbangalugru", time, log);
+				Utils.callSendkeys(driver, ActionXpath.faccpositionindu, "techer", time, log);
+				Utils.callSendkeys(driver, ActionXpath.faccroleindu, "11", time, log);
+				Utils.callSendkeys(driver, ActionXpath.faccdurationindu, "11", time, log);
+				Utils.clickXpath(driver, ActionXpath.faccsave2indu, time, "faccsave2", log);
+
+				Utils.clickXpath(driver, ActionXpath.faccpacco, time, "faccpacco", log);
+				Utils.callSendkeys(driver, ActionXpath.proname, "11", time, log);
+				Utils.callSendkeys(driver, ActionXpath.prolink, "https://portal-dev.ken42.com", time, log);
+				Utils.callSendkeys(driver, ActionXpath.prolink, "sample", time, log);
+				Utils.clickXpath(driver, ActionXpath.prosave, time, "prosave", log);
+
+				log.info(" TC-31:  Faculty edit profile RESEARCH SUPERVISION  test case PASSED  \n");
 			}
-			Utils.goBackToHome(driver, url, log);
-
-			System.out.println(" TC:31 :   RESEARCH SUPERVISION Started  case executation");
-			Utils.goBackToHome(driver, url, log);
-			Utils.clickXpath(driver, ActionXpath.FCCportal, time, "facclickonT", log);
-			//// Utils.bigSleepBetweenClicks(1);
-			Utils.clickXpath(driver, ActionXpath.facclickonprofile, time, "facclickonprofile", log);
-			Utils.smallSleepBetweenClicks(1);
-			Utils.clickXpath(driver, ActionXpath.faccexpe, time, " faccexpe", log);
-			// Utils.clickXpath(driver, ActionXpath.facdpreedit, time, "facdpreedit", log);
-			// Utils.clickXpath(driver, ActionXpath.facdpreadd, time, "facdpreadd", log);
-			Utils.smallSleepBetweenClicks(1);
-			Utils.scrollUpOrDown(driver, 300);
-			Utils.callSendkeys(driver, ActionXpath.faccinst, "IIT", time, log);
-			Utils.callSendkeys(driver, ActionXpath.faccposition, "teching", time, log);
-			Utils.callSendkeys(driver, ActionXpath.faccrole, "techer", time, log);
-			Utils.callSendkeys(driver, ActionXpath.faccduration, "10", time, log);
-			Utils.callSendkeys(driver, ActionXpath.faccdecs, "professor", time, log);
-			Utils.clickXpath(driver, ActionXpath.faccsave1, time, "faccsave2", log);
-			Utils.smallSleepBetweenClicks(2);
-			// Utils.callSendkeys(driver, ActionXpath.faccexpeindu, "IITbangalugru", time,
-			// log);
-			Utils.callSendkeys(driver, ActionXpath.faccinstindu, "IITbangalugru", time, log);
-			Utils.callSendkeys(driver, ActionXpath.faccpositionindu, "techer", time, log);
-			Utils.callSendkeys(driver, ActionXpath.faccroleindu, "11", time, log);
-			Utils.callSendkeys(driver, ActionXpath.faccdurationindu, "11", time, log);
-			Utils.clickXpath(driver, ActionXpath.faccsave2indu, time, "faccsave2", log);
-
-			Utils.clickXpath(driver, ActionXpath.faccpacco, time, "faccpacco", log);
-			Utils.callSendkeys(driver, ActionXpath.proname, "11", time, log);
-			Utils.callSendkeys(driver, ActionXpath.prolink, "https://portal-dev.ken42.com", time, log);
-			Utils.callSendkeys(driver, ActionXpath.prolink, "sample", time, log);
-			Utils.clickXpath(driver, ActionXpath.prosave, time, "prosave", log);
-
-			log.info(" TC-31:  Faculty edit profile RESEARCH SUPERVISION  test case PASSED  \n");
 		} catch (Exception e) {
 			Utils.printException(e);
 			Utils.goBackToHome(driver, url, log);
@@ -509,67 +515,68 @@ public class Pfs_faculty {
 						"TC-32 Edit Research Skip Faculty Profile \n\n");
 				return;
 
-			}
-			Utils.goBackToHome(driver, url, log);
-
-			System.out.println(" TC-32 : RESEARCH PUBLICATION Started  case executation");
-			Utils.goBackToHome(driver, url, log);
-			Utils.clickXpath(driver, ActionXpath.FCCportal, time, "facSelectPrtoSignout", log);
-			Utils.clickXpath(driver, ActionXpath.faccProfile, time, "facprofile", log);
-			// Utils.clickXpath(driver, ActionXpath.resechersvg,
-			// time,"facclickonRESEARCHSUPERVISIONpublish", log);
-			Utils.scrollUpOrDown(driver, 300);
-			Utils.clickXpath(driver, ActionXpath.resecher, time, "resecher", log);
-			Utils.clickXpath(driver, ActionXpath.resechersvg, time, "resechersvg", log);
-			Utils.callSendkeys(driver, ActionXpath.resname, "Surya", time, log);
-			Utils.callSendkeys(driver, ActionXpath.rechelink, "https://portal-dev.ken42.com", time, log);
-			Utils.callSendkeys(driver, ActionXpath.recherdec, "Sample Desc", time, log);
-			Utils.smallSleepBetweenClicks(1);
-			Utils.clickXpath(driver, ActionXpath.rechpub, time, "rechpub", log);
-			Utils.smallSleepBetweenClicks(1);
-			boolean addrow1 = false;
-			addrow1 = driver.findElements(By.xpath("(//*[text()='Add Row'])")).size() > 0;
-			if (addrow1) {
-				Utils.clickXpath(driver, ActionXpath.recshadd, time, "recshadd", log);
-				Utils.callSendkeys(driver, ActionXpath.rechnam, "name", time, log);
-				Utils.callSendkeys(driver, ActionXpath.rechlink, "https://portal-dev.ken42.com", time, log);
-				Utils.callSendkeys(driver, ActionXpath.rechdecs, "sample", time, log);
-				Utils.clickXpath(driver, ActionXpath.rechsave, time, "rechsave", log);
-
 			} else {
-				Utils.callSendkeys(driver, ActionXpath.rechnam, "publication", time, log);
-				Utils.callSendkeys(driver, ActionXpath.rechlink, "https://portal-dev.ken42.com", time, log);
-				Utils.callSendkeys(driver, ActionXpath.rechdecs, "sample", time, log);
-				Utils.clickXpath(driver, ActionXpath.rechsave, time, "rechsave", log);
+				Utils.goBackToHome(driver, url, log);
 
+				System.out.println(" TC-32 : RESEARCH PUBLICATION Started  case executation");
+				Utils.goBackToHome(driver, url, log);
+				Utils.clickXpath(driver, ActionXpath.FCCportal, time, "facSelectPrtoSignout", log);
+				Utils.clickXpath(driver, ActionXpath.faccProfile, time, "facprofile", log);
+				// Utils.clickXpath(driver, ActionXpath.resechersvg,
+				// time,"facclickonRESEARCHSUPERVISIONpublish", log);
+				Utils.scrollUpOrDown(driver, 300);
+				Utils.clickXpath(driver, ActionXpath.resecher, time, "resecher", log);
+				Utils.clickXpath(driver, ActionXpath.resechersvg, time, "resechersvg", log);
+				Utils.callSendkeys(driver, ActionXpath.resname, "Surya", time, log);
+				Utils.callSendkeys(driver, ActionXpath.rechelink, "https://portal-dev.ken42.com", time, log);
+				Utils.callSendkeys(driver, ActionXpath.recherdec, "Sample Desc", time, log);
+				Utils.smallSleepBetweenClicks(1);
+				Utils.clickXpath(driver, ActionXpath.rechpub, time, "rechpub", log);
+				Utils.smallSleepBetweenClicks(1);
+				boolean addrow1 = false;
+				addrow1 = driver.findElements(By.xpath("(//*[text()='Add Row'])")).size() > 0;
+				if (addrow1) {
+					Utils.clickXpath(driver, ActionXpath.recshadd, time, "recshadd", log);
+					Utils.callSendkeys(driver, ActionXpath.rechnam, "name", time, log);
+					Utils.callSendkeys(driver, ActionXpath.rechlink, "https://portal-dev.ken42.com", time, log);
+					Utils.callSendkeys(driver, ActionXpath.rechdecs, "sample", time, log);
+					Utils.clickXpath(driver, ActionXpath.rechsave, time, "rechsave", log);
+
+				} else {
+					Utils.callSendkeys(driver, ActionXpath.rechnam, "publication", time, log);
+					Utils.callSendkeys(driver, ActionXpath.rechlink, "https://portal-dev.ken42.com", time, log);
+					Utils.callSendkeys(driver, ActionXpath.rechdecs, "sample", time, log);
+					Utils.clickXpath(driver, ActionXpath.rechsave, time, "rechsave", log);
+
+				}
+				Utils.smallSleepBetweenClicks(1);
+				boolean addrow2 = false;
+				addrow2 = driver.findElements(By.xpath("(//*[text()='Add Row'])")).size() > 0;
+				if (addrow1) {
+					Utils.callSendkeys(driver, ActionXpath.rechnam, "publication", time, log);
+					Utils.callSendkeys(driver, ActionXpath.rechlink, "https://portal-dev.ken42.com", time, log);
+					Utils.callSendkeys(driver, ActionXpath.rechdecs, "sample", time, log);
+					Utils.clickXpath(driver, ActionXpath.rechsave, time, "rechsave", log);
+
+				} else {
+					Utils.callSendkeys(driver, ActionXpath.rechnam, "publication", time, log);
+					Utils.callSendkeys(driver, ActionXpath.rechlink, "https://portal-dev.ken42.com", time, log);
+					Utils.callSendkeys(driver, ActionXpath.rechdecs, "sample", time, log);
+					Utils.clickXpath(driver, ActionXpath.rechsave, time, "rechsave", log);
+				}
+				Utils.clickXpath(driver, ActionXpath.reschconfrence, time, "reschbook", log);
+				Utils.callSendkeys(driver, ActionXpath.nameconfrence, "bookname", time, log);
+				Utils.clickXpath(driver, ActionXpath.confrencelink, time, "booklink", log);
+				Utils.clickXpath(driver, ActionXpath.confrencedecsti, time, "bookdecsti", log);
+				Utils.clickXpath(driver, ActionXpath.confrencesave, time, "booksave", log);
+
+				Utils.clickXpath(driver, ActionXpath.reschbook, time, "reschbook", log);
+				Utils.callSendkeys(driver, ActionXpath.bookname, "bookname", time, log);
+				Utils.clickXpath(driver, ActionXpath.booklink, time, "booklink", log);
+				Utils.clickXpath(driver, ActionXpath.bookdecsti, time, "bookdecsti", log);
+				Utils.clickXpath(driver, ActionXpath.booksave, time, "booksave", log);
+				log.info("  TC-32: Faculty edit RESEARCH PUBLICATION  test case PASSED  \n");
 			}
-			Utils.smallSleepBetweenClicks(1);
-			boolean addrow2 = false;
-			addrow2 = driver.findElements(By.xpath("(//*[text()='Add Row'])")).size() > 0;
-			if (addrow1) {
-				Utils.callSendkeys(driver, ActionXpath.rechnam, "publication", time, log);
-				Utils.callSendkeys(driver, ActionXpath.rechlink, "https://portal-dev.ken42.com", time, log);
-				Utils.callSendkeys(driver, ActionXpath.rechdecs, "sample", time, log);
-				Utils.clickXpath(driver, ActionXpath.rechsave, time, "rechsave", log);
-
-			} else {
-				Utils.callSendkeys(driver, ActionXpath.rechnam, "publication", time, log);
-				Utils.callSendkeys(driver, ActionXpath.rechlink, "https://portal-dev.ken42.com", time, log);
-				Utils.callSendkeys(driver, ActionXpath.rechdecs, "sample", time, log);
-				Utils.clickXpath(driver, ActionXpath.rechsave, time, "rechsave", log);
-			}
-			Utils.clickXpath(driver, ActionXpath.reschconfrence, time, "reschbook", log);
-			Utils.callSendkeys(driver, ActionXpath.nameconfrence, "bookname", time, log);
-			Utils.clickXpath(driver, ActionXpath.confrencelink, time, "booklink", log);
-			Utils.clickXpath(driver, ActionXpath.confrencedecsti, time, "bookdecsti", log);
-			Utils.clickXpath(driver, ActionXpath.confrencesave, time, "booksave", log);
-
-			Utils.clickXpath(driver, ActionXpath.reschbook, time, "reschbook", log);
-			Utils.callSendkeys(driver, ActionXpath.bookname, "bookname", time, log);
-			Utils.clickXpath(driver, ActionXpath.booklink, time, "booklink", log);
-			Utils.clickXpath(driver, ActionXpath.bookdecsti, time, "bookdecsti", log);
-			Utils.clickXpath(driver, ActionXpath.booksave, time, "booksave", log);
-			log.info("  TC-32: Faculty edit RESEARCH PUBLICATION  test case PASSED  \n");
 		} catch (Exception e) {
 			Utils.printException(e);
 			Utils.goBackToHome(driver, url, log);
@@ -590,23 +597,25 @@ public class Pfs_faculty {
 						"TC-33 Faculty Edid Others Skip Faculty Profile \n\n");
 				return;
 
+			} else {
+
+				Utils.goBackToHome(driver, url, log);
+				System.out.println(" TC-33 :   Faculty edit Conference Started  case executation");
+				Utils.goBackToHome(driver, url, log);
+				Utils.clickXpath(driver, ActionXpath.FCCportal, time, "facSelectPrtoSignout", log);
+				Utils.clickXpath(driver, ActionXpath.faccProfile, time, "facprofile", log);
+				Utils.scrollUpOrDown(driver, 300);
+				Utils.clickXpath(driver, ActionXpath.others, time, "others", log);
+				Utils.clickXpath(driver, ActionXpath.otherssvg, time, "otherssvg", log);
+				// Utils.clickXpath(driver, ActionXpath.facdpreaddconfernece, time,
+				// "facdpreaddconfernece", log);
+				Utils.callSendkeys(driver, ActionXpath.othername, "Sample", time, log);
+				Utils.callSendkeys(driver, ActionXpath.otherlink, "https://portal-dev.ken42.com", time, log);
+				Utils.callSendkeys(driver, ActionXpath.othersdes, "Sample Desc", time, log);
+				Utils.clickXpath(driver, ActionXpath.othersave, time, "othersave", log);
+				Utils.smallSleepBetweenClicks(1);
+				log.info(" TC-33 : Faculty edit Conference Completed test case PASSED \n\n");
 			}
-			Utils.goBackToHome(driver, url, log);
-			System.out.println(" TC-33 :   Faculty edit Conference Started  case executation");
-			Utils.goBackToHome(driver, url, log);
-			Utils.clickXpath(driver, ActionXpath.FCCportal, time, "facSelectPrtoSignout", log);
-			Utils.clickXpath(driver, ActionXpath.faccProfile, time, "facprofile", log);
-			Utils.scrollUpOrDown(driver, 300);
-			Utils.clickXpath(driver, ActionXpath.others, time, "others", log);
-			Utils.clickXpath(driver, ActionXpath.otherssvg, time, "otherssvg", log);
-			// Utils.clickXpath(driver, ActionXpath.facdpreaddconfernece, time,
-			// "facdpreaddconfernece", log);
-			Utils.callSendkeys(driver, ActionXpath.othername, "Sample", time, log);
-			Utils.callSendkeys(driver, ActionXpath.otherlink, "https://portal-dev.ken42.com", time, log);
-			Utils.callSendkeys(driver, ActionXpath.othersdes, "Sample Desc", time, log);
-			Utils.clickXpath(driver, ActionXpath.othersave, time, "othersave", log);
-			Utils.smallSleepBetweenClicks(1);
-			log.info(" TC-33 : Faculty edit Conference Completed test case PASSED \n\n");
 		} catch (Exception e) {
 			Utils.printException(e);
 			Utils.goBackToHome(driver, url, log);
@@ -620,23 +629,30 @@ public class Pfs_faculty {
 	public static void testfacultyEditBook(String student, String faculty, String url, WebDriver driver, Logger log)
 			throws Exception {
 		try {
-			System.out.println(" TC:34 :   Book Started  case executation");
-			Utils.goBackToHome(driver, url, log);
-			Utils.clickXpath(driver, ActionXpath.FCCportal, time, "facSelectPrtoSignout", log);
-			Utils.clickXpath(driver, ActionXpath.faccProfile, time, "facprofile", log);
-			Utils.smallSleepBetweenClicks(1);
-			Utils.clickXpath(driver, ActionXpath.facdpbook, time, "facdpbook", log);
-			Utils.smallSleepBetweenClicks(1);
-			Utils.clickXpath(driver, ActionXpath.facdpbookedit, time, "facdpbookedit", log);
-			Utils.smallSleepBetweenClicks(1);
-			Utils.clickXpath(driver, ActionXpath.facdpbookadd, time, "facdpbookadd", log);
-			Utils.smallSleepBetweenClicks(1);
-			Utils.callSendkeys(driver, ActionXpath.facdpbookname, "Sample", time, log);
-			Utils.callSendkeys(driver, ActionXpath.facdpbooklink, "https://portal-dev.ken42.com", time, log);
-			Utils.callSendkeys(driver, ActionXpath.facdpbookdesc, "Sample Desc", time, log);
-			Utils.clickXpath(driver, ActionXpath.faccSaveNsombm, time, "faccSaveNsombm", log);
-			Utils.bigSleepBetweenClicks(1);
-			log.info(" TC-34: Faculty edit Book Completed test case PASSED  \n");
+			if (Utils.skipthefacultyprofile(url)) {
+				log.info(
+						"TC-34 Faculty Edit book Skip Faculty Profile \n\n");
+				return;
+
+			} else {
+				System.out.println(" TC:34 :   Book Started  case executation");
+				Utils.goBackToHome(driver, url, log);
+				Utils.clickXpath(driver, ActionXpath.FCCportal, time, "facSelectPrtoSignout", log);
+				Utils.clickXpath(driver, ActionXpath.faccProfile, time, "facprofile", log);
+				Utils.smallSleepBetweenClicks(1);
+				Utils.clickXpath(driver, ActionXpath.facdpbook, time, "facdpbook", log);
+				Utils.smallSleepBetweenClicks(1);
+				Utils.clickXpath(driver, ActionXpath.facdpbookedit, time, "facdpbookedit", log);
+				Utils.smallSleepBetweenClicks(1);
+				Utils.clickXpath(driver, ActionXpath.facdpbookadd, time, "facdpbookadd", log);
+				Utils.smallSleepBetweenClicks(1);
+				Utils.callSendkeys(driver, ActionXpath.facdpbookname, "Sample", time, log);
+				Utils.callSendkeys(driver, ActionXpath.facdpbooklink, "https://portal-dev.ken42.com", time, log);
+				Utils.callSendkeys(driver, ActionXpath.facdpbookdesc, "Sample Desc", time, log);
+				Utils.clickXpath(driver, ActionXpath.faccSaveNsombm, time, "faccSaveNsombm", log);
+				Utils.bigSleepBetweenClicks(1);
+				log.info(" TC-34: Faculty edit Book Completed test case PASSED  \n");
+			}
 		} catch (Exception e) {
 			Utils.printException(e);
 			Utils.goBackToHome(driver, url, log);
@@ -649,19 +665,26 @@ public class Pfs_faculty {
 	public static void testfacultyEditProfessionalAssociation(String student, String faculty, String url,
 			WebDriver driver, Logger log) throws Exception {
 		try {
-			Utils.goBackToHome(driver, url, log);
-			System.out.println(" TC-35 :   Professional Association Started  case executation");
-			Utils.clickXpath(driver, ActionXpath.FCCportal, time, "facSelectPrtoSignout", log);
-			Utils.clickXpath(driver, ActionXpath.faccProfile, time, "facprofile", log);
-			Utils.clickXpath(driver, ActionXpath.facdpprof, time, "facdpprof", log);
-			Utils.clickXpath(driver, ActionXpath.facdpprofedit, time, "facdpprofedit", log);
-			Utils.clickXpath(driver, ActionXpath.facdpprofadd, time, "facdpprofadd", log);
-			Utils.callSendkeys(driver, ActionXpath.facdpprofname, "Sample", time, log);
-			Utils.callSendkeys(driver, ActionXpath.facdpproflink, "https://portal-dev.ken42.com", time, log);
-			Utils.callSendkeys(driver, ActionXpath.facdpprofdesc, "Sample Desc", time, log);
-			Utils.clickXpath(driver, ActionXpath.facdpprofsave, time, "facdpprofsave", log);
-			Utils.smallSleepBetweenClicks(1);
-			log.info("  TC-35 : Faculty profile edit Professional Association Completed test case PASSED..  \n");
+			if (Utils.skipthefacultyprofile(url)) {
+				log.info(
+						"TC-35 Faculty ProfessionalAssociation Skip Faculty Profile \n\n");
+				return;
+
+			} else {
+				Utils.goBackToHome(driver, url, log);
+				System.out.println(" TC-35 :   Professional Association Started  case executation");
+				Utils.clickXpath(driver, ActionXpath.FCCportal, time, "facSelectPrtoSignout", log);
+				Utils.clickXpath(driver, ActionXpath.faccProfile, time, "facprofile", log);
+				Utils.clickXpath(driver, ActionXpath.facdpprof, time, "facdpprof", log);
+				Utils.clickXpath(driver, ActionXpath.facdpprofedit, time, "facdpprofedit", log);
+				Utils.clickXpath(driver, ActionXpath.facdpprofadd, time, "facdpprofadd", log);
+				Utils.callSendkeys(driver, ActionXpath.facdpprofname, "Sample", time, log);
+				Utils.callSendkeys(driver, ActionXpath.facdpproflink, "https://portal-dev.ken42.com", time, log);
+				Utils.callSendkeys(driver, ActionXpath.facdpprofdesc, "Sample Desc", time, log);
+				Utils.clickXpath(driver, ActionXpath.facdpprofsave, time, "facdpprofsave", log);
+				Utils.smallSleepBetweenClicks(1);
+				log.info("  TC-35 : Faculty profile edit Professional Association Completed test case PASSED..  \n");
+			}
 		} catch (Exception e) {
 			Utils.printException(e);
 			Utils.goBackToHome(driver, url, log);
@@ -674,19 +697,26 @@ public class Pfs_faculty {
 	public static void testfacultyOthers(String student, String faculty, String url, WebDriver driver, Logger log)
 			throws Exception {
 		try {
-			System.out.println(" TC-36 :   Faculty edit Others Started  case executation");
-			Utils.goBackToHome(driver, url, log);
-			Utils.clickXpath(driver, ActionXpath.FCCportal, time, "facSelectPrtoSignout", log);
-			Utils.clickXpath(driver, ActionXpath.faccProfile, time, "facprofile", log);
-			Utils.clickXpath(driver, ActionXpath.facdpother, time, "facdpother", log);
-			Utils.clickXpath(driver, ActionXpath.facdpotheredit, time, "facdpotheredit", log);
-			Utils.clickXpath(driver, ActionXpath.facdpotheradd, time, "facdpotheradd", log);
-			Utils.callSendkeys(driver, ActionXpath.facdpothername, "Sample", time, log);
-			Utils.callSendkeys(driver, ActionXpath.facdpotherlink, "https://portal-dev.ken42.com", time, log);
-			Utils.callSendkeys(driver, ActionXpath.facdpotherdesc, "Sample Desc", time, log);
-			Utils.clickXpath(driver, ActionXpath.facdpothersave, time, "facdpothersave", log);
-			Utils.smallSleepBetweenClicks(1);
-			log.info(" TC-36: Faculty edit Others Completed test case PASSED \n\n");
+			if (Utils.skipthefacultyprofile(url)) {
+				log.info(
+						"TC-35 Faculty others Skip Faculty Profile \n\n");
+				return;
+
+			} else {
+				System.out.println(" TC-36 :   Faculty edit Others Started  case executation");
+				Utils.goBackToHome(driver, url, log);
+				Utils.clickXpath(driver, ActionXpath.FCCportal, time, "facSelectPrtoSignout", log);
+				Utils.clickXpath(driver, ActionXpath.faccProfile, time, "facprofile", log);
+				Utils.clickXpath(driver, ActionXpath.facdpother, time, "facdpother", log);
+				Utils.clickXpath(driver, ActionXpath.facdpotheredit, time, "facdpotheredit", log);
+				Utils.clickXpath(driver, ActionXpath.facdpotheradd, time, "facdpotheradd", log);
+				Utils.callSendkeys(driver, ActionXpath.facdpothername, "Sample", time, log);
+				Utils.callSendkeys(driver, ActionXpath.facdpotherlink, "https://portal-dev.ken42.com", time, log);
+				Utils.callSendkeys(driver, ActionXpath.facdpotherdesc, "Sample Desc", time, log);
+				Utils.clickXpath(driver, ActionXpath.facdpothersave, time, "facdpothersave", log);
+				Utils.smallSleepBetweenClicks(1);
+				log.info(" TC-36: Faculty edit Others Completed test case PASSED \n\n");
+			}
 		} catch (Exception e) {
 			Utils.printException(e);
 			Utils.goBackToHome(driver, url, log);

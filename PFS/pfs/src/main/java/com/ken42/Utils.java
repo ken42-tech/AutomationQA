@@ -495,7 +495,7 @@ public class Utils {
 
 	@Test
 	public static Boolean skipthefacultyprofile(String url) {
-		String urlToMatch = "nsom";
+		String urlToMatch = "ltsta|nsom|ltpct|ecampus|sbmppsjal|jdinstitutedelhi";
 		Pattern pt = Pattern.compile(urlToMatch);
 		Matcher m = pt.matcher(url);
 		while (m.find()) {
