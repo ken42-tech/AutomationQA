@@ -66,6 +66,7 @@ public class Utils {
 					log.warning("Failed to Click on the :" + msg);
 				System.out.println("Failed to Click on the :" + msg);
 				if (++count == maxTries) {
+					log.warning("Exception is "+e);
 					Utils.printException(e);
 					throw e;
 				}
