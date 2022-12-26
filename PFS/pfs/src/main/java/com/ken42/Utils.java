@@ -46,19 +46,19 @@ public class Utils {
 				if (debug)
 					log.info("Click on the:" + msg);
 				System.out.print("Click on the:" + msg);
-				// Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
-				// .withTimeout(Duration.ofSeconds(30))
-				// .pollingEvery(Duration.ofSeconds(6))
-				// .ignoring(NoSuchElementException.class);
-				// WebElement WE = wait.until(new Function<WebDriver, WebElement>() {
-				// public WebElement apply(WebDriver driver) {
-				// return driver.findElement(By.xpath(XPATH));
-				// }
-				// });
-				// WE.click();
-				WebDriverWait wait = new WebDriverWait(driver, 5, 500);
-				WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
-				element.click();
+				Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
+				.withTimeout(Duration.ofSeconds(30))
+				.pollingEvery(Duration.ofSeconds(6))
+				.ignoring(NoSuchElementException.class);
+				WebElement WE = wait.until(new Function<WebDriver, WebElement>() {
+				public WebElement apply(WebDriver driver) {
+				return driver.findElement(By.xpath(XPATH));
+				}
+				});
+				WE.click();
+				// WebDriverWait wait = new WebDriverWait(driver, 5, 500);
+				// WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
+				// element.click();
 				break;
 			} catch (Exception e) {
 				Thread.sleep(2000);
@@ -313,6 +313,7 @@ public class Utils {
 			Utils.smallSleepBetweenClicks(1);
 
 		} catch (Exception e) {
+			driver.navigate().to(url);
 			Utils.printException(e);
 			System.out.println("Failure in logout function");
 			log.info("Failure in Logout function");
