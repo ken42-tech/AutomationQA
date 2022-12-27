@@ -10,6 +10,7 @@ import java.util.logging.*;
 import java.util.regex.*;
 
 import javax.mail.Quota.Resource;
+import javax.management.relation.Role;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -72,7 +73,7 @@ public class Utils {
 					throw e;
 				}
 			}
-			
+
 			WebElement l = driver.findElement(By.tagName("body"));
 			String login = l.getText();
 			if (login.contains("Student") || (login.contains("Faculty"))) {
@@ -80,8 +81,9 @@ public class Utils {
 			} else {
 				log.warning(" Login is not successful");
 			}
-			
+
 		}
+
 	}
 
 	public static void callSendkeys(WebDriver driver, String Xpath, String Value, int time1, Logger log)
@@ -491,7 +493,7 @@ public class Utils {
 
 	@Test
 	public static Boolean skipforedudeatils(String url) {
-		String urlToMatch = "dev|demo|nsom|esscisamsung|sbmppsjal";
+		String urlToMatch = "dev|demo|nsom|esscisamsung|sbmppsjal|bimtech";
 		Pattern pt = Pattern.compile(urlToMatch);
 		Matcher m = pt.matcher(url);
 		while (m.find()) {
@@ -515,7 +517,7 @@ public class Utils {
 
 	@Test
 	public static Boolean skipthefacultyprofile(String url) {
-		String urlToMatch = "ltsta|nsom|ltpct|ecampus|sbmppsjal|jdinstitutedelhi";
+		String urlToMatch = "ltsta|nsom|ltpct|ecampus|sbmppsjal|jdinstitutedelhi|bimtech";
 		Pattern pt = Pattern.compile(urlToMatch);
 		Matcher m = pt.matcher(url);
 		while (m.find()) {
@@ -526,7 +528,7 @@ public class Utils {
 	}
 
 	public static Boolean stueditprofil(String url) {
-		String urlToMatch = "dev|demo|nsom|esscisamsung|sbmppsjal";
+		String urlToMatch = "dev|demo|nsom|esscisamsung|sbmppsjal|bimtech";
 		Pattern pt = Pattern.compile(urlToMatch);
 		Matcher m = pt.matcher(url);
 		while (m.find()) {
