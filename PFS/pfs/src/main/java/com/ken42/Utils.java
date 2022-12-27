@@ -72,6 +72,15 @@ public class Utils {
 					throw e;
 				}
 			}
+			
+			WebElement l = driver.findElement(By.tagName("body"));
+			String login = l.getText();
+			if (login.contains("Student") || (login.contains("Faculty"))) {
+				log.info(" Succesfully logged In");
+			} else {
+				log.warning(" Login is not successful");
+			}
+			
 		}
 	}
 
