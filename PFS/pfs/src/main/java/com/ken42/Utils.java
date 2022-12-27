@@ -47,7 +47,7 @@ public class Utils {
 					log.info("Click on the:" + msg);
 				System.out.print("Click on the:" + msg);
 				Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
-						.withTimeout(Duration.ofSeconds(30))
+						.withTimeout(Duration.ofSeconds(60))
 						.pollingEvery(Duration.ofSeconds(6))
 						.ignoring(NoSuchElementException.class);
 				WebElement WE = wait.until(new Function<WebDriver, WebElement>() {
@@ -67,6 +67,7 @@ public class Utils {
 					log.warning("Failed to Click on the :" + msg);
 				System.out.println("Failed to Click on the :" + msg);
 				if (++count == maxTries) {
+					log.warning("Exception is " + e);
 					Utils.printException(e);
 					throw e;
 				}

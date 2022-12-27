@@ -100,7 +100,7 @@ public class Pfs_portal extends Thread {
 		// SendMail.sendEmail(logFileName);
 	}
 
-	public static void checkStudentIsLoggedIn(WebDriver driver, String studentEmail, String PFSurl) throws Exception {
+	public static void checkStudentIsLoggedIn(WebDriver driver, String studentEmail, String PFSurl, Logger log) throws Exception {
 		// if (!student_login_set) {
 		// Utils.smallSleepBetweenClicks(1);
 		// Utils.login(driver, studentEmail, PFSurl, log);
@@ -192,67 +192,67 @@ public class Pfs_portal extends Thread {
 		for (int i = from; i <= to; i++) {
 			switch (i) {
 				case 1:
-					checkStudentIsLoggedIn(driver, studentEmail, PFSurl);
+					checkStudentIsLoggedIn(driver, studentEmail, PFSurl, log);
 					Pfs_student.testStudent(PFSurl, driver, log); // TC-1
 					break;
 				case 2:
-					checkStudentIsLoggedIn(driver, studentEmail, PFSurl);
+					checkStudentIsLoggedIn(driver, studentEmail, PFSurl, log);
 					Pfs_student.testStudentEnrollment(PFSurl, driver, log); // TC-2
 					break;
 				case 3:
-					checkStudentIsLoggedIn(driver, studentEmail, PFSurl);
+					checkStudentIsLoggedIn(driver, studentEmail, PFSurl, log);
 					Pfs_student.testStudentAcademic(PFSurl, driver, log); // TC-3
 					break;
 				case 4:
-					checkStudentIsLoggedIn(driver, studentEmail, PFSurl);
+					checkStudentIsLoggedIn(driver, studentEmail, PFSurl, log);
 					Pfs_student.testStudentExamination(PFSurl, driver, log); // TC-4
 					break;
 				case 5:
-					checkStudentIsLoggedIn(driver, studentEmail, PFSurl);
+					checkStudentIsLoggedIn(driver, studentEmail, PFSurl, log);
 					Pfs_student.testStudentAttendance(PFSurl, driver, log); // TC-5
 					break;
 				case 6:
-					checkStudentIsLoggedIn(driver, studentEmail, PFSurl);
+					checkStudentIsLoggedIn(driver, studentEmail, PFSurl, log);
 					Pfs_student.testStudentTimeTable(PFSurl, driver, log); // TC-6
 					break;
 				case 7:
-					checkStudentIsLoggedIn(driver, studentEmail, PFSurl);
+					checkStudentIsLoggedIn(driver, studentEmail, PFSurl, log);
 					Pfs_student.testStudentFees(PFSurl, driver, log); // TC-7
 					break;
 				case 8:
-					checkStudentIsLoggedIn(driver, studentEmail, PFSurl);
+					checkStudentIsLoggedIn(driver, studentEmail, PFSurl, log);
 					Pfs_student.testStudentFeedback(PFSurl, driver, log); // TC-8
 					break;
 				case 9:
-					checkStudentIsLoggedIn(driver, studentEmail, PFSurl);
+					checkStudentIsLoggedIn(driver, studentEmail, PFSurl, log);
 					Pfs_student.testStudentStudentStatus(PFSurl, driver, log); // TC-9
 					break;
 				case 10:
-					checkStudentIsLoggedIn(driver, studentEmail, PFSurl);
+					checkStudentIsLoggedIn(driver, studentEmail, PFSurl, log);
 					Pfs_student.testStudentRaiseCase(studentEmail, facultyEmail, PFSurl, driver, log); // TC-10
 					break;
 				case 11:
-					checkStudentIsLoggedIn(driver, studentEmail, PFSurl);
+					checkStudentIsLoggedIn(driver, studentEmail, PFSurl, log);
 					Pfs_student.testStudentMakeRequest(studentEmail, facultyEmail, PFSurl, driver, log); // TC-11
 					break;
 				case 12:
-					checkStudentIsLoggedIn(driver, studentEmail, PFSurl);
+					checkStudentIsLoggedIn(driver, studentEmail, PFSurl, log);
 					Pfs_student.testStudentEvent(studentEmail, facultyEmail, PFSurl, driver, log); // TC-12
 					break;
 				case 13:
-					checkStudentIsLoggedIn(driver, studentEmail, PFSurl);
+					checkStudentIsLoggedIn(driver, studentEmail, PFSurl, log);
 					Pfs_student.testStudentEditProfile(PFSurl, driver, log); // TC-13
 					break;
 				case 14:
-					checkStudentIsLoggedIn(driver, studentEmail, PFSurl);
+					checkStudentIsLoggedIn(driver, studentEmail, PFSurl, log);
 					Pfs_student.testStudentEditEducationDetails(PFSurl, driver, log); // TC-14
 					break;
 				case 15:
-					checkStudentIsLoggedIn(driver, studentEmail, PFSurl);
+					checkStudentIsLoggedIn(driver, studentEmail, PFSurl, log);
 					Pfs_student.testStudentEditAddress(PFSurl, driver, log); // TC-15
 					break;
 				case 16:
-					checkStudentIsLoggedIn(driver, studentEmail, PFSurl);
+					checkStudentIsLoggedIn(driver, studentEmail, PFSurl, log);
 					Pfs_student.testStudentSignout(PFSurl, driver, log); // TC-16
 					break;
 				case 17:
