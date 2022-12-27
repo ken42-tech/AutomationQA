@@ -362,19 +362,16 @@ public class Pfs_faculty {
 				Utils.callSendkeys(driver, ActionXpath.faccAddress, "Coimbatore", time, log);
 				Utils.callSendkeys(driver, ActionXpath.faccPincode, "600001", time, log);
 				Utils.clickXpath(driver, ActionXpath.facccountry, time, "facdpcountry", log);
+				Utils.clickXpath(driver, ActionXpath.faccSelectCountry2, time, "facdpcountrysselect", log);
+
+				Utils.clickXpath(driver, ActionXpath.facccountry, time, "facdpcountry", log);
 				Utils.clickXpath(driver, ActionXpath.faccSelectCountry, time, "facdpcountrysselect", log);
-				// Automate.clickXpath(driver, ActionXpath.faccState, time, "facdpstate");
-				// Utils.smallSleepBetweenClicks(1);
-				// Automate.clickXpath(driver, ActionXpath.faccSelectState, time,
-				// "facdpstateselect");
-				// Utils.smallSleepBetweenClicks(1);
-				// Automate.clickXpath(driver, ActionXpath.faccCity, time, "facdpdist");
-				// Utils.smallSleepBetweenClicks(1);
-				// Automate.clickXpath(driver, ActionXpath.faccSelectCity, time,
-				// "facdpdistselect");
-				//// Utils.bigSleepBetweenClicks(1);
+
+				Utils.clickXpath(driver, ActionXpath.faccstate, time, "faccstate", log);
+				Utils.clickXpath(driver, ActionXpath.faccSelectState2, time, "faccSelectState", log);
 				Utils.clickXpath(driver, ActionXpath.faccstate, time, "faccstate", log);
 				Utils.clickXpath(driver, ActionXpath.faccSelectState, time, "faccSelectState", log);
+
 				Utils.clickXpath(driver, ActionXpath.faccCity, time, "faccCity", log);
 				Utils.clickXpath(driver, ActionXpath.faccSelectCity, time, "faccSelectCity", log);
 
@@ -779,7 +776,11 @@ public class Pfs_faculty {
 				Utils.callSendkeys(driver, ActionXpath.facccresurl, "Question", time, log);
 				Utils.clickXpath(driver, ActionXpath.facccressubmitform, time, "Save URL link button", log);
 				// Utils.callSendkeys(driver, ActionXpath.faccquestion, "Question", time, log);
-				Utils.callSendkeys(driver, ActionXpath.faccquestionname, "Question Name", time, log);
+				if (Utils.questionname(url)) {
+					System.out.println("Question name skipped");
+				} else {
+					Utils.callSendkeys(driver, ActionXpath.faccquestionname, "Question Name", time, log);
+				}
 				Utils.callSendkeys(driver, ActionXpath.facquestionpurpose, "Question Purpose", time, log);
 				Utils.clickXpath(driver, ActionXpath.facquestionlevel, time, "facquestionlevel", log);
 				Utils.clickXpath(driver, ActionXpath.faclevelselect, time, "faclevelselect", log);

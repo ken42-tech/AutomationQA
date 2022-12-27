@@ -131,7 +131,7 @@ public class Pfs_portal extends Thread {
 			Utils.goBackToHome(driver, PFSurl, log);
 			log.info("Hey Faculty not logged in let's login with ID " + facultyEmail);
 			Utils.login(driver, facultyEmail, PFSurl, log);
-			Utils.smallSleepBetweenClicks(2);
+			Utils.smallSleepBetweenClicks(4);
 		} else {
 			// log.warning("Faculty login for test case 17-38 failed somewhere");
 			System.out.println("$$$$$$$$$$$$$ No Sign in page");

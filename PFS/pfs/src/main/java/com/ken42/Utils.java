@@ -47,17 +47,18 @@ public class Utils {
 					log.info("Click on the:" + msg);
 				System.out.print("Click on the:" + msg);
 				Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
-				.withTimeout(Duration.ofSeconds(30))
-				.pollingEvery(Duration.ofSeconds(6))
-				.ignoring(NoSuchElementException.class);
+						.withTimeout(Duration.ofSeconds(30))
+						.pollingEvery(Duration.ofSeconds(6))
+						.ignoring(NoSuchElementException.class);
 				WebElement WE = wait.until(new Function<WebDriver, WebElement>() {
-				public WebElement apply(WebDriver driver) {
-				return driver.findElement(By.xpath(XPATH));
-				}
+					public WebElement apply(WebDriver driver) {
+						return driver.findElement(By.xpath(XPATH));
+					}
 				});
 				WE.click();
 				// WebDriverWait wait = new WebDriverWait(driver, 5, 500);
-				// WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
+				// WebElement element =
+				// wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
 				// element.click();
 				break;
 			} catch (Exception e) {
@@ -398,6 +399,17 @@ public class Utils {
 	@Test
 	public static Boolean questionbank(String url) {
 		String urlToMatch = "portal-demo|sbmppsjal";
+		Pattern pt = Pattern.compile(urlToMatch);
+		Matcher m = pt.matcher(url);
+		while (m.find()) {
+			return true;
+		}
+		return false;
+	}
+
+	@Test
+	public static Boolean questionname(String url) {
+		String urlToMatch = "portal-demo";
 		Pattern pt = Pattern.compile(urlToMatch);
 		Matcher m = pt.matcher(url);
 		while (m.find()) {

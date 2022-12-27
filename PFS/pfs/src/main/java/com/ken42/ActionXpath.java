@@ -302,8 +302,12 @@ public class ActionXpath {
    static String faccPincode = "//input[@name='pincode']";
    static String facccountry = "//div[@id='mui-component-select-Country']";
    static String faccSelectCountry = "//li[@data-value='IN']";
+   static String faccSelectCountry2 = "//li[@data-value='IR']";
+
    static String faccState = "//div[@id='mui-component-select-state']";
    static String faccSelectState = "//li[@data-value='KA' and text()='Karnataka']";
+   static String faccSelectState2 = "//li[@data-value='KL' and text()='Kerala']";
+
    static String faccCity = "//div[@id='mui-component-select-distract']";
    static String faccSelectCity = "//li[@data-value='Bangalore Urban' and text()='Bangalore Urban']";
    static String faccSaveaddress = "//h6[. and text()='ADDRESS DETAILS']/../../..//span[. and text()='Save']";
@@ -854,7 +858,7 @@ public class ActionXpath {
    // 57,58,59
    static String assignsearch = "(//*[@aria-label='search'])";
    // static String assigngrade = "(//*[text()='Grade'])[1]";
-   static String assigngrade = "//*[text()='Test student']/../../../../../..//button";
+   static String assigngrade = "//*[text()='Test student']/../../../../../..//button | //*[text()='Test Student']/../../../../../..//*[text()='Grade']";
    static String faccPDFCheckBox = "//input[@name='Pdf' and @type='checkbox']/..";
    static String faccVideoCheckBox = "//input[@name='Video' and @type='checkbox']/..";
    static String faccLinksCheckBox = "//input[@name='Links' and @type='checkbox']/..";
@@ -870,6 +874,8 @@ public class ActionXpath {
    static String faccAssementCheckBox = "//input[@name='Assessment' and @type='checkbox']/..";
    static String faccForumCheckBox = "//input[@name='Forum' and @type='checkbox']/..";
    static String facResourceFilterDiv = "//*[@id='app']/div/div/div/main/div[2]/div[2]/div[2]/div[2]/div[3]/div/div/div/.. | //*[@id='app']/div/div/div/main/div[2]/div[2]/div[3]/div[2]/div[3]/div/div/div/..";
+   static String clickresult2 = "(//span[.='Result'])[2]";
+   static String clickresult1 = "(//span[.='Result'])[1]";
 
    // 63
    static String facfourmeditattachements = "(//*[@role='button' and @aria-haspopup='listbox'])[2]";

@@ -363,16 +363,10 @@ public class Pfs_activity {
                     .click();
             Utils.bigSleepBetweenClicks(2);
             if (Utils.viewresult(url)) {
-                WebDriverWait ele12 = new WebDriverWait(driver, 20);
-                WebElement elem12 = ele12
-                        .until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[.='Result'])[2]")));
-                ((JavascriptExecutor) driver).executeScript("arguments[0].click();", elem12);
+                Utils.clickXpathWithJavascript(driver, ActionXpath.clickresult2, time, "result button");
                 Utils.bigSleepBetweenClicks(1);
             } else {
-                WebDriverWait ele12 = new WebDriverWait(driver, 20);
-                WebElement elem12 = ele12
-                        .until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[.='Result'])[1]")));
-                ((JavascriptExecutor) driver).executeScript("arguments[0].click();", elem12);
+                Utils.clickXpathWithJavascript(driver, ActionXpath.clickresult1, time, "result button 1");
                 Utils.bigSleepBetweenClicks(1);
             }
 
@@ -841,7 +835,13 @@ public class Pfs_activity {
             WebElement elem11 = ele111
                     .until(ExpectedConditions.elementToBeClickable(By.xpath("//span[.='Back to List']")));
             ((JavascriptExecutor) driver).executeScript("arguments[0].click();", elem11);
-
+            boolean alertPresent = false;
+            Utils.bigSleepBetweenClicks(1);
+            driver.navigate().to(url);
+            alertPresent = Utils.isAlertPresent(driver);
+            if (alertPresent) {
+                driver.switchTo().alert().accept();
+            }
             Utils.bigSleepBetweenClicks(1);
 
         } catch (Exception e) {
@@ -1518,7 +1518,7 @@ public class Pfs_activity {
             Utils.logout(driver, url, Role, log);
             Utils.login(driver, student, url, log);
             assesmentviewstudent(returnAssement, student, url, Browser, Role, driver, log);
-            assesmentattempt(faculty, url, Browser, student, Filenameassesment, driver, returnAssement, log);
+            assesmentattempt(student, faculty, url, Browser, Filenameassesment, driver, returnAssement, log);
 
             Utils.logout(driver, url, Role, log);
             Utils.login(driver, faculty, url, log);
