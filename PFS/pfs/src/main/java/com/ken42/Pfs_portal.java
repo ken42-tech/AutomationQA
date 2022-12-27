@@ -100,7 +100,8 @@ public class Pfs_portal extends Thread {
 		// SendMail.sendEmail(logFileName);
 	}
 
-	public static void checkStudentIsLoggedIn(WebDriver driver, String studentEmail, String PFSurl, Logger log) throws Exception {
+	public static void checkStudentIsLoggedIn(WebDriver driver, String studentEmail, String PFSurl, Logger log)
+			throws Exception {
 		// if (!student_login_set) {
 		// Utils.smallSleepBetweenClicks(1);
 		// Utils.login(driver, studentEmail, PFSurl, log);

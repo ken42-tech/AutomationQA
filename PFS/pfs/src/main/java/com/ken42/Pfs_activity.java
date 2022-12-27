@@ -825,8 +825,8 @@ public class Pfs_activity {
             Utils.bigSleepBetweenClicks(1);
             Utils.callSendkeys(driver, ActionXpath.assignsearch, studentName, time, log);
             Utils.clickXpath(driver, ActionXpath.assigngrade, time, "click on grade", log);
-
-            Utils.bigSleepBetweenClicks(1);
+            Utils.smallSleepBetweenClicks(3);
+            Utils.smallSleepBetweenClicks(2);
             int s = new Utils().getDecimalRandomNumber();
 
             driver.findElement(By.xpath("//input[@name='marks']")).sendKeys(Integer.toString(s));
@@ -835,13 +835,7 @@ public class Pfs_activity {
             WebElement elem11 = ele111
                     .until(ExpectedConditions.elementToBeClickable(By.xpath("//span[.='Back to List']")));
             ((JavascriptExecutor) driver).executeScript("arguments[0].click();", elem11);
-            boolean alertPresent = false;
-            Utils.bigSleepBetweenClicks(1);
-            driver.navigate().to(url);
-            alertPresent = Utils.isAlertPresent(driver);
-            if (alertPresent) {
-                driver.switchTo().alert().accept();
-            }
+
             Utils.bigSleepBetweenClicks(1);
 
         } catch (Exception e) {

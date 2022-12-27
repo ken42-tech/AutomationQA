@@ -482,7 +482,7 @@ public class Utils {
 
 	@Test
 	public static Boolean skipforedudeatils(String url) {
-		String urlToMatch = "dev|demo|nsom|esscisamsung";
+		String urlToMatch = "dev|demo|nsom|esscisamsung|sbmppsjal";
 		Pattern pt = Pattern.compile(urlToMatch);
 		Matcher m = pt.matcher(url);
 		while (m.find()) {
@@ -517,7 +517,7 @@ public class Utils {
 	}
 
 	public static Boolean stueditprofil(String url) {
-		String urlToMatch = "dev|demo|nsom|esscisamsung";
+		String urlToMatch = "dev|demo|nsom|esscisamsung|sbmppsjal";
 		Pattern pt = Pattern.compile(urlToMatch);
 		Matcher m = pt.matcher(url);
 		while (m.find()) {
@@ -551,7 +551,7 @@ public class Utils {
 
 	@Test
 	public static Boolean checkServiceTab(String url) {
-		String urlToMatch = "bimtech|jdinstitutedelhi|nsom|portal-dev|portal-demo|ltpct";
+		String urlToMatch = "bimtech|jdinstitutedelhi|nsom|portal-dev|portal-demo|ltpct|sbmppsjal";
 		Pattern pt = Pattern.compile(urlToMatch);
 		Matcher m = pt.matcher(url);
 		while (m.find()) {
