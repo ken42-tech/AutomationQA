@@ -38,7 +38,7 @@ public class Utils {
 	static boolean debug = true;
 
 	public static void clickXpath(WebDriver driver, String xpath, int time, String msg, Logger log)
-			throws NoSuchElementException, InterruptedException, ElementClickInterceptedException {
+			throws NoSuchElementException, InterruptedException, ElementClickInterceptedException, Exception {
 		JavascriptExecutor js3 = (JavascriptExecutor) driver;
 		int count = 0;
 		int maxTries = 12;
@@ -84,16 +84,17 @@ public class Utils {
 					Utils.printException(e);
 					throw e;
 				}
+			} catch (Exception e) {
+				Thread.sleep(2000);
+				if (debug)
+					log.warning("Failed to Click on the :" + msg);
+				System.out.println("Failed to Click on the :" + msg);
+				if (++count == maxTries) {
+					log.warning("Exception  is " + e);
+					Utils.printException(e);
+					throw e;
+				}
 			}
-
-			WebElement l = driver.findElement(By.tagName("body"));
-			String login = l.getText();
-			if (login.contains("Student") || (login.contains("Faculty"))) {
-				log.info(" Succesfully logged In");
-			} else {
-				log.warning(" Login is not successful");
-			}
-
 		}
 
 	}
@@ -121,7 +122,7 @@ public class Utils {
 				WE.sendKeys(Value);
 				Thread.sleep(500);
 				break;
-			} catch (NoSuchElementException e) {
+			} catch (Exception e) {
 				Thread.sleep(1000);
 				log.warning("Failed to send value  " + Value);
 				if (++count == maxTries) {
@@ -294,17 +295,21 @@ public class Utils {
 				// smallSleepBetweenClicks();
 				Utils.callSendkeys(driver, ActionXpath.otprequest1, regex, time, log);
 				Utils.clickXpath(driver, ActionXpath.verifyotp, time, "Verify otp", log);
-				System.out.println(
-						"Sleeping after login for 7 seconds so that goBacktoHome function does not automatically logout user");
-				bigSleepBetweenClicks(1);
+				// System.out.println(
+				// "Sleeping after login for some seconds so that goBacktoHome function does not
+				// automatically logout user");
+				// bigSleepBetweenClicks(1);
 			}
-
+			System.out.println(
+					"Sleeping after login for some seconds so that goBacktoHome function does not automatically logout user");
+			bigSleepBetweenClicks(1);
+			Thread.sleep(6000);
 		} catch (
 
 		Exception e) {
 			log.warning("Login to portal failed Quitting the driver" + url);
 			printException(e);
-			driver.quit();
+			// driver.quit();
 			// System.exit(01);
 		}
 
