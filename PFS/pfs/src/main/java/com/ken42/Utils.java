@@ -99,7 +99,7 @@ public class Utils {
 	}
 
 	public static void callSendkeys(WebDriver driver, String Xpath, String Value, int time1, Logger log)
-			throws Exception {
+			throws Exception, NoSuchElementException {
 		int count = 0;
 		int maxTries = 10;
 		final String XPATH = Xpath;
@@ -121,7 +121,7 @@ public class Utils {
 				WE.sendKeys(Value);
 				Thread.sleep(500);
 				break;
-			} catch (Exception e) {
+			} catch (NoSuchElementException e) {
 				Thread.sleep(1000);
 				log.warning("Failed to send value  " + Value);
 				if (++count == maxTries) {
