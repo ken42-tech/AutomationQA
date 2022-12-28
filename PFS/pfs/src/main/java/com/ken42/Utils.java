@@ -37,7 +37,7 @@ public class Utils {
 	// public static Logger log = Logger.getLogger("Pfs_portal");
 	static boolean debug = true;
 
-	public static void clickXpath(WebDriver driver, String xpath, int time, String msg, Logger log) throws NoSuchElementException, InterruptedException, ElementClickInterceptedException  {
+	public static void clickXpath(WebDriver driver, String xpath, int time, String msg, Logger log) throws NoSuchElementException, InterruptedException, ElementClickInterceptedException, Exception  {
 		JavascriptExecutor js3 = (JavascriptExecutor) driver;
 		int count = 0;
 		int maxTries = 12;
@@ -83,17 +83,17 @@ public class Utils {
 					Utils.printException(e);
 					throw e;
 				}
-			}
-
-
-			WebElement l = driver.findElement(By.tagName("body"));
-			String login = l.getText();
-			if (login.contains("Student") || (login.contains("Faculty"))) {
-				log.info(" Succesfully logged In");
-			} else {
-				log.warning(" Login is not successful");
-			}
-
+			} catch (Exception e) {
+				Thread.sleep(2000);
+				if (debug)
+					log.warning("Failed to Click on the :" + msg);
+				System.out.println("Failed to Click on the :" + msg);
+				if (++count == maxTries) {
+					log.warning("Exception  is " + e);
+					Utils.printException(e);
+					throw e;
+				}
+			} 
 		}
 
 	}
@@ -121,7 +121,7 @@ public class Utils {
 				WE.sendKeys(Value);
 				Thread.sleep(500);
 				break;
-			} catch (NoSuchElementException e) {
+			} catch (Exception e) {
 				Thread.sleep(1000);
 				log.warning("Failed to send value  " + Value);
 				if (++count == maxTries) {
