@@ -229,12 +229,12 @@ public class Pfs_faculty {
 					time, log);
 			Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.SubmitRaise, time, "Submit the case", log);
-			log.info("TC 25: Faculty service Status  Raise Case PASSED \n");
+			log.info("TC-25: Faculty service Status  Raise Case PASSED \n");
 		} catch (Exception e) {
 			Utils.printException(e);
 			Utils.goBackToHome(driver, url, log);
 			Utils.logout(driver, url, "faculty", log);
-			log.warning("TC 25: Faculty service Status  Raise Case FAILED \n");
+			log.warning("TC-25: Faculty service Status  Raise Case FAILED \n");
 		}
 	}
 
@@ -788,7 +788,17 @@ public class Pfs_faculty {
 
 			} else {
 				Utils.callSendkeys(driver, ActionXpath.faccquestion, "Question", time, log);
-				Utils.callSendkeys(driver, ActionXpath.faccquestionname, "Question time", time, log);
+				if (Utils.uploadimage(url)) {
+					String Image_file = "";
+					String folder = "";
+					folder = Pfs_portal.getFolderPath();
+					Image_file = folder + "\\demo.jpg";
+					driver.findElement(By.xpath("//input[@accept='.png,.jpg,.jpeg']"))
+							.sendKeys(Image_file);
+				} else {
+					Utils.callSendkeys(driver, ActionXpath.faccquestionname, "Question time", time, log);
+
+				}
 			}
 			Utils.cleartext(driver, ActionXpath.faccmarks);
 			Utils.smallSleepBetweenClicks(1);
@@ -811,6 +821,7 @@ public class Pfs_faculty {
 			Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.facsaveandfinish, time, "Finished", log);
 			Utils.smallSleepBetweenClicks(1);
+			Utils.scrollUpOrDown(driver, time);
 			Utils.clickXpath(driver, ActionXpath.facqueback, time, "BAck", log);
 			log.info("TC-38: Faculty QUESTION PAPER TEST CASE PASSED \n");
 
