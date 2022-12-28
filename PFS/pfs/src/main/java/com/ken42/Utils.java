@@ -294,17 +294,19 @@ public class Utils {
 				// smallSleepBetweenClicks();
 				Utils.callSendkeys(driver, ActionXpath.otprequest1, regex, time, log);
 				Utils.clickXpath(driver, ActionXpath.verifyotp, time, "Verify otp", log);
-				System.out.println(
-						"Sleeping after login for 7 seconds so that goBacktoHome function does not automatically logout user");
-				bigSleepBetweenClicks(1);
+				// System.out.println(
+				// 		"Sleeping after login for some seconds so that goBacktoHome function does not automatically logout user");
+				// bigSleepBetweenClicks(1);
 			}
-
+			System.out.println( "Sleeping after login for some seconds so that goBacktoHome function does not automatically logout user");
+			bigSleepBetweenClicks(1);
+			Thread.sleep(6000);
 		} catch (
 
 		Exception e) {
 			log.warning("Login to portal failed Quitting the driver" + url);
 			printException(e);
-			driver.quit();
+			// driver.quit();
 			// System.exit(01);
 		}
 
