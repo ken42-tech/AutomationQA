@@ -37,7 +37,8 @@ public class Utils {
 	// public static Logger log = Logger.getLogger("Pfs_portal");
 	static boolean debug = true;
 
-	public static void clickXpath(WebDriver driver, String xpath, int time, String msg, Logger log) throws NoSuchElementException, InterruptedException, ElementClickInterceptedException  {
+	public static void clickXpath(WebDriver driver, String xpath, int time, String msg, Logger log)
+			throws NoSuchElementException, InterruptedException, ElementClickInterceptedException {
 		JavascriptExecutor js3 = (JavascriptExecutor) driver;
 		int count = 0;
 		int maxTries = 12;
@@ -84,7 +85,6 @@ public class Utils {
 					throw e;
 				}
 			}
-
 
 			WebElement l = driver.findElement(By.tagName("body"));
 			String login = l.getText();
