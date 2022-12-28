@@ -128,8 +128,8 @@ public class Pfs_activity {
             String filename = returnAssement[0];
             // Utils.checkAcadAndClick(driver, Role, url, log);
             Utils.clickXpath(driver, ActionXpath.facclickcouserelative, time, "Click on course content", log);
-            Utils.clickXpathWithScroll(driver, ActionXpath.facultyassessmenstrelativelexpandtodelete, time,
-                    "Click on Assessment SVG");
+            Utils.clickXpath(driver, ActionXpath.facultyassessmenstrelativelexpandtodelete, time,
+                    "Click on Assessment SVG", log);
             Utils.smallSleepBetweenClicks(1);
             new WebDriverWait(driver, 25).until(ExpectedConditions
                     .elementToBeClickable(By.xpath("//p[.='" + filename + "']/../../.././..//*[local-name()='svg']")))
@@ -174,8 +174,8 @@ public class Pfs_activity {
             String filename = returnAssement[0];
             // Utils.checkAcadAndClick(driver, Role, url, log);
             Utils.clickXpath(driver, ActionXpath.facclickcouserelative, time, "Click on course content", log);
-            Utils.clickXpathWithScroll(driver, ActionXpath.facultyassessmenstrelativelexpandtodelete, time,
-                    "Click on Assessment SVG");
+            Utils.clickXpath(driver, ActionXpath.facultyassessmenstrelativelexpandtodelete, time,
+                    "Click on Assessment SVG", log);
             Utils.smallSleepBetweenClicks(1);
             new WebDriverWait(driver, 25).until(ExpectedConditions
                     .elementToBeClickable(By.xpath("//p[.='" + filename + "']/../../.././..//*[local-name()='svg']")))
@@ -489,8 +489,8 @@ public class Pfs_activity {
             Utils.checkAcadAndClick(driver, student, url, log);
             Utils.clickXpath(driver, ActionXpath.facclickcouserelativedelete, time, "Click on course content", log);
             Utils.smallSleepBetweenClicks(1);
-            Utils.clickXpathWithScroll(driver, ActionXpath.facultyassessmenstrelativelexpandtodelete, time,
-                    "Click on Assessment SVG");
+            Utils.clickXpath(driver, ActionXpath.facultyassessmenstrelativelexpandtodelete, time,
+                    "Click on Assessment SVG", log);
             Utils.smallSleepBetweenClicks(1);
             new WebDriverWait(driver, 25).until(ExpectedConditions
                     .elementToBeClickable(By.xpath("//p[.='" + filename + "']/../../.././..//*[local-name()='svg']")))

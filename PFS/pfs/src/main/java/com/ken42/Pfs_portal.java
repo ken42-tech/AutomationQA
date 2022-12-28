@@ -193,7 +193,8 @@ public class Pfs_portal extends Thread {
 		for (int i = from; i <= to; i++) {
 			switch (i) {
 				case 1:
-					checkStudentIsLoggedIn(driver, studentEmail, PFSurl, log);
+					boolean isLoggedIn = false;
+					isLoggedIn = checkStudentIsLoggedIn(driver, studentEmail, PFSurl, log);
 					Pfs_student.testStudent(PFSurl, driver, log); // TC-1
 					break;
 				case 2:

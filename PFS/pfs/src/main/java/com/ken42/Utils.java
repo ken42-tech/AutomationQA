@@ -109,7 +109,7 @@ public class Utils {
 					log.info("***********************Entering value   " + Value);
 				System.out.print("***********************Entering value   " + Value);
 				Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
-						.withTimeout(Duration.ofSeconds(20))
+						.withTimeout(Duration.ofSeconds(40))
 						.pollingEvery(Duration.ofSeconds(4))
 						.ignoring(NoSuchElementException.class);
 				WebElement WE = wait.until(new Function<WebDriver, WebElement>() {
@@ -189,31 +189,7 @@ public class Utils {
 
 	}
 
-	public static void clickXpathWithScroll(WebDriver driver, String xpath, int time, String msg) throws Exception {
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		int count = 0;
-		int maxTries = 8;
-		while (true) {
-			try {
-				Thread.sleep(1000);
-				log.info("Click on the:" + msg);
-				WebElement el = driver.findElement(By.xpath(xpath));
-				js.executeScript("arguments[0].scrollIntoView({ behavior: 'smooth', block: 'start' });", el);
-				el.click();
-				break;
-			} catch (Exception e) {
-				Thread.sleep(3000);
-				Utils.printException(e);
-				log.warning("Failed to Click on the :" + msg);
-				if (++count == maxTries) {
-					Utils.printException(e);
-					log.warning("Unable to login quitting this portal testing");
-					Utils.printException(e);
-				}
-			}
-		}
-	}
-
+	
 	@Test
 	public static void login(WebDriver driver, String Email, String url, Logger log) throws Exception {
 		try {
@@ -335,8 +311,8 @@ public class Utils {
 	public static void logout(WebDriver driver, String url, String Role, Logger Log) throws Exception {
 		try {
 			driver.navigate().to(url);
-			Utils.clickXpath(driver, ActionXpath.FCCportal, time, "Click on  initial", log);
-			Utils.clickXpath(driver, ActionXpath.facsignOut, time, "click on signout", log);
+			Utils.clickXpath(driver, ActionXpath.FCCportal, time, "Logout function Click on  initial", log);
+			Utils.clickXpath(driver, ActionXpath.facsignOut, time, "Logout function click on signout", log);
 			Utils.smallSleepBetweenClicks(1);
 
 		} catch (Exception e) {
@@ -345,7 +321,7 @@ public class Utils {
 			System.out.println("Failure in logout function");
 			log.info("Failure in Logout function");
 			// Pfs_portal.quitDriver(driver, url);
-			throw (e);
+			// throw (e);
 		}
 	}
 
