@@ -37,7 +37,8 @@ public class Utils {
 	// public static Logger log = Logger.getLogger("Pfs_portal");
 	static boolean debug = true;
 
-	public static void clickXpath(WebDriver driver, String xpath, int time, String msg, Logger log) throws NoSuchElementException, InterruptedException, ElementClickInterceptedException, Exception  {
+	public static void clickXpath(WebDriver driver, String xpath, int time, String msg, Logger log)
+			throws NoSuchElementException, InterruptedException, ElementClickInterceptedException, Exception {
 		JavascriptExecutor js3 = (JavascriptExecutor) driver;
 		int count = 0;
 		int maxTries = 12;
@@ -93,7 +94,7 @@ public class Utils {
 					Utils.printException(e);
 					throw e;
 				}
-			} 
+			}
 		}
 
 	}
@@ -271,10 +272,12 @@ public class Utils {
 				Utils.callSendkeys(driver, ActionXpath.otprequest1, regex, time, log);
 				Utils.clickXpath(driver, ActionXpath.verifyotp, time, "Verify otp", log);
 				// System.out.println(
-				// 		"Sleeping after login for some seconds so that goBacktoHome function does not automatically logout user");
+				// "Sleeping after login for some seconds so that goBacktoHome function does not
+				// automatically logout user");
 				// bigSleepBetweenClicks(1);
 			}
-			System.out.println( "Sleeping after login for some seconds so that goBacktoHome function does not automatically logout user");
+			System.out.println(
+					"Sleeping after login for some seconds so that goBacktoHome function does not automatically logout user");
 			bigSleepBetweenClicks(1);
 			Thread.sleep(6000);
 		} catch (
