@@ -290,8 +290,9 @@ public class Pfs_student {
 			} else {
 				Utils.clickXpath(driver, ActionXpath.Event, time, "Event", log);
 			}
-			Utils.clickXpath(driver, ActionXpath.clcikEvent, time, "Open Event", log);
-			Utils.clickXpath(driver, ActionXpath.back, time, "Go back", log);
+			Utils.smallSleepBetweenClicks(2);
+			// Utils.clickXpath(driver, ActionXpath.clcikEvent, time, "Open Event", log);
+			// Utils.clickXpath(driver, ActionXpath.back, time, "Go back", log);
 			log.info("TC-12: Student EVENT Test Case PASSED \n");
 		} catch (Exception e) {
 			Utils.printException(e);

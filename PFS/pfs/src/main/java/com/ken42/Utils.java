@@ -422,7 +422,18 @@ public class Utils {
 
 	@Test
 	public static Boolean questionbank(String url) {
-		String urlToMatch = "portal-demo|sbmppsjal";
+		String urlToMatch = "portal-demo|sbmppsjal|bimtech";
+		Pattern pt = Pattern.compile(urlToMatch);
+		Matcher m = pt.matcher(url);
+		while (m.find()) {
+			return true;
+		}
+		return false;
+	}
+
+	@Test
+	public static Boolean uploadimage(String url) {
+		String urlToMatch = "ltsta";
 		Pattern pt = Pattern.compile(urlToMatch);
 		Matcher m = pt.matcher(url);
 		while (m.find()) {
@@ -433,7 +444,7 @@ public class Utils {
 
 	@Test
 	public static Boolean questionname(String url) {
-		String urlToMatch = "portal-demo";
+		String urlToMatch = "portal-demo|bimtech";
 		Pattern pt = Pattern.compile(urlToMatch);
 		Matcher m = pt.matcher(url);
 		while (m.find()) {
@@ -505,7 +516,7 @@ public class Utils {
 
 	@Test
 	public static Boolean skipforedudeatils(String url) {
-		String urlToMatch = "dev|demo|nsom|esscisamsung|sbmppsjal|bimtech";
+		String urlToMatch = "dev|demo|nsom|esscisamsung|sbmppsjal|bimtech|jdinstitutedelhi";
 		Pattern pt = Pattern.compile(urlToMatch);
 		Matcher m = pt.matcher(url);
 		while (m.find()) {
@@ -517,7 +528,7 @@ public class Utils {
 
 	@Test
 	public static Boolean skipforedudeatils1(String url) {
-		String urlToMatch = "nsom|esscisamsung";
+		String urlToMatch = "nsom|esscisamsung|jdinstitutedelhi";
 		Pattern pt = Pattern.compile(urlToMatch);
 		Matcher m = pt.matcher(url);
 		while (m.find()) {
@@ -540,7 +551,7 @@ public class Utils {
 	}
 
 	public static Boolean stueditprofil(String url) {
-		String urlToMatch = "dev|demo|nsom|esscisamsung|sbmppsjal|bimtech";
+		String urlToMatch = "dev|demo|nsom|esscisamsung|sbmppsjal|bimtech|jdinstitutedelhi";
 		Pattern pt = Pattern.compile(urlToMatch);
 		Matcher m = pt.matcher(url);
 		while (m.find()) {

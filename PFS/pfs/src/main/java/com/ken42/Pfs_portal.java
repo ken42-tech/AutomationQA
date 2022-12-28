@@ -176,11 +176,11 @@ public class Pfs_portal extends Thread {
 		driver = initDriver(Browser, PFSurl);
 
 		if ((from >= 1 && to <= 16)) {
-			Utils.login(driver, studentEmail, PFSurl, log);
+			// Utils.login(driver, studentEmail, PFSurl, log);
 			Role = "student";
 			student_login_set = true;
 		} else if ((from >= 17 && to <= 39)) {
-			Utils.login(driver, facultyEmail, PFSurl, log);
+			// Utils.login(driver, facultyEmail, PFSurl, log);
 			Role = "faculty";
 			faculty_login_set = true;
 		} else if ((from >= 1 && to <= 69) && (to >= 1 && to <= 69)) {

@@ -810,7 +810,9 @@ public class Pfs_activity {
             Utils.smallSleepBetweenClicks(1);
             driver.navigate().refresh();
             Utils.bigSleepBetweenClicks(1);
-            Utils.clickXpath(driver, ActionXpath.ExpandAcademic, time, "Exapand Academic ", log);
+            Utils.checkAcadAndClick(driver, faculty, url, log);
+            // Utils.clickXpath(driver, ActionXpath.ExpandAcademic, time, "Exapand Academic
+            // ", log);
             Utils.clickXpath(driver, ActionXpath.assignfacclickcouserelative, time, "facclickcouse", log);
             Utils.clickXpath(driver, ActionXpath.assignexapndrelative, time, "Exapand", log);
             new WebDriverWait(driver, 25).until(ExpectedConditions
