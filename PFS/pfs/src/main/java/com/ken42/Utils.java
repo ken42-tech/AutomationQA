@@ -13,6 +13,7 @@ import javax.mail.Quota.Resource;
 import javax.management.relation.Role;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
@@ -36,10 +37,10 @@ public class Utils {
 	// public static Logger log = Logger.getLogger("Pfs_portal");
 	static boolean debug = true;
 
-	public static void clickXpath(WebDriver driver, String xpath, int time, String msg, Logger log) throws Exception {
+	public static void clickXpath(WebDriver driver, String xpath, int time, String msg, Logger log) throws NoSuchElementException, InterruptedException, ElementClickInterceptedException  {
 		JavascriptExecutor js3 = (JavascriptExecutor) driver;
 		int count = 0;
-		int maxTries = 15;
+		int maxTries = 12;
 		final String XPATH = xpath;
 		while (true) {
 			try {
@@ -62,17 +63,28 @@ public class Utils {
 				// wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
 				// element.click();
 				break;
-			} catch (Exception e) {
+			} catch (NoSuchElementException e) {
 				Thread.sleep(2000);
 				if (debug)
 					log.warning("Failed to Click on the :" + msg);
 				System.out.println("Failed to Click on the :" + msg);
 				if (++count == maxTries) {
-					log.warning("Exception is " + e);
+					log.warning("NoSuchElementException is " + e);
+					Utils.printException(e);
+					throw e;
+				}
+			} catch (ElementClickInterceptedException e) {
+				Thread.sleep(2000);
+				if (debug)
+					log.warning("Failed to Click on the :" + msg);
+				System.out.println("Failed to Click on the :" + msg);
+				if (++count == maxTries) {
+					log.warning("ElementClickInterceptedException is " + e);
 					Utils.printException(e);
 					throw e;
 				}
 			}
+
 
 			WebElement l = driver.findElement(By.tagName("body"));
 			String login = l.getText();
