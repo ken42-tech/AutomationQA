@@ -231,9 +231,9 @@ public class Utils {
 				}
 				if (usernameloginsbmppsjal(url)) {
 					String studentuname = "TestStudent0610";
-					String facultyuname = "test.faculty123";
+					String facultyuname = "test.faculty2@ken42.com";
 					String studentpassword = "TestStudent0610";
-					String facultypassword = "test";
+					String facultypassword = "Testfaculty1";
 
 					if (Email.contains("student")) {
 						Utils.callSendkeys(driver, ActionXpath.username, studentuname, time, log);
@@ -410,7 +410,7 @@ public class Utils {
 
 	@Test
 	public static Boolean questionbank(String url) {
-		String urlToMatch = "portal-demo|sbmppsjal|bimtech";
+		String urlToMatch = "portal-demo|sbmppsjal|bimtech|jdinstitutedelhi";
 		Pattern pt = Pattern.compile(urlToMatch);
 		Matcher m = pt.matcher(url);
 		while (m.find()) {
@@ -432,7 +432,7 @@ public class Utils {
 
 	@Test
 	public static Boolean questionname(String url) {
-		String urlToMatch = "portal-demo|bimtech";
+		String urlToMatch = "portal-demo|bimtech|jdinstitutedelhi";
 		Pattern pt = Pattern.compile(urlToMatch);
 		Matcher m = pt.matcher(url);
 		while (m.find()) {
