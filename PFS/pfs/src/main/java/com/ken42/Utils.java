@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.time.Duration;
+import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Random;
 import java.util.logging.*;
@@ -190,7 +191,6 @@ public class Utils {
 
 	}
 
-	
 	@Test
 	public static void login(WebDriver driver, String Email, String url, Logger log) throws Exception {
 		try {
@@ -228,13 +228,37 @@ public class Utils {
 						Utils.callSendkeys(driver, ActionXpath.username, studentuname, time, log);
 						Utils.callSendkeys(driver, ActionXpath.password, studentpassword, time, log);
 						Utils.clickXpath(driver, ActionXpath.singnin, time, "Verify", log);
-						Utils.bigSleepBetweenClicks(2);
+						Utils.smallSleepBetweenClicks(2);
+
+						List<WebElement> popUpElement = driver
+								.findElements(By.xpath("//*[text()='Either Username or password is incorrect.']"));
+						if (popUpElement.size() != 0) {
+							System.out.println("Pop up is Present: " + popUpElement.get(0).getText());
+							log.warning("Pop up is Present: " + popUpElement.get(0).getText());
+							Pfs_portal.quitDriver(driver, url);
+							log.warning("Driver is Quited");
+
+						} else {
+							System.out.println("Pop up is Absent");
+						}
 
 					} else if (Email.contains("faculty")) {
 						Utils.callSendkeys(driver, ActionXpath.username, facultyuname, time, log);
 						Utils.callSendkeys(driver, ActionXpath.password, facultypassword, time, log);
 						Utils.clickXpath(driver, ActionXpath.singnin, time, "Verify", log);
-						Utils.bigSleepBetweenClicks(2);
+						Utils.smallSleepBetweenClicks(2);
+
+						List<WebElement> popUpElement = driver
+								.findElements(By.xpath("//*[text()='Either Username or password is incorrect.']"));
+						if (popUpElement.size() != 0) {
+							System.out.println("Pop up is Present: " + popUpElement.get(0).getText());
+							log.warning("Pop up is Present: " + popUpElement.get(0).getText());
+							Pfs_portal.quitDriver(driver, url);
+							log.warning("Driver is Quited");
+
+						} else {
+							System.out.println("Pop up is Absent");
+						}
 
 					}
 				}
