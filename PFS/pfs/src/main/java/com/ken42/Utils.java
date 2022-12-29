@@ -268,6 +268,18 @@ public class Utils {
 				String regex = "Null";
 				Utils.callSendkeys(driver, ActionXpath.email, Email, time, log);
 				Utils.clickXpath(driver, ActionXpath.requestotp, time, "Request OTP", log);
+				Utils.smallSleepBetweenClicks(2);
+				List<WebElement> popUpElement = driver
+						.findElements(By.xpath("//*[text()='User not found']"));
+				if (popUpElement.size() != 0) {
+					System.out.println("Pop up is Present: " + popUpElement.get(0).getText());
+					log.warning("Pop up is Present: " + popUpElement.get(0).getText());
+					Pfs_portal.quitDriver(driver, url);
+					log.warning("Driver is Quited");
+
+				} else {
+					System.out.println("Pop up is Absent");
+				}
 				int count = 0;
 				int maxTries = 7;
 				String alertMessage = "";
