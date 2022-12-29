@@ -147,7 +147,11 @@ public class Pfs_activity {
             Utils.clickXpath(driver, ActionXpath.fasquestionrelative, time, "Click on question bank ", log);
             Utils.smallSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.clickquestiontype, time, "Click on Questiontype ", log);
-            Utils.clickXpath(driver, ActionXpath.selectmcq1, time, "Click on Multiple choice question ", log);
+            if (Utils.checkLtsta(url)) {
+                Utils.clickXpath(driver, ActionXpath.selectmcq2, time, "Click on Multiple choice question ", log);
+            } else {
+                Utils.clickXpath(driver, ActionXpath.selectmcq1, time, "Click on Multiple choice question ", log);
+            }
 
             Utils.bigSleepBetweenClicks(1);
             Utils.clickXpath(driver, ActionXpath.facselectrelative2, time, "Select first question", log);

@@ -428,7 +428,7 @@ public class Utils {
 
 	@Test
 	public static Boolean questionbank(String url) {
-		String urlToMatch = "portal-demo|sbmppsjal|bimtech|jdinstitutedelhi";
+		String urlToMatch = "portal-demo|sbmppsjal|bimtech|jdinstitutedelhi|nsom";
 		Pattern pt = Pattern.compile(urlToMatch);
 		Matcher m = pt.matcher(url);
 		while (m.find()) {
@@ -612,6 +612,17 @@ public class Utils {
 		return false;
 	}
 
+	@Test
+	public static Boolean checknsom(String url) {
+		String urlToMatch = "nsom";
+		Pattern pt = Pattern.compile(urlToMatch);
+		Matcher m = pt.matcher(url);
+		while (m.find()) {
+			return true;
+		}
+		return false;
+	}
+
 	public static Boolean usernameloginltpct(String url) {
 		String urlToMatch = "ltpct";
 		Pattern pt = Pattern.compile(urlToMatch);
@@ -634,7 +645,7 @@ public class Utils {
 
 	@Test
 	public static Boolean publishlink(String url) {
-		String urlToMatch = "ltsta|nsom|ltpct|dev|demo|ecampus|sbmppsjal|jdinstitutedelhi";
+		String urlToMatch = "ltsta|nsom|ltpct|dev|demo|ecampus|sbmppsjal|jdinstitutedelhi|bimtech";
 		Pattern pt = Pattern.compile(urlToMatch);
 		Matcher m = pt.matcher(url);
 		while (m.find()) {

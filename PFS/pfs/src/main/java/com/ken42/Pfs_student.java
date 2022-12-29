@@ -211,8 +211,13 @@ public class Pfs_student {
 				Utils.clickXpath(driver, ActionXpath.StudentService, time, "Student Status", log);
 			}
 			Utils.clickXpath(driver, ActionXpath.MakeRaise, time, "Make Raise", log);
-			Utils.clickXpath(driver, ActionXpath.Raisecase, time, "Raise case", log);
-			Utils.clickXpath(driver, ActionXpath.buttonRaisecase, time, "Button Raise", log);
+			if (Utils.checknsom(url)) {
+				Utils.clickXpath(driver, ActionXpath.Raisequery, time, "Raise case", log);
+				Utils.clickXpath(driver, ActionXpath.buttonRaisequery, time, "Button Raise", log);
+			} else {
+				Utils.clickXpath(driver, ActionXpath.Raisecase, time, "Raise case", log);
+				Utils.clickXpath(driver, ActionXpath.buttonRaisecase, time, "Button Raise", log);
+			}
 			Utils.clickXpath(driver, ActionXpath.cancel, time, "Cancel the raise case", log);
 			log.info("TC-9: Student Services check cancel button Test Case PASSED \n");
 		} catch (Exception e) {
@@ -234,9 +239,13 @@ public class Pfs_student {
 			} else {
 				Utils.clickXpath(driver, ActionXpath.StudentService, time, "Student Status", log);
 			}
-
-			Utils.clickXpath(driver, ActionXpath.Raisecase, time, "Raise case", log);
-			Utils.clickXpath(driver, ActionXpath.buttonRaisecase, time, "Button Raise", log);
+			if (Utils.checknsom(url)) {
+				Utils.clickXpath(driver, ActionXpath.Raisequery, time, "Raise case", log);
+				Utils.clickXpath(driver, ActionXpath.buttonRaisequery, time, "Button Raise", log);
+			} else {
+				Utils.clickXpath(driver, ActionXpath.Raisecase, time, "Raise case", log);
+				Utils.clickXpath(driver, ActionXpath.buttonRaisecase, time, "Button Raise", log);
+			}
 			Utils.callSendkeys(driver, ActionXpath.inputraise, "WIfi not working ", time, log);
 			Utils.callSendkeys(driver, ActionXpath.description,
 					"While i Select the network to check the Exam date and all that time i did not found the exam date & also tab ewas not working",

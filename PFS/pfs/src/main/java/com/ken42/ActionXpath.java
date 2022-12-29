@@ -93,8 +93,12 @@ public class ActionXpath {
    static String StudentService = "(//span[. and text()='Student Services'])[2] | (//span[. and text()='Support Services'])[2] | (//span[. and text()='Trainer Services'])[2]";
    static String ltstaService = "(//span[. and text()='Student Services'])[2] | (//span[. and text()='Support Services'])[2] | (//span[. and text()='Trainer Services'])[1]";
    static String Raisecase = "(//p [. and text()='Raise A Case'])[1]";
+   static String Raisequery = "(//*[. and text()='Raise A Query'])[1]";
+
    static String MakeRaise = "(//p [. and text()='Make A Request'])[1]";
    static String buttonRaisecase = "//button[@label='Raise Case']";
+   static String buttonRaisequery = "(//*[. and text()='Raise Query'])[1]";
+
    static String cancel = "//button[@label='Cancel']";
    // Student Test case 9 ends here
 
