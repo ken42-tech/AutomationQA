@@ -822,6 +822,7 @@ public class Pfs_faculty {
 			Utils.clickXpath(driver, ActionXpath.facsaveandfinish, time, "Finished", log);
 			Utils.smallSleepBetweenClicks(1);
 			Utils.scrollUpOrDown(driver, time);
+			Utils.scrollUpOrDown(driver, time);
 			Utils.clickXpath(driver, ActionXpath.facqueback, time, "BAck", log);
 			log.info("TC-38: Faculty QUESTION PAPER TEST CASE PASSED \n");
 
