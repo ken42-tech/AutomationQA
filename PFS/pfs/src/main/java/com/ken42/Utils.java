@@ -461,7 +461,7 @@ public class Utils {
 
 	@Test
 	public static Boolean raisecase(String url) {
-		String urlToMatch = "portal-demo|sbmppsjal|ltpct|jdinstitutedelhi";
+		String urlToMatch = "portal-demo|sbmppsjal|ltpct|jdinstitutedelhi|bimtech";
 		Pattern pt = Pattern.compile(urlToMatch);
 		Matcher m = pt.matcher(url);
 		while (m.find()) {
