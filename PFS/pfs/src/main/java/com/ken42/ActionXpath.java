@@ -267,7 +267,9 @@ public class ActionXpath {
    static String facServicesltsta = "(//span[. and text()='Master Trainer Services'])[1]";
    static String FacRaisecasedevbmtech = "//span[text()='Raise a Case']";
    static String FacRaisebutton = "//button[@label='Raise Case']|//*[text()='Raise a Case'] ";
-   static String Raisebutton = "//span[text()='Raise Case']";
+   static String FacRaisequerybutton = "(//*[. and text()='Raise Query'])[1]";
+
+   static String Raisebutton = "//span[text()='Raise Case']|//span[text()='Raise Query']";
    static String facCancelSer = "//span[text()='Cancel']";
    static String facMakedevNsom = "//p[text()='Make A Request']";
    static String facMakeRButtondevNsome = "//p[text()='Make A Request']";
@@ -276,7 +278,7 @@ public class ActionXpath {
    // TC:25:faculty Raise request
    static String inputSub = "//input[@name='Subject']";
    static String SubmitRaise = "//button[@label='Submit']";
-   static String facRaiseCaseleftNavbar = "(//span[. and text()='Raise a Case'])";
+   static String facRaiseCaseleftNavbar = "(//span[. and text()='Raise a Case'])|(//*[. and text()='Raise a Query'])[1]";
    // Tc:26 faculty make request
    static String makeSubjectIn = "//input[@name='Subject']";
    static String MakeBtn = "//button[@label='Submit']";

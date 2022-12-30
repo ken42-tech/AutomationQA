@@ -196,7 +196,11 @@ public class Pfs_faculty {
 			// Utils.bigSleepBetweenClicks(1);
 			Utils.clickOnFacultyService(driver, url, log);
 			Utils.smallSleepBetweenClicks(1);
-			Utils.clickXpath(driver, ActionXpath.FacRaisebutton, time, "Click on Raise case button", log);
+			if (Utils.checknsom(url)) {
+				Utils.clickXpath(driver, ActionXpath.FacRaisequerybutton, time, "Click on Raise case button", log);
+			} else {
+				Utils.clickXpath(driver, ActionXpath.FacRaisebutton, time, "Click on Raise case button", log);
+			}
 			Utils.smallSleepBetweenClicks(1);
 			// Utils.scrollUpOrDown(driver, 300);
 			// Utils.clickXpath(driver, ActionXpath.facCancelSer, time, "cancel");
@@ -218,7 +222,11 @@ public class Pfs_faculty {
 			Utils.goBackToHome(driver, url, log);
 			Utils.clickOnFacultyService(driver, url, log);
 			Utils.smallSleepBetweenClicks(1);
-			Utils.clickXpath(driver, ActionXpath.FacRaisebutton, time, "Raise a case button", log);
+			if (Utils.checknsom(url)) {
+				Utils.clickXpath(driver, ActionXpath.FacRaisequerybutton, time, "Click on Raise case button", log);
+			} else {
+				Utils.clickXpath(driver, ActionXpath.FacRaisebutton, time, "Click on Raise case button", log);
+			}
 			Utils.smallSleepBetweenClicks(1);
 			if (Utils.raisecase(url)) {
 				Utils.clickXpath(driver, ActionXpath.Raisebutton, time, "Raise case button", log);
