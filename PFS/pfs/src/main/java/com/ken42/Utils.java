@@ -220,9 +220,9 @@ public class Utils {
 				}
 				if (usernameloginsbmppsjal(url)) {
 					String studentuname = "TestStudent0610";
-					String facultyuname = "test.faculty2@ken42.com";
+					String facultyuname = "test.faculty123";
 					String studentpassword = "TestStudent0610";
-					String facultypassword = "Testfaculty1";
+					String facultypassword = "test.faculty123";
 
 					if (Email.contains("student")) {
 						Utils.callSendkeys(driver, ActionXpath.username, studentuname, time, log);
@@ -341,7 +341,16 @@ public class Utils {
 			driver.navigate().to(url);
 			Utils.clickXpath(driver, ActionXpath.FCCportal, time, "Logout function Click on  initial", log);
 			Utils.clickXpath(driver, ActionXpath.facsignOut, time, "Logout function click on signout", log);
-			Utils.smallSleepBetweenClicks(1);
+			Utils.smallSleepBetweenClicks(2);
+			if (Utils.checkIsLogoutWork(url)) {
+				boolean signInPresent = false;
+				signInPresent = driver.findElements(By.xpath("//*[text()='Sign in']")).size() > 0;
+				if (signInPresent) {
+					System.out.println("Sign In is present");
+				} else {
+					driver.navigate().refresh();
+				}
+			}
 
 		} catch (Exception e) {
 			driver.navigate().to(url);
@@ -418,6 +427,17 @@ public class Utils {
 	@Test
 	public static Boolean checkoldlogin(String url) {
 		String urlToMatch = "ltpct|sbmppsjal";
+		Pattern pt = Pattern.compile(urlToMatch);
+		Matcher m = pt.matcher(url);
+		while (m.find()) {
+			return true;
+		}
+		return false;
+	}
+
+	@Test
+	public static Boolean checkIsLogoutWork(String url) {
+		String urlToMatch = "portal-demo|sbmppsjal|bimtech|jdinstitutedelhi|nsom";
 		Pattern pt = Pattern.compile(urlToMatch);
 		Matcher m = pt.matcher(url);
 		while (m.find()) {
