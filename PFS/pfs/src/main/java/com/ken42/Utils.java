@@ -458,6 +458,16 @@ public class Utils {
 	}
 
 	@Test
+	public static Boolean questionOPtions(String url) {
+		String urlToMatch = "portal-dev1";
+		Pattern pt = Pattern.compile(urlToMatch);
+		Matcher m = pt.matcher(url);
+		while (m.find()) {
+			return true;
+		}
+		return false;
+	}
+	@Test
 	public static Boolean uploadimage(String url) {
 		String urlToMatch = "ltsta";
 		Pattern pt = Pattern.compile(urlToMatch);
