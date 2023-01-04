@@ -448,7 +448,7 @@ public class Utils {
 
 	@Test
 	public static Boolean questionbank(String url) {
-		String urlToMatch = "portal-demo|sbmppsjal|bimtech|jdinstitutedelhi|nsom";
+		String urlToMatch = "portal-demo|sbmppsjal|bimtech|jdinstitutedelhi|nsom|portal-dev1";
 		Pattern pt = Pattern.compile(urlToMatch);
 		Matcher m = pt.matcher(url);
 		while (m.find()) {
@@ -467,6 +467,7 @@ public class Utils {
 		}
 		return false;
 	}
+
 	@Test
 	public static Boolean uploadimage(String url) {
 		String urlToMatch = "ltsta";
@@ -480,7 +481,7 @@ public class Utils {
 
 	@Test
 	public static Boolean questionname(String url) {
-		String urlToMatch = "portal-demo|bimtech|jdinstitutedelhi";
+		String urlToMatch = "portal-demo|bimtech|jdinstitutedelhi|portal-dev1";
 		Pattern pt = Pattern.compile(urlToMatch);
 		Matcher m = pt.matcher(url);
 		while (m.find()) {
@@ -491,7 +492,7 @@ public class Utils {
 
 	@Test
 	public static Boolean raisecase(String url) {
-		String urlToMatch = "portal-demo|sbmppsjal|ltpct|jdinstitutedelhi|bimtech|dev";
+		String urlToMatch = "portal-demo|sbmppsjal|ltpct|jdinstitutedelhi|bimtech|dev|portal-dev1";
 		Pattern pt = Pattern.compile(urlToMatch);
 		Matcher m = pt.matcher(url);
 		while (m.find()) {
