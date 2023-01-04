@@ -290,7 +290,7 @@ public class Pfs_resource {
 			log.info("TC-42: Create PDF resource publish and delete PDF PASSED \n");
 		} catch (Exception e) {
 			Utils.printException(e);
-			log.warning("TC-42: Create PDF resource publish and delete PDF FAILED \n");
+			log.warning("TC-42: Create PDF resource publish and delete PDF Test Case FAILED \n");
 			Utils.logout(driver, url, Role, log);
 		}
 	}
@@ -354,7 +354,7 @@ public class Pfs_resource {
 			log.info("TC-43: Create Video resource create view  and delete PASSED");
 		} catch (Exception e) {
 			Utils.printException(e);
-			log.warning("TC-43: Create Video resource create view  and delete FAILED");
+			log.warning("TC-43: Create Video resource create view  and delete Test Case FAILED");
 			Utils.logout(driver, url, Role, log);
 		}
 	}
@@ -456,7 +456,7 @@ public class Pfs_resource {
 
 		} catch (Exception e) {
 			Utils.printException(e);
-			log.warning("TC-45 Test Spreadsheet File type test case FAILED");
+			log.warning("TC-45 Test Spreadsheet File type Test Case FAILED");
 			Utils.logout(driver, url, Role, log);
 		}
 	}

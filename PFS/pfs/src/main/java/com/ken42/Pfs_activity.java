@@ -94,7 +94,7 @@ public class Pfs_activity {
             return (returnAssement);
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("\t\tCreate assesment FAILED  ");
+            log.warning("\t\tCreate assesment Test Case FAILED  ");
             throw (e);
         }
 
@@ -165,7 +165,7 @@ public class Pfs_activity {
 
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("\t\tCreate publishassesmentedit FAILED  ");
+            log.warning("\t\tCreate publishassesmentedit Test Case FAILED  ");
             throw (e);
         }
         return returnAssement;
@@ -211,7 +211,7 @@ public class Pfs_activity {
 
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("\t\tCreate unpubishassesmentedit FAILED  ");
+            log.warning("\t\tCreate unpubishassesmentedit Test Case FAILED  ");
             throw (e);
         }
         return returnAssement;
@@ -252,7 +252,7 @@ public class Pfs_activity {
 
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("\t\tCreate assesmentviewstudent FAILED  ");
+            log.warning("\t\tCreate assesmentviewstudent Test Case FAILED  ");
             throw (e);
         }
     }
@@ -280,7 +280,7 @@ public class Pfs_activity {
 
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("\t\tCreate assesmentviewstudent FAILED  ");
+            log.warning("\t\tCreate assesmentviewstudent Test Case FAILED  ");
             throw (e);
         }
     }
@@ -383,7 +383,7 @@ public class Pfs_activity {
             return (getresult);
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("\t\tCreate assesmentattempt FAILED  ");
+            log.warning("\t\tCreate assesmentattempt Test Case FAILED  ");
             throw (e);
 
         }
@@ -477,7 +477,7 @@ public class Pfs_activity {
 
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("\t\tCreate assesmentattempt FAILED  ");
+            log.warning("\t\tCreate assesmentattempt Test Case FAILED  ");
             throw (e);
 
         }
@@ -529,7 +529,7 @@ public class Pfs_activity {
 
         catch (Exception e) {
             Utils.printException(e);
-            log.warning("\t\tCreate assesmentcheckresult FAILED  ");
+            log.warning("\t\tCreate assesmentcheckresult Test Case FAILED  ");
             throw (e);
         }
     }
@@ -553,7 +553,7 @@ public class Pfs_activity {
 
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("\t\tCreate assesmentdelete FAILED  ");
+            log.warning("\t\tCreate assesmentdelete Test Case FAILED  ");
             throw (e);
         }
         return returnAssement;
@@ -656,7 +656,7 @@ public class Pfs_activity {
 
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("\t\tCreate assignmentcreate FAILED  ");
+            log.warning("\t\tCreate assignmentcreate Test Case FAILED  ");
             throw (e);
         }
         // return(returnAssement);
@@ -689,7 +689,7 @@ public class Pfs_activity {
 
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("\t\tCreate assignmentpublish FAILED  ");
+            log.warning("\t\tCreate assignmentpublish Test Case FAILED  ");
             throw (e);
         }
         // return returnAssement;
@@ -722,7 +722,7 @@ public class Pfs_activity {
 
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("\t\tCreate assignmentviewstudent FAILED  ");
+            log.warning("\t\tCreate assignmentviewstudent Test Case FAILED  ");
             throw (e);
 
         }
@@ -799,7 +799,7 @@ public class Pfs_activity {
 
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("\t\tCreate assignmentsubmission FAILED  ");
+            log.warning("\t\tCreate assignmentsubmission Test Case FAILED  ");
             throw (e);
         }
     }
@@ -846,7 +846,7 @@ public class Pfs_activity {
 
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("\t\tCreate assignmentreview FAILED  ");
+            log.warning("\t\tCreate assignmentreview Test Case FAILED  ");
             throw (e);
         }
     }
@@ -919,7 +919,7 @@ public class Pfs_activity {
 
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("\t\tCreate assigmnenteditview FAILED  ");
+            log.warning("\t\tCreate assigmnenteditview Test Case FAILED  ");
             throw (e);
         }
     }
@@ -952,7 +952,7 @@ public class Pfs_activity {
 
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("\t\tCreate assigmnentdelete FAILED  ");
+            log.warning("\t\tCreate assigmnentdelete Test Case FAILED  ");
             throw (e);
         }
         return returnAssement;
@@ -1034,7 +1034,7 @@ public class Pfs_activity {
             return (returnAssement);
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("\t\tCreate forumcreate FAILED  ");
+            log.warning("\t\tCreate forumcreate Test Case FAILED  ");
             throw (e);
 
         }
@@ -1064,7 +1064,7 @@ public class Pfs_activity {
 
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("\t\tCreate forumpublish FAILED  ");
+            log.warning("\t\tCreate forumpublish Test Case FAILED  ");
             throw (e);
         }
         return returnAssement;
@@ -1104,7 +1104,7 @@ public class Pfs_activity {
 
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("\t\tCreate forumdiscussion FAILED  ");
+            log.warning("\t\tCreate forumdiscussion Test Case FAILED  ");
             throw (e);
         }
         return returnAssement;
@@ -1136,7 +1136,7 @@ public class Pfs_activity {
 
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("\t\tCreate forumviewstudent FAILED  ");
+            log.warning("\t\tCreate forumviewstudent Test Case FAILED  ");
             throw (e);
         }
     }
@@ -1165,9 +1165,17 @@ public class Pfs_activity {
             Utils.bigSleepBetweenClicks(1);
             JavascriptExecutor js = (JavascriptExecutor) driver;
             js.executeScript("window.scrollBy(-100,-100)");
-            Utils.clickXpath(driver, ActionXpath.facinstruction3dot, time, "facinstruction3dot", log);
+            // Utils.clickXpath(driver, ActionXpath.facinstruction3dot, time,
+            // "facinstruction3dot", log);
             Utils.smallSleepBetweenClicks(1);
 
+            boolean facinstruction3dot = false;
+            facinstruction3dot = driver.findElements(By.xpath("//*[@title='More...']")).size() > 0;
+            if (facinstruction3dot) {
+                Utils.clickXpath(driver, ActionXpath.facinstruction3dot, time, "facinstruction3dot", log);
+            } else {
+
+            }
             Utils.clickXpath(driver, ActionXpath.relativefacforumclink1, time, "facforumclink", log);
             Utils.bigSleepBetweenClicks(1);
             Utils.callSendkeys(driver, ActionXpath.relativefacforumurl1, filename, time, log);
@@ -1188,7 +1196,7 @@ public class Pfs_activity {
 
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("\t\tCreate forumedit FAILED  ");
+            log.warning("\t\tCreate forumedit Test Case FAILED  ");
             throw (e);
 
         }
@@ -1223,7 +1231,7 @@ public class Pfs_activity {
 
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("\t\tCreate forumdelete FAILED  ");
+            log.warning("\t\tCreate forumdelete Test Case FAILED  ");
             throw (e);
         }
         return returnAssement;
@@ -1271,7 +1279,7 @@ public class Pfs_activity {
             log.info("TC-53 Assignment Filter test case PASSED  ");
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("TC-53 Assignment Filter test case FAILED   ");
+            log.warning("TC-53 Assignment Filter Test Case FAILED   ");
             Utils.logout(driver, url, Role, log);
         }
     }
@@ -1314,10 +1322,10 @@ public class Pfs_activity {
             Utils.bigSleepBetweenClicks(1);
             Utils.logout(driver, url, Role, log);
             Utils.smallSleepBetweenClicks(1);
-            log.info("TC-54 Assement Filter test case PASSED ");
+            log.info("TC-54 Assement Filter Test Case PASSED ");
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("TC-54 Assement Filter test case FAILED  ");
+            log.warning("TC-54 Assement Filter Test Case FAILED  ");
             Utils.logout(driver, url, Role, log);
         }
     }
@@ -1362,7 +1370,7 @@ public class Pfs_activity {
             log.info("TC-55 Forum Filter test case PASSED ");
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("TC-55 Forum Filter test case FAILED   ");
+            log.warning("TC-55 Forum Filter Test Case FAILED   ");
             Utils.logout(driver, url, Role, log);
         }
     }
@@ -1389,7 +1397,7 @@ public class Pfs_activity {
             log.info("TC-56 Faculty Fourm create,publish,delete test case PASSED ");
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("TC-56 Faculty Fourm create,publish,delete test case FAILED   ");
+            log.warning("TC-56 Faculty Fourm create,publish,delete Test Case FAILED   ");
             Utils.logout(driver, url, Role, log);
         }
     }
@@ -1419,7 +1427,7 @@ public class Pfs_activity {
             log.info("TC-57 Faculty Fourm Create,Publish,View,Dicussion,Delete test case PASSED  ");
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("TC-57 Faculty Fourm Create,Publish,View,Dicussion,Delete test case FAILED   ");
+            log.warning("TC-57 Faculty Fourm Create,Publish,View,Dicussion,Delete Test Case FAILED   ");
             Utils.logout(driver, url, Role, log);
         }
     }
@@ -1439,7 +1447,7 @@ public class Pfs_activity {
             Utils.login(driver, faculty, url, log);
             // forumpublish(faculty, url, Browser, Role, driver,Filenameassesment);
             returnAssement = forumedit(returnAssement, faculty, url, Browser, Role, driver, log);
-            // forumedit(faculty, url, Browser, Role, driver,Filenameassesment);
+            // forumedit(faculty, url, Browser, Role, driver, Filenameassesment);
             Utils.logout(driver, url, Role, log);
             Utils.login(driver, faculty, url, log);
             returnAssement = forumdelete(returnAssement, faculty, url, Browser, Role, driver, log);
@@ -1447,7 +1455,7 @@ public class Pfs_activity {
             log.info("TC-58 Forum Create,Publish,Edit,Delete test case PASSED ");
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("TC-58 Faculty Fourm Create,Publish,Edit,Delete test case FAILED   ");
+            log.warning("TC-58 Faculty Fourm Create,Publish,Edit,Delete Test Case FAILED   ");
             Utils.logout(driver, url, Role, log);
         }
     }
@@ -1499,7 +1507,7 @@ public class Pfs_activity {
             log.info("TC-60 Assement Create,Publish,View,Delete test Executation PASSED  ");
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("TC-60 Assement Create,Publish,View,Delete test executation FAILED  ");
+            log.warning("TC-60 Assement Create,Publish,View,Delete executation Test Case FAILED  ");
             Utils.logout(driver, url, Role, log);
         }
     }
@@ -1532,7 +1540,7 @@ public class Pfs_activity {
         } catch (Exception e) {
             Utils.printException(e);
             log.warning(
-                    "TC-61 Assement Create,Publish,View,Attempt and view result,Delete test executation   FAILED  ");
+                    "TC-61 Assement Create,Publish,View,Attempt and view result,Delete executation Test Case FAILED  ");
             Utils.logout(driver, url, Role, log);
         }
     }
@@ -1554,7 +1562,7 @@ public class Pfs_activity {
             log.info("TC-62 Assement Create,Unpublish,Edit,Delete test Executation PASSED ");
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("TC-62 Assement Create,Unpublish,Edit,Delete test executation FAILED ");
+            log.warning("TC-62 Assement Create,Unpublish,Edit,Delete executation Test Case FAILED ");
             Utils.logout(driver, url, Role, log);
         }
     }
@@ -1576,7 +1584,7 @@ public class Pfs_activity {
             log.info("TC-63 Assement Create,Publish,Edit,Delete test Executation PASSED ");
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("TC-63 Assement Create,Publish,Edit,Delete test executation FAILED ");
+            log.warning("TC-63 Assement Create,Publish,Edit,Delete executation Test Case FAILED ");
             Utils.logout(driver, url, Role, log);
         }
     }
@@ -1605,7 +1613,7 @@ public class Pfs_activity {
             log.info("TC-64 Assignment Create,Publish,View,Delete PASSED  ");
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("TC-64 Assignment Create,Publish,View,Delete FAILED  ");
+            log.warning("TC-64 Assignment Create,Publish,View,Delete Test Case FAILED  ");
             Utils.logout(driver, url, Role, log);
         }
     }
@@ -1631,7 +1639,7 @@ public class Pfs_activity {
         } catch (Exception e) {
             Utils.printException(e);
             log.warning(
-                    "TC-65 Assignment Create,Publish,View,Fileuploadchecking,Submission,Delete FAILED  ");
+                    "TC-65 Assignment Create,Publish,View,Fileuploadchecking,Submission,Delete Test Case FAILED  ");
             Utils.logout(driver, url, Role, log);
         }
     }
@@ -1664,7 +1672,7 @@ public class Pfs_activity {
             log.info("TC-66 Assignment Create,Publish,Submission,Review,Delete PASSED  ");
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("TC-66 Assignment  Create,Publish,Submission,Review,Delete FAILED  ");
+            log.warning("TC-66 Assignment  Create,Publish,Submission,Review,Delete Test Case FAILED  ");
             Utils.logout(driver, url, Role, log);
         }
 
@@ -1686,7 +1694,7 @@ public class Pfs_activity {
             log.info("TC-67 Assignment Create,Unpublish,Edit,Delete check PASSED ");
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("TC-67 Assignment Create,Unpublish,Edit,Delete check FAILED ");
+            log.warning("TC-67 Assignment Create,Unpublish,Edit,Delete check Test Case FAILED ");
             Utils.logout(driver, url, Role, log);
         }
     }
@@ -1708,7 +1716,7 @@ public class Pfs_activity {
             log.info("TC-68 Assignment Create,Publish,Edit,Delete PASSED ");
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("TC-68 Assignment Create,Publish,Edit,Delete check FAILED ");
+            log.warning("TC-68 Assignment Create,Publish,Edit,Delete check Test Case FAILED ");
             Utils.logout(driver, url, Role, log);
         }
     }
@@ -1730,7 +1738,7 @@ public class Pfs_activity {
         } catch (Exception e) {
             Utils.printException(e);
             log.warning(
-                    "TC-69 Assement Student view and attempt  test executation FAILED  ");
+                    "TC-69 Assement Student view and attempt executation Test Case FAILED  ");
             Utils.logout(driver, url, Role, log);
         }
     }
