@@ -829,19 +829,19 @@ public class Pfs_faculty {
 				Utils.callSendkeys(driver, ActionXpath.Qfacfeedback4, "Best", time, log);
 
 			} else {
-				System.out.println("option is old");
+				Utils.smallSleepBetweenClicks(1);
+				Utils.callSendkeys(driver, ActionXpath.faccmarks, "1", time, log);
+				Utils.smallSleepBetweenClicks(1);
+				Utils.callSendkeys(driver, ActionXpath.faccoption1, "modi", time, log);
+				Utils.smallSleepBetweenClicks(1);
+				Utils.callSendkeys(driver, ActionXpath.feedback1, "Super", time, log);
+				Utils.smallSleepBetweenClicks(1);
+				Utils.callSendkeys(driver, ActionXpath.faccoption2, "sachin", time, log);
+				Utils.callSendkeys(driver, ActionXpath.feedback2, "vg", time, log);
+				Utils.callSendkeys(driver, ActionXpath.faccoption3, "anand", time, log);
+				Utils.callSendkeys(driver, ActionXpath.feedback3, "good", time, log);
 			}
-			Utils.smallSleepBetweenClicks(1);
-			Utils.callSendkeys(driver, ActionXpath.faccmarks, "1", time, log);
-			Utils.smallSleepBetweenClicks(1);
-			Utils.callSendkeys(driver, ActionXpath.faccoption1, "modi", time, log);
-			Utils.smallSleepBetweenClicks(1);
-			Utils.callSendkeys(driver, ActionXpath.feedback1, "Super", time, log);
-			Utils.smallSleepBetweenClicks(1);
-			Utils.callSendkeys(driver, ActionXpath.faccoption2, "sachin", time, log);
-			Utils.callSendkeys(driver, ActionXpath.feedback2, "vg", time, log);
-			Utils.callSendkeys(driver, ActionXpath.faccoption3, "anand", time, log);
-			Utils.callSendkeys(driver, ActionXpath.feedback3, "good", time, log);
+
 			Utils.clickXpath(driver, ActionXpath.numberofchoice, time, "No of chocice", log);
 			Utils.callSendkeys(driver, ActionXpath.feedbackofcrtans, "super", time, log);
 			Utils.smallSleepBetweenClicks(1);
