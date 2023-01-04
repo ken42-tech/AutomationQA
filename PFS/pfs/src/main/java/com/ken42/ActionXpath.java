@@ -958,4 +958,23 @@ public class ActionXpath {
    static String otherlink = "(//*[@name='linkURL'])[1]";
    static String othersdes = "(//*[@name='description'])[1]";
    static String othersave = "(//*[text()='Save'])";
+   //// ....................................changes in pfs
+   //// xpath..................................////
+
+   static String Option1Insert1 = "(//button[@title='Insert/edit link'])[2]";
+   static String Qurl1 = "(//input[@type='url'])";
+   static String faccoptionsave1 = "(//button[@title='Save'])";
+   static String Qfacfeedback1 = "(//input[@placeholder='Type your feedback here'])[1]";
+   static String Option2Insert2 = "(//button[@title='Insert/edit link'])[3]";
+   static String Qurl2 = "(//input[@type='url'])";
+   static String faccoptionsave2 = "(//button[@title='Save'])";
+   static String Qfacfeedback2 = "(//input[@placeholder='Type your feedback here'])[2]";
+   static String Option3Insert3 = "(//button[@title='Insert/edit link'])[4]";
+   static String Qurl3 = "(//input[@type='url'])";
+   static String faccoptionsave3 = "(//button[@title='Save'])";
+   static String Qfacfeedback3 = "(//input[@placeholder='Type your feedback here'])[3]";
+   static String Option4Insert4 = "(//button[@title='Insert/edit link'])[5]";
+   static String Qurl4 = "(//input[@type='url'])";
+   static String faccoptionsave4 = "(//button[@title='Save'])";
+   static String Qfacfeedback4 = "(//input[@placeholder='Type your feedback here'])[4]";
 }

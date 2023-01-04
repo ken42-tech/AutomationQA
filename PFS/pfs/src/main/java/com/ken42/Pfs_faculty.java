@@ -810,6 +810,26 @@ public class Pfs_faculty {
 			}
 			Utils.cleartext(driver, ActionXpath.faccmarks);
 			Utils.smallSleepBetweenClicks(1);
+			if (Utils.publishlink(url)) {
+				Utils.clickXpath(driver, ActionXpath.Option1Insert1, time, "click on option1", log);
+				Utils.callSendkeys(driver, ActionXpath.Qurl1, "test1", time, log);
+				Utils.clickXpath(driver, ActionXpath.faccoptionsave1, time, "save option1", log);
+				Utils.callSendkeys(driver, ActionXpath.Qfacfeedback1, "Excellent", time, log);
+				Utils.clickXpath(driver, ActionXpath.Option2Insert2, time, "click on option2", log);
+				Utils.callSendkeys(driver, ActionXpath.Qurl2, "test2", time, log);
+				Utils.clickXpath(driver, ActionXpath.faccoptionsave2, time, "save option2", log);
+				Utils.callSendkeys(driver, ActionXpath.Qfacfeedback2, "Good", time, log);
+				Utils.clickXpath(driver, ActionXpath.Option3Insert3, time, "click on option1", log);
+				Utils.callSendkeys(driver, ActionXpath.Qurl3, "test3", time, log);
+				Utils.clickXpath(driver, ActionXpath.faccoptionsave3, time, "save option3", log);
+				Utils.callSendkeys(driver, ActionXpath.Qfacfeedback3, "Better", time, log);
+				Utils.clickXpath(driver, ActionXpath.Option4Insert4, time, "click on option1", log);
+				Utils.callSendkeys(driver, ActionXpath.Qurl4, "test1", time, log);
+				Utils.clickXpath(driver, ActionXpath.faccoptionsave4, time, "save option1", log);
+				Utils.callSendkeys(driver, ActionXpath.Qfacfeedback4, "Best", time, log);
+
+			}
+			Utils.smallSleepBetweenClicks(1);
 			Utils.callSendkeys(driver, ActionXpath.faccmarks, "1", time, log);
 			Utils.smallSleepBetweenClicks(1);
 			Utils.callSendkeys(driver, ActionXpath.faccoption1, "modi", time, log);
