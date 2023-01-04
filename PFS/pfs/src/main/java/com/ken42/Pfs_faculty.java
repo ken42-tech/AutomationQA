@@ -828,6 +828,8 @@ public class Pfs_faculty {
 				Utils.clickXpath(driver, ActionXpath.faccoptionsave4, time, "save option1", log);
 				Utils.callSendkeys(driver, ActionXpath.Qfacfeedback4, "Best", time, log);
 
+			} else {
+				System.out.println("option is old");
 			}
 			Utils.smallSleepBetweenClicks(1);
 			Utils.callSendkeys(driver, ActionXpath.faccmarks, "1", time, log);
