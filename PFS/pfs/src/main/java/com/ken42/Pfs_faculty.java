@@ -823,10 +823,6 @@ public class Pfs_faculty {
 				Utils.callSendkeys(driver, ActionXpath.Qurl3, "test3", time, log);
 				Utils.clickXpath(driver, ActionXpath.faccoptionsave3, time, "save option3", log);
 				Utils.callSendkeys(driver, ActionXpath.Qfacfeedback3, "Better", time, log);
-				Utils.clickXpath(driver, ActionXpath.Option4Insert4, time, "click on option1", log);
-				Utils.callSendkeys(driver, ActionXpath.Qurl4, "test1", time, log);
-				Utils.clickXpath(driver, ActionXpath.faccoptionsave4, time, "save option1", log);
-				Utils.callSendkeys(driver, ActionXpath.Qfacfeedback4, "Best", time, log);
 
 			} else {
 				Utils.smallSleepBetweenClicks(1);
@@ -841,6 +837,7 @@ public class Pfs_faculty {
 				Utils.callSendkeys(driver, ActionXpath.faccoption3, "anand", time, log);
 				Utils.callSendkeys(driver, ActionXpath.feedback3, "good", time, log);
 			}
+			Utils.smallSleepBetweenClicks(1);
 
 			Utils.clickXpath(driver, ActionXpath.numberofchoice, time, "No of chocice", log);
 			Utils.callSendkeys(driver, ActionXpath.feedbackofcrtans, "super", time, log);

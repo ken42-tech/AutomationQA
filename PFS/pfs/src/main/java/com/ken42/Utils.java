@@ -524,7 +524,7 @@ public class Utils {
 	}
 
 	public static Boolean skipsubject(String url) {
-		String urlToMatch = "ecampus|bimtech|esscisamsung|nsom|portal-demo|portal-dev|sbmppsjal|jdinstitutedelhi|ltpct";
+		String urlToMatch = "ecampus|esscisamsung|nsom|portal-demo|portal-dev|sbmppsjal|jdinstitutedelhi|ltpct";
 		Pattern pt = Pattern.compile(urlToMatch);
 		Matcher m = pt.matcher(url);
 		while (m.find()) {
