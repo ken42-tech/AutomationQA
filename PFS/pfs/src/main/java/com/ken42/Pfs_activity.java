@@ -602,13 +602,22 @@ public class Pfs_activity {
             if (Utils.skipsubject(url)) {
                 System.out.println("Subject is not avilable in essci");
             } else {
+                System.out.println("program1 is:" + program1);
+                System.out.println("Subject1 is:" + subject1);
                 Utils.clickXpath(driver, ActionXpath.program, time, "click on program", log);
                 Utils.smallSleepBetweenClicks(2);
-                driver.findElement(By.xpath("//li[@data-value='" + program1 + "']")).click();
 
-                // Utils.clickXpath(driver, ActionXpath.subject, time, "click on subject", log);
-                // Utils.smallSleepBetweenClicks(2);
-                // driver.findElement(By.xpath("//li[@data-value='" + subject1 + "']")).click();
+                driver.findElement(By.xpath("//li[@data-value='" + program1 + "']")).click();
+                Utils.smallSleepBetweenClicks(2);
+
+                Utils.clickXpath(driver, ActionXpath.subject, time, "click on subject", log);
+                Utils.smallSleepBetweenClicks(2);
+                driver.findElement(By.xpath("//li[@data-value='" + subject1 + "']")).click();
+                Utils.smallSleepBetweenClicks(2);
+
+                Utils.smallSleepBetweenClicks(1);
+                System.out.println("program1 is:" + program1);
+                System.out.println("Subject1 is:" + subject1);
             }
             Utils.smallSleepBetweenClicks(1);
             System.out.println("program1 is:" + program1);
@@ -1004,10 +1013,22 @@ public class Pfs_activity {
             if (Utils.skipsubject(url)) {
                 System.out.println("The subject is not avialble in essci samsung");
             } else {
+                System.out.println("program1 is:" + program1);
+                System.out.println("Subject1 is:" + subject1);
+                Utils.clickXpath(driver, ActionXpath.program, time, "click on program", log);
+                Utils.smallSleepBetweenClicks(2);
+
+                driver.findElement(By.xpath("//li[@data-value='" + program1 + "']")).click();
+                Utils.smallSleepBetweenClicks(2);
+
                 Utils.clickXpath(driver, ActionXpath.subject, time, "click on subject", log);
                 Utils.smallSleepBetweenClicks(2);
-                driver.findElement(By.xpath("//li[@data-value='" + converted + "']")).click();
-                // driver.findElement(By.xpath("//li[@data-value='" + section + "']")).click();
+                driver.findElement(By.xpath("//li[@data-value='" + subject1 + "']")).click();
+                Utils.smallSleepBetweenClicks(2);
+
+                Utils.smallSleepBetweenClicks(1);
+                System.out.println("program1 is:" + program1);
+                System.out.println("Subject1 is:" + subject1);
             }
             // new Forum creation
             Boolean appPresent = false;
