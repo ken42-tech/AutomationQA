@@ -352,7 +352,7 @@ public class Utils {
 				Utils.printException(e1);
 				System.out.println("Failied to login again");
 				log.info("Failed to login again");
-				throw (e);
+				throw (e1);
 			}
 			// throw (e);
 		}

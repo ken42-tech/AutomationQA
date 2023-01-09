@@ -592,7 +592,7 @@ public class Pfs_resource {
 					&& (!p2.contains("Videos")) && (!p2.contains("Links"))) {
 
 			} else {
-				log.warning(" TC-50: PPT resource Filter Option View FAILED it does not contain all the tabs\n\n");
+				log.warning(" TC-49: PPT resource Filter Option View FAILED it does not contain all the tabs\n\n");
 			}
 			Utils.executeLongWait(url);
 			Utils.logout(driver, url, Role, log);
