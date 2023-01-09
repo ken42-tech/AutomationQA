@@ -192,77 +192,13 @@ public class Utils {
 	}
 
 	@Test
-	public static void login(WebDriver driver, String Email, String url, Logger log) throws Exception {
+	public static void login(WebDriver driver, String Email, String url, Logger log, String[] csvCell)
+			throws Exception {
 		try {
 			System.out.println("**^#*:" + url);
-			if (checkoldlogin(url)) {
+			if (otplogin(url)) {
 				Utils.smallSleepBetweenClicks(1);
-				if (usernameloginltpct(url)) {
-					String studentuname = "Automation.Student8459";
-					String facultyuname = "Automation.Faculty2568";
-					String studentpassword = "Boom";
-					String facultypassword = "Automate";
 
-					if (Email.contains("student")) {
-						Utils.callSendkeys(driver, ActionXpath.username, studentuname, time, log);
-						Utils.callSendkeys(driver, ActionXpath.password, studentpassword, time, log);
-						Utils.clickXpath(driver, ActionXpath.singnin, time, "Verify", log);
-						Utils.bigSleepBetweenClicks(2);
-
-					} else if (Email.contains("faculty")) {
-						Utils.callSendkeys(driver, ActionXpath.username, facultyuname, time, log);
-						Utils.callSendkeys(driver, ActionXpath.password, facultypassword, time, log);
-						Utils.clickXpath(driver, ActionXpath.singnin, time, "Verify", log);
-						Utils.bigSleepBetweenClicks(2);
-
-					}
-
-				}
-				if (usernameloginsbmppsjal(url)) {
-					String studentuname = "TestStudent0610";
-					String facultyuname = "test.faculty123";
-					String studentpassword = "TestStudent0610";
-					String facultypassword = "test.faculty123";
-
-					if (Email.contains("student")) {
-						Utils.callSendkeys(driver, ActionXpath.username, studentuname, time, log);
-						Utils.callSendkeys(driver, ActionXpath.password, studentpassword, time, log);
-						Utils.clickXpath(driver, ActionXpath.singnin, time, "Verify", log);
-						Utils.smallSleepBetweenClicks(2);
-
-						List<WebElement> popUpElement = driver
-								.findElements(By.xpath("//*[text()='Either Username or password is incorrect.']"));
-						if (popUpElement.size() != 0) {
-							System.out.println("Pop up is Present: " + popUpElement.get(0).getText());
-							log.warning("Pop up is Present: " + popUpElement.get(0).getText());
-							Pfs_portal.quitDriver(driver, url);
-							log.warning("Driver is Quited");
-
-						} else {
-							System.out.println("Pop up is Absent");
-						}
-
-					} else if (Email.contains("faculty")) {
-						Utils.callSendkeys(driver, ActionXpath.username, facultyuname, time, log);
-						Utils.callSendkeys(driver, ActionXpath.password, facultypassword, time, log);
-						Utils.clickXpath(driver, ActionXpath.singnin, time, "Verify", log);
-						Utils.smallSleepBetweenClicks(2);
-
-						List<WebElement> popUpElement = driver
-								.findElements(By.xpath("//*[text()='Either Username or password is incorrect.']"));
-						if (popUpElement.size() != 0) {
-							System.out.println("Pop up is Present: " + popUpElement.get(0).getText());
-							log.warning("Pop up is Present: " + popUpElement.get(0).getText());
-							Pfs_portal.quitDriver(driver, url);
-							log.warning("Driver is Quited");
-
-						} else {
-							System.out.println("Pop up is Absent");
-						}
-
-					}
-				}
-			} else {
 				int time = 2000;
 				smallSleepBetweenClicks(1);
 				String regex = "Null";
@@ -293,18 +229,36 @@ public class Utils {
 				while (m.find()) {
 					regex = m.group();
 				}
-				// smallSleepBetweenClicks();
+
 				Utils.callSendkeys(driver, ActionXpath.otprequest1, regex, time, log);
 				Utils.clickXpath(driver, ActionXpath.verifyotp, time, "Verify otp", log);
-				// System.out.println(
-				// "Sleeping after login for some seconds so that goBacktoHome function does not
-				// automatically logout user");
-				// bigSleepBetweenClicks(1);
+
+			} else {
+				if (Email.contains("student")) {
+					String studentuname = csvCell[3];
+					String studentpassword = csvCell[10];
+
+					Utils.callSendkeys(driver, ActionXpath.username, studentuname, time, log);
+					Utils.callSendkeys(driver, ActionXpath.password, studentpassword, time, log);
+					Utils.clickXpath(driver, ActionXpath.singnin, time, "Verify", log);
+					Utils.bigSleepBetweenClicks(2);
+
+				} else if (Email.contains("faculty")) {
+					String facultyuname = csvCell[2];
+					String facultypassword = csvCell[9];
+					Utils.callSendkeys(driver, ActionXpath.username, facultyuname, time, log);
+					Utils.callSendkeys(driver, ActionXpath.password, facultypassword, time, log);
+					Utils.clickXpath(driver, ActionXpath.singnin, time, "Verify", log);
+					Utils.bigSleepBetweenClicks(2);
+
+				}
+
 			}
 			System.out.println(
 					"Sleeping after login for some seconds so that goBacktoHome function does not automatically logout user");
 			bigSleepBetweenClicks(1);
 			Thread.sleep(6000);
+
 		} catch (
 
 		Exception e) {
@@ -362,7 +316,8 @@ public class Utils {
 		}
 	}
 
-	public static void checkAcadAndClick(WebDriver driver, String Email, String url, Logger log) throws Exception {
+	public static void checkAcadAndClick(WebDriver driver, String Email, String url, Logger log, String[] csvCell)
+			throws Exception {
 		try {
 			if (checkAcad(url)) {
 				Utils.clickXpath(driver, ActionXpath.ltstaaccademics, time, "Click on LTSTA ACad", log);
@@ -373,33 +328,33 @@ public class Utils {
 			Utils.printException(e);
 			System.out.println("Failure in checkAcadAndClick function");
 			log.info("Failure in checkAcadAndClick function for login id " + Email);
-			checkIfStillInLoginScreenAndLogin(driver, url, Email, log);
-			// throw (e);
-		}
-	}
+			// checkIfStillInLoginScreenAndLogin(driver, url, Email, log, csvCell);
+			try {
+				log.info("#########################CheckIfStillInLOginScreen function called");
+				boolean signInPresent = false;
+				signInPresent = driver.findElements(By.xpath("//*[text()='Sign in']")).size() > 0;
+				if (signInPresent) {
+					log.info("Hey Sign In is present, loggin in with id +++++" + Email);
+					driver.navigate().to(url);
+					Utils.login(driver, Email, url, log, csvCell);
+					Utils.smallSleepBetweenClicks(2);
+					if (checkAcad(url)) {
+						Utils.clickXpath(driver, ActionXpath.ltstaaccademics, time, "Click on LTSTA ACad", log);
+					} else {
+						Utils.clickXpath(driver, ActionXpath.accademics, time, "Click on non-ltsta Acad", log);
+					}
 
-	public static void checkIfStillInLoginScreenAndLogin(WebDriver driver, String url, String Email, Logger log)
-			throws Exception {
-		try {
-			log.info("#########################CheckIfStillInLOginScreen function called");
-			boolean signInPresent = false;
-			signInPresent = driver.findElements(By.xpath("//*[text()='Sign in']")).size() > 0;
-			if (signInPresent) {
-				log.info("Hey Sign In is present, loggin in with id +++++" + Email);
-				driver.navigate().to(url);
-				Utils.login(driver, Email, url, log);
-				Utils.smallSleepBetweenClicks(2);
-				Utils.checkAcadAndClick(driver, Email, url, log);
+				} else {
+					log.warning("For this url failed to click on Acad and it's not on Login Page");
+				}
 
-			} else {
-				log.warning("For this url failed to click on Acad and it's not on Login Page");
+			} catch (Exception e1) {
+				Utils.printException(e1);
+				System.out.println("Failied to login again");
+				log.info("Failed to login again");
+				throw (e);
 			}
-
-		} catch (Exception e) {
-			Utils.printException(e);
-			System.out.println("Failied to login again");
-			log.info("Failed to login again");
-			throw (e);
+			// throw (e);
 		}
 	}
 
@@ -449,6 +404,17 @@ public class Utils {
 	@Test
 	public static Boolean questionbank(String url) {
 		String urlToMatch = "portal-demo|sbmppsjal|bimtech|jdinstitutedelhi|nsom|portal-dev1";
+		Pattern pt = Pattern.compile(urlToMatch);
+		Matcher m = pt.matcher(url);
+		while (m.find()) {
+			return true;
+		}
+		return false;
+	}
+
+	@Test
+	public static Boolean otplogin(String url) {
+		String urlToMatch = "portal-demo|bimtech|jdinstitutedelhi|nsom|portal-dev1|ltsta|portal-dev|ecampus";
 		Pattern pt = Pattern.compile(urlToMatch);
 		Matcher m = pt.matcher(url);
 		while (m.find()) {

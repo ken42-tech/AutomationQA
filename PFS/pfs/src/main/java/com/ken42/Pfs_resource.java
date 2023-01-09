@@ -15,10 +15,11 @@ public class Pfs_resource {
 	private static String PFSurl;
 
 	@Test
-	public static void resourceFacultyInitialSteps(String faculty, String url, WebDriver driver, Logger log)
+	public static void resourceFacultyInitialSteps(String faculty, String url, WebDriver driver, Logger log,
+			String[] csvCell)
 			throws Exception {
-		Utils.login(driver, faculty, url, log);
-		Utils.checkAcadAndClick(driver, faculty, url, log);
+		Utils.login(driver, faculty, url, log, csvCell);
+		Utils.checkAcadAndClick(driver, faculty, url, log, csvCell);
 		Utils.clickXpath(driver, ActionXpath.faccc, time, "Click on course content", log);
 	}
 
@@ -98,7 +99,7 @@ public class Pfs_resource {
 
 	@Test(priority = 40)
 	public static void testSpreadsheetCreateViewDelete(String student, String faculty, String url,
-			String Browser, String Role, WebDriver driver, Logger log) throws Exception {
+			String Browser, String Role, WebDriver driver, Logger log, String[] csvCell) throws Exception {
 		try {
 
 			String SpreadSheetFile = "";
@@ -109,7 +110,7 @@ public class Pfs_resource {
 			System.out.println("TC-40:  SpreadSheet resource Create View delete Test case Started");
 
 			Utils.smallSleepBetweenClicks(1);
-			resourceFacultyInitialSteps(faculty, url, driver, log);
+			resourceFacultyInitialSteps(faculty, url, driver, log, csvCell);
 			String program, subject;
 			Utils.clickXpath(driver, ActionXpath.program, time, "click on program", log);
 			Utils.clickXpath(driver, ActionXpath.programselect, time, "click on program select", log);
@@ -144,8 +145,8 @@ public class Pfs_resource {
 			resourcePublishAndLogout(faculty, url, driver, fileName, Role, log);
 
 			// Student part starts
-			Utils.login(driver, student, url, log);
-			Utils.checkAcadAndClick(driver, faculty, url, log);
+			Utils.login(driver, student, url, log, csvCell);
+			Utils.checkAcadAndClick(driver, faculty, url, log, csvCell);
 			Utils.clickXpath(driver, ActionXpath.learn, time, "learn", log);
 			Utils.smallSleepBetweenClicks(1);
 			Utils.clickXpath(driver, ActionXpath.program, time, "click on program", log);
@@ -160,7 +161,7 @@ public class Pfs_resource {
 			resourceStudentViewAndLogout(faculty, url, driver, fileName, Role, log);
 			// Student part ends
 
-			resourceFacultyInitialSteps(faculty, url, driver, log);
+			resourceFacultyInitialSteps(faculty, url, driver, log, csvCell);
 			Utils.clickXpath(driver, ActionXpath.facssopen, time, "facspreadsheetopen", log);
 			resourceDeleteAndLogout(faculty, url, driver, fileName, Role, log);
 			log.info("TC-40: SpreadSheet resource Create View delete Test Case PASSED \n");
@@ -173,7 +174,7 @@ public class Pfs_resource {
 
 	@Test(priority = 41)
 	public static void testPPTCreateViewDelete(String student, String faculty,
-			String url, String Browser, String Role, WebDriver driver, Logger log) throws Exception {
+			String url, String Browser, String Role, WebDriver driver, Logger log, String[] csvCell) throws Exception {
 		try {
 
 			String folder = "";
@@ -182,7 +183,7 @@ public class Pfs_resource {
 			PPT_file = folder + "\\demo.pptx";
 
 			System.out.println("TC-41:  PPT resource Create View delete Test case Started");
-			resourceFacultyInitialSteps(faculty, url, driver, log);
+			resourceFacultyInitialSteps(faculty, url, driver, log, csvCell);
 			String program, subject;
 			Utils.clickXpath(driver, ActionXpath.program, time, "click on program", log);
 			Utils.clickXpath(driver, ActionXpath.programselect, time, "click on program select", log);
@@ -208,8 +209,8 @@ public class Pfs_resource {
 			Utils.clickXpath(driver, ActionXpath.facpptfopen, time, "facpptfopen", log);
 			resourcePublishAndLogout(faculty, url, driver, fileName, Role, log);
 
-			Utils.login(driver, student, url, log);
-			Utils.checkAcadAndClick(driver, faculty, url, log);
+			Utils.login(driver, student, url, log, csvCell);
+			Utils.checkAcadAndClick(driver, faculty, url, log, csvCell);
 			Utils.clickXpath(driver, ActionXpath.learn, time, "learn", log);
 
 			Utils.clickXpath(driver, ActionXpath.program, time, "click on program", log);
@@ -221,7 +222,7 @@ public class Pfs_resource {
 			Utils.clickXpath(driver, ActionXpath.viewppt, time, "viewppt", log);
 			resourceStudentViewAndLogout(faculty, url, driver, fileName, Role, log);
 
-			resourceFacultyInitialSteps(faculty, url, driver, log);
+			resourceFacultyInitialSteps(faculty, url, driver, log, csvCell);
 			Utils.clickXpath(driver, ActionXpath.facpptfopen, time, "facpptfopen", log);
 			resourceDeleteAndLogout(faculty, url, driver, fileName, Role, log);
 			log.info("TC-41: PPT resource Create View delete Test Case PASSED \n");
@@ -235,7 +236,7 @@ public class Pfs_resource {
 
 	@Test(priority = 42)
 	public static void testPDFCreateViewDelete(String student, String faculty,
-			String url, String Browser, String Role, WebDriver driver, Logger log) throws Exception {
+			String url, String Browser, String Role, WebDriver driver, Logger log, String[] csvCell) throws Exception {
 		try {
 			String PDF_file = "";
 			String folder = "";
@@ -243,7 +244,7 @@ public class Pfs_resource {
 			PDF_file = folder + "\\demo.pdf";
 
 			System.out.println("TC-42:  Create PDF resource publish and delete PDF");
-			resourceFacultyInitialSteps(faculty, url, driver, log);
+			resourceFacultyInitialSteps(faculty, url, driver, log, csvCell);
 			String program, subject;
 			Utils.clickXpath(driver, ActionXpath.program, time, "click on program", log);
 			Utils.clickXpath(driver, ActionXpath.programselect, time, "click on program select", log);
@@ -271,8 +272,8 @@ public class Pfs_resource {
 			resourcePublishAndLogout(faculty, url, driver, fileName, Role, log);
 
 			// Now verify in student
-			Utils.login(driver, student, url, log);
-			Utils.checkAcadAndClick(driver, faculty, url, log);
+			Utils.login(driver, student, url, log, csvCell);
+			Utils.checkAcadAndClick(driver, faculty, url, log, csvCell);
 			Utils.clickXpath(driver, ActionXpath.learn, time, "learn", log);
 
 			Utils.clickXpath(driver, ActionXpath.program, time, "click on program", log);
@@ -284,7 +285,7 @@ public class Pfs_resource {
 			Utils.clickXpath(driver, ActionXpath.viewpdf, time, "viewpdf", log);
 			resourceStudentViewAndLogout(faculty, url, driver, fileName, Role, log);
 
-			resourceFacultyInitialSteps(faculty, url, driver, log);
+			resourceFacultyInitialSteps(faculty, url, driver, log, csvCell);
 			Utils.clickXpath(driver, ActionXpath.facpdfopen, time, "facpdfopen", log);
 			resourceDeleteAndLogout(faculty, url, driver, fileName, Role, log);
 			log.info("TC-42: Create PDF resource publish and delete PDF PASSED \n");
@@ -297,7 +298,7 @@ public class Pfs_resource {
 
 	@Test(priority = 43)
 	public static void testVideoCreateViewDelete(String student, String faculty,
-			String url, String Browser, String Role, WebDriver driver, Logger log) throws Exception {
+			String url, String Browser, String Role, WebDriver driver, Logger log, String[] csvCell) throws Exception {
 		try {
 			String Video_file = "";
 			String folder = "";
@@ -306,7 +307,7 @@ public class Pfs_resource {
 
 			System.out.println("TC-43:  Create Video resource create view  and delete");
 			log.info("TC-43:  Create Video resource create view  and delete Started");
-			resourceFacultyInitialSteps(faculty, url, driver, log);
+			resourceFacultyInitialSteps(faculty, url, driver, log, csvCell);
 			String program, subject;
 			Utils.clickXpath(driver, ActionXpath.program, time, "click on program", log);
 			Utils.clickXpath(driver, ActionXpath.programselect, time, "click on program select", log);
@@ -333,9 +334,9 @@ public class Pfs_resource {
 			resourcePublishAndLogout(faculty, url, driver, fileName, Role, log);
 
 			// Student to verify
-			Utils.login(driver, student, url, log);
+			Utils.login(driver, student, url, log, csvCell);
 			Utils.smallSleepBetweenClicks(1);
-			Utils.checkAcadAndClick(driver, faculty, url, log);
+			Utils.checkAcadAndClick(driver, faculty, url, log, csvCell);
 			Utils.clickXpath(driver, ActionXpath.learn, time, "Click on learnlearn", log);
 
 			Utils.clickXpath(driver, ActionXpath.program, time, "click on program", log);
@@ -348,7 +349,7 @@ public class Pfs_resource {
 			resourceStudentViewAndLogout(faculty, url, driver, fileName, Role, log);
 
 			// Faculty to delete
-			resourceFacultyInitialSteps(faculty, url, driver, log);
+			resourceFacultyInitialSteps(faculty, url, driver, log, csvCell);
 			Utils.clickXpath(driver, ActionXpath.facvideoopen, time, "facvideoopen", log);
 			resourceDeleteAndLogout(faculty, url, driver, fileName, Role, log);
 			log.info("TC-43: Create Video resource create view  and delete PASSED");
@@ -361,10 +362,10 @@ public class Pfs_resource {
 
 	@Test(priority = 44)
 	public static void testLinkCreateViewDelete(String student, String faculty,
-			String url, String Browser, String Role, WebDriver driver, Logger log) throws Exception {
+			String url, String Browser, String Role, WebDriver driver, Logger log, String[] csvCell) throws Exception {
 		try {
 			System.out.println("TC-44:  Link resource Create View delete Test case Started");
-			resourceFacultyInitialSteps(faculty, url, driver, log);
+			resourceFacultyInitialSteps(faculty, url, driver, log, csvCell);
 			String program, subject;
 			Utils.clickXpath(driver, ActionXpath.program, time, "click on program", log);
 			Utils.clickXpath(driver, ActionXpath.programselect, time, "click on program select", log);
@@ -396,8 +397,8 @@ public class Pfs_resource {
 				Utils.logout(driver, url, Role, log);
 			}
 
-			Utils.login(driver, student, url, log);
-			Utils.checkAcadAndClick(driver, faculty, url, log);
+			Utils.login(driver, student, url, log, csvCell);
+			Utils.checkAcadAndClick(driver, faculty, url, log, csvCell);
 			Utils.clickXpath(driver, ActionXpath.learn, time, "learn", log);
 
 			Utils.clickXpath(driver, ActionXpath.program, time, "click on program", log);
@@ -409,7 +410,7 @@ public class Pfs_resource {
 			Utils.clickXpath(driver, ActionXpath.viewlink, time, "viewlink", log);
 			resourceStudentViewAndLogout(faculty, url, driver, fileName, Role, log);
 
-			resourceFacultyInitialSteps(faculty, url, driver, log);
+			resourceFacultyInitialSteps(faculty, url, driver, log, csvCell);
 			Utils.clickXpath(driver, ActionXpath.faclinkopen, time, "faclinkopen", log);
 			resourceDeleteAndLogout(faculty, url, driver, fileName, Role, log);
 			log.info("TC-44 Link resource Create View delete Test Case PASSED");
@@ -422,14 +423,14 @@ public class Pfs_resource {
 
 	@Test(priority = 45)
 	public static void testSpreadsheetFileType(String student, String faculty,
-			String url, String Browser, String Role, WebDriver driver, Logger log) throws Exception {
+			String url, String Browser, String Role, WebDriver driver, Logger log, String[] csvCell) throws Exception {
 		try {
 			System.out.println("TC-45:  Test SpreadSheet resource Create View delete Test case Started");
 			// if (Utils.checkBimtech(url)) {
 			// log.info("TC-45 Test Spreadsheet is not supported on Bimtech");
 			// return;
 			// }
-			resourceFacultyInitialSteps(faculty, url, driver, log);
+			resourceFacultyInitialSteps(faculty, url, driver, log, csvCell);
 			Utils.clickXpath(driver, ActionXpath.facccres, time, "facccres", log);
 			Utils.clickXpath(driver, ActionXpath.facssclick, time, "facssclick", log);
 
@@ -463,10 +464,10 @@ public class Pfs_resource {
 
 	@Test(priority = 46)
 	public static void testPPTFileType(String student, String faculty,
-			String url, String Browser, String Role, WebDriver driver, Logger log) throws Exception {
+			String url, String Browser, String Role, WebDriver driver, Logger log, String[] csvCell) throws Exception {
 		try {
 			System.out.println("TC-51:  Test PPT File type");
-			resourceFacultyInitialSteps(faculty, url, driver, log);
+			resourceFacultyInitialSteps(faculty, url, driver, log, csvCell);
 			Utils.clickXpath(driver, ActionXpath.facccres, time, "facccres", log);
 			Utils.clickXpath(driver, ActionXpath.facpptclick, time, "facpptclick", log);
 			Utils.smallSleepBetweenClicks(1);
@@ -497,10 +498,10 @@ public class Pfs_resource {
 
 	@Test(priority = 47)
 	public static void testPDFFileType(String student, String faculty,
-			String url, String Browser, String Role, WebDriver driver, Logger log) throws Exception {
+			String url, String Browser, String Role, WebDriver driver, Logger log, String[] csvCell) throws Exception {
 		try {
 			System.out.println("TC-47:  Test PDF File type Test Case");
-			resourceFacultyInitialSteps(faculty, url, driver, log);
+			resourceFacultyInitialSteps(faculty, url, driver, log, csvCell);
 			Utils.clickXpath(driver, ActionXpath.facccres, time, "facccres", log);
 			Utils.clickXpath(driver, ActionXpath.facccrespdf, time, "facccrespdf", log);
 			Utils.clickXpath(driver, ActionXpath.facssadd, time, "Click of add resource", log);
@@ -529,10 +530,10 @@ public class Pfs_resource {
 
 	@Test(priority = 48)
 	public static void testVideoFileType(String student, String faculty,
-			String url, String Browser, String Role, WebDriver driver, Logger log) throws Exception {
+			String url, String Browser, String Role, WebDriver driver, Logger log, String[] csvCell) throws Exception {
 		try {
 			System.out.println("TC-48: Test Video File type Test Case");
-			resourceFacultyInitialSteps(faculty, url, driver, log);
+			resourceFacultyInitialSteps(faculty, url, driver, log, csvCell);
 			Utils.clickXpath(driver, ActionXpath.facccres, time, "facccres", log);
 			Utils.clickXpath(driver, ActionXpath.facvideoclick, time, "facvideoclick", log);
 			Utils.clickXpath(driver, ActionXpath.facssadd, time, "Click of add resource", log);
@@ -562,10 +563,10 @@ public class Pfs_resource {
 
 	@Test(priority = 49)
 	public static void testFacultyFilterResource(String student, String faculty,
-			String url, String Browser, String Role, WebDriver driver, Logger log) throws Exception {
+			String url, String Browser, String Role, WebDriver driver, Logger log, String[] csvCell) throws Exception {
 		try {
 			System.out.println("TC-49:  PPT resource Filter Option View Test case Started");
-			resourceFacultyInitialSteps(faculty, url, driver, log);
+			resourceFacultyInitialSteps(faculty, url, driver, log, csvCell);
 			Utils.bigSleepBetweenClicks(1);
 
 			String p = Utils.getTEXT(driver, ActionXpath.facResourceFilterDiv, log, "pptfilter");
@@ -606,10 +607,10 @@ public class Pfs_resource {
 
 	@Test(priority = 50)
 	public static void testFacultyFilterPDFResource(String student, String faculty, String url, String Browser,
-			String Role, WebDriver driver, Logger log) throws Exception {
+			String Role, WebDriver driver, Logger log, String[] csvCell) throws Exception {
 		try {
 			System.out.println("TC-50:  PDF resource Filter Option View Test case Started");
-			resourceFacultyInitialSteps(faculty, url, driver, log);
+			resourceFacultyInitialSteps(faculty, url, driver, log, csvCell);
 			Utils.bigSleepBetweenClicks(1);
 			String p = Utils.getTEXT(driver, ActionXpath.facResourceFilterDiv, log, "pdffilter");
 			System.out.println("p" + p);
@@ -650,10 +651,10 @@ public class Pfs_resource {
 
 	@Test(priority = 51)
 	public static void testFacultyFilterVideoResource(String student, String faculty, String url, String Browser,
-			String Role, WebDriver driver, Logger log) throws Exception {
+			String Role, WebDriver driver, Logger log, String[] csvCell) throws Exception {
 		try {
 			System.out.println("TC-51:  Video resource Filter Option View Test case Started");
-			resourceFacultyInitialSteps(faculty, url, driver, log);
+			resourceFacultyInitialSteps(faculty, url, driver, log, csvCell);
 			Utils.bigSleepBetweenClicks(1);
 			String p = Utils.getTEXT(driver, ActionXpath.facResourceFilterDiv, log, "videofilter");
 			System.out.println("p" + p);
@@ -692,10 +693,10 @@ public class Pfs_resource {
 
 	@Test(priority = 52)
 	public static void testFacultyFilterLinksResource(String student, String faculty, String url, String Browser,
-			String Role, WebDriver driver, Logger log) throws Exception {
+			String Role, WebDriver driver, Logger log, String[] csvCell) throws Exception {
 		try {
 			System.out.println("TC-52:  Links resource Filter Option View Test case Started");
-			resourceFacultyInitialSteps(faculty, url, driver, log);
+			resourceFacultyInitialSteps(faculty, url, driver, log, csvCell);
 			Utils.bigSleepBetweenClicks(1);
 			String p = Utils.getTEXT(driver, ActionXpath.facResourceFilterDiv, log, "linkfilter");
 			System.out.println("p" + p);
