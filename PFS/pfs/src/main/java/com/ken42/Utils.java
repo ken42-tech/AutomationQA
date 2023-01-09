@@ -235,7 +235,7 @@ public class Utils {
 
 			} else {
 				if (Email.contains("student")) {
-					String studentuname = csvCell[3];
+					String studentuname = csvCell[2];
 					String studentpassword = csvCell[10];
 
 					Utils.callSendkeys(driver, ActionXpath.username, studentuname, time, log);
@@ -244,7 +244,7 @@ public class Utils {
 					Utils.bigSleepBetweenClicks(2);
 
 				} else if (Email.contains("faculty")) {
-					String facultyuname = csvCell[2];
+					String facultyuname = csvCell[1];
 					String facultypassword = csvCell[9];
 					Utils.callSendkeys(driver, ActionXpath.username, facultyuname, time, log);
 					Utils.callSendkeys(driver, ActionXpath.password, facultypassword, time, log);
