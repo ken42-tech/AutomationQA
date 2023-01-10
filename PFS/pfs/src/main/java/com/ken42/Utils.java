@@ -241,7 +241,17 @@ public class Utils {
 					Utils.callSendkeys(driver, ActionXpath.username, studentuname, time, log);
 					Utils.callSendkeys(driver, ActionXpath.password, studentpassword, time, log);
 					Utils.clickXpath(driver, ActionXpath.singnin, time, "Verify", log);
-					Utils.bigSleepBetweenClicks(2);
+					Utils.smallSleepBetweenClicks(2);
+					boolean quitDriver = false;
+					quitDriver = driver
+							.findElements(By.xpath("//*[text()='Either Username or password is incorrect.']"))
+							.size() > 0;
+					if (quitDriver) {
+						log.warning("The Driver Is Quited Becaues oF Login Credential Is Invalied");
+						driver.quit();
+					} else {
+						System.out.println("Login Working Fine");
+					}
 
 				} else if (Email.contains("faculty")) {
 					String facultyuname = csvCell[1];
@@ -249,7 +259,17 @@ public class Utils {
 					Utils.callSendkeys(driver, ActionXpath.username, facultyuname, time, log);
 					Utils.callSendkeys(driver, ActionXpath.password, facultypassword, time, log);
 					Utils.clickXpath(driver, ActionXpath.singnin, time, "Verify", log);
-					Utils.bigSleepBetweenClicks(2);
+					Utils.smallSleepBetweenClicks(2);
+					boolean quitDriver = false;
+					quitDriver = driver
+							.findElements(By.xpath("//*[text()='Either Username or password is incorrect.']"))
+							.size() > 0;
+					if (quitDriver) {
+						log.warning("The Driver Is Quited Becaues oF Login Credential Is Invalied");
+						driver.quit();
+					} else {
+						System.out.println("Login Working Fine");
+					}
 
 				}
 
