@@ -32,7 +32,7 @@ public class Pfs_portal extends Thread {
 	private static final Exception Exception = null;
 	static int time = 1000;
 	static Boolean headless;
-	public static Logger log = Logger.getLogger("Pfs_portal");
+	public Logger log = Logger.getLogger("Pfs_portal");
 	public static boolean faculty_login_set = false;
 	public static boolean student_login_set = false;
 
@@ -64,7 +64,7 @@ public class Pfs_portal extends Thread {
 	}
 
 	public static void main(String[] args) throws Exception {
-
+		Logger log = Logger.getLogger("Pfs_portal");
 		String folder = "";
 		folder = getFolderPath();
 		String CSV_PATH = "";

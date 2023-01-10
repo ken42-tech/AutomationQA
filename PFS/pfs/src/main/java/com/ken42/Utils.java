@@ -42,7 +42,7 @@ public class Utils {
 			throws NoSuchElementException, InterruptedException, ElementClickInterceptedException, Exception {
 		JavascriptExecutor js3 = (JavascriptExecutor) driver;
 		int count = 0;
-		int maxTries = 12;
+		int maxTries = 3;
 		final String XPATH = xpath;
 		while (true) {
 			try {
