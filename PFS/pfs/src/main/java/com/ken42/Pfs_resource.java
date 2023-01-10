@@ -39,7 +39,7 @@ public class Pfs_resource {
 			// log.info("resource create passed ");
 		} catch (Exception e) {
 			Utils.printException(e);
-			log.warning(" resource create FAILED  ");
+			log.warning(" Resource create Fuction FAILED  ");
 			throw (e);
 		}
 
@@ -59,7 +59,7 @@ public class Pfs_resource {
 			// log.info(fileName + " Publish passed ");
 		} catch (Exception e) {
 			Utils.printException(e);
-			log.warning(fileName + " Publish FAILED  ");
+			log.warning(fileName + " Publish Fuction FAILED  ");
 			throw (e);
 		}
 
@@ -76,7 +76,7 @@ public class Pfs_resource {
 			// log.info(fileName + "Studentview passed ");
 		} catch (Exception e) {
 			Utils.printException(e);
-			log.warning(fileName + "Studentview FAILED  ");
+			log.warning(fileName + "Studentview Fuction FAILED  ");
 			throw (e);
 		}
 	}
@@ -92,7 +92,7 @@ public class Pfs_resource {
 			// log.info(fileName + "Delete passed ");
 		} catch (Exception e) {
 			Utils.printException(e);
-			log.warning(fileName + "Delete FAILED  ");
+			log.warning(fileName + "Delete Fuction FAILED  ");
 			throw (e);
 		}
 	}

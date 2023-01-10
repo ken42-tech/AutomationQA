@@ -101,7 +101,7 @@ public class Pfs_activity {
             return (returnAssement);
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("\t\tCreate assesment Test Case FAILED  ");
+            log.warning("\t\tCreate Assesment Fuction FAILED  ");
             throw (e);
         }
 
@@ -123,7 +123,7 @@ public class Pfs_activity {
 
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("\t\tCreate Publish FAILED  ");
+            log.warning("\t\tCreate Publish Fuction FAILED  ");
             throw (e);
         }
     }
@@ -172,7 +172,7 @@ public class Pfs_activity {
 
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("\t\tCreate publishassesmentedit Test Case FAILED  ");
+            log.warning("\t\tCreate Publishassesmentedit Fuction FAILED  ");
             throw (e);
         }
         return returnAssement;
@@ -218,7 +218,7 @@ public class Pfs_activity {
 
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("\t\tCreate unpubishassesmentedit Test Case FAILED  ");
+            log.warning("\t\tCreate Unpubishassesmentedit Fuction FAILED  ");
             throw (e);
         }
         return returnAssement;
@@ -259,7 +259,7 @@ public class Pfs_activity {
 
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("\t\tCreate assesmentviewstudent Test Case FAILED  ");
+            log.warning("\t\tCreate Assesmentviewstudent Fuction FAILED  ");
             throw (e);
         }
     }
@@ -287,7 +287,7 @@ public class Pfs_activity {
 
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("\t\tCreate assesmentviewstudent Test Case FAILED  ");
+            log.warning("\t\tCreate Assesmentviewstudent Fuction FAILED  ");
             throw (e);
         }
     }
@@ -391,7 +391,7 @@ public class Pfs_activity {
             return (getresult);
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("\t\tCreate assesmentattempt Test Case FAILED  ");
+            log.warning("\t\tCreate Assesmentattempt Fuction FAILED  ");
             throw (e);
 
         }
@@ -485,7 +485,7 @@ public class Pfs_activity {
 
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("\t\tCreate assesmentattempt Test Case FAILED  ");
+            log.warning("\t\tCreate Assesmentattempt Fuction FAILED  ");
             throw (e);
 
         }
@@ -537,7 +537,7 @@ public class Pfs_activity {
 
         catch (Exception e) {
             Utils.printException(e);
-            log.warning("\t\tCreate assesmentcheckresult Test Case FAILED  ");
+            log.warning("\t\tCreate Assesmentcheckresult Fuction FAILED  ");
             throw (e);
         }
     }
@@ -561,7 +561,7 @@ public class Pfs_activity {
 
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("\t\tCreate assesmentdelete Test Case FAILED  ");
+            log.warning("\t\tCreate Assesmentdelete Fuction FAILED  ");
             throw (e);
         }
         return returnAssement;
@@ -673,7 +673,7 @@ public class Pfs_activity {
 
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("\t\tCreate assignmentcreate Test Case FAILED  ");
+            log.warning("\t\tCreate Assignmentcreate Fuction FAILED  ");
             throw (e);
         }
         // return(returnAssement);
@@ -706,7 +706,7 @@ public class Pfs_activity {
 
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("\t\tCreate assignmentpublish Test Case FAILED  ");
+            log.warning("\t\tCreate Assignmentpublish Fuction FAILED  ");
             throw (e);
         }
         // return returnAssement;
@@ -739,7 +739,7 @@ public class Pfs_activity {
 
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("\t\tCreate assignmentviewstudent Test Case FAILED  ");
+            log.warning("\t\tCreate Assignmentviewstudent Fuction FAILED  ");
             throw (e);
 
         }
@@ -816,7 +816,7 @@ public class Pfs_activity {
 
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("\t\tCreate assignmentsubmission Test Case FAILED  ");
+            log.warning("\t\tCreate Assignmentsubmission Fuction FAILED  ");
             throw (e);
         }
     }
@@ -864,7 +864,7 @@ public class Pfs_activity {
 
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("\t\tCreate assignmentreview Test Case FAILED  ");
+            log.warning("\t\tCreate Assignmentreview Fuction FAILED  ");
             throw (e);
         }
     }
@@ -937,7 +937,7 @@ public class Pfs_activity {
 
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("\t\tCreate assigmnenteditview Test Case FAILED  ");
+            log.warning("\t\tCreate Assigmnenteditview Fuction FAILED  ");
             throw (e);
         }
     }
@@ -970,7 +970,7 @@ public class Pfs_activity {
 
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("\t\tCreate assigmnentdelete Test Case FAILED  ");
+            log.warning("\t\tCreate Assigmnentdelete Fuction FAILED  ");
             throw (e);
         }
         return returnAssement;
@@ -1064,7 +1064,7 @@ public class Pfs_activity {
             return (returnAssement);
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("\t\tCreate forumcreate Test Case FAILED  ");
+            log.warning("\t\tCreate Forumcreate Fuction FAILED  ");
             throw (e);
 
         }
@@ -1094,7 +1094,7 @@ public class Pfs_activity {
 
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("\t\tCreate forumpublish Test Case FAILED  ");
+            log.warning("\t\tCreate Forumpublish Fuction FAILED  ");
             throw (e);
         }
         return returnAssement;
@@ -1134,7 +1134,7 @@ public class Pfs_activity {
 
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("\t\tCreate forumdiscussion Test Case FAILED  ");
+            log.warning("\t\tCreate Forumdiscussion Fuction FAILED  ");
             throw (e);
         }
         return returnAssement;
@@ -1166,7 +1166,7 @@ public class Pfs_activity {
 
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("\t\tCreate forumviewstudent Test Case FAILED  ");
+            log.warning("\t\tCreate Forumviewstudent Fuction FAILED  ");
             throw (e);
         }
     }
@@ -1226,7 +1226,7 @@ public class Pfs_activity {
 
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("\t\tCreate forumedit Test Case FAILED  ");
+            log.warning("\t\tCreate Forumedit Fuction FAILED  ");
             throw (e);
 
         }
@@ -1261,7 +1261,7 @@ public class Pfs_activity {
 
         } catch (Exception e) {
             Utils.printException(e);
-            log.warning("\t\tCreate forumdelete Test Case FAILED  ");
+            log.warning("\t\tCreate Forumdelete Fuction FAILED  ");
             throw (e);
         }
         return returnAssement;
